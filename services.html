@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How AAA Works — AI Automation Services for Australian SMEs | AAA by Artigellence</title>
-<meta name="description" content="How AAA by Artigellence delivers AI automation for Australian SME owners — a phased engagement anchored by a fully refundable Phase 0 pilot. Sydney-based, direct to founder.">
+<meta name="description" content="How AAA by Artigellence delivers AI automation for Australian SME owners — Phase 0 refundable pilot, per-agent Build (A$3,000 each, min 4), full or lite retainer. Sydney-based, direct to founder. All prices incl GST.">
 <link rel="canonical" href="https://aaa.artigellence.com/services.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aaa.artigellence.com/services.html">
 <meta property="og:title" content="How AAA Works — AI Automation Services for Australian SMEs">
-<meta property="og:description" content="A phased AI automation engagement anchored by a fully refundable Phase 0 pilot. Sydney-based, direct to founder.">
+<meta property="og:description" content="Phase 0 refundable pilot, per-agent Build, full or lite retainer. Sydney-based, direct to founder. All prices incl GST.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,13 +26,19 @@
     "founder": { "@type": "Person", "name": "Raj Singh" },
     "address": { "@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU" }
   },
-  "areaServed": { "@type": "Country", "name": "Australia" }
+  "areaServed": { "@type": "Country", "name": "Australia" },
+  "offers": [
+    { "@type": "Offer", "name": "Phase 0 Pilot", "price": "4500", "priceCurrency": "AUD", "description": "Fully refundable 10-to-30 day pilot, incl GST" },
+    { "@type": "Offer", "name": "Per Agent", "price": "3000", "priceCurrency": "AUD", "description": "A$3,000 per agent, minimum 4, paid on delivery, incl GST" },
+    { "@type": "Offer", "name": "Full Retainer", "price": "3500", "priceCurrency": "AUD", "description": "A$3,500/month full retainer, 3-month break clause, incl GST" },
+    { "@type": "Offer", "name": "Lite Retainer", "price": "1750", "priceCurrency": "AUD", "description": "A$1,750/month lite retainer, reduced scope, 3-month break clause, incl GST" }
+  ]
 }
 </script>
 <style>
 :root {
   --bg:#0a0e14; --bg-2:#11161f; --bg-3:#181f2c; --line:#2a3142; --line-soft:#1d2332;
-  --gold:#c9a227; --gold-bright:#d9b542; --gold-deep:#8b6914; --teal:#0fb8a9; --teal-bright:#19d4c4;
+  --gold:#c9a227; --gold-bright:#d9b542; --gold-deep:#8b6914; --teal:#0fb8a9; --teal-bright:#19d4c4; --teal-deep:#0a8579;
   --green:#10b981; --white:#f5f3ee; --gray:#6b7488; --gray-2:#9aa3b5;
   --serif:'Fraunces',Georgia,serif; --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Inter',-apple-system,sans-serif;
 }
@@ -53,35 +59,81 @@ a { color:inherit; }
 .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:2.4px; color:var(--gold); text-transform:uppercase; font-weight:700; margin-bottom:18px; }
 h1 { font-family:var(--serif); font-size:clamp(32px,5vw,52px); font-weight:500; line-height:1.12; letter-spacing:-1px; margin-bottom:20px; }
 h1 em { font-style:italic; color:var(--gold); }
-.lead { font-size:18px; color:var(--gray-2); max-width:680px; }
+.lead { font-size:18px; color:var(--gray-2); max-width:720px; }
 .lead strong { color:var(--white); font-weight:600; }
+.lead em { color:var(--gold-bright); font-style:italic; }
+
+.gst-strip { padding:12px 22px; background:rgba(15,184,169,0.06); border-left:3px solid var(--teal); border-radius:8px; margin-top:22px; font-size:13.5px; color:var(--gray-2); line-height:1.55; max-width:780px; }
+.gst-strip strong { color:var(--white); }
+.gst-strip em { color:var(--gold-bright); font-style:italic; }
 
 section { padding:52px 0; border-bottom:1px solid var(--line-soft); }
 h2 { font-family:var(--serif); font-size:clamp(24px,3.4vw,34px); font-weight:500; line-height:1.2; letter-spacing:-0.5px; margin-bottom:14px; }
 h2 em { font-style:italic; color:var(--teal-bright); }
-.section-intro { font-size:16px; color:var(--gray-2); max-width:720px; margin-bottom:34px; }
+.section-intro { font-size:16px; color:var(--gray-2); max-width:760px; margin-bottom:34px; }
 
 .phase-grid { display:flex; flex-direction:column; gap:14px; }
 .phase { display:grid; grid-template-columns:130px 1fr auto; gap:24px; align-items:start; padding:24px 26px; background:linear-gradient(145deg,var(--bg-2),var(--bg-3)); border:1px solid var(--line); border-radius:14px; }
 .phase-tag { font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:1px; color:var(--gold); text-transform:uppercase; }
 .phase-tag small { display:block; color:var(--gray); font-weight:400; margin-top:4px; letter-spacing:0.5px; }
 .phase-body h3 { font-family:var(--serif); font-size:20px; font-weight:500; margin-bottom:6px; }
-.phase-body p { font-size:14px; color:var(--gray-2); }
-.phase-price { font-family:var(--mono); font-size:16px; font-weight:700; color:var(--white); white-space:nowrap; }
-.phase-price small { display:block; font-size:10px; color:var(--gray); font-weight:400; margin-top:3px; }
+.phase-body p { font-size:14px; color:var(--gray-2); line-height:1.55; }
+.phase-body p strong { color:var(--white); }
+.phase-body p em { color:var(--gold-bright); font-style:italic; }
+.phase-price { font-family:var(--mono); font-size:16px; font-weight:700; color:var(--white); white-space:nowrap; text-align:right; }
+.phase-price small { display:block; font-size:10px; color:var(--gray); font-weight:400; margin-top:3px; line-height:1.4; }
 .phase.p0 { border-color:var(--gold-deep); }
 .phase.p0 .phase-price { color:var(--gold-bright); }
+.phase.lite { border-color:var(--teal-deep); }
+.phase.lite .phase-tag { color:var(--teal-bright); }
+.phase.lite .phase-price { color:var(--teal-bright); }
+
+.ceiling-card { margin-top:22px; padding:24px 28px; background:linear-gradient(135deg, rgba(201,162,39,0.06), rgba(15,184,169,0.04)); border:1px solid var(--gold-deep); border-radius:12px; }
+.ceiling-card .head { font-family:var(--mono); font-size:11px; letter-spacing:1.8px; color:var(--gold); font-weight:700; text-transform:uppercase; margin-bottom:12px; }
+.ceiling-card p { font-size:15px; color:var(--gray-2); line-height:1.65; margin-bottom:10px; }
+.ceiling-card p:last-child { margin-bottom:0; }
+.ceiling-card strong { color:var(--white); font-weight:600; }
+.ceiling-card em { color:var(--gold-bright); font-style:italic; }
+
+.run-cost-card { margin-top:14px; padding:16px 22px; background:rgba(15,184,169,0.06); border-left:3px solid var(--teal); border-radius:8px; font-size:14px; color:var(--gray-2); line-height:1.6; }
+.run-cost-card strong { color:var(--white); }
+.run-cost-card em { color:var(--gold-bright); font-style:italic; }
+
+.year1-band { margin-top:22px; padding:28px 32px; background:linear-gradient(135deg, rgba(201,162,39,0.06), rgba(15,184,169,0.04)); border:1px solid var(--gold-deep); border-radius:12px; text-align:center; }
+.year1-band .lbl { font-family:var(--mono); font-size:11px; letter-spacing:1.8px; color:var(--gold); font-weight:700; margin-bottom:8px; text-transform:uppercase; }
+.year1-band .num { font-family:var(--serif); font-size:32px; font-weight:600; color:var(--white); letter-spacing:-0.5px; }
+.year1-band .num em { color:var(--gold-bright); font-style:italic; font-size:20px; }
+.year1-band .breakdown { font-family:var(--mono); font-size:12px; color:var(--gray-2); margin-top:8px; letter-spacing:0.3px; line-height:1.65; }
 
 .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
 .value-card { padding:26px; background:rgba(0,0,0,0.25); border:1px solid var(--line); border-radius:12px; }
 .value-card .num { font-family:var(--mono); font-size:12px; color:var(--gold); font-weight:700; margin-bottom:10px; }
 .value-card h3 { font-family:var(--serif); font-size:19px; font-weight:500; margin-bottom:8px; }
-.value-card p { font-size:14px; color:var(--gray-2); }
+.value-card p { font-size:14px; color:var(--gray-2); line-height:1.55; }
+.value-card p strong { color:var(--white); }
+
+.aarambh-band { margin-top:22px; padding:28px 32px; background:linear-gradient(145deg, var(--bg-2), var(--bg-3)); border:1px solid var(--gold-deep); border-radius:14px; }
+.aarambh-band .eyebrow { margin-bottom:14px; }
+.aarambh-band h3 { font-family:var(--serif); font-size:clamp(20px,2.4vw,26px); font-weight:500; color:var(--white); line-height:1.3; letter-spacing:-0.4px; margin-bottom:12px; }
+.aarambh-band h3 em { color:var(--gold-bright); font-style:italic; }
+.aarambh-band p { font-size:15px; color:var(--gray-2); line-height:1.65; margin-bottom:12px; }
+.aarambh-band p strong { color:var(--white); }
+.aarambh-band p em { color:var(--gold-bright); font-style:italic; }
+.aarambh-band .credit-box { padding:14px 18px; background:rgba(201,162,39,0.06); border-left:3px solid var(--gold); border-radius:6px; font-size:13.5px; color:var(--gray-2); line-height:1.6; margin-top:14px; }
+.aarambh-band .credit-box strong { color:var(--white); }
+.aarambh-band .credit-box em { color:var(--gold-bright); font-style:italic; }
+.aarambh-band .ab-cta { display:inline-block; margin-top:18px; font-family:var(--mono); font-size:12px; letter-spacing:1.4px; background:linear-gradient(135deg, var(--gold), var(--gold-deep)); color:#0a0e14; padding:12px 22px; text-decoration:none; font-weight:700; border-radius:8px; text-transform:uppercase; }
+
+.honest-disclosure { margin-top:18px; padding:16px 22px; background:rgba(184,28,28,0.05); border:1px solid rgba(184,28,28,0.3); border-radius:8px; }
+.honest-disclosure .head { font-family:var(--mono); font-size:10px; letter-spacing:1.4px; color:#f87171; font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+.honest-disclosure p { font-size:13px; color:var(--gray-2); line-height:1.6; }
+.honest-disclosure p strong { color:var(--white); }
 
 .cta { padding:60px 0; text-align:center; }
 .cta h2 { margin-bottom:14px; }
 .cta p { font-size:16px; color:var(--gray-2); max-width:560px; margin:0 auto 26px; }
-.btn { display:inline-block; font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:1px; padding:15px 30px; border-radius:9px; text-decoration:none; background:linear-gradient(135deg,var(--gold),var(--gold-deep)); color:var(--bg); }
+.btn { display:inline-block; font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:1px; padding:15px 30px; border-radius:9px; text-decoration:none; background:linear-gradient(135deg,var(--gold),var(--gold-deep)); color:var(--bg); margin:0 6px; }
+.btn-secondary { background:transparent; color:var(--teal-bright); border:1px solid var(--teal-deep); }
 .note { font-family:var(--mono); font-size:11px; color:var(--gray); margin-top:16px; letter-spacing:0.5px; }
 
 footer { padding:30px 0; text-align:center; }
@@ -89,8 +141,11 @@ footer p { font-family:var(--mono); font-size:11px; color:var(--gray); letter-sp
 
 @media(max-width:680px){
   .phase { grid-template-columns:1fr; gap:10px; }
+  .phase-price { text-align:left; }
   .value-grid { grid-template-columns:1fr; }
   .hero { padding:48px 0 32px; }
+  .year1-band { padding:20px 22px; }
+  .year1-band .num { font-size:24px; }
 }
 </style>
 </head>
@@ -105,53 +160,113 @@ footer p { font-family:var(--mono); font-size:11px; color:var(--gray); letter-sp
 </div></div>
 
 <div class="hero"><div class="wrap">
-  <div class="eyebrow">How AAA Works</div>
-  <h1>AI automation services for Australian SMEs, delivered in <em>phases</em>.</h1>
-  <p class="lead">AAA by Artigellence builds production-grade AI agents and automations for Australian SME owners — <strong>anchored by a fully refundable Phase 0 pilot</strong>. You see real results on your own data before you commit to a build. The risk sits with the operator, not with you.</p>
+  <div class="eyebrow">How AAA Works · Phased Engagement · Incl GST</div>
+  <h1>AI automation for Australian SMEs, delivered in <em>phases</em>.</h1>
+  <p class="lead">AAA by Artigellence builds production-grade AI agents and automations for Australian SME owners — <strong>anchored by a fully refundable Phase 0 pilot</strong>. You see real results on your own data before you commit to a build. The risk sits with the operator at the start.</p>
+  <div class="gst-strip">
+    <strong>All prices below are in Australian dollars and include GST.</strong> AAA fees do not include LLM/API credits, workflow automation hosting, or third-party SaaS subscriptions — those are paid by the client directly, scoped during Phase 0. <em>The only contractually binding commitment in any AAA engagement is the Phase 0 refund.</em>
+  </div>
 </div></div>
 
 <section><div class="wrap">
   <h2>A phased engagement — <em>money on the table only when you see results</em>.</h2>
-  <p class="section-intro">No upfront lump sums. Each phase is paid on delivery. You can stop at the end of any phase and keep everything built so far.</p>
+  <p class="section-intro">No upfront lump sums. Each phase paid on delivery. You can stop at the end of any phase and keep everything built so far.</p>
+
   <div class="phase-grid">
     <div class="phase p0">
       <div class="phase-tag">Phase 0<small>Pilot</small></div>
-      <div class="phase-body"><h3>The refundable pilot</h3><p>A 30-day diagnostic on your real business data. The first working AI result is live by the end of the pilot — or the fee is fully refunded, no questions asked.</p></div>
-      <div class="phase-price">A$4,500<small>fully refundable</small></div>
+      <div class="phase-body">
+        <h3>The refundable pilot</h3>
+        <p>A 10-to-30 day diagnostic on your real business data. <strong>First working result delivered by day 10.</strong> You decide between day 10 and day 30 whether to continue or refund. The full A$4,500 is refundable up to day 30 — no questions asked.</p>
+      </div>
+      <div class="phase-price">A$4,500<small>incl GST<br>fully refundable</small></div>
     </div>
+
     <div class="phase">
-      <div class="phase-tag">Phase 1A–1C<small>Build</small></div>
-      <div class="phase-body"><h3>The build phases</h3><p>Your AI agents and automations built around your existing systems — accounting, CRM, logistics, inbox. Paid only on milestone delivery of each phase.</p></div>
-      <div class="phase-price">A$8,000<small>per phase, on delivery</small></div>
+      <div class="phase-tag">Phase 1<small>Build</small></div>
+      <div class="phase-body">
+        <h3>Per-agent build — A$3,000 each, minimum 4</h3>
+        <p>Pick the agents your business needs. <strong>A$3,000 each (incl GST), minimum 4 agents</strong> — so A$12,000 floor. Standard Build is 8 agents at A$24,000. Each agent paid <strong>on delivery</strong>, not upfront. Real-time integration with your existing systems (Xero, MYOB, Cliniko, ServiceM8, LEAP, your inbox, custom APIs).</p>
+      </div>
+      <div class="phase-price">A$3,000<small>per agent<br>min 4 · on delivery</small></div>
     </div>
+
     <div class="phase">
-      <div class="phase-tag">Phase 2<small>Retainer</small></div>
-      <div class="phase-body"><h3>Ongoing tuning</h3><p>Optional. Keeps the agents tuned, trained on your data, and current as AI tools change. A 3-month break clause — never a lock-in.</p></div>
-      <div class="phase-price">A$3,500<small>per month, optional</small></div>
+      <div class="phase-tag">Phase 2<small>Full Retainer</small></div>
+      <div class="phase-body">
+        <h3>Fractional COO · 14-agent ceiling on Standard package</h3>
+        <p>Raj as fractional Chief Operating Officer. Daily cockpit review. Continuous agent tuning. Quarterly strategy review. Direct founder access. <strong>Standard Year-1 Engagement clients can scale to 14 agents total</strong> during retainer at no additional build cost (agents 9 through 14 included). <em>3-month break clause — never a lock-in.</em></p>
+      </div>
+      <div class="phase-price">A$3,500/mo<small>incl GST<br>Month 5–12<br>3-mo break</small></div>
+    </div>
+
+    <div class="phase lite">
+      <div class="phase-tag">Phase 2<small>Lite Retainer</small></div>
+      <div class="phase-body">
+        <h3>Lower monthly commitment · Direct access retained</h3>
+        <p>For clients who want a lower monthly commitment. Reduced scope, agreed at engagement signing. Same 3-month break clause. <strong>Direct founder access retained</strong> — the lite tier reduces frequency and SLA, not access. <em>14-agent ceiling does not apply — additional agents during lite retainer charged at A$3,000 each.</em></p>
+      </div>
+      <div class="phase-price">A$1,750/mo<small>incl GST<br>scope at signing<br>3-mo break</small></div>
     </div>
   </div>
-</div></div>
+
+  <div class="ceiling-card">
+    <div class="head">↳ 14-Agent Ceiling · Standard Package Only</div>
+    <p>Clients on the <strong>Standard Year-1 Engagement</strong> (Phase 0 + 8-agent Build + 8 months full retainer) can scale to a total of <strong>14 agents</strong> during the retainer period at no additional build cost. Agents 9, 10, 11, 12, 13 and 14 included.</p>
+    <p><strong>Below the Standard package?</strong> Additional agents during retainer are charged at A$3,000 each. The 14-agent ceiling is specifically a feature of the full Standard package.</p>
+    <p><strong>Top-up path open.</strong> A client who started with fewer than 8 agents can top up at any point by paying the difference at A$3,000 per agent. From that point the 14-agent ceiling applies for the remainder of the retainer term. <em>No upgrade traps. The price you signed at is the price that holds.</em></p>
+  </div>
+
+  <div class="run-cost-card">
+    <strong>Monthly run-costs you pay directly.</strong> AAA fees do not include LLM/API credits (OpenAI, Anthropic, Google), workflow automation hosting (n8n, Make, Zapier), or any third-party SaaS subscriptions. <strong>Indicative worked example for an SME-scale 8-agent build: roughly A$200–A$500/month</strong> — illustration, not a quote. AAA does not mark up these pass-through costs. <em>Scoped and quoted during Phase 0 before any commitment beyond the refundable pilot.</em>
+  </div>
+
+  <div class="year1-band">
+    <div class="lbl">Year 1 · Standard Engagement · Incl GST</div>
+    <div class="num">A$56,500 <em>all-in</em></div>
+    <div class="breakdown">
+      A$4,500 (Phase 0, refundable) + A$24,000 (8-agent Build) + A$28,000 (8 months × A$3,500 full retainer, Month 5–12)<br>
+      Run-costs (LLM/API/SaaS) paid by client directly · Scoped during Phase 0 · Not included above
+    </div>
+  </div>
+</div></section>
 
 <section><div class="wrap">
   <h2>What you actually get.</h2>
   <p class="section-intro">Not software. Four things that change how the business runs.</p>
   <div class="value-grid">
     <div class="value-card"><div class="num">01</div><h3>Your time back</h3><p>The admin and repetitive work that makes the owner the bottleneck — handled by AI agents, so you can run the business instead of operating it.</p></div>
-    <div class="value-card"><div class="num">02</div><h3>Agents you own</h3><p>Every agent is deployed in your own accounts. If the engagement ends, you keep the agents, the prompts, the documentation and the credentials. No vendor lock-in.</p></div>
-    <div class="value-card"><div class="num">03</div><h3>Direct to founder</h3><p>25 years in regulated consulting, now applied to AI delivery. Every meeting, every build, every decision — the founder. No juniors, no handoff.</p></div>
-    <div class="value-card"><div class="num">04</div><h3>Risk-free start</h3><p>Phase 0 is fully refundable. Build phases are paid only on delivery. The retainer has a 3-month break clause. The risk sits with the operator at every step.</p></div>
+    <div class="value-card"><div class="num">02</div><h3>Agents you own</h3><p>Every agent is deployed in <strong>your own accounts</strong>. If the engagement ends, you keep the agents, prompts, documentation and credentials. No vendor lock-in.</p></div>
+    <div class="value-card"><div class="num">03</div><h3>Direct to founder · every tier</h3><p>25 years in regulated consulting. Every meeting, every build, every decision — the founder. Applies to <strong>lite retainer too</strong> (frequency and SLA reduce, access does not).</p></div>
+    <div class="value-card"><div class="num">04</div><h3>Risk-free start</h3><p>Phase 0 fully refundable. Build paid on delivery. Both retainers have a 3-month break clause. The risk sits with the operator at every step.</p></div>
   </div>
-</div></div>
+
+  <div class="aarambh-band">
+    <div class="eyebrow">↳ Going Deeper Than AAA · Aarambh</div>
+    <h3>For founders who want more than AI automation — <em>Aarambh is seven days, your office, full business build.</em></h3>
+    <p>AAA handles the AI layer. <strong>Aarambh — The Founder Forge</strong> handles the whole foundation: legal structure, AI stack, MVP build, go-to-market, pitch documents, twelve months of one-to-one monitoring. A$25,000 incl GST, seven consecutive days in your office, one founder one operator.</p>
+    <div class="credit-box">
+      <strong>If you take Aarambh and AAA within 12 months — 80% of the Aarambh fee credits to AAA.</strong> Worked example: A$25,000 Aarambh → A$20,000 credit on AAA. Standard Year-1 AAA (A$56,500) becomes A$36,500 net. <em>Credit applies only to the full Standard Year-1 Engagement, one-off, non-stackable, non-transferable.</em>
+    </div>
+    <a href="https://www.aarambh.space" target="_blank" rel="noopener" class="ab-cta">VISIT AARAMBH →</a>
+  </div>
+
+  <div class="honest-disclosure">
+    <div class="head">⚠ Honest disclosure · beta launch</div>
+    <p>AAA by Artigellence is in beta launch. <strong>The only contractually binding commitment is the Phase 0 refund.</strong> Industry case studies referenced elsewhere on the site are third-party context, not AAA client outcomes. Your Year-1 result depends on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0.</p>
+  </div>
+</div></section>
 
 <div class="cta"><div class="wrap">
   <h2>Not sure where to start?</h2>
   <p>Send Raj your single biggest operational headache — three lines, not an essay. You'll get a written response showing how AAA would approach it, direct from the founder.</p>
-  <a class="btn" href="/#contact">START WITH PHASE 0 →</a>
-  <p class="note">FULLY REFUNDABLE · 30 DAYS · DIRECT TO FOUNDER</p>
+  <a class="btn" href="/#contact">START PHASE 0 →</a>
+  <a class="btn btn-secondary" href="/faq.html">19 HONEST FAQs</a>
+  <p class="note">FULLY REFUNDABLE · 10-30 DAYS · DIRECT TO FOUNDER · ALL PRICES INCL GST</p>
 </div></div>
 
 <footer><div class="wrap">
-  <p>Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh</p>
+  <p>Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh · All prices incl GST</p>
 </div></footer>
 
 </body>
