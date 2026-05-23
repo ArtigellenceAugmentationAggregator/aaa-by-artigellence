@@ -48,7 +48,13 @@ a { color:inherit; }
 .wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
 
 .topbar { border-bottom:1px solid var(--line-soft); padding:20px 0; }
-.topbar .wrap { display:flex; align-items:center; justify-content:space-between; }
+.topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.update-stamp { display:inline-flex; align-items:center; gap:7px; padding:7px 13px; background:rgba(15, 184, 169, 0.08); border:1px solid rgba(15, 184, 169, 0.35); border-radius:7px; font-family:var(--mono); font-size:10px; font-weight:700; color:var(--teal-bright); letter-spacing:0.8px; text-transform:uppercase; white-space:nowrap; line-height:1.2; }
+.update-stamp .dot { width:7px; height:7px; border-radius:50%; background:var(--teal-bright); box-shadow:0 0 6px rgba(15,184,169,0.7); animation:stamp-pulse 2.6s ease-in-out infinite; flex-shrink:0; }
+.update-stamp .stamp-meta { font-weight:400; color:var(--gray-2); opacity:0.85; }
+@keyframes stamp-pulse { 0%, 100% { opacity:1; } 50% { opacity:0.55; } }
+@media (max-width:900px) { .update-stamp .stamp-meta { display:none; } }
+@media (max-width:680px) { .update-stamp { display:none; } }
 .logo { display:flex; align-items:center; gap:11px; text-decoration:none; }
 .logo-mark { width:34px; height:34px; border-radius:8px; background:linear-gradient(135deg,var(--gold),var(--gold-deep)); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--bg); }
 .logo-text { font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:0.5px; }
@@ -156,6 +162,11 @@ footer p { font-family:var(--mono); font-size:11px; color:var(--gray); letter-sp
     <div class="logo-mark">AAA</div>
     <div class="logo-text">Artigellence Augmentation Aggregator<small>AI AUTOMATION FOR AUSTRALIAN SMEs</small></div>
   </a>
+  <div class="update-stamp" title="Site actively maintained — last update 23 May 2026, 5:15 PM AEST">
+    <span class="dot"></span>
+    <span>UPDATED 23 MAY 2026</span>
+    <span class="stamp-meta">· 5:15 PM AEST</span>
+  </div>
   <a class="nav-back" href="/">← HOME</a>
 </div></div>
 

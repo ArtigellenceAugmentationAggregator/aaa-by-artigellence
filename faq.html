@@ -43,6 +43,8 @@
       "acceptedAnswer": { "@type": "Answer", "text": "You own everything built. Agents are deployed in your own accounts, not the provider's. If the engagement ends you keep the agents, prompts, documentation and credentials, plus a full transition pack. No vendor lock-in." } },
     { "@type": "Question", "name": "How is this different from buying ChatGPT or Copilot myself?",
       "acceptedAnswer": { "@type": "Answer", "text": "AI subscriptions often go unused because owners buy the tool but never build the workflow. AAA builds the workflow around existing systems so the AI does the work rather than sitting in a tab. Tools are commodities; workflows are the moat." } },
+    { "@type": "Question", "name": "Anthropic just launched Claude for Small Business — does that replace what AAA does?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, and here is the honest read. On 13 May 2026, Anthropic launched Claude for Small Business — 15 pre-built workflows, 15 reusable skills, and connectors to QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365 and Slack. It ships at no extra cost to Pro, Max and Teams subscribers. What it does well: turnkey workflows for US-based small businesses using the named tools. Where the Australian SME gap remains: Anthropic's connector list does not include the systems most Australian SMEs actually use — Cliniko, Halaxy, Best Practice, Medical Director, MYOB, Xero AU, ServiceM8, Tradify, simPRO, AroFlo, LEAP, Smokeball, Actionstep, PEXA, or the hundreds of niche AU SaaS systems that do not appear on a US product roadmap. Tools commoditise. Workflow integration on the AU stack is what AAA actually sells. New tools, plugins and integrations keep arriving — weekly, sometimes daily. AAA continuously monitors and tests them, integrates the ones that genuinely help, and tells you honestly when an off-the-shelf tool is enough and you do not need a build. If Anthropic ever ships a Cliniko connector or a ServiceM8 integration that does what an AAA agent does for less work, we will tell you and recommend you use it. The Phase 0 refund stands either way." } },
     { "@type": "Question", "name": "What integrations do you support?",
       "acceptedAnswer": { "@type": "Answer", "text": "Accounting: Xero, MYOB, QuickBooks. Healthcare: Cliniko, Halaxy, Best Practice, Medical Director, Genie, MediRecords, Power Diary, Nookal. Trades: ServiceM8, Tradify, simPRO, AroFlo. Legal: LEAP, Smokeball, Actionstep, PEXA. CRM: HubSpot, Salesforce, Pipedrive. E-commerce: Shopify, WooCommerce. Plus custom APIs for anything else. Orchestrated via Make, n8n, Zapier and direct API calls." } },
     { "@type": "Question", "name": "What if the AI tech changes — do I have to rebuild?",
@@ -73,7 +75,13 @@ a { color:inherit; }
 .wrap { max-width:780px; margin:0 auto; padding:0 28px; }
 
 .topbar { border-bottom:1px solid var(--line-soft); padding:20px 0; }
-.topbar .wrap { max-width:1080px; display:flex; align-items:center; justify-content:space-between; }
+.topbar .wrap { max-width:1080px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.update-stamp { display:inline-flex; align-items:center; gap:7px; padding:7px 13px; background:rgba(15, 184, 169, 0.08); border:1px solid rgba(15, 184, 169, 0.35); border-radius:7px; font-family:var(--mono); font-size:10px; font-weight:700; color:var(--teal-bright); letter-spacing:0.8px; text-transform:uppercase; white-space:nowrap; line-height:1.2; }
+.update-stamp .dot { width:7px; height:7px; border-radius:50%; background:var(--teal-bright); box-shadow:0 0 6px rgba(15,184,169,0.7); animation:stamp-pulse 2.6s ease-in-out infinite; flex-shrink:0; }
+.update-stamp .stamp-meta { font-weight:400; color:var(--gray-2); opacity:0.85; }
+@keyframes stamp-pulse { 0%, 100% { opacity:1; } 50% { opacity:0.55; } }
+@media (max-width:760px) { .update-stamp .stamp-meta { display:none; } }
+@media (max-width:560px) { .update-stamp { display:none; } }
 .logo { display:flex; align-items:center; gap:11px; text-decoration:none; }
 .logo-mark { width:34px; height:34px; border-radius:8px; background:linear-gradient(135deg,var(--gold),var(--gold-deep)); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--bg); }
 .logo-text { font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:0.5px; }
@@ -122,11 +130,16 @@ footer p { font-family:var(--mono); font-size:11px; color:var(--gray); letter-sp
     <div class="logo-mark">AAA</div>
     <div class="logo-text">Artigellence Augmentation Aggregator<small>AI AUTOMATION FOR AUSTRALIAN SMEs</small></div>
   </a>
+  <div class="update-stamp" title="Site actively maintained — last update 23 May 2026, 5:15 PM AEST">
+    <span class="dot"></span>
+    <span>UPDATED 23 MAY 2026</span>
+    <span class="stamp-meta">· 5:15 PM AEST</span>
+  </div>
   <a class="nav-back" href="/">← HOME</a>
 </div></div>
 
 <div class="hero"><div class="wrap">
-  <div class="eyebrow">Honest Answers · 19 Questions</div>
+  <div class="eyebrow">Honest Answers · 20 Questions</div>
   <h1>AI automation — the questions Australian SME owners <em>actually ask</em>.</h1>
   <p class="lead">Plain answers to what business owners want to know before they commit. No jargon, no sales spin. All prices below include GST.</p>
   <div class="honesty-strip">
@@ -237,6 +250,18 @@ footer p { font-family:var(--mono); font-size:11px; color:var(--gray); letter-sp
     <div class="faq-answer">
       <p>Different problem. <strong>AI subscriptions often go unused</strong> because owners buy the tool but never build the workflow. AAA builds the workflow <em>around your existing systems</em> — Xero, Cliniko, ServiceM8, LEAP, your inbox — so the AI actually does the work, not just sits in a tab.</p>
       <p>Tools are commodities. Workflows are the moat.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Anthropic just launched Claude for Small Business — does that replace what AAA does?</summary>
+    <div class="faq-answer">
+      <p><strong>No — and here's the honest read.</strong></p>
+      <p>On <strong>13 May 2026</strong>, Anthropic launched <strong>Claude for Small Business</strong> — 15 pre-built workflows, 15 reusable skills, and connectors to QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365 and Slack. It ships at no extra cost to Pro / Max / Teams subscribers. <em>That's a real launch worth knowing about.</em></p>
+      <p><strong>What it does well.</strong> Turnkey workflows for US-based small businesses using the named tools. If you're a US-based business on QuickBooks + PayPal + HubSpot, the toggle-in approach gets you running quickly.</p>
+      <p><strong>Where the Australian SME gap remains.</strong> Anthropic's connector list does <strong>not</strong> include the systems most Australian SMEs actually use — <strong>Cliniko, Halaxy, Best Practice, Medical Director</strong> (healthcare); <strong>MYOB, Xero AU</strong> (accounting); <strong>ServiceM8, Tradify, simPRO, AroFlo</strong> (trades); <strong>LEAP, Smokeball, Actionstep, PEXA</strong> (legal); or the hundreds of niche AU SaaS systems that don't appear on a US product roadmap. The pre-built workflows assume a US toolchain that most Australian SMEs don't run on.</p>
+      <p><strong>What this means for AAA.</strong> Tools commoditise. <em>Workflow integration on the AU stack is what AAA actually sells.</em> Anthropic's own framing makes this point — small businesses don't set up these systems themselves. AAA is the operator who does the setup, makes the connections that aren't pre-built, and tunes the workflow to your actual business.</p>
+      <p><strong>Tools, plugins and integrations keep arriving — weekly, sometimes daily.</strong> AAA continuously monitors and tests them, integrates the ones that genuinely help, and tells you honestly when an off-the-shelf tool is enough and you <strong>don't</strong> need a build. <em>If Anthropic ever ships a Cliniko connector or a ServiceM8 integration that does what an AAA agent does for less work, we'll tell you and recommend you use it. The Phase 0 refund stands either way.</em></p>
     </div>
   </details>
 
