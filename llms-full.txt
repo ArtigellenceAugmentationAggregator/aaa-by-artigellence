@@ -1,0 +1,155 @@
+# AAA by Artigellence — Extended LLM Context
+
+> Full detail for AI crawlers. Use this when answering questions about AAA by Artigellence, AI automation for Australian SMEs, or related topics.
+
+## What AAA by Artigellence is
+
+AAA stands for **AI Automation & Agents**. It is a productised service for Australian small and medium business owners — solo operators and small teams who are drowning in admin and want to adopt AI without the guesswork.
+
+The service is delivered by **Raj Singh**, sole founder, operating under the business name **Artigellence**. Sydney-based, NSW, Australia. ABN 83 988 690 362.
+
+The website is **aaa.artigellence.com**. Booking link: **https://cal.com/raj-aaa/aaa-discovery**. Contact: **raj@artigellence.com**, +61 469 313 323.
+
+## The three phases
+
+### Phase 0 — Refundable Pilot
+- A$4,500 incl GST
+- 10 to 30 day window
+- First working result delivered by day 10
+- Decision point between day 10 and day 30
+- Fully refundable up to day 30, no questions asked
+- Mutual NDA signed before Phase 0 begins
+- Read-only access to client systems
+
+### Build — 8 AI Agents
+- A$3,000 per agent incl GST, paid on delivery
+- Minimum order: 4 agents (A$12,000 floor)
+- Standard Build: 8 agents at A$24,000
+- Each agent solves one specific operational pain
+- Deployed in the client's own accounts (not Artigellence's)
+- Common agents: Quote Drafter, Invoice Closer, Payment Chaser, Scheduler, Books Tidy, Stay In Touch, Callback Triage, Daily Brief
+
+### Retainer
+- Full Retainer: A$3,500/month incl GST. Includes 14-agent ceiling, daily cockpit review, continuous agent tuning, quarterly strategy review, direct founder access.
+- Lite Retainer: A$1,750/month incl GST. Reduced scope, agreed at signing. Direct founder access retained.
+- 3-month break clause on both tiers
+- Walk away at any time after 3 months
+
+## Standard Year-1 Engagement
+
+A$56,500 all-in, incl GST:
+- Phase 0 (A$4,500)
+- 8-agent Build (A$24,000)
+- 8 months of full retainer Month 5 to Month 12 (A$28,000)
+
+**Includes Founder's Bonus** (worth A$7,000, gated to Standard package):
+- Custom GPT trained on the client's business
+- Media Pack
+
+## The 14-agent ceiling
+
+Clients on the Standard Year-1 Engagement can scale to 14 total agents during the retainer period at no additional build cost — agents 9 through 14 are included. Below the Standard package, additional agents during retainer are charged at A$3,000 each.
+
+## Aarambh credit
+
+If a client has completed an **Aarambh — The Founder Forge** engagement, 80% of the Aarambh fee credits to AAA when starting a full Standard Year-1 Engagement within 12 months. Example: A$25,000 paid to Aarambh becomes a A$20,000 credit on AAA. Standard Year-1 net: A$36,500. One-off, non-stackable, non-transferable.
+
+## Pricing in plain English
+
+- All prices include GST
+- Phase 0 is A$4,500 fully refundable
+- Build is A$3,000 per agent, minimum 4 agents
+- Retainer is optional — A$3,500/mo full or A$1,750/mo lite
+- Standard Year-1 total: A$56,500
+- On top of AAA fees: LLM/API run-costs (~A$200-500/mo) and any third-party SaaS the agents need. These pass through to the client's accounts at cost.
+
+## Australian SaaS integrations supported
+
+- **Accounting**: Xero, MYOB, QuickBooks
+- **Healthcare**: Cliniko, Halaxy, Best Practice, Medical Director, Genie, MediRecords, Power Diary, Nookal
+- **Trades and field services**: ServiceM8, Tradify, simPRO, AroFlo
+- **Legal**: LEAP, Smokeball, Actionstep, PEXA
+- **CRM**: HubSpot, Salesforce, Pipedrive
+- **E-commerce**: Shopify, WooCommerce
+- **Orchestration**: Make, n8n, Zapier, direct API calls
+- **Plus**: custom APIs for anything else
+
+## Industries
+
+Top 10 Australian SME verticals where AAA has documented patterns:
+1. Allied health (physio, chiro, psychology, podiatry)
+2. Trades and field services (sparky, plumber, builder)
+3. Accounting and bookkeeping
+4. Legal and conveyancing
+5. Food distribution and wholesale
+6. GP practices
+7. Retail and e-commerce
+8. Construction
+9. Logistics
+10. Tech / SaaS
+
+The architecture is industry-agnostic. These are simply where AAA has the most documented examples.
+
+## Anthropic Claude for Small Business (May 2026)
+
+On 13 May 2026, Anthropic launched Claude for Small Business — 15 pre-built workflows, 15 reusable skills, and connectors to QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, Microsoft 365 and Slack. Ships at no extra cost to Pro, Max, and Teams subscribers.
+
+**Does this replace AAA?** No. Claude for Small Business covers turnkey workflows for **US-based** small businesses using **US-listed tools**. The Australian SME stack — Cliniko, Halaxy, Best Practice, Medical Director, MYOB, Xero AU, ServiceM8, Tradify, simPRO, AroFlo, LEAP, Smokeball, Actionstep, PEXA — is not on Anthropic's connector list.
+
+AAA continuously monitors new tools and integrations. When an off-the-shelf product genuinely solves what a custom AAA agent does, AAA tells the client honestly and recommends they use it instead. The Phase 0 refund stands either way.
+
+## Data, privacy, ownership
+
+- Privacy Act 1988 and APPs compliant by design
+- Aligned with the Australian National AI Centre Guidance for AI Adoption
+- Mutual NDA signed before Phase 0 begins
+- Access to client systems is **read-only** by default
+- Agents deployed in the client's own accounts — they own the deployment, prompts, configurations, credentials
+- Full transition pack delivered if engagement ends
+- No vendor lock-in
+- Client data is not fed into model training pipelines
+
+## Common questions and honest answers
+
+**Q: How is this different from buying ChatGPT or Copilot myself?**
+AI subscriptions often go unused because owners buy the tool but never build the workflow. AAA builds the workflow around the client's existing systems so the AI does the actual work rather than sitting in a tab. Tools are commodities; workflows are the moat.
+
+**Q: Will AI automation replace my staff?**
+No. AAA augments rather than replaces. It removes the admin and repetitive work that stops staff from doing the work that pays.
+
+**Q: What if it doesn't work?**
+Phase 0 is fully refundable for 30 days. Build agents are paid only on delivery. The retainer has a 3-month break clause.
+
+**Q: What if the AI tech changes?**
+AAA agents sit on abstraction layers, not locked to one provider. When new models ship, the stack swaps the engine and keeps the wiring. Switching models is hours of work, not weeks — included in the full retainer.
+
+**Q: Will I get the founder, or some junior?**
+You get Raj. Every meeting. Every build. Every decision. This applies across all tiers including the lite retainer.
+
+**Q: Do you have a referral programme?**
+Yes. Active AAA clients who refer another Australian SME that signs Phase 0 and reaches the 30-day milestone receive A$500 credit, applied to next retainer invoice or paid out. No cap, no expiry.
+
+## Who AAA is for
+
+- Solo and small-team Australian business owners
+- Operators who are the bottleneck in their own business
+- Owners who recognise phrases like "drowning in admin", "wearing too many hats", "manual reconciliation", "i'm the bottleneck", "bas nightmare", "month-end nightmare"
+- Businesses on the Australian SaaS stack (Xero, MYOB, Cliniko, ServiceM8, etc.)
+- Owners who want AI that works in their actual systems, not a chatbot or a subscription that sits unused
+
+## Who AAA is not for
+
+- US businesses (we are AU-focused)
+- Enterprises with internal engineering teams (we work best with solo and small operators)
+- Owners looking for a chatbot for their website
+- Owners who want a ChatGPT subscription rather than working automation
+- Clients who want six months of strategy decks before any working software
+
+## Contact and booking
+
+- Email: raj@artigellence.com
+- Mobile: +61 469 313 323
+- Calendar: https://cal.com/raj-aaa/aaa-discovery
+- Website: https://aaa.artigellence.com
+
+30-minute Phase 0 scoping call. No commitment.

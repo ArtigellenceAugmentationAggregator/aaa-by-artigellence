@@ -1,0 +1,44 @@
+# AAA by Artigellence
+
+> AI automation and agent delivery for Australian SME owners. Anchored by a fully refundable Phase 0 pilot (A$4,500). Sydney-based, direct to founder. Built for the Australian SaaS stack — Xero, MYOB, Cliniko, Halaxy, ServiceM8, Tradify, LEAP, Smokeball, Actionstep, and the hundreds of niche AU systems that don't appear on US product roadmaps.
+
+AAA by Artigellence helps Australian small and medium business owners adopt AI without the guesswork. A one-truck sparky, a sole-practice physio, a solo accountant — the operator who is the bottleneck in their own business.
+
+The engagement starts with **Phase 0**: A$4,500 (incl GST), fully refundable up to day 30. A first working result is delivered by day 10 — typically a working AI agent wired into the client's actual systems, drafting actual invoices or quotes from actual completed jobs.
+
+If Phase 0 doesn't fit, the fee is refunded in full. If it does, the engagement continues to an **8-agent Build** (A$24,000) and an optional **retainer** (A$3,500/mo full, A$1,750/mo lite). The Standard Year-1 Engagement is A$56,500 all-in, including a 14-agent ceiling and Founder's Bonus (Custom GPT + Media Pack worth A$7,000).
+
+All agents are deployed in the **client's own accounts** (their Xero, their ServiceM8, their Google Workspace). The client owns everything built. No vendor lock-in. Privacy Act 1988 compliant. Aligned with the Australian National AI Centre Guidance for AI Adoption.
+
+Direct founder access at every tier. Raj Singh, Founder.
+
+## Core pages
+
+- [AI Automation for Australian SMEs](https://aaa.artigellence.com/): The proposition, pricing, and how Phase 0 works.
+- [Where to start with AI](https://aaa.artigellence.com/where-to-start-with-ai.html): For owners who know they need AI but don't know where to begin.
+- [Services](https://aaa.artigellence.com/services.html): Phase 0, Build, Retainer — what gets delivered at each stage.
+- [FAQ](https://aaa.artigellence.com/faq.html): Pricing, scope, retainer terms, what happens if you cancel, integrations supported, and how this differs from buying ChatGPT or Copilot yourself.
+- [Privacy](https://aaa.artigellence.com/privacy.html): Privacy Act 1988 and APPs compliant. How client data is protected.
+
+## Key facts
+
+- Founder: Raj Singh
+- Location: Sydney, NSW, Australia
+- ABN: 83 988 690 362
+- Email: raj@artigellence.com
+- Mobile: +61 469 313 323
+- Book a Phase 0 scoping call: https://cal.com/raj-aaa/aaa-discovery
+- Phase 0 fee: A$4,500 incl GST, refundable up to day 30
+- Build fee: A$3,000 per agent incl GST, minimum 4 agents, paid on delivery
+- Retainer (full): A$3,500/month incl GST
+- Retainer (lite): A$1,750/month incl GST
+- Standard Year-1 Engagement: A$56,500 incl GST
+- Integrations: Xero, MYOB, QuickBooks, Cliniko, Halaxy, Best Practice, Medical Director, ServiceM8, Tradify, simPRO, AroFlo, LEAP, Smokeball, Actionstep, PEXA, HubSpot, Shopify, plus custom APIs
+- Industries served: allied health, trades and field services, accounting, legal and conveyancing, food distribution, GP practices, retail and e-commerce, construction, logistics, tech/SaaS
+
+## What AAA is not
+
+- Not a chatbot for your website
+- Not a ChatGPT subscription
+- Not a six-month consulting engagement with PowerPoint decks
+- Not a replacement for your staff or your professional licence
