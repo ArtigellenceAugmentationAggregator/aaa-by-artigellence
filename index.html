@@ -76,7 +76,13 @@
     { "@type": "Question", "name": "Will I get the founder, or some junior?",
       "acceptedAnswer": { "@type": "Answer", "text": "You get Raj. Every meeting. Every build. Every decision. This applies across all tiers including the lite retainer — direct founder access is retained at every level. The lite tier reduces frequency and SLA, not access." } },
     { "@type": "Question", "name": "Do you have a referral programme?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Active AAA clients who refer another Australian SME that signs Phase 0 and reaches the 30-day milestone receive A$500 credit, applied to next retainer invoice or paid out. No cap, no expiry." } }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Active AAA clients who refer another Australian SME that signs Phase 0 and reaches the 30-day milestone receive A$500 credit, applied to next retainer invoice or paid out. No cap, no expiry." } },
+    { "@type": "Question", "name": "What is the Findable Foundation Audit and what does it cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Findable is AAA's entry product: a 15-point check of how AI search engines (ChatGPT, Claude, Perplexity, Google AI answers, Bing Copilot) and email systems currently see your business. The Foundation Audit is A$595 one-off and includes a plain-English written PDF report; the done-for-you Foundation Fix is A$1,950 and implements the fixes (llms.txt, robots.txt, schema, sitemap, SPF/DKIM/DMARC, Privacy Act policy) plus a 30-day re-check. A standalone Email Deliverability setup is A$697. All credit 100% toward the A$4,500 Phase 0 pilot. All prices include GST." } },
+    { "@type": "Question", "name": "Does llms.txt improve my Google ranking?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Google has publicly stated (via John Mueller and Gary Illyes, July 2025) that it does not use llms.txt for ranking. AAA treats llms.txt as hygiene and control — a clean, machine-readable summary of your business that you own — not a ranking trick. Findable sells correctness and control, never a guaranteed ranking or AI-traffic outcome." } },
+    { "@type": "Question", "name": "Is the Findable audit included in the Standard Year-1 Engagement?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Clients on the A$56,500 Standard Year-1 Engagement receive the full Foundation Sprint (search, email and privacy setup, A$2,950 value) included at no extra cost. The standalone Findable Audit and Fix are for businesses starting smaller; their fee credits 100% toward Phase 0 if they continue." } }
   ]
 }
 </script>
@@ -3285,6 +3291,239 @@ footer {
   .bonus-banner { flex-direction: column; align-items: flex-start; }
 }
 
+/* ============================================================= */
+/* ============ FINDABLE · AEO/GEO + DELIVERABILITY ============ */
+/* ============================================================= */
+
+/* Highlighted standalone nav tab (mirrors .topnav-cta-extended, teal accent) */
+.topnav-cta-findable {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--teal-bright);
+  padding: 11px 16px;
+  text-decoration: none;
+  border: 1px solid var(--teal);
+  font-weight: 700;
+  transition: all 0.2s;
+  border-radius: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.topnav-cta-findable .fnd-navbird { width: 17px; height: 17px; display: block; color: var(--teal-bright); transition: color 0.2s; }
+.topnav-cta-findable:hover {
+  background: var(--teal);
+  color: #0a0e14;
+  box-shadow: 0 0 26px rgba(15,184,169,0.45);
+}
+.topnav-cta-findable:hover .fnd-navbird { color: #0a0e14; }
+body.light-mode .topnav-cta-findable { color: var(--teal-deep); border-color: var(--teal-deep); }
+body.light-mode .topnav-cta-findable:hover { color: #f5f1e8; }
+
+/* Eyebrow marker glyph (non-numbered section) */
+#findable .section-head .eyebrow .num { color: var(--teal-bright); }
+
+/* Hero split */
+.fnd-hero {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 44px;
+}
+.fnd-lede {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--white);
+  letter-spacing: -0.2px;
+  margin-bottom: 18px;
+}
+.fnd-lede em { color: var(--teal-bright); font-style: italic; }
+.fnd-lede strong { color: var(--gold-bright); font-weight: 600; }
+.fnd-sub {
+  font-size: 14.5px;
+  color: var(--gray-2);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.fnd-statline {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(15,184,169,0.07), rgba(201,162,39,0.04));
+  border: 1px solid var(--teal-deep);
+  border-radius: 12px;
+}
+.fnd-bigstat {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 600;
+  color: var(--teal-bright);
+  line-height: 1;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.fnd-statdesc { font-size: 13px; color: var(--gray-2); line-height: 1.55; }
+.fnd-statdesc strong { color: var(--white); font-weight: 600; }
+.fnd-statdesc sup { color: var(--teal); font-size: 9px; }
+
+/* Bower visual */
+.fnd-bower {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.fnd-bower::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 12%, rgba(201,162,39,0.08), transparent 60%);
+  pointer-events: none;
+}
+.fnd-bird { width: 88px; height: 88px; color: var(--gold-bright); margin: 0 auto 6px; display: block; position: relative; z-index: 1; }
+.fnd-bower-cap {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px;
+  color: var(--gold); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 16px; position: relative; z-index: 1;
+}
+.fnd-court { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; position: relative; z-index: 1; }
+.fnd-chip {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  padding: 6px 10px; border-radius: 6px;
+  background: rgba(15,184,169,0.07);
+  border: 1px solid var(--teal-deep);
+  color: var(--teal-bright);
+}
+.fnd-court-note { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.6px; color: var(--gray); margin-top: 14px; position: relative; z-index: 1; }
+
+/* Diagnostic */
+.fnd-diag {
+  margin-bottom: 44px;
+  padding: 30px 32px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.fnd-diag-head {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--white); letter-spacing: -0.3px; margin-bottom: 22px;
+}
+.fnd-diag-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 22px; }
+.fnd-diag-item {
+  padding: 18px 18px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+}
+body.light-mode .fnd-diag-item { background: rgba(255,255,255,0.4); }
+.fnd-diag-num {
+  font-family: var(--serif); font-size: 30px; font-weight: 600;
+  color: var(--coral); line-height: 1; letter-spacing: -0.8px; margin-bottom: 9px;
+}
+.fnd-diag-item div:last-child { font-size: 12.5px; color: var(--gray-2); line-height: 1.5; }
+.fnd-diag-item strong { color: var(--white); font-weight: 600; }
+.fnd-diag-item sup { color: var(--teal); font-size: 9px; }
+.fnd-honest {
+  padding: 16px 22px;
+  background: rgba(201,162,39,0.05);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  font-size: 13px; color: var(--gray-2); line-height: 1.6;
+}
+.fnd-honest strong { color: var(--gold-bright); font-weight: 600; }
+.fnd-honest sup { color: var(--teal); font-size: 9px; }
+
+/* Subheading */
+.fnd-h3 {
+  font-family: var(--serif); font-size: clamp(22px, 2.4vw, 28px); font-weight: 500;
+  color: var(--white); letter-spacing: -0.4px; margin-bottom: 22px;
+}
+.fnd-h3 .hl { color: var(--teal-bright); font-style: italic; }
+.fnd-tienote { font-size: 11.5px; color: var(--gray); font-style: italic; margin-top: 6px; line-height: 1.4; }
+
+/* Credit callout */
+.fnd-credit {
+  margin-top: 30px;
+  padding: 26px 32px;
+  background: linear-gradient(135deg, rgba(201,162,39,0.06), rgba(15,184,169,0.04));
+  border: 1px solid var(--gold-deep);
+  border-radius: 12px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px;
+}
+.fnd-credit-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 1.8px; color: var(--gold); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.fnd-credit-line { font-family: var(--serif); font-size: clamp(18px, 2vw, 23px); font-weight: 500; color: var(--white); line-height: 1.35; letter-spacing: -0.3px; max-width: 640px; }
+.fnd-credit-line em { color: var(--gold-bright); font-style: italic; }
+
+/* FAQ accordions (native details, no JS) */
+.fnd-faqwrap { margin-top: 40px; }
+.fnd-faq { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 10px; background: var(--bg-2); overflow: hidden; }
+.fnd-faq summary {
+  list-style: none; cursor: pointer; padding: 17px 22px;
+  font-family: var(--sans); font-size: 14.5px; font-weight: 600; color: var(--white);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.fnd-faq summary::-webkit-details-marker { display: none; }
+.fnd-faq summary::after { content: '+'; font-family: var(--mono); color: var(--teal-bright); font-size: 20px; font-weight: 400; flex-shrink: 0; transition: transform 0.2s; }
+.fnd-faq[open] summary::after { content: '\2212'; }
+.fnd-faq summary:hover { color: var(--teal-bright); }
+.fnd-faq-body { padding: 0 22px 20px; font-size: 13.5px; color: var(--gray-2); line-height: 1.65; }
+.fnd-faq-body strong { color: var(--white); font-weight: 600; }
+.fnd-faq-body sup { color: var(--teal); font-size: 9px; }
+
+/* Footnotes */
+.fnd-notes {
+  margin-top: 32px; padding: 18px 24px;
+  background: rgba(0,0,0,0.16);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  font-family: var(--mono); font-size: 10.5px; color: var(--gray); line-height: 1.7;
+}
+body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
+.fnd-notes b { color: var(--gray-2); font-weight: 700; }
+.fnd-notes a { color: var(--teal); text-decoration: none; }
+
+@media (max-width: 980px) {
+  .fnd-hero { grid-template-columns: 1fr; gap: 28px; }
+  .fnd-diag-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .fnd-diag-grid { grid-template-columns: 1fr; }
+  .fnd-statline { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* ---- Nav fit with two highlighted CTAs (Findable + Extended) ---- */
+.topnav-cta-extended { margin-left: 0; }
+.topnav-links a { padding: 9px 7px; }
+@media (max-width: 1500px) {
+  .topnav-brand .sub { display: none; }
+  .topnav-links { font-size: 9.5px; letter-spacing: 0.3px; }
+  .topnav-links a { padding: 7px 5px; gap: 3px; }
+  .topnav-links a .num { font-size: 8px; padding: 2px 4px; }
+  .topnav-cta-findable, .topnav-cta-extended { font-size: 9.5px; padding: 8px 11px; letter-spacing: 0.7px; }
+  .topnav-cta-findable .fnd-navbird { width: 15px; height: 15px; }
+}
+@media (max-width: 1340px) {
+  .topnav-links { font-size: 9px; letter-spacing: 0.15px; }
+  .topnav-links a { padding: 6px 4px; }
+  .topnav-cta-findable, .topnav-cta-extended { font-size: 8.6px; padding: 7px 9px; letter-spacing: 0.4px; }
+  .topnav-cta-findable .fnd-navbird { width: 13px; height: 13px; }
+}
+@media (max-width: 1280px) {
+  .topnav-links { display: none; }
+}
+
 </style>
 <!-- Favicon set — star logo, generated 02 June 2026 -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -3350,6 +3589,9 @@ footer {
     <a href="#contact"><span class="num">09</span>Contact</a>
   </div>
   <div class="topnav-right">
+    <a href="#findable" class="topnav-cta-findable" title="Findable — get seen by AI search &amp; land in the inbox">
+      <svg class="fnd-navbird" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 33 C9 21 22 17 30 22 C34 24.5 36 22 40 17.5"/><path d="M7 33 C13 40 26 40 33 33"/><path d="M33 33 C37 35 40.5 39 42 44"/></g><path d="M40 17.5 L47 15.5 L41.5 21 Z" fill="currentColor"/><circle cx="34.5" cy="22.5" r="1.7" fill="currentColor"/></svg>Findable
+    </a>
     <a href="#extended-services" class="topnav-cta-extended" title="Extended Services — eight focused add-ons">
       Extended Services →
     </a>
@@ -4304,6 +4546,11 @@ footer {
 
   </div>
 
+  <div style="margin-top: 22px; padding: 15px 22px; background: rgba(15,184,169,0.06); border: 1px solid var(--teal-deep); border-radius: 8px; font-size: 13.5px; color: var(--gray-2); line-height: 1.55; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+    <span style="font-size: 16px;">&#9670;</span>
+    <span><strong style="color: var(--white);">Not ready for the full engagement?</strong> Start with <a href="#findable" style="color: var(--teal-bright); text-decoration: none; font-weight: 600;">Findable</a> &mdash; a A$595 AI-visibility &amp; email audit that credits 100% toward Phase 0.</span>
+  </div>
+
   <!-- Year 1 Standard Engagement summary — honest, no ROI projections -->
   <div style="margin-top: 32px; padding: 28px 32px; background: linear-gradient(135deg, rgba(201,162,39,0.06), rgba(15,184,169,0.04)); border: 1px solid var(--gold-deep); border-radius: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
     <div>
@@ -4311,6 +4558,7 @@ footer {
       <div style="font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--white); letter-spacing: -0.5px;">A$56,500 <span style="color: var(--gold-bright); font-style: italic; font-size: 20px;">all-in, incl GST</span></div>
       <div style="font-family: var(--mono); font-size: 12px; color: var(--gray-2); margin-top: 6px; letter-spacing: 0.4px; line-height: 1.6;">
         A$4,500 (Phase 0) + A$24,000 (8-agent Build) + A$28,000 (8 months × A$3,500 full retainer, Month 5–12)<br/>
+        <span style="color: var(--teal-bright);">+ Foundation Sprint (A$2,950 value) — search, email &amp; privacy setup, included free</span><br/>
         Run-costs (LLM/API/SaaS) scoped during Phase 0 · Paid by client directly · Not included above
       </div>
     </div>
@@ -4321,6 +4569,178 @@ footer {
   <div style="margin-top: 18px; padding: 16px 22px; background: rgba(184,28,28,0.05); border: 1px solid rgba(184,28,28,0.3); border-radius: 8px;">
     <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--coral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">⚠ HONEST DISCLOSURE · BETA LAUNCH</div>
     <div style="font-size: 12.5px; color: var(--gray-2); line-height: 1.6;">AAA by Artigellence is in beta launch. The case studies elsewhere on this page are <strong style="color: var(--white);">third-party industry results — not AAA outcomes.</strong> The only contractual commitment is the <strong style="color: var(--white);">Phase 0 refundable pilot</strong>. Your Year-1 result depends on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0. All prices include GST. Monthly LLM/API/SaaS run-costs are paid by the client directly.</div>
+  </div>
+</section>
+
+
+<!-- ===== FINDABLE · AI VISIBILITY & DELIVERABILITY ===== -->
+<section class="section" id="findable">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">&#9670;</span>Findable &middot; AI Visibility &amp; Email Deliverability</div>
+      <h2>Most Australian SMEs are <span class="hl">wombats</span> &mdash; AI can&rsquo;t find them.<br>Findable makes you a <span class="hlt">bowerbird</span>.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">ENTRY POINT &middot; CREDITS TO PHASE 0</span>
+      <span>Updated 9 June 2026 &middot; All prices incl GST</span>
+    </div>
+  </div>
+
+  <div class="fnd-hero">
+    <div class="fnd-hero-copy">
+      <p class="fnd-lede">The satin bowerbird doesn&rsquo;t wait to be discovered. He builds a <em>bower</em> &mdash; collects, curates and arranges every piece until he&rsquo;s the one who gets found. <strong>That&rsquo;s not vanity. That&rsquo;s how AI search works now.</strong></p>
+      <p class="fnd-sub">ChatGPT, Claude, Perplexity, Google&rsquo;s AI answers and Bing Copilot decide what to say about your business by reading signals most Australian sites never set up &mdash; and they quietly route a chunk of your email to spam at the same time. Get the signals right and you show up. Skip them and you&rsquo;re burrowed away while a competitor gets cited.</p>
+      <div class="fnd-statline">
+        <div class="fnd-bigstat">~1 in 10</div>
+        <div class="fnd-statdesc">Australian-relevant business sites carry an <strong>llms.txt</strong> file &mdash; the plain-text signal that tells AI models how to read them. The other nine are still burrowing.<sup>1</sup></div>
+      </div>
+    </div>
+    <div class="fnd-bower">
+      <svg class="fnd-bird" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 33 C9 21 22 17 30 22 C34 24.5 36 22 40 17.5"/><path d="M7 33 C13 40 26 40 33 33"/><path d="M33 33 C37 35 40.5 39 42 44"/></g><path d="M40 17.5 L47 15.5 L41.5 21 Z" fill="currentColor"/><circle cx="34.5" cy="22.5" r="1.7" fill="currentColor"/></svg>
+      <div class="fnd-bower-cap">The bower &middot; what AI reads</div>
+      <div class="fnd-court">
+        <span class="fnd-chip">llms.txt</span>
+        <span class="fnd-chip">robots.txt</span>
+        <span class="fnd-chip">Schema</span>
+        <span class="fnd-chip">Sitemap</span>
+        <span class="fnd-chip">SPF</span>
+        <span class="fnd-chip">DKIM</span>
+        <span class="fnd-chip">DMARC</span>
+        <span class="fnd-chip">Privacy</span>
+        <span class="fnd-chip">Title / Meta</span>
+        <span class="fnd-chip">Signature</span>
+      </div>
+      <div class="fnd-court-note">Each piece, arranged so the machines read you right.</div>
+    </div>
+  </div>
+
+  <div class="fnd-diag">
+    <div class="fnd-diag-head">The bower today &mdash; what most AU sites are missing</div>
+    <div class="fnd-diag-grid">
+      <div class="fnd-diag-item"><div class="fnd-diag-num">~10%</div><div>carry an <strong>llms.txt</strong> file for AI crawlers<sup>1</sup></div></div>
+      <div class="fnd-diag-item"><div class="fnd-diag-num">18%</div><div>of Australian domains have any <strong>DMARC</strong> email protection<sup>2</sup></div></div>
+      <div class="fnd-diag-item"><div class="fnd-diag-num">~12%</div><div>carry the <strong>structured data</strong> AI and search engines read<sup>3</sup></div></div>
+      <div class="fnd-diag-item"><div class="fnd-diag-num">~95%</div><div>of AU businesses sit under the old <strong>Privacy Act</strong> threshold &mdash; most have no compliant policy<sup>4</sup></div></div>
+    </div>
+    <div class="fnd-honest"><strong>The honest part.</strong> This is hygiene and control, not magic. Google has said it does not use llms.txt for ranking.<sup>5</sup> Findable makes sure the machines can read you correctly and your email lands &mdash; it does not promise traffic or a ranking position. Anyone who guarantees you&rsquo;ll be &ldquo;number one in ChatGPT&rdquo; is guessing.</div>
+  </div>
+
+  <h3 class="fnd-h3">Build the bower &mdash; <span class="hl">four ways to start</span></h3>
+  <div class="pricing-grid">
+
+    <div class="tier refund">
+      <div class="tier-name" style="margin-top: 18px;">Foundation Audit</div>
+      <div class="tier-price"><span class="cur">A$</span>595<span class="per"> &middot; one-off</span></div>
+      <div class="tier-tagline">A 15-point check of how AI search and email currently see your business. Plain-English written report, no jargon. Money back if it&rsquo;s useless to you.</div>
+      <ul class="tier-features">
+        <li>15-point AI-visibility &amp; deliverability check</li>
+        <li>What ChatGPT, Claude, Perplexity &amp; Bing say now</li>
+        <li>Email spam-risk &amp; DMARC status</li>
+        <li>Written PDF report, plain English</li>
+        <li>~90-minute review &middot; 5 business-day turnaround</li>
+        <li><strong>Credits 100% to Phase 0</strong></li>
+      </ul>
+      <a href="#contact" class="tier-cta">Book the Audit &rarr;</a>
+    </div>
+
+    <div class="tier flagship">
+      <div class="tier-name" style="margin-top: 18px;">Foundation Fix</div>
+      <div class="tier-price"><span class="cur">A$</span>1,950<span class="per"> &middot; done for you</span></div>
+      <div class="tier-tagline">The audit, plus we build the bower for you &mdash; search, email and privacy set up properly. One job, done, with a 30-day re-check.</div>
+      <ul class="tier-features">
+        <li>Everything in the Audit</li>
+        <li>llms.txt, robots.txt, schema, sitemap deployed</li>
+        <li>SPF / DKIM / DMARC configured</li>
+        <li>Privacy Act 1988 policy drafted</li>
+        <li>30-day re-check after setup</li>
+        <li><strong>Credits 100% to Phase 0</strong></li>
+      </ul>
+      <a href="#contact" class="tier-cta">Build the Bower &rarr;</a>
+    </div>
+
+    <div class="tier">
+      <div class="tier-name">Email Deliverability</div>
+      <div class="tier-price"><span class="cur">A$</span>697<span class="per"> &middot; setup + warmup</span></div>
+      <div class="tier-tagline">Just the inbox problem. We set up authentication and warm a sending address so your quotes and invoices stop landing in spam.</div>
+      <ul class="tier-features">
+        <li>SPF / DKIM / DMARC set up properly</li>
+        <li>21-day sending-address warmup managed</li>
+        <li>Spam Act 2003 compliant signature</li>
+        <li>Spam-tested across 10 major providers</li>
+        <li>Plain-English before / after report</li>
+        <li><strong>Credits 100% to Phase 0</strong></li>
+      </ul>
+      <a href="#contact" class="tier-cta">Fix My Email &rarr;</a>
+    </div>
+
+    <div class="tier" style="border-color: rgba(15,184,169,0.4);">
+      <div class="tier-name" style="color: var(--teal-bright);">Foundation Monitor</div>
+      <div class="tier-price"><span class="cur">A$</span>499<span class="per"> /month &middot; optional</span></div>
+      <div class="tier-tagline"><strong style="color: var(--white);">Optional, ongoing.</strong> AI search and email change constantly. Monthly re-test, a one-page report, and small fixes so the bower stays current.</div>
+      <ul class="tier-features">
+        <li>Monthly AI-visibility re-test</li>
+        <li>Email deliverability monitoring</li>
+        <li>One-page plain-English report</li>
+        <li>Small fixes applied as needed</li>
+        <li>Cancel anytime</li>
+        <li>Routes into the Lite Retainer if you scale</li>
+      </ul>
+      <a href="#contact" class="tier-cta">Ask About Monitor &rarr;</a>
+    </div>
+
+  </div>
+  <p class="fnd-tienote">Audit and Fix both credit 100% toward your A$4,500 Phase 0 &mdash; so if you go ahead, you never pay for the bower twice.</p>
+
+  <div class="fnd-credit">
+    <div>
+      <div class="fnd-credit-eyebrow">&darr; Already going Standard Year-1?</div>
+      <div class="fnd-credit-line">The <em>Foundation Sprint</em> &mdash; the full search, email and privacy setup &mdash; is included free with the A$56,500 Standard Year-1 Engagement. The bower&rsquo;s already built; we just add the agents.</div>
+    </div>
+    <a href="#pricing" class="btn-primary">See Standard Year-1 &rarr;</a>
+  </div>
+
+  <div class="fnd-faqwrap">
+    <h3 class="fnd-h3">Findable &mdash; <span class="hl">straight answers</span></h3>
+
+    <details class="fnd-faq">
+      <summary>What actually is AEO / GEO, in plain English?</summary>
+      <div class="fnd-faq-body">Search is no longer just ten blue links. People ask ChatGPT, Claude, Perplexity, Google&rsquo;s AI answers and Bing Copilot, and those tools answer in a sentence &mdash; citing some businesses and ignoring others. Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) are simply the work of making sure the machines can read your business correctly so you&rsquo;re the one they cite. Findable handles the technical signals that decide that.</div>
+    </details>
+
+    <details class="fnd-faq">
+      <summary>If Google doesn&rsquo;t use llms.txt, why bother with it?</summary>
+      <div class="fnd-faq-body">Fair question, and the honest answer matters. Google has publicly said it does not use llms.txt for ranking.<sup>5</sup> We treat llms.txt as <strong>hygiene and control</strong> &mdash; a clean, machine-readable summary of your business you actually own, not a ranking trick. It costs little to set up and it can&rsquo;t hurt. We will never tell you it guarantees AI traffic, because it doesn&rsquo;t.</div>
+    </details>
+
+    <details class="fnd-faq">
+      <summary>Does the Foundation Audit replace Phase 0?</summary>
+      <div class="fnd-faq-body">No. Findable is the lightest possible way to start &mdash; a small, fast, paid first step. The Audit (A$595) and the Fix (A$1,950) both <strong>credit 100%</strong> toward the A$4,500 Phase 0 pilot if you decide to continue. Phase 0 is the real AAA engagement; Findable is the on-ramp.</div>
+    </details>
+
+    <details class="fnd-faq">
+      <summary>What if I just want the audit and then walk away?</summary>
+      <div class="fnd-faq-body">Completely fine. You get the written report, you own the findings, and you owe nothing further. If the report isn&rsquo;t useful to you, the A$595 comes back &mdash; same money-back standard as everything else AAA does.</div>
+    </details>
+
+    <details class="fnd-faq">
+      <summary>Is my business email really landing in spam?</summary>
+      <div class="fnd-faq-body">You can check yourself in two minutes: send an email from your business address to a free tester like mail-tester.com and read the score. If SPF, DKIM or DMARC aren&rsquo;t set up &mdash; and for most Australian SMEs they aren&rsquo;t<sup>2</sup> &mdash; a share of your quotes and invoices is quietly going to spam without you knowing.</div>
+    </details>
+
+    <details class="fnd-faq">
+      <summary>Does this work for my trade / clinic / firm?</summary>
+      <div class="fnd-faq-body">Yes &mdash; the signals are the same whether you&rsquo;re a sparky, a physio, an accountant or a conveyancer. What changes is the detail: a tradie wants to show up for &ldquo;emergency electrician near me&rdquo; in AI answers; a clinic wants its services read correctly; a firm wants its email trusted. The Audit is tailored to your vertical and the words your customers actually use.</div>
+    </details>
+  </div>
+
+  <div class="fnd-notes">
+    <b>Sources.</b>
+    1. llms.txt adoption ~10.13% of ~300,000 domains &mdash; SE Ranking, llms.txt study, November 2025.&nbsp;
+    2. Australian domains with DMARC protection ~18% &mdash; EasyDMARC, State of DMARC Adoption (Australia), October 2025.&nbsp;
+    3. Structured-data (schema markup) adoption ~12% of websites &mdash; Web Data Commons crawl analysis.&nbsp;
+    4. ~95% of Australian businesses fall under the Privacy Act 1988 small-business exemption (annual turnover &le; A$3 million) &mdash; OAIC; ABS business counts.&nbsp;
+    5. Google does not use llms.txt for ranking &mdash; statements by Google&rsquo;s John Mueller and Gary Illyes, July 2025.
+    <br><br><b>Note.</b> Figures describe the broader web and Australian-domain population, not a survey of your specific industry. AEO is an emerging area; Findable sells hygiene and control, never a guaranteed ranking or traffic outcome.
   </div>
 </section>
 
