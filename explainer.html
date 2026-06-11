@@ -259,10 +259,16 @@ var segs=scenes.map(function(s,i){
   pb.appendChild(seg);return fill;
 });
 var cur=0,playing=false,raf=null,start=0,elapsed=0;
-var vo=document.getElementById('vo');
-if(vo){vo.addEventListener('error',function(){vo=null;});}
 
-/* ---- narration (third-person; swaps to Raj's recording via the audio hook when present) ---- */
+/* cumulative scene start times (seconds) for audio seeking */
+var DUR=scenes.map(function(s){return (parseInt(s.getAttribute('data-t'),10)||10000)/1000;});
+var CUM=[0];for(var c=0;c<DUR.length-1;c++){CUM.push(CUM[c]+DUR[c]);}
+
+/* ---- narration: real mp3 first, browser voice as fallback ---- */
+var vo=document.getElementById('vo');
+var voReady=!!vo;
+if(vo){vo.addEventListener('error',function(){voReady=false;vo=null;setVoiceUI();});}
+
 var NARR=[
 "A A A by Artigellence — founded by Raj Singh, Sydney. Ninety seconds: here's the whole thing.",
 "You started your business to own your time. Funny how the admin owns it now — quotes at nine p m, chasing your own money, the same data typed into three systems.",
@@ -273,7 +279,7 @@ var NARR=[
 "The numbers are public. The walkthrough is free. The pilot: four and a half thousand dollars, fully refundable. Three thousand an agent, paid on delivery. All including G S T.",
 "One operator. Founder-direct. The risk sits with Raj. Call oh four six nine — three one three — three two three."
 ];
-var voiceOn=false, auVoice=null;
+var ttsOn=false, auVoice=null;
 function pickVoice(){
   var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
   auVoice=vs.filter(function(v){return /en[-_]AU/i.test(v.lang);})[0]
@@ -282,22 +288,48 @@ function pickVoice(){
 }
 if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
 function speak(i){
-  if(!voiceOn||!window.speechSynthesis||vo)return;
+  if(!ttsOn||!window.speechSynthesis||vo)return;
   speechSynthesis.cancel();
   var u=new SpeechSynthesisUtterance(NARR[i]||'');
-  if(auVoice)u.voice=auVoice;
-  u.rate=0.97;u.pitch=1;
+  if(auVoice)u.voice=auVoice;u.rate=0.97;
   speechSynthesis.speak(u);
 }
 function hush(){if(window.speechSynthesis)speechSynthesis.cancel();}
 
-function dur(i){return parseInt(scenes[i].getAttribute('data-t'),10)||10000;}
+function audible(){return vo?!vo.muted:ttsOn;}
+var voiceBtn=document.getElementById('voice');
+function setVoiceUI(){
+  var on=audible();
+  voiceBtn.classList.toggle('on',on);
+  voiceBtn.textContent=on?'\uD83D\uDD0A VOICE ON':'\uD83D\uDD07 VOICE OFF';
+}
+voiceBtn.addEventListener('click',function(){
+  if(vo){
+    vo.muted=!vo.muted;
+    if(!vo.muted&&playing&&vo.paused){vo.play().catch(degrade);}
+  }else{
+    ttsOn=!ttsOn;
+    if(ttsOn&&playing)speak(cur); if(!ttsOn)hush();
+  }
+  setVoiceUI();
+});
+
+/* if the mp3 refuses to start, degrade gracefully to the browser voice */
+function degrade(){
+  vo=null;voReady=false;
+  ttsOn=!!window.speechSynthesis;
+  setVoiceUI();
+  if(ttsOn&&playing)speak(cur);
+}
+
+/* ---- engine ---- */
+function dur(i){return DUR[i]*1000;}
 function paint(i,frac){segs.forEach(function(f,k){f.style.width=k<i?'100%':(k===i?(frac*100)+'%':'0%');});}
 function show(i){scenes.forEach(function(s,k){s.classList.toggle('on',k===i);});}
 function tick(now){
   if(!playing)return;
   var f=(now-start+elapsed)/dur(cur);
-  if(f>=1){ if(cur<scenes.length-1){go(cur+1,false);} else {playing=false;updatePlay();paint(cur,1);} return; }
+  if(f>=1){ if(cur<scenes.length-1){go(cur+1,false);} else {playing=false;updatePlay();paint(cur,1);if(vo)vo.pause();} return; }
   paint(cur,f);raf=requestAnimationFrame(tick);
 }
 function go(i,user){
@@ -305,15 +337,18 @@ function go(i,user){
   cur=Math.max(0,Math.min(scenes.length-1,i));
   elapsed=0;start=performance.now();
   show(cur);paint(cur,0);
-  if(playing)speak(cur);
+  if(user&&vo){try{vo.currentTime=CUM[cur];}catch(e){}}
+  if(playing){
+    if(vo&&vo.paused){vo.play().catch(degrade);}
+    speak(cur);
+  }
   if(playing&&!reduced){raf=requestAnimationFrame(tick);}
   else if(reduced){paint(cur,1);}
 }
 function updatePlay(){document.getElementById('play').textContent=playing?'PAUSE':'PLAY';}
 function toggle(){
-  if(reduced)return;
   playing=!playing;updatePlay();
-  if(playing){start=performance.now();raf=requestAnimationFrame(tick);if(vo)vo.play();speak(cur);}
+  if(playing){start=performance.now();raf=requestAnimationFrame(tick);if(vo){vo.play().catch(degrade);}else{speak(cur);}}
   else{elapsed+=performance.now()-start;cancelAnimationFrame(raf);if(vo)vo.pause();hush();}
 }
 document.getElementById('play').addEventListener('click',toggle);
@@ -329,18 +364,17 @@ document.addEventListener('keydown',function(e){
   else if(e.key==='ArrowLeft'){go(cur-1,true);}
   else if(e.key==='f'||e.key==='F'){document.getElementById('fs').click();}
 });
-var voiceBtn=document.getElementById('voice');
-function setVoiceUI(){voiceBtn.classList.toggle('on',voiceOn);voiceBtn.textContent=voiceOn?'🔊 VOICE ON':'🔇 VOICE OFF';}
-voiceBtn.addEventListener('click',function(){voiceOn=!voiceOn;setVoiceUI();if(voiceOn&&playing)speak(cur);if(!voiceOn)hush();});
 
+/* ---- gate ---- */
 function begin(withVoice){
-  voiceOn=withVoice&&!!window.speechSynthesis&&!vo;
+  if(vo){vo.muted=!withVoice;}
+  else{ttsOn=withVoice&&!!window.speechSynthesis;}
   setVoiceUI();
   document.getElementById('gate').classList.add('off');
-  playing=!reduced;updatePlay();
-  if(vo&&playing){vo.play().catch(function(){});}
+  playing=true;updatePlay();
+  if(vo){try{vo.currentTime=0;}catch(e){} vo.play().catch(degrade);}
   go(0,false);
-  if(reduced){show(0);paint(0,1);if(voiceOn)speak(0);}
+  if(reduced){cancelAnimationFrame(raf);show(0);paint(0,1);}
 }
 document.getElementById('goVoice').addEventListener('click',function(){begin(true);});
 document.getElementById('goSilent').addEventListener('click',function(){begin(false);});
