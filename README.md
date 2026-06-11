@@ -74,6 +74,10 @@ If Aarambh and the AAA Standard Year-1 Engagement are taken within 12 months of 
 | `where-to-start-with-ai.html` | Guide: where to start with AI for your business (Article schema) |
 | `faq.html` | 20 honest FAQs — pricing, scope, retainer terms, data, Findable, and how this differs from buying ChatGPT yourself |
 | `privacy.html` | Privacy Policy — Privacy Act 1988 and Australian Privacy Principles compliant |
+| `tradies.html` | Landing page — Sydney tradies: quotes/invoices drafted automatically from ServiceM8, Tradify, simPRO jobs (Service + FAQ schema) |
+| `partners.html` | Landing page — accountants & bookkeepers: referral partnership, free client workshop, A$500 per referred Phase 0 (Service + FAQ schema) |
+| `wizard.html` | 60-Second Agent Match — interactive matcher returning one of the eight named agents with honest pricing |
+| `explainer.html` | The 90-Second Explainer — narrated auto-playing overview (Australian voiceover, `narration.mp3`) |
 
 ## Discoverability & AEO
 
@@ -98,7 +102,7 @@ Static site served via **GitHub Pages**. Custom domain (`aaa.artigellence.com`) 
 
 ## Honest Disclosures
 
-- AAA by Artigellence is in **beta launch**.
+- AAA by Artigellence is in its **founding-client phase**.
 - The only contractually binding commitment in any engagement is the **Phase 0 refund**.
 - Industry case studies referenced on the site are third-party context, **not AAA client outcomes**.
 - Findable sells hygiene and control, not a guaranteed ranking or AI-traffic outcome.
@@ -106,4 +110,4 @@ Static site served via **GitHub Pages**. Custom domain (`aaa.artigellence.com`) 
 
 ---
 
-© Artigellence Augmentation Aggregator · ABN 83 988 690 362 · Sydney, Australia · Last updated June 2026
+© Artigellence Augmentation Aggregator · ABN 83 988 690 362 · Sydney, Australia · Last updated 11 June 2026

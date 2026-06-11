@@ -145,6 +145,18 @@ Yes. Active AAA clients who refer another Australian SME that signs Phase 0 and 
 - Owners who want a ChatGPT subscription rather than working automation
 - Clients who want six months of strategy decks before any working software
 
+## Audience pages and tools
+
+- For Tradies — https://aaa.artigellence.com/tradies.html : landing page for Sydney trade businesses. Quotes and invoices drafted automatically from completed ServiceM8 / Tradify / simPRO jobs. Free 90-minute on-site walkthrough (Sydney metro), refundable Phase 0 pilot, first working result by day 10, 100% money-back to day 30.
+- For Accountants & Bookkeeping Partners — https://aaa.artigellence.com/partners.html : referral partnership for accounting and bookkeeping firms. AAA delivers a free one-hour AI workshop for the firm's clients under the firm's brand; the firm receives A$500 within 24 hours for each referred client who signs Phase 0 (always disclosed to the client). AAA never provides bookkeeping, tax or BAS services and never competes with the firm.
+- 60-Second Agent Match — https://aaa.artigellence.com/wizard.html : interactive tool. Three taps — industry, biggest weekly time-sink, who carries it today — return one of AAA's eight named agents (Quote Drafter, Payment Chaser, Invoice Closer, Books Tidy, Scheduler, Callback Triage, Stay-In-Touch, Daily Brief) with plain-English description and honest pricing.
+- The 90-Second Explainer — https://aaa.artigellence.com/explainer.html : narrated, auto-playing overview of the proposition with an Australian voiceover. Suitable as a first introduction or meeting opener.
+- The 12-Month Arc infographic — https://aaa.artigellence.com/infographic.png : the whole engagement on one shareable image.
+
+## Status
+
+AAA by Artigellence is in its founding-client phase (founded 2026). Industry case studies referenced on the site are third-party context, not AAA client outcomes. The only contractually binding commitment in any engagement is the Phase 0 refund.
+
 ## Contact and booking
 
 - Email: raj@artigellence.com

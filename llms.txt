@@ -19,9 +19,14 @@ Direct founder access at every tier. Raj Singh, Founder.
 - [Services](https://aaa.artigellence.com/services.html): Phase 0, Build, Retainer — what gets delivered at each stage.
 - [FAQ](https://aaa.artigellence.com/faq.html): Pricing, scope, retainer terms, what happens if you cancel, integrations supported, and how this differs from buying ChatGPT or Copilot yourself.
 - [Privacy](https://aaa.artigellence.com/privacy.html): Privacy Act 1988 and APPs compliant. How client data is protected.
+- [For Tradies](https://aaa.artigellence.com/tradies.html): Quotes and invoices drafted automatically from ServiceM8, Tradify and simPRO jobs. Sydney trades — free 90-minute on-site walkthrough, fully refundable pilot, first result by day 10.
+- [For Accountants & Bookkeeping Partners](https://aaa.artigellence.com/partners.html): Referral partnership for Sydney accounting and bookkeeping firms — free client workshop under the firm's brand, A$500 per referred Phase 0, no compliance services ever offered by AAA.
+- [60-Second Agent Match](https://aaa.artigellence.com/wizard.html): Interactive matcher — three taps (industry, biggest time-sink, who carries it) returns the exact AI agent that solves it, with honest pricing.
+- [The 90-Second Explainer](https://aaa.artigellence.com/explainer.html): Narrated auto-playing overview of the whole AAA proposition — the problem, the free walkthrough, the day-10 result, the refund safety net, the numbers.
 
 ## Key facts
 
+- Status: founding-client phase (founded 2026) — industry case studies cited on the site are third-party context, not AAA client outcomes
 - Founder: Raj Singh
 - Location: Sydney, NSW, Australia
 - ABN: 83 988 690 362
