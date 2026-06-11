@@ -3531,6 +3531,55 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
   .topnav-links { display: none; }
 }
 
+/* ================= AAA RESTYLE PASS · 11 JUN 2026 ================= */
+/* nav CTA */
+.topnav-cta-book{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1.4px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--bg);padding:11px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:transform .12s ease,box-shadow .15s ease}
+.topnav-cta-book:hover{transform:translateY(-1px);box-shadow:0 6px 18px -6px var(--gold-glow)}
+.topnav-links a{font-size:11.5px;letter-spacing:1px;padding:8px 12px}
+@media (max-width:1280px){.topnav-links{display:flex !important;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.topnav-links::-webkit-scrollbar{display:none}}
+@media (max-width:720px){.topnav-cta-book{font-size:9.5px;padding:9px 12px;letter-spacing:1px}}
+
+/* hero updated stamp + fineprint */
+.hero-updated{color:var(--teal-bright) !important;border:1px solid var(--teal-deep);border-radius:6px;padding:3px 9px}
+.hero-fineprint{font-family:var(--mono);font-size:11px;letter-spacing:.8px;color:var(--gray-2);margin:14px 0 26px;text-transform:uppercase}
+
+/* AU-stack trust strip */
+.austack-strip{position:relative;z-index:1;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,rgba(17,22,31,.65),rgba(10,14,20,.4))}
+.austack-in{max-width:1480px;margin:0 auto;padding:14px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.austack-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-right:6px}
+.austack-chip{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.4px;color:var(--gray-2);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:rgba(24,31,44,.5)}
+body.light-mode .austack-chip{color:var(--gray-soft)}
+
+/* Southern Cross + topographic ambient layer */
+body{position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000'><g fill='%23f5f3ee'><circle cx='1310' cy='128' r='2.4'/><circle cx='1268' cy='235' r='2.1'/><circle cx='1369' cy='196' r='1.8'/><circle cx='1245' cy='168' r='1.5'/><circle cx='1330' cy='262' r='2.8'/><circle cx='1108' cy='318' r='1.9'/><circle cx='1042' cy='352' r='1.4'/></g><g fill='%23f5f3ee' opacity='.5'><circle cx='180' cy='120' r='1'/><circle cx='420' cy='80' r='1.2'/><circle cx='640' cy='190' r='.9'/><circle cx='890' cy='90' r='1.1'/><circle cx='240' cy='420' r='1'/><circle cx='80' cy='640' r='1.2'/><circle cx='520' cy='560' r='.8'/><circle cx='960' cy='480' r='1'/><circle cx='1480' cy='520' r='1.1'/><circle cx='720' cy='820' r='1'/><circle cx='1180' cy='760' r='.9'/><circle cx='340' cy='880' r='1.1'/><circle cx='1520' cy='860' r='1'/></g></svg>");background-size:1600px 1000px;animation:aaaDrift 140s linear infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><g fill='none' stroke='%230fb8a9' stroke-width='1'><path d='M-50 620 C200 560 380 660 620 600 S1050 520 1260 580'/><path d='M-50 680 C220 620 400 720 640 660 S1070 580 1260 640'/><path d='M-50 740 C240 680 420 780 660 720 S1090 640 1260 700'/></g></svg>");background-size:1200px 800px;background-position:bottom}
+@keyframes aaaDrift{from{background-position:0 0}to{background-position:-60px 40px}}
+body.light-mode::before,body.light-mode::after{display:none}
+@media (prefers-reduced-motion:reduce){body::before{animation:none}}
+
+/* ghost section numerals */
+body{counter-reset:aaasec}
+section.section{counter-increment:aaasec}
+section.section::before{content:counter(aaasec,decimal-leading-zero);position:absolute;top:34px;right:36px;z-index:0;font-family:var(--serif);font-weight:300;font-size:clamp(80px,9vw,150px);line-height:1;color:var(--white);opacity:.04;pointer-events:none;font-style:italic}
+body.light-mode section.section::before{color:var(--bg);opacity:.05}
+@media (max-width:980px){section.section::before{display:none}}
+
+/* left progress spine */
+.aaa-spine{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:9px}
+.aaa-spine a{position:relative;width:9px;height:9px;border-radius:50%;background:var(--line);transition:background .2s ease,transform .2s ease;display:block}
+.aaa-spine a:hover{background:var(--gold);transform:scale(1.3)}
+.aaa-spine a.on{background:var(--gold);box-shadow:0 0 10px var(--gold-glow)}
+.aaa-spine a span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;letter-spacing:1.2px;color:var(--gold);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease}
+.aaa-spine a:hover span{opacity:1}
+@media (max-width:1280px){.aaa-spine{display:none}}
+body.light-mode .aaa-spine a span{background:#fff;color:var(--gold-deep)}
+
+/* scroll reveal (gated on html.aaa-js so no-JS users see everything) */
+html.aaa-js section.section,html.aaa-js .austack-strip{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.aaa-js section.section,html.aaa-js .austack-strip{opacity:1 !important;transform:none !important;transition:none}}
+
 </style>
 <!-- Favicon set — star logo, generated 02 June 2026 -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -3543,6 +3592,21 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
 
 </head>
 <body>
+<nav class="aaa-spine" aria-label="Page sections">
+  <a href="#top"><span>Top</span></a>
+  <a href="#what-we-do"><span>What we do</span></a>
+  <a href="#industries"><span>Industries</span></a>
+  <a href="#how-it-works"><span>How it works</span></a>
+  <a href="#roi-moat"><span>ROI &amp; Moat</span></a>
+  <a href="#pricing"><span>Pricing</span></a>
+  <a href="#findable"><span>Findable</span></a>
+  <a href="#bonus"><span>Founder's Bonus</span></a>
+  <a href="#faq"><span>FAQ</span></a>
+  <a href="#founder"><span>Founder</span></a>
+  <a href="#process"><span>Process</span></a>
+  <a href="#extended-services"><span>Extended Services</span></a>
+  <a href="#contact"><span>Contact</span></a>
+</nav>
 
 <!-- AU NEWS TICKER · TOP OF PAGE -->
 <div class="au-news-strip au-news-top">
@@ -3585,23 +3649,14 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
     </div>
   </a>
   <div class="topnav-links">
-    <a href="#what-we-do"><span class="num">01</span>What We Do</a>
-    <a href="#industries"><span class="num">02</span>Industries</a>
-    <a href="#how-it-works"><span class="num">03</span>How AAA Works</a>
-    <a href="#roi-moat"><span class="num">04</span>ROI & Moat</a>
-    <a href="#pricing"><span class="num">05</span>Pricing</a>
-    <a href="#bonus"><span class="num">06</span>Founders' Bonus</a>
-    <a href="#process"><span class="num">07</span>Process</a>
-    <a href="#faq"><span class="num">08</span>FAQ</a>
-    <a href="#contact"><span class="num">09</span>Contact</a>
+    <a href="#what-we-do">What We Do</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#findable">Findable</a>
+    <a href="#contact">Contact</a>
   </div>
   <div class="topnav-right">
-    <a href="#findable" class="topnav-cta-findable" title="Findable — get seen by AI search &amp; land in the inbox">
-      <svg class="fnd-navbird" viewBox="0 0 48 48" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 33 C9 21 22 17 30 22 C34 24.5 36 22 40 17.5"/><path d="M7 33 C13 40 26 40 33 33"/><path d="M33 33 C37 35 40.5 39 42 44"/></g><path d="M40 17.5 L47 15.5 L41.5 21 Z" fill="currentColor"/><circle cx="34.5" cy="22.5" r="1.7" fill="currentColor"/></svg>Findable
-    </a>
-    <a href="#extended-services" class="topnav-cta-extended" title="Extended Services — eight focused add-ons">
-      Extended Services →
-    </a>
+    <a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener" class="topnav-cta-book">BOOK PHASE 0 →</a>
   </div>
 </nav>
 
@@ -3612,6 +3667,7 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
     <span>10-DAY DELIVERY · LOCKED IN AGREEMENT</span>
     <span>SOLO OPERATOR · FULL-TEAM OUTPUT</span>
     <span>DIRECT TO FOUNDER · NO JUNIORS</span>
+    <span class="hero-updated">UPDATED 11 JUNE 2026</span>
   </div>
   <h1>
     AI automation for Australian SMEs —<br>
@@ -3619,17 +3675,10 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
     <span class="teal">agents you own, priced per piece.</span>
   </h1>
   <p class="hero-sub">
-    AAA by Artigellence builds <strong>production-grade AI agents and automations</strong> for Australian SME owners. <strong>Phase 0 is A$4,500 fully refundable</strong> — a 10-to-30 day pilot on your real data. Agents are <strong>A$3,000 each, minimum 4</strong>, paid on delivery. The Standard Year-1 Engagement is <strong>A$56,500 incl GST</strong>. <em style="color: var(--gold-bright); font-style: italic;">All prices include GST. Run-costs (LLM/API/SaaS) scoped during Phase 0.</em>
+    AAA by Artigellence builds <strong>production-grade AI agents and automations</strong> for Australian SME owners — a <strong>fully refundable pilot</strong> on your real data first, <strong>agents you own</strong>, priced per piece, every number public on this page.
   </p>
 
-  <!-- BONUS BANNER -->
-  <div class="bonus-banner">
-    <div class="bonus-banner-left">
-      <span class="bonus-tag">FOUNDER'S BONUS</span>
-      <span class="bonus-text">Sign the full <span class="hl">Standard Year-1 Engagement</span> and get a <span class="hlp">Custom GPT + Media Pack</span> worth A$7,000 — included</span>
-    </div>
-    <span class="bonus-counter">A$56,500 INCL GST · YEAR 1</span>
-  </div>
+
 
   <div class="hero-cta-row">
     <a href="#pricing" class="btn-primary">START PHASE 0 · A$4,500 REFUNDABLE →</a>
@@ -3640,18 +3689,7 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
     DELIVERY: 10 DAYS FROM AGREEMENT · LOCKED IN WRITING · NOT WEEKS, NOT MONTHS
   </div>
 
-  <!-- DIAGNOSTIC OFFER STRIP -->
-  <div class="freebie-strip">
-    <span class="freebie-icon">📩</span>
-    <div class="freebie-content">
-      <div class="freebie-title">Three lines is all I need. <em>You'll have a real answer in 24–48 hours.</em></div>
-      <div class="freebie-desc">Email or WhatsApp Raj your <strong>top operational headache</strong> — three lines, not an essay. Within 24–48 hours you'll have a written response showing how AAA would actually solve it for your specific business, your specific systems, your specific industry. <strong>Free. Direct from the founder. No drip sequence. No card required.</strong></div>
-    </div>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0;">
-      <a href="mailto:raj@artigellence.com?subject=AAA%20-%20My%20top%20operational%20headache" style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; background: var(--green-bright); color: #0a0e14; padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase; white-space: nowrap;">EMAIL RAJ →</a>
-      <a href="https://wa.me/61469313323?text=Hi%20Raj%20-%20my%20top%20operational%20headache%20is%3A" target="_blank" rel="noopener" style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; background: transparent; color: var(--green-bright); padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase; white-space: nowrap; border: 1px solid var(--green-bright);">WHATSAPP →</a>
-    </div>
-  </div>
+
 
   <div class="hero-stats">
     <div class="hero-stat">
@@ -3675,7 +3713,38 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
       <div class="desc">Now applied to AI delivery</div>
     </div>
   </div>
+  <p class="hero-fineprint">All prices include GST. Run-costs (LLM/API/SaaS) scoped during Phase 0.</p>
+
+  <!-- BONUS BANNER -->
+  <div class="bonus-banner">
+    <div class="bonus-banner-left">
+      <span class="bonus-tag">FOUNDER'S BONUS</span>
+      <span class="bonus-text">Sign the full <span class="hl">Standard Year-1 Engagement</span> and get a <span class="hlp">Custom GPT + Media Pack</span> worth A$7,000 — included</span>
+    </div>
+    <span class="bonus-counter">A$56,500 INCL GST · YEAR 1</span>
+  </div>
+
+  <!-- DIAGNOSTIC OFFER STRIP -->
+  <div class="freebie-strip">
+    <span class="freebie-icon">📩</span>
+    <div class="freebie-content">
+      <div class="freebie-title">Three lines is all I need. <em>Then I come to you.</em></div>
+      <div class="freebie-desc">Email or WhatsApp Raj your <strong>top operational headache</strong> — three lines, not an essay. If it's a fit, you get a <strong>free 90-minute Workflow Walkthrough</strong> at your premises (Sydney metro): I watch how the work actually flows and tell you on the spot what's worth automating and what isn't. <strong>Straight answers, face to face. Limited spots each month.</strong> The written version — your Opportunity Map — is A$595 and credits 100% to Phase 0.</div>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; flex-shrink: 0;">
+      <a href="mailto:raj@artigellence.com?subject=AAA%20-%20My%20top%20operational%20headache" style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; background: var(--green-bright); color: #0a0e14; padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase; white-space: nowrap;">EMAIL RAJ →</a>
+      <a href="https://wa.me/61469313323?text=Hi%20Raj%20-%20my%20top%20operational%20headache%20is%3A" target="_blank" rel="noopener" style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; background: transparent; color: var(--green-bright); padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase; white-space: nowrap; border: 1px solid var(--green-bright);">WHATSAPP →</a>
+    </div>
+  </div>
 </section>
+
+<!-- ===== AU-STACK TRUST STRIP (added 11 Jun 2026 restyle) ===== -->
+<div class="austack-strip">
+  <div class="austack-in">
+    <span class="austack-label">BUILT FOR THE SYSTEMS YOU ALREADY RUN —</span>
+    <span class="austack-chip">Xero</span><span class="austack-chip">MYOB</span><span class="austack-chip">ServiceM8</span><span class="austack-chip">Cliniko</span><span class="austack-chip">Tradify</span><span class="austack-chip">simPRO</span><span class="austack-chip">Halaxy</span><span class="austack-chip">LEAP</span><span class="austack-chip">HubSpot</span><span class="austack-chip">Shopify</span><span class="austack-chip">+ custom APIs</span>
+  </div>
+</div>
 
 <!-- ===== WHILE YOU'RE WORKING — LIVE BAND ===== -->
 <section class="section" id="lifeband-section">
@@ -5972,5 +6041,34 @@ if (nlSubmit) {
 </script>
 
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+<script>
+/* AAA restyle pass JS · 11 Jun 2026 */
+(function(){
+  document.documentElement.classList.add('aaa-js');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var secs = document.querySelectorAll('section.section, .austack-strip');
+  if (reduced || !('IntersectionObserver' in window)) {
+    secs.forEach(function(s){ s.classList.add('aaa-in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('aaa-in'); io.unobserve(e.target);} });
+    }, { threshold: 0.08 });
+    secs.forEach(function(s){ io.observe(s); });
+  }
+  /* spine scrollspy */
+  var links = document.querySelectorAll('.aaa-spine a');
+  var map = {};
+  links.forEach(function(a){ var id = a.getAttribute('href').slice(1); var el = document.getElementById(id); if(el) map[id] = a; });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var a = map[e.target.id]; if(!a) return;
+        if (e.isIntersecting) { links.forEach(function(l){ l.classList.remove('on'); }); a.classList.add('on'); }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    Object.keys(map).forEach(function(id){ spy.observe(document.getElementById(id)); });
+  }
+})();
+</script>
 </body>
 </html>

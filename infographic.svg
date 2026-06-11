@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Georgia, 'DejaVu Serif', serif">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9b542"/><stop offset="1" stop-color="#8b6914"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11161f"/><stop offset="1" stop-color="#181f2c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1600" height="900" fill="#0a0e14"/>
+  <!-- southern cross -->
+  <g fill="#f5f3ee" opacity="0.8">
+    <circle cx="1452" cy="84" r="3"/><circle cx="1410" cy="178" r="2.6"/><circle cx="1502" cy="146" r="2.2"/>
+    <circle cx="1392" cy="120" r="1.8"/><circle cx="1468" cy="206" r="3.4"/>
+  </g>
+  <g fill="#f5f3ee" opacity="0.35">
+    <circle cx="160" cy="120" r="1.4"/><circle cx="420" cy="70" r="1.6"/><circle cx="820" cy="100" r="1.2"/>
+    <circle cx="1180" cy="60" r="1.4"/><circle cx="90" cy="820" r="1.4"/><circle cx="1520" cy="840" r="1.5"/>
+  </g>
+
+  <!-- header -->
+  <rect x="70" y="56" width="74" height="44" rx="9" fill="url(#gold)"/>
+  <text x="107" y="85" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="19" font-weight="bold" fill="#0a0e14">AAA</text>
+  <text x="162" y="76" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="14" letter-spacing="3" fill="#9aa3b5">ARTIGELLENCE AUGMENTATION AGGREGATOR · SYDNEY</text>
+  <text x="162" y="96" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="12" letter-spacing="2" fill="#6b7488">AI AUTOMATION FOR AUSTRALIAN SMEs · UPDATED 11 JUNE 2026</text>
+
+  <text x="70" y="172" font-size="52" fill="#f5f3ee">Phase 0 is on me. <tspan font-style="italic" fill="#d9b542">The agents are yours.</tspan></text>
+  <text x="70" y="212" font-size="22" fill="#9aa3b5">The whole engagement on one screen — the 12-month arc, the honest numbers, the safety net.</text>
+
+  <!-- ===== TIMELINE ===== -->
+  <line x1="120" y1="395" x2="1480" y2="395" stroke="#2a3142" stroke-width="3"/>
+  <line x1="120" y1="395" x2="700" y2="395" stroke="url(#gold)" stroke-width="3"/>
+
+  <!-- node 1: Day 1 -->
+  <circle cx="160" cy="395" r="13" fill="#0a0e14" stroke="#c9a227" stroke-width="3"/>
+  <text x="160" y="350" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="15" font-weight="bold" letter-spacing="2" fill="#c9a227">DAY 1</text>
+  <text x="160" y="438" text-anchor="middle" font-size="18" fill="#f5f3ee">Discovery call</text>
+  <text x="160" y="462" text-anchor="middle" font-size="15" fill="#9aa3b5">Mutual NDA signed</text>
+
+  <!-- node 2: Day 10 (highlight) -->
+  <circle cx="430" cy="395" r="20" fill="url(#gold)"/>
+  <circle cx="430" cy="395" r="28" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.5"/>
+  <text x="430" y="345" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="17" font-weight="bold" letter-spacing="2" fill="#d9b542">DAY 10</text>
+  <text x="430" y="440" text-anchor="middle" font-size="19" font-weight="bold" fill="#f5f3ee">First working result</text>
+  <text x="430" y="464" text-anchor="middle" font-size="15" fill="#19d4c4">A real agent, on your real data</text>
+
+  <!-- node 3: Day 30 (decision / stamp ring) -->
+  <circle cx="700" cy="395" r="14" fill="#0a0e14" stroke="#f87171" stroke-width="3"/>
+  <text x="700" y="350" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="15" font-weight="bold" letter-spacing="2" fill="#f87171">DAY 30</text>
+  <text x="700" y="438" text-anchor="middle" font-size="18" fill="#f5f3ee">You decide</text>
+  <text x="700" y="462" text-anchor="middle" font-size="15" fill="#9aa3b5">Keep building — or full refund</text>
+
+  <!-- node 4: Months 2-4 -->
+  <circle cx="1010" cy="395" r="13" fill="#0a0e14" stroke="#0fb8a9" stroke-width="3"/>
+  <text x="1010" y="350" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="15" font-weight="bold" letter-spacing="2" fill="#19d4c4">MONTHS 2–4</text>
+  <text x="1010" y="438" text-anchor="middle" font-size="18" fill="#f5f3ee">Build phase</text>
+  <text x="1010" y="462" text-anchor="middle" font-size="15" fill="#9aa3b5">4–8 agents · paid on delivery</text>
+
+  <!-- node 5: Months 5-12 -->
+  <circle cx="1340" cy="395" r="13" fill="#0a0e14" stroke="#0fb8a9" stroke-width="3"/>
+  <text x="1340" y="350" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="15" font-weight="bold" letter-spacing="2" fill="#19d4c4">MONTHS 5–12</text>
+  <text x="1340" y="438" text-anchor="middle" font-size="18" fill="#f5f3ee">Operate</text>
+  <text x="1340" y="462" text-anchor="middle" font-size="15" fill="#9aa3b5">Retainer · 14-agent ceiling · quarterly review</text>
+
+  <!-- refund stamp -->
+  <g transform="translate(700 280) rotate(-8)">
+    <rect x="-148" y="-30" width="296" height="56" rx="9" fill="none" stroke="#f87171" stroke-width="3.5"/>
+    <text x="0" y="8" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="19" font-weight="bold" letter-spacing="3" fill="#f87171">100% MONEY-BACK · 30 DAYS</text>
+  </g>
+
+  <!-- ===== PRICE LEDGER (bottom left) ===== -->
+  <rect x="70" y="540" width="700" height="290" rx="16" fill="url(#card)" stroke="#8b6914" stroke-width="1.5"/>
+  <text x="100" y="585" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="13" letter-spacing="3" fill="#c9a227">QUOTATION · ALL PRICES INCL GST</text>
+
+  <text x="100" y="630" font-size="19" fill="#f5f3ee">Workflow walkthrough — I come to you</text>
+  <line x1="470" y1="624" x2="620" y2="624" stroke="#2a3142" stroke-width="2" stroke-dasharray="2 5"/>
+  <text x="740" y="630" text-anchor="end" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="20" font-weight="bold" fill="#10b981">FREE</text>
+
+  <text x="100" y="678" font-size="19" fill="#f5f3ee">Phase 0 pilot — fully refundable</text>
+  <line x1="420" y1="672" x2="600" y2="672" stroke="#2a3142" stroke-width="2" stroke-dasharray="2 5"/>
+  <text x="740" y="678" text-anchor="end" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="20" font-weight="bold" fill="#f5f3ee">A$4,500</text>
+
+  <text x="100" y="726" font-size="19" fill="#f5f3ee">Agents, each — minimum 4, paid on delivery</text>
+  <line x1="520" y1="720" x2="600" y2="720" stroke="#2a3142" stroke-width="2" stroke-dasharray="2 5"/>
+  <text x="740" y="726" text-anchor="end" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="20" font-weight="bold" fill="#f5f3ee">A$3,000</text>
+
+  <text x="100" y="774" font-size="19" fill="#f5f3ee">Standard Year 1, all-in</text>
+  <line x1="330" y1="768" x2="600" y2="768" stroke="#2a3142" stroke-width="2" stroke-dasharray="2 5"/>
+  <text x="740" y="774" text-anchor="end" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="20" font-weight="bold" fill="#d9b542">A$56,500</text>
+
+  <text x="100" y="810" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="12.5" letter-spacing="1" fill="#6b7488">RUN-COSTS (LLM/API/SAAS) PASS THROUGH AT COST · SCOPED DURING PHASE 0</text>
+
+  <!-- ===== OWNERSHIP / MOAT (bottom right) ===== -->
+  <rect x="800" y="540" width="730" height="290" rx="16" fill="url(#card)" stroke="#2a3142" stroke-width="1.5"/>
+  <text x="830" y="585" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="13" letter-spacing="3" fill="#19d4c4">WHY AAA · THE MOAT</text>
+
+  <text x="830" y="628" font-size="19" fill="#f5f3ee">• <tspan font-weight="bold">Founder-direct</tspan> — you get Raj, every meeting, every build</text>
+  <text x="830" y="666" font-size="19" fill="#f5f3ee">• <tspan font-weight="bold">You own everything</tspan> — code, prompts, credentials, in your accounts</text>
+  <text x="830" y="704" font-size="19" fill="#f5f3ee">• <tspan font-weight="bold">Built for the Australian stack</tspan> — no vendor lock-in, ever</text>
+
+  <g font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="13" fill="#9aa3b5">
+    <rect x="830" y="726" width="64" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="862" y="746" text-anchor="middle">Xero</text>
+    <rect x="902" y="726" width="68" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="936" y="746" text-anchor="middle">MYOB</text>
+    <rect x="978" y="726" width="112" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="1034" y="746" text-anchor="middle">ServiceM8</text>
+    <rect x="1098" y="726" width="92" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="1144" y="746" text-anchor="middle">Cliniko</text>
+    <rect x="1198" y="726" width="92" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="1244" y="746" text-anchor="middle">Tradify</text>
+    <rect x="1298" y="726" width="68" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="1332" y="746" text-anchor="middle">LEAP</text>
+    <rect x="1374" y="726" width="120" height="30" rx="15" fill="none" stroke="#2a3142"/><text x="1434" y="746" text-anchor="middle">+ your APIs</text>
+  </g>
+
+  <text x="830" y="800" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="15" letter-spacing="1" fill="#d9b542">aaa.artigellence.com · 0469 313 323 · raj@artigellence.com</text>
+  <text x="830" y="822" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="12" letter-spacing="1" fill="#6b7488">RAJ SINGH · FOUNDER · ABN 83 988 690 362 · PRIVACY ACT 1988 COMPLIANT</text>
+
+  <!-- footer rule -->
+  <line x1="70" y1="862" x2="1530" y2="862" stroke="#1d2332" stroke-width="1"/>
+  <text x="800" y="886" text-anchor="middle" font-family="'DejaVu Sans Mono', Menlo, monospace" font-size="11.5" letter-spacing="2" fill="#6b7488">POWERED BY AAA · ARTIGELLENCE AUGMENTATION AGGREGATOR · RAJ SINGH</text>
+</svg>

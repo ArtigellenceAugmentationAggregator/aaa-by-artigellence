@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your First AI Agent in 60 Seconds | AAA by Artigellence</title>
+<meta name="description" content="Three taps: your industry, your biggest time-sink, who carries it today — and you'll see the exact AI agent that kills it, with the honest price. Sydney-based, founder-built, fully refundable pilot.">
+<link rel="canonical" href="https://aaa.artigellence.com/wizard.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aaa.artigellence.com/wizard.html">
+<meta property="og:title" content="Find Your First AI Agent in 60 Seconds | AAA by Artigellence">
+<meta property="og:description" content="Three taps and you'll see the exact agent that gives you your evenings back — with the honest price next to it.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://aaa.artigellence.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AAA by Artigellence — AI automation for Australian SMEs">
+<meta name="twitter:image" content="https://aaa.artigellence.com/og-image.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0a0e14">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="msvalidate.01" content="A5CD1E420147B0F6AB37D65A26AAE605">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#0a0e14; --bg-2:#11161f; --bg-3:#181f2c; --line:#2a3142; --line-soft:#1d2332;
+  --gold:#c9a227; --gold-bright:#d9b542; --gold-deep:#8b6914; --gold-glow:rgba(201,162,39,.4);
+  --teal:#0fb8a9; --teal-bright:#19d4c4; --green:#10b981; --stamp:#f87171;
+  --white:#f5f3ee; --gray:#6b7488; --gray-2:#9aa3b5;
+  --serif:'Fraunces',Georgia,serif; --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--bg);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.wrap{width:100%;max-width:880px;margin:0 auto;padding:0 22px}
+
+/* topbar */
+.topbar{border-bottom:1px solid var(--line-soft);background:rgba(10,14,20,.9);backdrop-filter:blur(8px)}
+.topbar-in{max-width:880px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tb-brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;min-width:0}
+.tb-mark{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:1px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--bg);padding:5px 9px;border-radius:6px;flex-shrink:0}
+.tb-name{font-family:var(--mono);font-size:11px;letter-spacing:.6px;color:var(--gray-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-link{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;color:var(--gold);text-decoration:none;border:1px solid var(--gold-deep);border-radius:7px;padding:8px 13px;white-space:nowrap}
+.tb-link:hover{background:rgba(201,162,39,.08)}
+
+/* stage */
+main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:46px 0 70px}
+.stage{width:100%}
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:2.4px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;text-align:center}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.12;letter-spacing:-.5px;text-align:center;margin-bottom:10px}
+h1 em{font-style:italic;color:var(--gold-bright)}
+.sub{font-size:16px;color:var(--gray-2);text-align:center;max-width:54ch;margin:0 auto 34px}
+
+/* progress */
+.prog{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:30px;font-family:var(--mono)}
+.prog .dot{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:var(--gray);transition:all .25s ease}
+.prog .dot.on{border-color:var(--gold);color:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
+.prog .dot.done{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.prog .bar{width:42px;height:1.5px;background:var(--line)}
+.prog .bar.done{background:var(--gold)}
+
+/* panels */
+.panel{display:none}
+.panel.on{display:block;animation:rise .4s ease}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel.on{animation:none}}
+.q{font-family:var(--serif);font-size:clamp(20px,3vw,27px);font-weight:500;text-align:center;margin-bottom:24px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:760px;margin:0 auto}
+.opt{background:linear-gradient(145deg,var(--bg-2),var(--bg-3));border:1px solid var(--line);border-radius:13px;padding:20px 20px 18px;cursor:pointer;text-align:left;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;font-family:var(--sans);color:var(--white)}
+.opt:hover,.opt:focus-visible{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 10px 26px -14px var(--gold-glow);outline:none}
+.opt .ic{font-size:22px;display:block;margin-bottom:8px}
+.opt .t{font-weight:700;font-size:15.5px;display:block;margin-bottom:3px}
+.opt .d{font-size:13px;color:var(--gray-2);display:block;line-height:1.45}
+.backrow{text-align:center;margin-top:26px}
+.backbtn{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;color:var(--gray);background:none;border:none;cursor:pointer;text-transform:uppercase}
+.backbtn:hover{color:var(--gold)}
+
+/* result */
+.result-card{position:relative;max-width:680px;margin:0 auto;background:linear-gradient(150deg,var(--bg-2),var(--bg-3));border:1px solid var(--gold-deep);border-radius:18px;padding:34px 34px 30px;box-shadow:0 30px 70px -40px var(--gold-glow)}
+.match-tag{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:2.2px;color:var(--teal-bright);text-transform:uppercase;margin-bottom:10px}
+.agent-name{font-family:var(--serif);font-size:clamp(28px,4.4vw,40px);font-weight:500;line-height:1.08;margin-bottom:6px}
+.agent-name em{font-style:italic;color:var(--gold-bright)}
+.agent-sub{font-family:var(--mono);font-size:11.5px;letter-spacing:1.4px;color:var(--gray-2);text-transform:uppercase;margin-bottom:18px}
+.agent-does{font-size:16px;color:var(--gray-2);margin-bottom:8px}
+.agent-does b{color:var(--white)}
+.agent-you{font-size:14.5px;color:var(--teal-bright);font-style:italic;margin-bottom:20px}
+.lives{display:flex;flex-wrap:wrap;align-items:center;gap:7px 8px;margin-bottom:24px}
+.lives .lab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.6px;color:var(--gold);text-transform:uppercase;margin-right:4px}
+.lives .chip{font-family:var(--mono);font-size:11px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--gray-2);background:rgba(10,14,20,.5)}
+.pricegrid{border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:16px 0;margin-bottom:22px}
+.prow{display:flex;align-items:baseline;gap:12px;padding:7px 0}
+.prow .pi{font-size:14.5px;font-weight:600}
+.prow .pd{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.prow .pp{font-family:var(--mono);font-weight:700;font-size:15px;white-space:nowrap}
+.prow .pp small{display:block;font-size:9.5px;letter-spacing:.8px;color:var(--gold);text-transform:uppercase;text-align:right;font-weight:600}
+.pp.free{color:var(--green)}
+.stamp{position:absolute;top:22px;right:24px;transform:rotate(8deg);border:2.5px solid var(--stamp);color:var(--stamp);font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:1.4px;padding:8px 12px;border-radius:8px;text-transform:uppercase;opacity:.9}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:1px;padding:15px 22px;border-radius:9px;text-decoration:none;text-align:center;display:inline-flex;align-items:center;gap:8px;transition:transform .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--bg)}
+.btn-line{border:1px solid var(--line);color:var(--white)}
+.btn-line:hover{border-color:var(--gold)}
+.result-foot{margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;color:var(--gray);text-transform:uppercase}
+.restart{display:block;text-align:center;margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:1.2px;color:var(--gray);background:none;border:none;cursor:pointer;text-transform:uppercase;width:100%}
+.restart:hover{color:var(--gold)}
+
+footer{border-top:1px solid var(--line-soft);padding:22px 0}
+.foot-in{max-width:880px;margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between}
+footer p,footer a{font-family:var(--mono);font-size:10.5px;letter-spacing:.6px;color:var(--gray);text-decoration:none}
+footer a:hover{color:var(--gold)}
+:focus-visible{outline:3px solid var(--gold-deep);outline-offset:2px}
+@media (max-width:560px){.result-card{padding:26px 20px}.stamp{position:static;display:inline-block;transform:rotate(-3deg);margin-bottom:14px}.prog .bar{width:24px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="tb-brand" href="/">
+      <span class="tb-mark">AAA</span>
+      <span class="tb-name">by Artigellence · Sydney · UPDATED 11 JUNE 2026</span>
+    </a>
+    <a class="tb-link" href="/">← FULL SITE</a>
+  </div>
+</div>
+
+<main>
+  <div class="wrap stage">
+    <div class="kicker">§ The 60-second match</div>
+    <h1>Find your <em>first agent</em>.</h1>
+    <p class="sub">Three taps: your industry, your biggest time-sink, who carries it today — and you'll see the exact agent that kills it, with the honest price next to it.</p>
+
+    <div class="prog" aria-hidden="true">
+      <div class="dot on" id="d1">1</div><div class="bar" id="b1"></div>
+      <div class="dot" id="d2">2</div><div class="bar" id="b2"></div>
+      <div class="dot" id="d3">3</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="panel on" id="p1" aria-label="Step 1: your industry">
+      <h2 class="q">What kind of business do you run?</h2>
+      <div class="opts" id="opts1"></div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="panel" id="p2" aria-label="Step 2: your biggest time-sink">
+      <h2 class="q">Which of these eats the most of your week?</h2>
+      <div class="opts" id="opts2"></div>
+      <div class="backrow"><button class="backbtn" data-back="1">← Back</button></div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="panel" id="p3" aria-label="Step 3: who carries it today">
+      <h2 class="q">And who carries that job today?</h2>
+      <div class="opts" id="opts3"></div>
+      <div class="backrow"><button class="backbtn" data-back="2">← Back</button></div>
+    </section>
+
+    <!-- RESULT -->
+    <section class="panel" id="p4" aria-label="Your matched agent">
+      <div class="result-card">
+        <div class="stamp">First result · Day 10</div>
+        <div class="match-tag">Your match · one of the standard eight</div>
+        <div class="agent-name" id="rName"></div>
+        <div class="agent-sub" id="rSub"></div>
+        <p class="agent-does" id="rDoes"></p>
+        <p class="agent-you" id="rYou"></p>
+        <div class="lives"><span class="lab">Lives inside</span><span id="rLives"></span></div>
+        <div class="pricegrid">
+          <div class="prow"><span class="pi">Workflow walkthrough — I come to you</span><span class="pd"></span><span class="pp free">FREE</span></div>
+          <div class="prow"><span class="pi">Phase 0 pilot — this agent live on your real data</span><span class="pd"></span><span class="pp">A$4,500<small>Fully refundable · 30 days</small></span></div>
+          <div class="prow"><span class="pi">Each agent after that</span><span class="pd"></span><span class="pp">A$3,000<small>Paid on delivery</small></span></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="tel:+61469313323">📞 CALL RAJ</a>
+          <a class="btn btn-line" id="rWa" href="#" target="_blank" rel="noopener">WHATSAPP THIS MATCH →</a>
+          <a class="btn btn-line" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">BOOK A TIME</a>
+        </div>
+        <p class="result-foot">All prices incl GST · You own everything built · No lock-in, ever</p>
+      </div>
+      <button class="restart" id="restart">↺ Start again</button>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <p>Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh · ABN 83 988 690 362</p>
+    <p><a href="/">Home</a> &nbsp;·&nbsp; <a href="/tradies.html">For Tradies</a> &nbsp;·&nbsp; <a href="/partners.html">For Partners</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- data ---------- */
+var AGENTS = {
+  quote:   { name:"The <em>Quote Drafter</em>", sub:"Kills late-night quoting",
+             does:"Turns a finished job or enquiry into a <b>ready-to-send quote draft</b> — your pricing, your wording, your template — waiting for one tap of approval instead of an hour at the keyboard." },
+  chaser:  { name:"The <em>Payment Chaser</em>", sub:"Kills chasing your own money",
+             does:"Follows up every unpaid invoice on a polite, persistent schedule — <b>firm enough to get paid, human enough to keep the customer</b> — and tells you the moment someone needs a personal call." },
+  invoice: { name:"The <em>Invoice Closer</em>", sub:"Kills the gap between job done and invoice sent",
+             does:"The moment work is marked complete, the invoice is <b>drafted from the actual job data</b> and queued for your approval — so billing happens the same day, not the same month." },
+  books:   { name:"The <em>Books Tidy</em>", sub:"Kills typing the same thing twice",
+             does:"Moves the data you already entered once to everywhere else it belongs — <b>job system to Xero/MYOB to customer message</b> — so reconciliation stops being archaeology." },
+  sched:   { name:"The <em>Scheduler</em>", sub:"Kills the calendar juggle and the no-shows",
+             does:"Handles bookings, confirmations and reminder nudges in your existing calendar — <b>fewer gaps, fewer no-shows</b>, no app your customers have to download." },
+  triage:  { name:"The <em>Callback Triage</em>", sub:"Kills the missed-enquiry leak",
+             does:"Every enquiry — missed call, web form, email — gets <b>logged, sorted and answered or queued</b> within minutes, so the job goes to you instead of whoever picked up first." },
+  touch:   { name:"The <em>Stay-In-Touch</em>", sub:"Kills quiet customers drifting away",
+             does:"Watches for customers going quiet and drafts the <b>right check-in at the right moment</b> — reorders, reviews, repeat bookings — before the relationship lapses." },
+  brief:   { name:"The <em>Daily Brief</em>", sub:"Kills starting the day blind",
+             does:"One morning message: <b>cash position, jobs due, invoices outstanding, anything slipping</b> — pulled from your real systems, read in two minutes with the first coffee." }
+};
+
+var IND = {
+  trades:  { ic:"🔧", t:"Trades & field services", d:"Sparky, plumber, builder, HVAC, cleaning…",
+             stack:["ServiceM8","Tradify","simPRO","AroFlo","Xero","MYOB"],
+             pains:[ ["quote","Quoting after dinner","Jobs measured by 4pm, quotes typed at 9pm"],
+                     ["chaser","Chasing unpaid invoices","Work done, money slow, awkward follow-ups"],
+                     ["books","Re-keying between systems","Job system → Xero → text, same data three times"],
+                     ["sched","Juggling the calendar","Bookings, call-backs, last-minute shuffles"] ] },
+  health:  { ic:"🩺", t:"Allied health & clinics", d:"Physio, chiro, psych, podiatry, GP practice…",
+             stack:["Cliniko","Halaxy","Best Practice","Medical Director","Xero"],
+             pains:[ ["sched","No-shows & reminder admin","Empty slots that were booked yesterday"],
+                     ["triage","Phone & enquiry overload","Front desk drowning while patients wait"],
+                     ["chaser","Outstanding accounts","Gap claims and unpaid invoices piling up"],
+                     ["touch","Patients drifting off plans","Care plans that stop after session three"] ] },
+  prof:    { ic:"📊", t:"Accounting & professional services", d:"Accounting, legal, consulting, conveyancing…",
+             stack:["Xero","MYOB","LEAP","Smokeball","Actionstep","HubSpot"],
+             pains:[ ["books","Client data arriving as chaos","Shoeboxes, mismatches, deadline archaeology"],
+                     ["chaser","WIP & debtor follow-up","Done the work, still waiting to be paid"],
+                     ["triage","Enquiries & intake admin","New matters stuck in the inbox"],
+                     ["brief","No clear daily picture","Where the firm stands, only at month-end"] ] },
+  food:    { ic:"🚚", t:"Food, wholesale & distribution", d:"Distributors, manufacturers, importers…",
+             stack:["Xero","MYOB","Ordermentum","Shopify","custom APIs"],
+             pains:[ ["touch","Quiet accounts slipping away","Customers who stopped ordering — noticed too late"],
+                     ["invoice","Orders-to-invoice lag","Deliveries done, paperwork days behind"],
+                     ["chaser","Slow-paying customers","Cash tied up in other people's pockets"],
+                     ["brief","Flying blind on the day","Orders, stock, cash — three screens, no picture"] ] },
+  retail:  { ic:"🛒", t:"Retail & e-commerce", d:"Shopfront, online store, or both…",
+             stack:["Shopify","WooCommerce","Xero","HubSpot"],
+             pains:[ ["triage","Customer questions, all channels","Same five questions, every channel, all day"],
+                     ["touch","One-time buyers never returning","No follow-up after the first sale"],
+                     ["books","Orders vs accounts mismatch","Platform says one thing, Xero another"],
+                     ["brief","No single daily picture","Sales, stock, refunds — scattered everywhere"] ] },
+  other:   { ic:"⚙️", t:"Something else", d:"Construction, logistics, tech, services…",
+             stack:["Xero","MYOB","your CRM","your job system","custom APIs"],
+             pains:[ ["quote","Quotes & proposals eating evenings","Every new job starts with a writing shift"],
+                     ["chaser","Chasing payments","The work's done — the money isn't"],
+                     ["books","Double and triple data entry","Same information, multiple systems, by hand"],
+                     ["brief","Starting the day blind","No clear picture without an hour of digging"] ] }
+};
+
+var WHO = [
+  ["me",    "🧑‍🔧", "Me — the owner", "It happens after hours, or not at all",
+            "You're the bottleneck in your own business — this agent hands those hours straight back to you."],
+  ["staff", "🧑‍💼", "Office staff", "Paid hours going to copy-paste work",
+            "Your team stops re-keying and chasing — and gets those hours back for work that actually pays."],
+  ["slips", "🕳️", "Honestly? It slips", "Done late, done badly, or not done",
+            "The jobs that slip are usually the ones leaking money quietly — this agent simply never forgets."]
+];
+
+/* ---------- state & helpers ---------- */
+var state = { ind:null, pain:null, who:null };
+var $ = function(id){ return document.getElementById(id); };
+
+function setStep(n){
+  for (var i=1;i<=4;i++){ $('p'+i).classList.toggle('on', i===n); }
+  $('d1').className = 'dot ' + (n>1?'done':'on');
+  $('d2').className = 'dot ' + (n>2?'done':(n===2?'on':''));
+  $('d3').className = 'dot ' + (n>3?'done':(n===3?'on':''));
+  $('b1').className = 'bar ' + (n>1?'done':'');
+  $('b2').className = 'bar ' + (n>2?'done':'');
+  window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
+}
+
+function btn(ic,t,d){
+  var b=document.createElement('button');
+  b.className='opt'; b.type='button';
+  b.innerHTML='<span class="ic">'+ic+'</span><span class="t">'+t+'</span><span class="d">'+d+'</span>';
+  return b;
+}
+
+/* ---------- step 1 ---------- */
+Object.keys(IND).forEach(function(k){
+  var o=IND[k], b=btn(o.ic,o.t,o.d);
+  b.addEventListener('click',function(){ state.ind=k; buildStep2(); setStep(2); });
+  $('opts1').appendChild(b);
+});
+
+/* ---------- step 2 ---------- */
+function buildStep2(){
+  var box=$('opts2'); box.innerHTML='';
+  IND[state.ind].pains.forEach(function(p){
+    var b=btn('⏱️',p[1],p[2]);
+    b.addEventListener('click',function(){ state.pain=p[0]; setStep(3); });
+    box.appendChild(b);
+  });
+}
+
+/* ---------- step 3 ---------- */
+WHO.forEach(function(w){
+  var b=btn(w[1],w[2],w[3]);
+  b.addEventListener('click',function(){ state.who=w[0]; buildResult(); setStep(4); });
+  $('opts3').appendChild(b);
+});
+
+/* ---------- result ---------- */
+function buildResult(){
+  var a=AGENTS[state.pain], ind=IND[state.ind];
+  var who=WHO.filter(function(w){return w[0]===state.who;})[0];
+  $('rName').innerHTML=a.name;
+  $('rSub').textContent=a.sub;
+  $('rDoes').innerHTML=a.does;
+  $('rYou').textContent=who[4];
+  $('rLives').innerHTML=ind.stack.map(function(s){return '<span class="chip">'+s+'</span>';}).join(' ');
+  /* build precise message from chosen pain label */
+  var msg, painLabel='';
+  IND[state.ind].pains.forEach(function(p){ if(p[0]===state.pain) painLabel=p[1]; });
+  msg="G'day Raj — did your 60-second match. Industry: "+ind.t+". Biggest time-sink: "+painLabel+
+      ". Matched agent: "+$('rName').textContent+". Keen on the free walkthrough.";
+  $('rWa').href="https://wa.me/61469313323?text="+encodeURIComponent(msg);
+}
+
+/* ---------- nav ---------- */
+document.querySelectorAll('.backbtn').forEach(function(b){
+  b.addEventListener('click',function(){ setStep(parseInt(b.getAttribute('data-back'),10)); });
+});
+$('restart').addEventListener('click',function(){
+  state={ind:null,pain:null,who:null}; setStep(1);
+});
+})();
+</script>
+
+</body>
+</html>

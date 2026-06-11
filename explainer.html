@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA in 90 Seconds — The Explainer | AAA by Artigellence</title>
+<meta name="description" content="The whole AAA proposition in 90 seconds: the problem, the free walkthrough, the day-10 result, the refund safety net, the honest numbers. Auto-playing — press F for fullscreen.">
+<link rel="canonical" href="https://aaa.artigellence.com/explainer.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aaa.artigellence.com/explainer.html">
+<meta property="og:title" content="AAA in 90 Seconds | AAA by Artigellence">
+<meta property="og:description" content="The whole proposition in 90 seconds. Phase 0 is on me. The agents are yours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://aaa.artigellence.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AAA by Artigellence — AI automation for Australian SMEs">
+<meta name="twitter:image" content="https://aaa.artigellence.com/og-image.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0a0e14">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="msvalidate.01" content="A5CD1E420147B0F6AB37D65A26AAE605">
+
+<!--
+NARRATION HOOK (optional, Raj's voice):
+1. Generate narration.mp3 (~90s) via Speechma using the supplied script.
+2. Drop it in the repo root and uncomment the <audio> line near the bottom.
+3. The play/pause key (space) controls both slides and audio together.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#0a0e14; --bg-2:#11161f; --bg-3:#181f2c; --line:#2a3142;
+  --gold:#c9a227; --gold-bright:#d9b542; --gold-deep:#8b6914; --gold-glow:rgba(201,162,39,.4);
+  --teal:#0fb8a9; --teal-bright:#19d4c4; --green:#10b981; --stamp:#f87171;
+  --white:#f5f3ee; --gray:#6b7488; --gray-2:#9aa3b5;
+  --serif:'Fraunces',Georgia,serif; --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Inter',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--white);overflow:hidden;-webkit-font-smoothing:antialiased}
+
+/* ambient stars */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000'><g fill='%23f5f3ee'><circle cx='1310' cy='128' r='2.4'/><circle cx='1268' cy='235' r='2.1'/><circle cx='1369' cy='196' r='1.8'/><circle cx='1245' cy='168' r='1.5'/><circle cx='1330' cy='262' r='2.8'/></g><g fill='%23f5f3ee' opacity='.45'><circle cx='180' cy='120' r='1'/><circle cx='420' cy='80' r='1.2'/><circle cx='640' cy='190' r='.9'/><circle cx='240' cy='420' r='1'/><circle cx='80' cy='640' r='1.2'/><circle cx='960' cy='480' r='1'/><circle cx='1480' cy='520' r='1.1'/><circle cx='720' cy='820' r='1'/><circle cx='340' cy='880' r='1.1'/></g></svg>");
+background-size:1600px 1000px;animation:drift 120s linear infinite alternate}
+@keyframes drift{from{background-position:0 0}to{background-position:-50px 30px}}
+
+/* stage */
+.stage{position:relative;z-index:1;height:100%;display:flex;flex-direction:column}
+.scenes{flex:1;position:relative}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 6vw;opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .7s ease,transform .7s ease,visibility .7s}
+.scene.on{opacity:1;visibility:visible;transform:none}
+
+.kick{font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);font-weight:700;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:3vh;opacity:0;transform:translateY(12px)}
+.big{font-family:var(--serif);font-weight:500;font-size:clamp(30px,6vw,72px);line-height:1.08;letter-spacing:-.015em;max-width:22ch;opacity:0;transform:translateY(16px)}
+.big em{font-style:italic;color:var(--gold-bright)}
+.big .tl{color:var(--teal-bright)}
+.sup{font-size:clamp(15px,2vw,21px);color:var(--gray-2);max-width:52ch;margin-top:2.6vh;opacity:0;transform:translateY(14px)}
+.sup b{color:var(--white)}
+.scene.on .kick{animation:up .7s .15s ease forwards}
+.scene.on .big{animation:up .8s .35s ease forwards}
+.scene.on .sup{animation:up .8s .65s ease forwards}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* scene props */
+.mark{font-family:var(--mono);font-weight:700;font-size:clamp(15px,2vw,20px);letter-spacing:.12em;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--bg);padding:.55em 1em;border-radius:.55em;margin-bottom:3.4vh;opacity:0;transform:translateY(12px)}
+.scene.on .mark{animation:up .7s ease forwards}
+
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:3.4vh;max-width:760px}
+.chips span{font-family:var(--mono);font-size:clamp(10px,1.4vw,13px);font-weight:600;border:1px solid var(--line);border-radius:999px;padding:.5em 1.1em;color:var(--gray-2);background:rgba(17,22,31,.7);opacity:0;transform:translateY(10px)}
+.scene.on .chips span{animation:up .5s ease forwards}
+.scene.on .chips span:nth-child(1){animation-delay:.8s}.scene.on .chips span:nth-child(2){animation-delay:.9s}
+.scene.on .chips span:nth-child(3){animation-delay:1s}.scene.on .chips span:nth-child(4){animation-delay:1.1s}
+.scene.on .chips span:nth-child(5){animation-delay:1.2s}.scene.on .chips span:nth-child(6){animation-delay:1.3s}
+.scene.on .chips span:nth-child(7){animation-delay:1.4s}.scene.on .chips span:nth-child(8){animation-delay:1.5s}
+
+.ticket{margin-top:3.4vh;background:linear-gradient(150deg,var(--bg-2),var(--bg-3));border:1px solid var(--gold-deep);border-radius:14px;padding:clamp(16px,2.4vw,26px) clamp(20px,3vw,34px);text-align:left;max-width:560px;width:100%;opacity:0;transform:translateY(16px);box-shadow:0 26px 60px -36px var(--gold-glow)}
+.scene.on .ticket{animation:up .8s .8s ease forwards}
+.ticket .th{font-family:var(--mono);font-size:clamp(9px,1.1vw,11px);letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between;gap:10px}
+.ticket .tr{display:flex;align-items:baseline;gap:12px;padding:.45em 0;font-size:clamp(13px,1.7vw,16px)}
+.ticket .tr .d{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.ticket .tr .p{font-family:var(--mono);font-weight:700;white-space:nowrap}
+.ticket .tr .p.f{color:var(--green)}
+.ticket .tr .p small{display:block;font-size:.62em;letter-spacing:.08em;color:var(--gold);text-align:right;text-transform:uppercase;font-weight:600}
+
+.bigstamp{margin-top:3.6vh;border:3px solid var(--stamp);color:var(--stamp);font-family:var(--mono);font-weight:700;font-size:clamp(13px,2vw,19px);letter-spacing:.14em;padding:.7em 1.2em;border-radius:.6em;text-transform:uppercase;transform:rotate(-7deg) scale(2.2);opacity:0}
+.scene.on .bigstamp{animation:slam .55s .9s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes slam{to{opacity:.95;transform:rotate(-7deg) scale(1)}}
+
+.ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:3.6vh;opacity:0;transform:translateY(14px)}
+.scene.on .ctas{animation:up .8s .85s ease forwards}
+.btn{font-family:var(--mono);font-weight:700;font-size:clamp(11px,1.5vw,14px);letter-spacing:.1em;padding:1.05em 1.6em;border-radius:.65em;text-decoration:none;display:inline-flex;align-items:center;gap:.6em}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--bg)}
+.btn-line{border:1px solid var(--line);color:var(--white)}
+.btn-line:hover,.btn-gold:hover{transform:translateY(-1px)}
+.contact-line{margin-top:2.4vh;font-family:var(--mono);font-size:clamp(10px,1.3vw,13px);letter-spacing:.08em;color:var(--gray-2);opacity:0}
+.scene.on .contact-line{animation:up .8s 1.05s ease forwards}
+.contact-line a{color:var(--gold);text-decoration:none;font-weight:700}
+
+/* day dial */
+.daydial{font-family:var(--mono);font-weight:700;color:var(--gold-bright);font-size:clamp(54px,11vw,130px);line-height:1;letter-spacing:-.02em;margin-bottom:1.6vh;opacity:0;transform:translateY(16px)}
+.scene.on .daydial{animation:up .8s .3s ease forwards}
+.daydial small{display:block;font-size:.16em;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+
+/* control deck */
+.deck{position:relative;z-index:2;display:flex;align-items:center;gap:16px;padding:16px 22px 18px;border-top:1px solid var(--line)}
+.deck .pb{flex:1;display:flex;gap:6px}
+.deck .seg{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden;cursor:pointer}
+.deck .seg i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright))}
+.deck button{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gray-2);background:none;border:1px solid var(--line);border-radius:7px;padding:9px 13px;cursor:pointer}
+.deck button:hover{color:var(--gold);border-color:var(--gold-deep)}
+.deck .hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--gray);text-transform:uppercase;white-space:nowrap}
+@media (max-width:640px){.deck .hint{display:none}}
+:focus-visible{outline:3px solid var(--gold-deep);outline-offset:2px}
+
+
+/* start overlay (unlocks speech autoplay) */
+.gate{position:fixed;inset:0;z-index:9;background:rgba(10,14,20,.92);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:30px}
+.gate.off{display:none}
+.gate .g-kick{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.gate h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,4.6vw,46px);line-height:1.12;max-width:18ch}
+.gate h2 em{font-style:italic;color:var(--gold-bright)}
+.gate .g-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.gate .g-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--gray);text-transform:uppercase;max-width:46ch}
+#voice.on{color:var(--gold);border-color:var(--gold-deep)}
+
+@media (prefers-reduced-motion:reduce){
+  body::before{animation:none}
+  .scene{transition:none}
+  .scene .kick,.scene .big,.scene .sup,.scene .mark,.scene .chips span,.scene .ticket,.scene .bigstamp,.scene .ctas,.scene .contact-line,.scene .daydial{animation:none !important;opacity:1 !important;transform:none !important}
+  .bigstamp{transform:rotate(-7deg) !important}
+}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="g-kick">AAA · ARTIGELLENCE · 90 SECONDS</div>
+  <h2>Phase 0 is on me.<br>The agents are <em>yours.</em></h2>
+  <div class="g-row">
+    <button class="btn btn-gold" id="goVoice">▶ PLAY WITH VOICE</button>
+    <button class="btn btn-line" id="goSilent">PLAY SILENT</button>
+  </div>
+  <p class="g-note">Voice uses your device's built-in speech · best on Chrome, Edge or Safari · F for fullscreen</p>
+</div>
+
+<div class="stage">
+  <div class="scenes" id="scenes">
+
+    <!-- 1 · TITLE -->
+    <section class="scene" data-t="9000">
+      <div class="mark">AAA · ARTIGELLENCE</div>
+      <h1 class="big">Phase 0 is on me.<br>The agents are <em>yours.</em></h1>
+      <p class="sup">AI automation for Australian small business — explained in ninety seconds.</p>
+    </section>
+
+    <!-- 2 · THE PROBLEM -->
+    <section class="scene" data-t="11000">
+      <div class="kick">§ 01 · The problem</div>
+      <h2 class="big">You started the business to own your time. <em>The admin owns it now.</em></h2>
+      <p class="sup">Quotes at 9pm. Chasing your own money. The same data typed into three systems. The second shift, every night.</p>
+    </section>
+
+    <!-- 3 · WHAT AAA BUILDS -->
+    <section class="scene" data-t="13000">
+      <div class="kick">§ 02 · What AAA builds</div>
+      <h2 class="big">AI agents that do the boring work — <span class="tl">inside the systems you already run.</span></h2>
+      <div class="chips">
+        <span>Xero</span><span>MYOB</span><span>ServiceM8</span><span>Cliniko</span>
+        <span>Tradify</span><span>LEAP</span><span>Shopify</span><span>+ custom APIs</span>
+      </div>
+      <p class="sup">Nothing ripped out. Nothing replaced. <b>You own everything built</b> — the code, the prompts, the credentials.</p>
+    </section>
+
+    <!-- 4 · THE WALKTHROUGH -->
+    <section class="scene" data-t="11000">
+      <div class="kick">§ 03 · How it starts</div>
+      <h2 class="big">Free walkthrough. <em>I come to you.</em></h2>
+      <p class="sup">Ninety minutes at your premises, Sydney metro. I watch how the work actually flows and tell you on the spot what's worth automating — <b>and what isn't.</b></p>
+    </section>
+
+    <!-- 5 · DAY 10 -->
+    <section class="scene" data-t="12000">
+      <div class="kick">§ 04 · The pilot</div>
+      <div class="daydial">10<small>Day</small></div>
+      <h2 class="big">First agent, live, on <span class="tl">your real data.</span></h2>
+      <p class="sup">Drafting actual quotes or invoices from actual completed jobs — by day 10 of Phase 0. <b>That date goes in the agreement.</b></p>
+    </section>
+
+    <!-- 6 · DAY 30 -->
+    <section class="scene" data-t="11000">
+      <div class="kick">§ 05 · The safety net</div>
+      <h2 class="big">Day 30 — keep building, <em>or every dollar back.</em></h2>
+      <div class="bigstamp">100% money-back · no questions</div>
+      <p class="sup">And everything already built stays in <b>your</b> accounts either way.</p>
+    </section>
+
+    <!-- 7 · THE NUMBERS -->
+    <section class="scene" data-t="14000">
+      <div class="kick">§ 06 · The honest numbers</div>
+      <h2 class="big">Priced like a proper quote. <em>No asterisks.</em></h2>
+      <div class="ticket">
+        <div class="th"><span>QUOTATION · AAA BY ARTIGELLENCE</span><span>INCL GST</span></div>
+        <div class="tr"><span>Workflow walkthrough</span><span class="d"></span><span class="p f">FREE</span></div>
+        <div class="tr"><span>Phase 0 pilot</span><span class="d"></span><span class="p">A$4,500<small>Fully refundable</small></span></div>
+        <div class="tr"><span>Agents, each</span><span class="d"></span><span class="p">A$3,000<small>Paid on delivery</small></span></div>
+        <div class="tr"><span>Standard Year 1, all-in</span><span class="d"></span><span class="p">A$56,500<small>14-agent ceiling</small></span></div>
+      </div>
+    </section>
+
+    <!-- 8 · CLOSE -->
+    <section class="scene" data-t="12000">
+      <div class="mark">AAA · ARTIGELLENCE</div>
+      <h2 class="big">One operator. Founder-direct. <em>The risk sits with me.</em></h2>
+      <div class="ctas">
+        <a class="btn btn-gold" href="tel:+61469313323">📞 CALL RAJ — 0469 313 323</a>
+        <a class="btn btn-line" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">BOOK A TIME →</a>
+      </div>
+      <p class="contact-line">aaa.artigellence.com &nbsp;·&nbsp; <a href="mailto:raj@artigellence.com">raj@artigellence.com</a> &nbsp;·&nbsp; ABN 83 988 690 362</p>
+    </section>
+
+  </div>
+
+  <!-- CONTROL DECK -->
+  <div class="deck">
+    <button id="prev" aria-label="Previous scene">←</button>
+    <button id="play" aria-label="Pause or play">PAUSE</button>
+    <button id="next" aria-label="Next scene">→</button>
+    <div class="pb" id="pb"></div>
+    <button id="voice" aria-label="Toggle narration">🔊 VOICE</button>
+    <button id="fs" aria-label="Fullscreen">⛶ F</button>
+    <span class="hint">SPACE pause · ←/→ scenes · F fullscreen</span>
+  </div>
+</div>
+
+<!-- Narration track: ACTIVE. Commit narration.mp3 to the repo root.
+     If the file is missing, playback falls back to the built-in browser voice. -->
+<audio id="vo" src="/narration.mp3" preload="auto"></audio>
+
+<script>
+(function(){
+"use strict";
+var scenes=[].slice.call(document.querySelectorAll('.scene'));
+var pb=document.getElementById('pb');
+var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var segs=scenes.map(function(s,i){
+  var seg=document.createElement('div');seg.className='seg';
+  var fill=document.createElement('i');seg.appendChild(fill);
+  seg.addEventListener('click',function(){go(i,true);});
+  pb.appendChild(seg);return fill;
+});
+var cur=0,playing=false,raf=null,start=0,elapsed=0;
+var vo=document.getElementById('vo');
+if(vo){vo.addEventListener('error',function(){vo=null;});}
+
+/* ---- narration (third-person; swaps to Raj's recording via the audio hook when present) ---- */
+var NARR=[
+"A A A by Artigellence — founded by Raj Singh, Sydney. Ninety seconds: here's the whole thing.",
+"You started your business to own your time. Funny how the admin owns it now — quotes at nine p m, chasing your own money, the same data typed into three systems.",
+"AAA builds A I agents that do that boring work — inside the systems you already run. Xero. M Y O B. Service M eight. Cliniko. Nothing gets ripped out — and you own everything built.",
+"It starts with a free walkthrough. Ninety minutes. Raj comes to you — and tells you on the spot what's worth automating, and what isn't.",
+"Then the pilot. By day ten, the first agent is live on your real data — drafting real quotes from real jobs. That date goes in the agreement.",
+"Day thirty — you decide. Keep building, or every dollar back, no questions. What's built stays yours either way.",
+"The numbers are public. The walkthrough is free. The pilot: four and a half thousand dollars, fully refundable. Three thousand an agent, paid on delivery. All including G S T.",
+"One operator. Founder-direct. The risk sits with Raj. Call oh four six nine — three one three — three two three."
+];
+var voiceOn=false, auVoice=null;
+function pickVoice(){
+  var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+  auVoice=vs.filter(function(v){return /en[-_]AU/i.test(v.lang);})[0]
+       ||vs.filter(function(v){return /Karen|Australian/i.test(v.name);})[0]
+       ||vs.filter(function(v){return /^en/i.test(v.lang);})[0]||null;
+}
+if(window.speechSynthesis){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function speak(i){
+  if(!voiceOn||!window.speechSynthesis||vo)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(NARR[i]||'');
+  if(auVoice)u.voice=auVoice;
+  u.rate=0.97;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+function hush(){if(window.speechSynthesis)speechSynthesis.cancel();}
+
+function dur(i){return parseInt(scenes[i].getAttribute('data-t'),10)||10000;}
+function paint(i,frac){segs.forEach(function(f,k){f.style.width=k<i?'100%':(k===i?(frac*100)+'%':'0%');});}
+function show(i){scenes.forEach(function(s,k){s.classList.toggle('on',k===i);});}
+function tick(now){
+  if(!playing)return;
+  var f=(now-start+elapsed)/dur(cur);
+  if(f>=1){ if(cur<scenes.length-1){go(cur+1,false);} else {playing=false;updatePlay();paint(cur,1);} return; }
+  paint(cur,f);raf=requestAnimationFrame(tick);
+}
+function go(i,user){
+  cancelAnimationFrame(raf);
+  cur=Math.max(0,Math.min(scenes.length-1,i));
+  elapsed=0;start=performance.now();
+  show(cur);paint(cur,0);
+  if(playing)speak(cur);
+  if(playing&&!reduced){raf=requestAnimationFrame(tick);}
+  else if(reduced){paint(cur,1);}
+}
+function updatePlay(){document.getElementById('play').textContent=playing?'PAUSE':'PLAY';}
+function toggle(){
+  if(reduced)return;
+  playing=!playing;updatePlay();
+  if(playing){start=performance.now();raf=requestAnimationFrame(tick);if(vo)vo.play();speak(cur);}
+  else{elapsed+=performance.now()-start;cancelAnimationFrame(raf);if(vo)vo.pause();hush();}
+}
+document.getElementById('play').addEventListener('click',toggle);
+document.getElementById('prev').addEventListener('click',function(){go(cur-1,true);});
+document.getElementById('next').addEventListener('click',function(){go(cur+1,true);});
+document.getElementById('fs').addEventListener('click',function(){
+  if(document.fullscreenElement){document.exitFullscreen();}
+  else{document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key===' '){e.preventDefault();toggle();}
+  else if(e.key==='ArrowRight'){go(cur+1,true);}
+  else if(e.key==='ArrowLeft'){go(cur-1,true);}
+  else if(e.key==='f'||e.key==='F'){document.getElementById('fs').click();}
+});
+var voiceBtn=document.getElementById('voice');
+function setVoiceUI(){voiceBtn.classList.toggle('on',voiceOn);voiceBtn.textContent=voiceOn?'🔊 VOICE ON':'🔇 VOICE OFF';}
+voiceBtn.addEventListener('click',function(){voiceOn=!voiceOn;setVoiceUI();if(voiceOn&&playing)speak(cur);if(!voiceOn)hush();});
+
+function begin(withVoice){
+  voiceOn=withVoice&&!!window.speechSynthesis&&!vo;
+  setVoiceUI();
+  document.getElementById('gate').classList.add('off');
+  playing=!reduced;updatePlay();
+  if(vo&&playing){vo.play().catch(function(){});}
+  go(0,false);
+  if(reduced){show(0);paint(0,1);if(voiceOn)speak(0);}
+}
+document.getElementById('goVoice').addEventListener('click',function(){begin(true);});
+document.getElementById('goSilent').addEventListener('click',function(){begin(false);});
+setVoiceUI();show(0);
+})();
+</script>
+
+</body>
+</html>
