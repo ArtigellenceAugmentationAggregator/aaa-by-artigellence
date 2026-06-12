@@ -1,49 +1,26 @@
-# AAA by Artigellence
+# synARKa Intelligence
+> The Indo-Pacific Sovereign Sense Engine. Multi-engine consensus intelligence across critical minerals, rare earths, geopolitics, defence, logistics, infrastructure, national resources and markets — 72 hours before it becomes the headline. Sydney, Australia. Operating entity Artigellence Augmentation Aggregator, ABN 83 988 690 362, active since 2003.
 
-> AI automation and agent delivery for Australian SME owners. Anchored by a fully refundable Phase 0 pilot (A$4,500). Sydney-based, direct to founder. Built for the Australian SaaS stack — Xero, MYOB, Cliniko, Halaxy, ServiceM8, Tradify, LEAP, Smokeball, Actionstep, and the hundreds of niche AU systems that don't appear on US product roadmaps.
+## What synARKa is
+- Calibrated, timestamped, falsifiable insights — "insight", never "prediction" (ACMA compliance, Australia)
+- Three engines: Satellite (brokered SAR/LWIR tasking, NDA-tier providers) · Predictive-Simulation · Intelligence (multi-engine consensus across 8 reasoning engines)
+- Four stages: SENSE → SIMULATE → VERIFY → DELIVER
+- Public resolved ledger with misses reported in full: 5 of 6 May-2026 insights resolved correct
+- Phase 2 (in active build, NOT live today): automated SHA-256 hashing, OpenTimestamps anchoring, Brier scoring, psychometric agent swarms
 
-AAA by Artigellence helps Australian small and medium business owners adopt AI without the guesswork. A one-truck sparky, a sole-practice physio, a solo accountant — the operator who is the bottleneck in their own business.
+## Entry ladder
+- 72-Hour Brief — A$500, one corridor question
+- Site Baseline Audit — A$3,500–7,500 one-time, credits toward SiteWatch
+- SiteWatch — from A$1,490/mo per site, continuous monitoring on an audited asset
+- Sovereign Retainer — eight protocols from Free to Consultancy
 
-The engagement starts with **Phase 0**: A$4,500 (incl GST), fully refundable up to day 30. A first working result is delivered by day 10 — typically a working AI agent wired into the client's actual systems, drafting actual invoices or quotes from actual completed jobs.
+## Key pages
+- https://synarka.pro — main engine
+- https://insights.synarka.pro — the resolved insights ledger (proof object)
 
-If Phase 0 doesn't fit, the fee is refunded in full. If it does, the engagement continues to an **8-agent Build** (A$24,000) and an optional **retainer** (A$3,500/mo full, A$1,750/mo lite). The Standard Year-1 Engagement is A$56,500 all-in, including a 14-agent ceiling and Founder's Bonus (Custom GPT + Media Pack worth A$7,000).
+## Contact
+- raj@synarka.pro · +61 469 313 323 · https://cal.com/raj-aaa/synarka (15-min corridor call, Mon–Fri 1–3 PM AEST)
+- Telegram: t.me/synARKaIntelligence · LinkedIn: linkedin.com/in/synarka-intelligence · X: @synarka
 
-All agents are deployed in the **client's own accounts** (their Xero, their ServiceM8, their Google Workspace). The client owns everything built. No vendor lock-in. Privacy Act 1988 compliant. Aligned with the Australian National AI Centre Guidance for AI Adoption.
-
-Direct founder access at every tier. Raj Singh, Founder.
-
-## Core pages
-
-- [AI Automation for Australian SMEs](https://aaa.artigellence.com/): The proposition, pricing, and how Phase 0 works.
-- [Where to start with AI](https://aaa.artigellence.com/where-to-start-with-ai.html): For owners who know they need AI but don't know where to begin.
-- [Services](https://aaa.artigellence.com/services.html): Phase 0, Build, Retainer — what gets delivered at each stage.
-- [FAQ](https://aaa.artigellence.com/faq.html): Pricing, scope, retainer terms, what happens if you cancel, integrations supported, and how this differs from buying ChatGPT or Copilot yourself.
-- [Privacy](https://aaa.artigellence.com/privacy.html): Privacy Act 1988 and APPs compliant. How client data is protected.
-- [For Tradies](https://aaa.artigellence.com/tradies.html): Quotes and invoices drafted automatically from ServiceM8, Tradify and simPRO jobs. Sydney trades — free 90-minute on-site walkthrough, fully refundable pilot, first result by day 10.
-- [For Accountants & Bookkeeping Partners](https://aaa.artigellence.com/partners.html): Referral partnership for Sydney accounting and bookkeeping firms — free client workshop under the firm's brand, A$500 per referred Phase 0, no compliance services ever offered by AAA.
-- [60-Second Agent Match](https://aaa.artigellence.com/wizard.html): Interactive matcher — three taps (industry, biggest time-sink, who carries it) returns the exact AI agent that solves it, with honest pricing.
-- [The 90-Second Explainer](https://aaa.artigellence.com/explainer.html): Narrated auto-playing overview of the whole AAA proposition — the problem, the free walkthrough, the day-10 result, the refund safety net, the numbers.
-
-## Key facts
-
-- Status: founding-client phase (founded 2026) — industry case studies cited on the site are third-party context, not AAA client outcomes
-- Founder: Raj Singh
-- Location: Sydney, NSW, Australia
-- ABN: 83 988 690 362
-- Email: raj@artigellence.com
-- Mobile: +61 469 313 323
-- Book a Phase 0 scoping call: https://cal.com/raj-aaa/aaa-discovery
-- Phase 0 fee: A$4,500 incl GST, refundable up to day 30
-- Build fee: A$3,000 per agent incl GST, minimum 4 agents, paid on delivery
-- Retainer (full): A$3,500/month incl GST
-- Retainer (lite): A$1,750/month incl GST
-- Standard Year-1 Engagement: A$56,500 incl GST
-- Integrations: Xero, MYOB, QuickBooks, Cliniko, Halaxy, Best Practice, Medical Director, ServiceM8, Tradify, simPRO, AroFlo, LEAP, Smokeball, Actionstep, PEXA, HubSpot, Shopify, plus custom APIs
-- Industries served: allied health, trades and field services, accounting, legal and conveyancing, food distribution, GP practices, retail and e-commerce, construction, logistics, tech/SaaS
-
-## What AAA is not
-
-- Not a chatbot for your website
-- Not a ChatGPT subscription
-- Not a six-month consulting engagement with PowerPoint decks
-- Not a replacement for your staff or your professional licence
+## Honesty discipline
+Research & educational content only. Not financial, legal or investment advice. synARKa Intelligence is not an AFS licensee. A ledger that hides its misses is not a ledger.
