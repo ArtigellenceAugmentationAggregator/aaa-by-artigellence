@@ -2994,6 +2994,48 @@ body.light-mode .bonus-bar-track { background: rgba(0,0,0,0.08); }
   .referral-cta { width: 100%; text-align: center; }
 }
 
+/* ============ COLLABORATE · 3-TIER LADDER ============ */
+.collab-section { max-width: 1480px; margin: 0 auto; padding: 8px 32px 36px; position: relative; }
+.collab-band {
+  position: relative; padding: 32px 34px 26px; border: 1px solid var(--purple); border-radius: 16px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(124,58,237,0.12), transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgba(124,58,237,0.06), transparent 50%),
+    linear-gradient(180deg, rgba(124,58,237,0.05), rgba(10,14,20,0));
+  overflow: hidden;
+}
+.collab-head { position: relative; z-index: 1; margin-bottom: 20px; max-width: 900px; }
+.collab-eyebrow { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.8px; color: var(--purple-bright); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.collab-headline { font-family: var(--serif); font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; color: var(--white); line-height: 1.25; margin-bottom: 10px; }
+.collab-headline em { color: var(--purple-bright); font-style: italic; }
+.collab-sub { font-size: 13.5px; color: var(--gray-2); line-height: 1.55; }
+.collab-sub strong { color: var(--white); font-weight: 600; }
+.collab-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.collab-tier { display: flex; flex-direction: column; padding: 22px 22px 20px; border: 1px solid var(--line); border-radius: 13px; background: linear-gradient(180deg, rgba(124,58,237,0.04), rgba(10,14,20,0.18)); position: relative; }
+.collab-tier.is-hero { border-color: var(--purple); background: linear-gradient(180deg, rgba(124,58,237,0.13), rgba(10,14,20,0.2)); box-shadow: 0 0 0 1px rgba(124,58,237,0.35), 0 14px 38px rgba(124,58,237,0.14); }
+.collab-tier-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.collab-tier-name { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--white); }
+.collab-tier-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--purple-bright); opacity: 0.65; }
+.collab-chip { display: inline-block; font-family: var(--mono); font-size: 8.5px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 700; color: var(--purple-bright); background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.42); border-radius: 5px; padding: 4px 8px; margin-bottom: 16px; align-self: flex-start; }
+.collab-reward { display: flex; align-items: baseline; gap: 7px; margin-bottom: 12px; flex-wrap: wrap; }
+.collab-reward-pre { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); font-weight: 700; }
+.collab-reward-num { font-family: var(--serif); font-size: 38px; font-weight: 700; color: var(--gold-bright); line-height: 1; }
+.collab-reward-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); }
+.collab-desc { font-size: 12.5px; color: var(--gray-2); line-height: 1.55; flex: 1; margin-bottom: 18px; }
+.collab-desc strong { color: var(--white); font-weight: 600; }
+.collab-desc em { color: var(--purple-bright); font-style: italic; }
+.collab-cta { font-family: var(--mono); font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 700; text-align: center; text-decoration: none; border-radius: 8px; padding: 11px 14px; background: transparent; color: var(--purple-bright); border: 1px solid var(--purple); transition: all 0.2s; }
+.collab-cta:hover { background: var(--purple); color: #fff; transform: translateY(-1px); }
+.collab-tier.is-hero .collab-cta { background: var(--purple); color: #fff; }
+.collab-tier.is-hero .collab-cta:hover { background: var(--purple-bright); }
+.collab-foot { position: relative; z-index: 1; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.6px; color: var(--gray); text-transform: uppercase; }
+.collab-wa { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 700; text-decoration: none; border-radius: 8px; padding: 10px 15px; background: rgba(37,211,102,0.12); color: #25d366; border: 1px solid rgba(37,211,102,0.5); transition: all 0.2s; white-space: nowrap; }
+.collab-wa:hover { background: #25d366; color: #08130c; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37,211,102,0.22); }
+.collab-wa svg { width: 15px; height: 15px; flex-shrink: 0; }
+.collab-foot strong { color: var(--purple-bright); font-weight: 700; }
+.collab-foot .dot { color: var(--purple); }
+@media (max-width: 860px) { .collab-grid { grid-template-columns: 1fr; } .collab-band { padding: 24px 20px; } }
+
 /* ============ FOOTER & LEGAL ============ */
 footer {
   position: relative; z-index: 1;
@@ -3612,6 +3654,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <a href="#process"><span>Process</span></a>
   <a href="#extended-services"><span>Extended Services</span></a>
   <a href="#contact"><span>Contact</span></a>
+  <a href="#collab"><span>Collaborate</span></a>
 </nav>
 
 <!-- AU NEWS TICKER · TOP OF PAGE -->
@@ -5540,16 +5583,41 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   </div>
 </section>
 
-<!-- ===== CLIENT REFERRAL PROGRAMME BAND ===== -->
-<section class="referral-band-section">
-  <div class="referral-band">
-    <div class="referral-icon">⚐</div>
-    <div class="referral-text">
-      <div class="referral-eyebrow">CLIENT REFERRAL · ACTIVE</div>
-      <div class="referral-headline">Active AAA client? <em>Refer another Australian SME</em> — earn <strong>A$500 credit</strong> when they complete Phase 0.</div>
-      <div class="referral-sub">No cap. No expiry. <em>Trust travels.</em> Applied to your next retainer invoice — or paid out if you're not on retainer. <a href="#faq" style="color: var(--gold-bright); text-decoration: underline;">Eligibility →</a></div>
+<!-- ===== COLLABORATE · 3-TIER LADDER ===== -->
+<section class="collab-section" id="collab">
+  <div class="collab-band">
+    <div class="collab-head">
+      <div class="collab-eyebrow">COLLABORATE · BY COMMITMENT</div>
+      <div class="collab-headline">Know an Australian business that needs this? <em>Share in the build.</em></div>
+      <div class="collab-sub">Three ways to work with AAA, by how involved you want to be. <strong>No lock-in. No MLM. No catch.</strong> The recurring tiers pay for as long as the client stays.</div>
     </div>
-    <a href="https://refer.artigellence.com" target="_blank" rel="noopener" class="referral-cta">REFER A CLIENT →</a>
+    <div class="collab-grid">
+      <div class="collab-tier">
+        <div class="collab-tier-top"><span class="collab-tier-name">Refer</span><span class="collab-tier-num">01</span></div>
+        <span class="collab-chip">No strings attached</span>
+        <div class="collab-reward"><span class="collab-reward-num">A$500</span><span class="collab-reward-tag">one-off</span></div>
+        <div class="collab-desc">Pass us an Australian SME. If they complete Phase 0, you get <strong>A$500</strong> — credited to your retainer if you're a client, paid out if you're not. Nothing to sign.</div>
+        <a href="https://refer.artigellence.com" target="_blank" rel="noopener" class="collab-cta">REFER SOMEONE →</a>
+      </div>
+      <div class="collab-tier">
+        <div class="collab-tier-top"><span class="collab-tier-name">Introduce</span><span class="collab-tier-num">02</span></div>
+        <span class="collab-chip">We sign + NDA</span>
+        <div class="collab-reward"><span class="collab-reward-num">10%</span><span class="collab-reward-tag">recurring</span></div>
+        <div class="collab-desc">Formally introduce a business. Sign a short introducer agreement and an NDA, and earn <strong>10% for as long as they stay a client</strong>. You make the connection — Raj handles the account.</div>
+        <a href="mailto:raj@artigellence.com?subject=AAA%20Collaborate%20%E2%80%94%20Introduce%20enquiry" class="collab-cta">START AN INTRODUCTION →</a>
+      </div>
+      <div class="collab-tier is-hero">
+        <div class="collab-tier-top"><span class="collab-tier-name">Partner</span><span class="collab-tier-num">03</span></div>
+        <span class="collab-chip">Agreement in place</span>
+        <div class="collab-reward"><span class="collab-reward-pre">up to</span><span class="collab-reward-num">1/3</span><span class="collab-reward-tag">recurring</span></div>
+        <div class="collab-desc">Bring <em>and</em> run clients alongside Raj — relationship and delivery. A full partnership agreement, <strong>up to a third of revenue, recurring</strong>. For operators building a book, not just making a connection.</div>
+        <a href="mailto:raj@artigellence.com?subject=AAA%20Collaborate%20%E2%80%94%20Partner%20enquiry" class="collab-cta">BECOME A PARTNER →</a>
+      </div>
+    </div>
+        <div class="collab-foot">
+      <span><strong>Recurring</strong> <span class="dot">·</span> uncapped <span class="dot">·</span> paid as long as the client stays <span class="dot">·</span> founder-direct, every step</span>
+      <a href="https://wa.me/61469313323?text=Hi%20Raj%2C%20keen%20to%20collaborate%20with%20AAA%20%E2%80%94%20Refer%20%2F%20Introduce%20%2F%20Partner." target="_blank" rel="noopener" class="collab-wa"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 1.9 7.7 1.9 8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-5 1.3 1.3-4.8-.3-.5C3.4 21 2.7 18.5 2.7 16 2.7 8.7 8.7 2.7 16 2.7S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.3-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.7.2-.2.2-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.2s1.3 3.7 1.5 3.9c.2.2 2.6 4 6.4 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg> EASIER ON WHATSAPP</a>
+    </div>
   </div>
 </section>
 
