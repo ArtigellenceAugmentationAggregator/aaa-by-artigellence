@@ -48,6 +48,8 @@
       "acceptedAnswer": { "@type": "Answer", "text": "All prices include GST. Phase 0 pilot is A$4,500 fully refundable. Agents are A$3,000 each, minimum 4 (so A$12,000 floor). The Standard Year-1 Engagement is A$56,500 — Phase 0 plus the 8-agent Build (A$24,000) plus 8 months of full retainer at A$3,500 per month (Month 5 to Month 12, A$28,000). The Lite retainer is A$1,750 per month, reduced scope, agreed at signing. Monthly LLM/API run-costs and any third-party SaaS subscriptions are paid by the client directly — scoped during Phase 0." } },
     { "@type": "Question", "name": "Are prices including GST?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every price quoted on this site is in Australian dollars and includes GST." } },
+    { "@type": "Question", "name": "How does paying online work — am I charged the full engagement upfront?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No — online payment only ever covers Phase 0. The engagement builder on the site produces a full estimate, but checkout charges Phase 0 alone: A$4,500 fully refundable to Day 30, payable as a single payment, 2 fortnightly instalments of A$2,250, or 3 instalments of A$1,500 every ten days. Agents are A$3,000 each paid on delivery, never upfront; retainers and the Growth Engine bill monthly. The Sample Discovery Questionnaire and Mutual NDA form the scope pack reviewed and signed before Phase 0 begins." } },
     { "@type": "Question", "name": "What monthly costs do I pay on top of AAA fees?",
       "acceptedAnswer": { "@type": "Answer", "text": "AAA fees do not include LLM and API credits (such as OpenAI, Anthropic, Google), workflow automation hosting (n8n, Make, Zapier), or any third-party SaaS subscriptions your agents need. These pass through to your accounts at cost. Indicative worked example for an SME-scale 8-agent build: roughly A$200 to A$500 per month in combined run-costs. This is an illustration not a quote — actual costs depend on which agents you build and how heavily they are used. Scoped and quoted during Phase 0 before any commitment beyond the refundable pilot." } },
     { "@type": "Question", "name": "How is Phase 0 structured — how long, how does the refund work?",
@@ -2492,10 +2494,12 @@ body.light-mode .bonus-bar-track { background: rgba(0,0,0,0.08); }
 /* ============ FAQ ============ */
 .faq-list {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 1000px;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: none;
 }
+.faq-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+@media (max-width: 860px) { .faq-list { flex-direction: column; } }
 .faq-item {
   background: var(--bg-2);
   border: 1px solid var(--line);
@@ -3616,13 +3620,16 @@ body.light-mode section.section::before{color:var(--bg);opacity:.05}
 @media (max-width:980px){section.section::before{display:none}}
 
 /* left progress spine */
-.aaa-spine{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:9px}
-.aaa-spine a{position:relative;width:9px;height:9px;border-radius:50%;background:var(--line);transition:background .2s ease,transform .2s ease;display:block}
-.aaa-spine a:hover{background:var(--gold);transform:scale(1.3)}
-.aaa-spine a.on{background:var(--gold);box-shadow:0 0 10px var(--gold-glow)}
-.aaa-spine a span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;letter-spacing:1.2px;color:var(--gold);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease}
-.aaa-spine a:hover span{opacity:1}
+.aaa-spine{position:fixed;left:14px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:10px;padding:14px 8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(17,22,31,0.72);backdrop-filter:blur(6px)}
+.aaa-spine::before{content:"SECTIONS";writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--mono);font-size:8px;letter-spacing:2.2px;color:var(--gold-bright);align-self:center;margin-bottom:6px}
+.aaa-spine a{position:relative;width:11px;height:11px;border-radius:50%;background:var(--gray-soft);border:1px solid var(--gold-deep);transition:background .2s ease,transform .2s ease,border-color .2s ease;display:block}
+.aaa-spine a:hover{background:var(--gold-bright);border-color:var(--gold-bright);transform:scale(1.35)}
+.aaa-spine a.on{background:var(--gold);border-color:var(--gold-bright);box-shadow:0 0 12px var(--gold-glow)}
+.aaa-spine a span{position:absolute;left:22px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;letter-spacing:1.2px;color:var(--gold-bright);background:var(--bg-2);border:1px solid var(--gold-deep);border-radius:6px;padding:4px 10px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease}
+.aaa-spine:hover a span{opacity:1}
+.aaa-spine a:hover span{color:var(--bg);background:var(--gold-bright)}
 @media (max-width:1280px){.aaa-spine{display:none}}
+body.light-mode .aaa-spine{background:rgba(245,241,232,0.85)}
 body.light-mode .aaa-spine a span{background:#fff;color:var(--gold-deep)}
 
 /* scroll reveal (gated on html.aaa-js so no-JS users see everything) */
@@ -3650,6 +3657,8 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <a href="#roi-moat"><span>ROI &amp; Moat</span></a>
   <a href="#pricing"><span>Pricing</span></a>
   <a href="#findable"><span>Findable</span></a>
+  <a href="#engine"><span>Switch On</span></a>
+  <a href="growth-engine.html"><span>Growth Engine</span></a>
   <a href="#bonus"><span>Founder's Bonus</span></a>
   <a href="#faq"><span>FAQ</span></a>
   <a href="#founder"><span>Founder</span></a>
@@ -3704,6 +3713,8 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <a href="#how-it-works">How It Works</a>
     <a href="#pricing">Pricing</a>
     <a href="#findable">Findable</a>
+    <a href="#engine">Switch On</a>
+    <a href="growth-engine.html">Growth Engine</a>
     <a href="#partners">Partners</a>
     <a href="#contact">Contact</a>
   </div>
@@ -3721,7 +3732,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <span>SOLO OPERATOR · FULL-TEAM OUTPUT</span>
     <span>DIRECT TO FOUNDER · NO JUNIORS</span>
     <a href="/explainer.html" class="hero-listen">▶ LISTEN · AAA IN 90 SECONDS</a>
-    <span class="hero-updated">UPDATED 01 JULY 2026</span>
+    <span class="hero-updated">UPDATED 18 JULY 2026</span>
   </div>
   <h1>
     AI automation for Australian SMEs —<br>
@@ -3990,7 +4001,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <div class="growth-math">
         <div class="lbl">↳ HONEST · WHAT AAA COMMITS TO</div>
         <div class="multi" style="font-size: clamp(32px, 4vw, 44px);">One refund, one number</div>
-        <div class="body">The only number AAA contractually commits to is the <strong>Phase 0 refund</strong> — A$4,500 fully refundable up to day 30. Everything beyond that depends on which agents you build, the quality of your data, and your team's adoption discipline. <strong>AAA is in its founding-client phase.</strong> The case studies on the right are third-party industry results — not AAA outcomes. They show the ceiling of what AI automation has achieved in similar businesses. <em style="color: var(--gold-bright);">Your Year-1 result will be specific to your business — scoped during Phase 0.</em></div>
+        <div class="body">The only number AAA contractually commits to is the <strong>Phase 0 refund</strong> — A$4,500 fully refundable up to day 30. Everything beyond that depends on which agents you build, the quality of your data, and your team's adoption discipline. The case studies on the right are third-party industry results — not AAA outcomes. They show the ceiling of what AI automation has achieved in similar businesses. <em style="color: var(--gold-bright);">Your Year-1 result will be specific to your business — scoped during Phase 0.</em></div>
       </div>
 
       <div class="tools-card">
@@ -4026,7 +4037,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <!-- HONEST DISCLAIMER -->
         <div style="padding: 14px 18px; background: rgba(184,28,28,0.06); border: 1px solid rgba(184,28,28,0.3); border-radius: 8px; margin-bottom: 4px;">
           <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--coral); font-weight: 700; margin-bottom: 6px; text-transform: uppercase;">⚠ READ THIS FIRST</div>
-          <div style="font-size: 12px; color: var(--gray-2); line-height: 1.55;">These are <strong style="color: var(--white);">third-party industry case studies</strong> — Australian and global examples of what AI automation has achieved. <strong style="color: var(--white);">AAA by Artigellence is in its founding-client phase and these are not AAA clients.</strong> They show the ceiling of what's possible. Your Year-1 outcome will depend on your data, systems, and adoption. <em style="color: var(--gold-bright);">No false claims. No borrowed credibility.</em></div>
+          <div style="font-size: 12px; color: var(--gray-2); line-height: 1.55;">These are <strong style="color: var(--white);">third-party industry case studies</strong> — Australian and global examples of what AI automation has achieved. <strong style="color: var(--white);">They are not AAA clients.</strong> They show the ceiling of what's possible. Your Year-1 outcome will depend on your data, systems, and adoption. <em style="color: var(--gold-bright);">No false claims. No borrowed credibility.</em></div>
         </div>
 
         <div class="story-card">
@@ -4155,7 +4166,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <!-- Honest framing -->
   <div style="margin-bottom: 22px; padding: 14px 22px; background: rgba(184,28,28,0.05); border: 1px solid rgba(184,28,28,0.3); border-radius: 8px;">
     <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--coral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">⚠ READ THIS FIRST</div>
-    <div style="font-size: 12.5px; color: var(--gray-2); line-height: 1.6;">The numbers in each industry box below are <strong style="color: var(--white);">industry-pattern estimates drawn from third-party case studies and research</strong> — they show what AI automation has achieved in similar Australian SMEs. <strong style="color: var(--white);">They are not AAA outcomes or guarantees.</strong> AAA is in its founding-client phase. Your Year-1 result will depend on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0.</div>
+    <div style="font-size: 12.5px; color: var(--gray-2); line-height: 1.6;">The numbers in each industry box below are <strong style="color: var(--white);">industry-pattern estimates drawn from third-party case studies and research</strong> — they show what AI automation has achieved in similar Australian SMEs. <strong style="color: var(--white);">They are not AAA outcomes or guarantees.</strong> Your Year-1 result will depend on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0.</div>
   </div>
 
   <div class="industries-grid">
@@ -4697,8 +4708,470 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <!-- Honest disclosure block -->
   <div style="margin-top: 18px; padding: 16px 22px; background: rgba(184,28,28,0.05); border: 1px solid rgba(184,28,28,0.3); border-radius: 8px;">
-    <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--coral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">⚠ HONEST DISCLOSURE · FOUNDING-CLIENT PHASE</div>
-    <div style="font-size: 12.5px; color: var(--gray-2); line-height: 1.6;">AAA by Artigellence is in its founding-client phase. The case studies elsewhere on this page are <strong style="color: var(--white);">third-party industry results — not AAA outcomes.</strong> The only contractual commitment is the <strong style="color: var(--white);">Phase 0 refundable pilot</strong>. Your Year-1 result depends on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0. All prices include GST. Monthly LLM/API/SaaS run-costs are paid by the client directly.</div>
+    <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--coral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">⚠ HONEST DISCLOSURE</div>
+    <div style="font-size: 12.5px; color: var(--gray-2); line-height: 1.6;">The case studies elsewhere on this page are <strong style="color: var(--white);">third-party industry results — not AAA outcomes.</strong> The only contractual commitment is the <strong style="color: var(--white);">Phase 0 refundable pilot</strong>. Your Year-1 result depends on your data, your team's adoption discipline, and which agents you build — scoped during Phase 0. All prices include GST. Monthly LLM/API/SaaS run-costs are paid by the client directly.</div>
+  </div>
+</section>
+
+
+<!-- ===== SWITCH ON YOUR ENGINE · 5 SAMPLE ENGAGEMENT SHAPES ===== -->
+<section class="section" id="engine">
+<style>
+.swon-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.swon-card.flag { grid-column: 1 / -1; }
+.swon-flag-inner { display: grid; grid-template-columns: minmax(220px, 0.9fr) minmax(200px, 0.8fr) 1.3fr; gap: 26px; align-items: start; }
+@media (max-width: 1100px) { .swon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .swon-flag-inner { grid-template-columns: 1fr 1fr; } .swon-flag-inner > div:last-child { grid-column: 1 / -1; } }
+.swon-card { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); padding: 26px 24px; display: flex; flex-direction: column; }
+.swon-card.flag { border-color: var(--gold-deep); background: linear-gradient(160deg, rgba(201,162,39,0.09), rgba(139,105,20,0.02)); }
+.swon-rung { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+.swon-price { font-family: var(--serif); font-size: 30px; font-weight: 500; color: var(--white); line-height: 1; }
+.swon-price small { font-size: 13px; color: var(--gray-2); font-family: var(--sans); }
+.swon-name { font-family: var(--serif); font-size: 18px; font-style: italic; color: var(--gold-bright); margin: 10px 0 6px; }
+.swon-who { font-size: 12.5px; color: var(--gray-2); margin-bottom: 14px; min-height: 34px; }
+.swon-sum { border-top: 1px solid var(--line-soft); padding-top: 14px; margin-bottom: 12px; }
+.swon-sum div { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--gray-2); padding: 4px 0; }
+.swon-sum div b { color: var(--white); font-weight: 500; font-family: var(--mono); font-size: 11.5px; white-space: nowrap; }
+.swon-gets { list-style: none; padding: 0; margin: 0 0 14px; flex-grow: 1; }
+.swon-gets li { font-size: 12.5px; color: var(--gray-2); padding: 5px 0; display: flex; gap: 8px; }
+.swon-gets li::before { content: "▸"; color: var(--gold-deep); flex-shrink: 0; }
+.swon-gets li strong { color: var(--white); font-weight: 600; }
+.swon-badge { align-self: flex-start; font-family: var(--mono); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; border: 1px solid var(--line); border-radius: 5px; padding: 4px 9px; color: var(--teal-bright); }
+.swon-card.flag .swon-badge { border-color: var(--gold-deep); color: var(--gold-bright); }
+.swon-note { margin-top: 22px; padding: 14px 22px; background: rgba(15,184,169,0.06); border-left: 3px solid var(--teal); border-radius: 8px; font-size: 12.5px; color: var(--gray-2); line-height: 1.6; }
+@media (max-width: 680px) { .swon-grid { grid-template-columns: 1fr; } .swon-flag-inner { grid-template-columns: 1fr; } }
+</style>
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">&#9670;</span>Switch On Your Engine &middot; Five Sample Shapes</div>
+      <h2>Five ways it comes together — <span class="hl">every dollar traceable</span> to the pricing above.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">ILLUSTRATIVE &middot; SCOPED IN PHASE 0</span>
+      <span>All prices incl GST &middot; composed from published pricing</span>
+    </div>
+  </div>
+
+  <div class="swon-grid">
+
+    <div class="swon-card">
+      <div class="swon-rung">Shape 01 · Pilot &amp; Prove</div>
+      <div class="swon-price">A$9,750</div>
+      <div class="swon-name">One result, kept alive</div>
+      <div class="swon-who">For the owner who wants proof before commitment — a clinic drowning in missed calls, a tradie losing after-hours enquiries.</div>
+      <div class="swon-sum">
+        <div><span>Phase 0 · refundable pilot</span><b>A$4,500</b></div>
+        <div><span>Lite retainer × 3 months</span><b>A$1,750 /mo</b></div>
+      </div>
+      <ul class="swon-gets">
+        <li><strong>First working result by Day 10</strong> — one real workflow automated</li>
+        <li>Kept running, tuned and supported for a full quarter</li>
+        <li>Direct founder access throughout</li>
+        <li>Walk away at the break clause — <strong>you keep everything</strong></li>
+      </ul>
+      <span class="swon-badge">Refundable start · Day 30</span>
+    </div>
+
+    <div class="swon-card">
+      <div class="swon-rung">Shape 02 · Distribution &amp; Marketing</div>
+      <div class="swon-price">A$13,500 <small>over 6 months</small></div>
+      <div class="swon-name">The Growth Engine, lean</div>
+      <div class="swon-who">For the business whose problem isn't operations — it's that nobody can find them. SEO + AEO, warmed email, tracked links.</div>
+      <div class="swon-sum">
+        <div><span>Phase 0 · refundable pilot</span><b>A$4,500</b></div>
+        <div><span>Engine retainer × 6 months</span><b>A$1,500 /mo</b></div>
+      </div>
+      <ul class="swon-gets">
+        <li><strong>Weekly cadence</strong> — anchor article, platform cuts, short video</li>
+        <li>Email warmup, Spam Act compliance, list cleaned</li>
+        <li><strong>UTM on every link</strong> · GA4 · attribution dashboard</li>
+        <li>An audience, list and library <strong>you own</strong></li>
+      </ul>
+      <span class="swon-badge"><a href="growth-engine.html" style="color: inherit; text-decoration: none;">Full page: The Growth Engine →</a></span>
+    </div>
+
+    <div class="swon-card">
+      <div class="swon-rung">Shape 03 · The Essentials Build</div>
+      <div class="swon-price">A$16,500</div>
+      <div class="swon-name">Four agents, paid on delivery</div>
+      <div class="swon-who">For the operator who knows exactly which four fires eat the week — intake, quoting, invoicing chase, reporting.</div>
+      <div class="swon-sum">
+        <div><span>Phase 0 · refundable pilot</span><b>A$4,500</b></div>
+        <div><span>4 agents · paid on delivery</span><b>A$3,000 ea</b></div>
+      </div>
+      <ul class="swon-gets">
+        <li><strong>Minimum viable agent floor</strong> — the four highest-value workflows</li>
+        <li>Each agent paid only when delivered — <strong>never upfront</strong></li>
+        <li>Built on your AU stack — ServiceM8, Cliniko, MYOB, Xero &amp; more</li>
+        <li>Deployed in <strong>your accounts</strong> — no vendor lock-in</li>
+      </ul>
+      <span class="swon-badge">Named in the FAQ · the entry build</span>
+    </div>
+
+    <div class="swon-card">
+      <div class="swon-rung">Shape 04 · The Full Build</div>
+      <div class="swon-price">A$28,500</div>
+      <div class="swon-name">Eight agents, no retainer</div>
+      <div class="swon-who">For the multi-crew or multi-site business ready to automate the whole admin layer in one program — and run it themselves.</div>
+      <div class="swon-sum">
+        <div><span>Phase 0 · refundable pilot</span><b>A$4,500</b></div>
+        <div><span>8-agent Standard Build</span><b>A$24,000</b></div>
+      </div>
+      <ul class="swon-gets">
+        <li><strong>The complete 8-agent architecture</strong>, milestone-locked</li>
+        <li>Full documentation, prompts, credentials — <strong>the transition pack</strong></li>
+        <li>Retainer optional afterwards — full or lite, 3-month break clause</li>
+        <li>Own everything from day one</li>
+      </ul>
+      <span class="swon-badge">Paid on delivery · milestone-locked</span>
+    </div>
+
+    <div class="swon-card flag">
+      <div class="swon-flag-inner">
+        <div>
+          <div class="swon-rung">Shape 05 · The Flagship</div>
+          <div class="swon-price">A$56,500 <small>Year 1</small></div>
+          <div class="swon-name">Standard Year-1 Engagement</div>
+          <div class="swon-who">For the owner who wants the whole engine — built, run, tuned and scaled — with the founder in the room all year.</div>
+        </div>
+        <div>
+          <div class="swon-sum">
+            <div><span>Phase 0 · refundable pilot</span><b>A$4,500</b></div>
+            <div><span>8-agent Build</span><b>A$24,000</b></div>
+            <div><span>Full retainer × 8 months</span><b>A$3,500 /mo</b></div>
+          </div>
+          <span class="swon-badge">The complete engagement</span>
+        </div>
+        <div>
+          <ul class="swon-gets">
+            <li><strong>14-agent ceiling</strong> — agents 9–14 at no additional build cost</li>
+            <li><strong>Founder's Bonus included</strong> — Custom GPT + Media Pack, A$7,000 value</li>
+            <li><strong>Foundation Sprint included</strong> — Findable + deliverability, A$2,950 value</li>
+            <li>Daily cockpit review · quarterly strategy · direct founder access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SAMPLE WORKFLOWS · ONE PER SHAPE -->
+  <style>
+  .swf-wrap { margin-top: 34px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); overflow: hidden; }
+  .swf-tabs { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--line); background: var(--bg-3); }
+  .swf-tab { flex: 1 1 auto; min-width: 150px; padding: 14px 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-2); background: none; border: none; border-right: 1px solid var(--line-soft); cursor: pointer; transition: color .15s, background .15s; text-align: center; }
+  .swf-tab:last-child { border-right: none; }
+  .swf-tab:hover { color: var(--white); }
+  .swf-tab.on { color: var(--gold-bright); background: var(--bg-2); box-shadow: inset 0 -2px 0 var(--gold); }
+  .swf-panel { display: none; padding: 26px 24px; }
+  .swf-panel.on { display: block; }
+  .swf-head { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--gray-2); margin-bottom: 20px; }
+  .swf-head strong { color: var(--white); font-style: normal; }
+  .swf-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .swf-stage { border: 1px solid var(--line-soft); border-radius: 10px; padding: 16px 15px; background: var(--bg); position: relative; }
+  .swf-stage.p0 { border-color: var(--teal-deep); }
+  .swf-when { font-family: var(--mono); font-size: 9px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 8px; }
+  .swf-stage h5 { font-family: var(--serif); font-size: 14.5px; font-weight: 500; color: var(--white); margin: 0 0 8px; line-height: 1.3; }
+  .swf-stage p { font-size: 11.5px; color: var(--gray-2); line-height: 1.55; margin: 0; }
+  .swf-stage p strong { color: var(--white); font-weight: 600; }
+  .swf-fine { margin-top: 16px; font-size: 11.5px; color: var(--gray); font-style: italic; }
+  @media (max-width: 680px) { .swf-tab { min-width: 100%; border-right: none; border-bottom: 1px solid var(--line-soft); } }
+  </style>
+
+  <div class="swf-wrap">
+    <div class="swf-tabs" role="tablist">
+      <button class="swf-tab on" data-swf="swf1" type="button">01 · Pilot &amp; Prove</button>
+      <button class="swf-tab" data-swf="swf2" type="button">02 · Growth Engine</button>
+      <button class="swf-tab" data-swf="swf3" type="button">03 · Essentials Build</button>
+      <button class="swf-tab" data-swf="swf4" type="button">04 · Full Build</button>
+      <button class="swf-tab" data-swf="swf5" type="button">05 · Flagship</button>
+    </div>
+
+    <div class="swf-panel on" id="swf1">
+      <div class="swf-head"><strong>Sample workflow · A$9,750 · Pilot &amp; Prove.</strong> A clinic losing after-hours calls, a tradie missing enquiries mid-job — one fire, put out and kept out.</div>
+      <div class="swf-flow">
+        <div class="swf-stage p0"><div class="swf-when">Days 1–10</div><h5>First working result</h5><p>The single highest-pain workflow automated — <strong>live by Day 10</strong>. Missed calls caught, enquiries answered, nothing walks away.</p></div>
+        <div class="swf-stage p0"><div class="swf-when">Days 10–30</div><h5>The refund window</h5><p>You use it in the real business. Tuning daily. <strong>Continue or full refund — your call, no questions.</strong></p></div>
+        <div class="swf-stage"><div class="swf-when">Months 1–2</div><h5>Kept alive &amp; tuned</h5><p>Lite retainer: the result runs, gets tuned as your patterns emerge, direct founder access when you need it.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 3</div><h5>The proof point</h5><p>Monthly reports show what it caught. You now have <strong>evidence, not opinion</strong>, about what automation does here.</p></div>
+        <div class="swf-stage"><div class="swf-when">End of quarter</div><h5>Your decision</h5><p>Stop and <strong>keep everything</strong> · continue the retainer · or step up to a build — with real numbers in hand.</p></div>
+      </div>
+      <p class="swf-fine">Composed from: Phase 0 A$4,500 refundable + lite retainer A$1,750 × 3 months.</p>
+    </div>
+
+    <div class="swf-panel" id="swf2">
+      <div class="swf-head"><strong>Sample workflow · A$13,500 over 6 months · The Growth Engine, lean.</strong> For the business nobody can find — Google, AI assistants, or their own inbox.</div>
+      <div class="swf-flow">
+        <div class="swf-stage p0"><div class="swf-when">Days 1–30</div><h5>The invisible month</h5><p>Cousin sending domain live, <strong>warmup starts Day 1</strong>, SPF/DKIM/DMARC set, list cleaned, your voice captured. Refundable throughout.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 1</div><h5>Cadence goes live</h5><p>First anchor articles in your voice, platform cuts, first video. <strong>SEO + AEO engineered</strong> into every piece.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 2</div><h5>Attribution live</h5><p><strong>UTM on every link, GA4 wired</strong>, dashboard login yours. Channels that don't attribute get cut.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 3</div><h5>First stamped enquiries</h5><p>Warm enquiries arrive with their source attached. The reasonable-results window opens.</p></div>
+        <div class="swf-stage"><div class="swf-when">Months 4–6</div><h5>Owned beats rented</h5><p>Content compounds, list grows, <strong>~24 anchors and 120+ pieces owned</strong>. The funnel can now carry anything you sell.</p></div>
+      </div>
+      <p class="swf-fine">Composed from: Phase 0 A$4,500 refundable + engine retainer A$1,500 × 6 months. Full detail: <a href="growth-engine.html" style="color: var(--teal-bright); text-decoration: none;">the Growth Engine page →</a></p>
+    </div>
+
+    <div class="swf-panel" id="swf3">
+      <div class="swf-head"><strong>Sample workflow · A$16,500 · The Essentials Build.</strong> Four named fires — intake, quoting, invoice chasing, reporting — automated on your existing AU stack.</div>
+      <div class="swf-flow">
+        <div class="swf-stage p0"><div class="swf-when">Days 1–10</div><h5>Phase 0 result</h5><p>First workflow live by Day 10 — proof on your own systems, <strong>ServiceM8, Cliniko, MYOB, Xero</strong> or whatever runs your week.</p></div>
+        <div class="swf-stage p0"><div class="swf-when">Days 10–30</div><h5>Scope the four</h5><p>The four highest-value agents named and sequenced together. <strong>Refund decision stays yours to Day 30.</strong></p></div>
+        <div class="swf-stage"><div class="swf-when">Month 2</div><h5>Agents 1–2 delivered</h5><p>Each agent <strong>paid only on delivery</strong> — A$3,000 each, never upfront. Working in your accounts, not ours.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 3</div><h5>Agents 3–4 delivered</h5><p>The set completes. Documentation, prompts and credentials handed over as each lands.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 3+</div><h5>Run it yourself</h5><p>Full transition pack. <strong>No vendor lock-in.</strong> Retainer optional if you'd rather it stays tuned for you.</p></div>
+      </div>
+      <p class="swf-fine">Composed from: Phase 0 A$4,500 refundable + 4 agents × A$3,000 paid on delivery.</p>
+    </div>
+
+    <div class="swf-panel" id="swf4">
+      <div class="swf-head"><strong>Sample workflow · A$28,500 · The Full Build.</strong> The whole admin layer of a multi-crew or multi-site business, automated in one milestone-locked program.</div>
+      <div class="swf-flow">
+        <div class="swf-stage p0"><div class="swf-when">Days 1–30</div><h5>Phase 0 + architecture</h5><p>First result by Day 10, then the full <strong>8-agent architecture</strong> mapped across your operation. Refundable to Day 30.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 2</div><h5>Agents 1–3</h5><p>The front-of-house set — intake, response, scheduling. <strong>Paid on delivery, milestone-locked.</strong></p></div>
+        <div class="swf-stage"><div class="swf-when">Month 3</div><h5>Agents 4–6</h5><p>The money layer — quoting, invoicing, chasing. Each one lands working, documented, in your accounts.</p></div>
+        <div class="swf-stage"><div class="swf-when">Month 4</div><h5>Agents 7–8 + cockpit</h5><p>Reporting and oversight complete the set. <strong>One screen shows the whole engine.</strong></p></div>
+        <div class="swf-stage"><div class="swf-when">Handover</div><h5>Own everything</h5><p>Transition pack: prompts, credentials, documentation. Run it in-house, or add a retainer — full or lite, 3-month break clause.</p></div>
+      </div>
+      <p class="swf-fine">Composed from: Phase 0 A$4,500 refundable + 8-agent Standard Build A$24,000, paid on delivery.</p>
+    </div>
+
+    <div class="swf-panel" id="swf5">
+      <div class="swf-head"><strong>Sample workflow · A$56,500 Year 1 · The Flagship.</strong> Built, run, tuned and scaled — with the founder in the room all year.</div>
+      <div class="swf-flow">
+        <div class="swf-stage p0"><div class="swf-when">Days 1–30</div><h5>Phase 0</h5><p>First result by Day 10. <strong>Foundation Sprint included</strong> — Findable + deliverability set right from the start. Refundable to Day 30.</p></div>
+        <div class="swf-stage"><div class="swf-when">Months 2–4</div><h5>The 8-agent Build</h5><p>The complete architecture, delivered milestone by milestone, paid on delivery.</p></div>
+        <div class="swf-stage"><div class="swf-when">Months 5–8</div><h5>Full retainer rhythm</h5><p><strong>Daily cockpit review</strong>, continuous tuning, quarterly strategy, direct founder access at every step.</p></div>
+        <div class="swf-stage"><div class="swf-when">Months 8–12</div><h5>Scale to the ceiling</h5><p><strong>Agents 9–14 at no additional build cost</strong> — the 14-agent ceiling, plus the Founder's Bonus: Custom GPT + Media Pack, A$7,000 value.</p></div>
+        <div class="swf-stage"><div class="swf-when">Year end</div><h5>The engine, owned</h5><p>Up to 14 agents in your accounts, a tuned operation, and a report trail your accountant can audit. <strong>Price signed is the price that holds.</strong></p></div>
+      </div>
+      <p class="swf-fine">Composed from: Phase 0 A$4,500 + 8-agent Build A$24,000 + full retainer A$3,500 × 8 months = A$56,500. Founder's Bonus and Foundation Sprint included at this tier.</p>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var tabs = document.querySelectorAll('#engine .swf-tab');
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        tabs.forEach(function(x){ x.classList.remove('on'); });
+        document.querySelectorAll('#engine .swf-panel').forEach(function(p){ p.classList.remove('on'); });
+        t.classList.add('on');
+        document.getElementById(t.getAttribute('data-swf')).classList.add('on');
+      });
+    });
+  })();
+  </script>
+
+  <!-- BUILD YOUR ENGAGEMENT · MIX & MATCH CART -->
+  <style>
+  .bld-wrap { margin-top: 34px; }
+  .bld-title { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; margin-bottom: 6px; }
+  .bld-title .hl { color: var(--gold-bright); font-style: italic; }
+  .bld-sub { font-size: 13.5px; color: var(--gray-2); margin-bottom: 24px; max-width: 720px; }
+  .bld-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: center; }
+  .bld-items { display: grid; gap: 12px; }
+  .bld-item { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); padding: 18px 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; transition: border-color .15s; }
+  .bld-item.sel { border-color: var(--gold-deep); background: linear-gradient(160deg, rgba(201,162,39,0.06), var(--bg-2)); }
+  .bld-item.dis { opacity: .45; pointer-events: none; }
+  .bld-check { width: 20px; height: 20px; accent-color: #c9a227; cursor: pointer; }
+  .bld-item h5 { font-family: var(--serif); font-size: 15.5px; font-weight: 500; color: var(--white); margin: 0 0 3px; }
+  .bld-item p { font-size: 11.5px; color: var(--gray-2); margin: 0; line-height: 1.5; }
+  .bld-price { font-family: var(--mono); font-size: 12px; color: var(--gold-bright); white-space: nowrap; text-align: right; }
+  .bld-ctrl { grid-column: 2 / 4; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; padding-top: 10px; border-top: 1px dashed var(--line-soft); margin-top: 4px; }
+  .bld-ctrl label { font-family: var(--mono); font-size: 10px; letter-spacing: .8px; text-transform: uppercase; color: var(--gray-2); display: flex; align-items: center; gap: 8px; }
+  .bld-ctrl select, .bld-ctrl input[type=number] { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; color: var(--white); font-family: var(--mono); font-size: 12px; padding: 6px 8px; }
+  .bld-step { display: flex; align-items: center; gap: 8px; }
+  .bld-step button { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--gold-bright); font-family: var(--mono); font-size: 14px; cursor: pointer; }
+  .bld-step span { font-family: var(--mono); font-size: 13px; color: var(--white); min-width: 20px; text-align: center; }
+  .bld-cart { position: static; border: 1px solid var(--gold-deep); border-radius: 14px; background: linear-gradient(160deg, rgba(201,162,39,0.08), var(--bg-2)); padding: 24px; }
+  .bld-cart-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 14px; }
+  .bld-lines { border-top: 1px solid var(--line-soft); }
+  .bld-line { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--gray-2); padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+  .bld-line b { font-family: var(--mono); font-size: 11.5px; color: var(--white); font-weight: 500; white-space: nowrap; }
+  .bld-line.cr b { color: var(--green-bright); }
+  .bld-line.bonus { color: var(--gold-bright); }
+  .bld-line.bonus b { color: var(--gold-bright); }
+  .bld-total { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0 4px; }
+  .bld-total .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gray-2); }
+  .bld-total .amt { font-family: var(--serif); font-size: 32px; color: var(--white); }
+  .bld-today { margin-top: 12px; border: 1px solid var(--teal-deep); border-radius: 10px; padding: 14px 16px; background: rgba(15,184,169,0.06); }
+  .bld-today .t1 { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 6px; }
+  .bld-today .t2 { font-family: var(--serif); font-size: 22px; color: var(--white); }
+  .bld-today p { font-size: 11px; color: var(--gray-2); margin: 6px 0 0; line-height: 1.5; }
+  .bld-pay { display: block; text-align: center; margin-top: 14px; font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--bg); text-decoration: none; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); padding: 15px 20px; border-radius: 8px; transition: transform .15s, box-shadow .15s; }
+  .bld-pay:hover { transform: translateY(-1px); box-shadow: 0 6px 22px var(--gold-glow); }
+  .bld-docs { margin-top: 14px; font-size: 11.5px; color: var(--gray-2); line-height: 1.7; }
+  .bld-docs a { color: var(--teal-bright); text-decoration: none; }
+  .bld-docs strong { color: var(--white); }
+  .bld-pass { margin-top: 12px; font-size: 10.5px; color: var(--gray); font-style: italic; line-height: 1.6; }
+  @media (max-width: 900px) { .bld-grid { grid-template-columns: 1fr; } .bld-cart { position: static; } }
+  </style>
+
+  <div class="bld-wrap" id="cart">
+    <div class="bld-title">Build your engagement — <span class="hl">mix &amp; match</span>, priced live.</div>
+    <p class="bld-sub">Tick what your business needs. Every combination totals from the published pricing above — nothing hidden, nothing rounded. <strong style="color: var(--white);">Payment today is only ever Phase 0</strong> — agents are paid on delivery, retainers monthly, exactly as the terms promise.</p>
+
+    <div class="bld-grid">
+      <div class="bld-items">
+
+        <label class="bld-item sel" id="it-p0">
+          <input type="checkbox" class="bld-check" id="ck-p0" checked>
+          <div><h5>Phase 0 · The Refundable Pilot</h5><p>30 days · first working result by Day 10 · 100% refundable to Day 30, no questions asked. The foundation of every engagement.</p></div>
+          <div class="bld-price">A$4,500</div>
+          <div class="bld-ctrl">
+            <label>Payment rhythm
+              <select id="p0-rhythm">
+                <option value="4500">Single · A$4,500 · Day 1</option>
+                <option value="2250">Fortnightly · 2 × A$2,250</option>
+                <option value="1500">Every 10 days · 3 × A$1,500</option>
+              </select>
+            </label>
+          </div>
+        </label>
+
+        <label class="bld-item" id="it-ag">
+          <input type="checkbox" class="bld-check" id="ck-ag">
+          <div><h5>AI Agents · Paid on Delivery</h5><p>A$3,000 each, minimum 4 — intake, quoting, invoicing chase, reporting and more, on your AU stack. Never paid upfront.</p></div>
+          <div class="bld-price">A$3,000 <small style="color:var(--gray)">/agent</small></div>
+          <div class="bld-ctrl">
+            <label>Agents
+              <span class="bld-step"><button type="button" data-step="ag" data-d="-1">−</button><span id="ag-n">4</span><button type="button" data-step="ag" data-d="1">+</button></span>
+            </label>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--gray);">Min 4 · Standard Build = 8</span>
+          </div>
+        </label>
+
+        <label class="bld-item" id="it-ret">
+          <input type="checkbox" class="bld-check" id="ck-ret">
+          <div><h5>Ongoing Retainer</h5><p>Full A$3,500/mo — daily cockpit review, continuous tuning, quarterly strategy, 14-agent ceiling on the Standard package. Lite A$1,750/mo — reduced scope, same founder access. Both with the 3-month break clause.</p></div>
+          <div class="bld-price" id="ret-price">A$3,500 <small style="color:var(--gray)">/mo</small></div>
+          <div class="bld-ctrl">
+            <label>Tier
+              <select id="ret-tier"><option value="3500">Full · A$3,500/mo</option><option value="1750">Lite · A$1,750/mo</option></select>
+            </label>
+            <label>Months
+              <span class="bld-step"><button type="button" data-step="ret" data-d="-1">−</button><span id="ret-n">8</span><button type="button" data-step="ret" data-d="1">+</button></span>
+            </label>
+          </div>
+        </label>
+
+        <label class="bld-item" id="it-ge">
+          <input type="checkbox" class="bld-check" id="ck-ge">
+          <div><h5>The Growth Engine · Distribution &amp; Marketing</h5><p>Weekly cadence (SEO + AEO) · email warmup &amp; Spam Act compliance · UTM + GA4 attribution · an audience and list you own. Six months, strongly recommended. <a href="growth-engine.html" style="color: var(--teal-bright); text-decoration: none;">Full page →</a></p></div>
+          <div class="bld-price" id="ge-price">A$1,500 <small style="color:var(--gray)">/mo × 6</small></div>
+          <div class="bld-ctrl">
+            <label>Intensity
+              <select id="ge-level"><option value="1500">Lean · A$1,500/mo</option><option value="2000">Standard · A$2,000/mo</option><option value="2500">Full · A$2,500/mo</option></select>
+            </label>
+            <span style="font-family: var(--mono); font-size: 10px; color: var(--gray);">6-month program · ads at cost separate</span>
+          </div>
+        </label>
+
+        <label class="bld-item" id="it-fa">
+          <input type="checkbox" class="bld-check" id="ck-fa">
+          <div><h5>Findable · Foundation Audit</h5><p>15-point check of how AI search and email systems see your business, with a plain-English PDF report. Credits 100% to Phase 0.</p></div>
+          <div class="bld-price">A$595</div>
+        </label>
+
+        <label class="bld-item" id="it-ff">
+          <input type="checkbox" class="bld-check" id="ck-ff">
+          <div><h5>Findable · Foundation Fix</h5><p>Done-for-you implementation — llms.txt, robots.txt, schema, sitemap, SPF/DKIM/DMARC, Privacy Act policy + 30-day re-check. Credits 100% to Phase 0.</p></div>
+          <div class="bld-price">A$1,950</div>
+        </label>
+
+        <label class="bld-item" id="it-ed">
+          <input type="checkbox" class="bld-check" id="ck-ed">
+          <div><h5>Email Deliverability Setup</h5><p>Standalone SPF/DKIM/DMARC and inbox-placement setup. Credits 100% to Phase 0.</p></div>
+          <div class="bld-price">A$697</div>
+        </label>
+
+      </div>
+
+      <div class="bld-cart">
+        <div class="bld-cart-tag">Your Engagement · Live Estimate</div>
+        <div class="bld-lines" id="bld-lines"></div>
+        <div class="bld-total"><span class="lbl">Engagement Total · incl GST</span><span class="amt" id="bld-total">A$4,500</span></div>
+        <div class="bld-today">
+          <div class="t1">Payable Today · Starts Everything</div>
+          <div class="t2" id="bld-today">A$4,500</div>
+          <p>Phase 0 only — fully refundable to Day 30. Agents are invoiced on delivery; retainers and the Growth Engine bill monthly. The estimate above is your roadmap, not an upfront charge.</p>
+        </div>
+        <a class="bld-pay" id="bld-stripe" href="#">Pay Phase 0 · Start the Clock</a>
+        <div class="bld-docs">
+          <strong>The scope pack — read before you pay:</strong><br>
+          📄 <a href="/discovery-questionnaire.pdf">Sample Discovery Questionnaire</a> — what we'll map in your first session<br>
+          🔒 <a href="/mutual-nda.pdf">Mutual NDA</a> — signed before Phase 0 begins · your data protected from day one
+        </div>
+        <p class="bld-pass">Pass-through costs excluded from this estimate: LLM/API credits, automation hosting, SaaS subscriptions and any ad spend — paid by you directly, at cost, never marked up. Scoped in Phase 0.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var STRIPE_LINKS = { /* ← Raj: paste your three Stripe Payment Links here when live */
+      4500: "",  /* Single payment · A$4,500 */
+      2250: "",  /* Fortnightly · first of 2 × A$2,250 */
+      1500: ""   /* Every 10 days · first of 3 × A$1,500 */
+    };
+    var state = { p0:true, rhythm:4500, ag:false, agN:4, ret:false, retTier:3500, retN:8, ge:false, geL:1500, fa:false, ff:false, ed:false };
+    function $(id){ return document.getElementById(id); }
+    function money(n){ return "A$" + n.toLocaleString("en-AU"); }
+    function recompute(){
+      /* constraints: agents, retainer, growth engine require Phase 0 */
+      if(!state.p0){ state.ag=false; state.ret=false; state.ge=false; $("ck-ag").checked=false; $("ck-ret").checked=false; $("ck-ge").checked=false; }
+      ["it-ag","it-ret","it-ge"].forEach(function(i){ $(i).classList.toggle("dis", !state.p0); });
+      var lines=[], total=0, today=0;
+      if(state.p0){ lines.push(["Phase 0 · refundable pilot", 4500]); total+=4500; today=state.rhythm; }
+      if(state.ag){ lines.push([state.agN+" agents · paid on delivery", state.agN*3000]); total+=state.agN*3000; }
+      if(state.ret){ var t=state.retTier===3500?"Full":"Lite"; lines.push([t+" retainer × "+state.retN+" mo", state.retTier*state.retN]); total+=state.retTier*state.retN; }
+      if(state.ge){ lines.push(["Growth Engine · "+money(state.geL)+"/mo × 6", state.geL*6]); total+=state.geL*6; }
+      var fSum=0;
+      if(state.fa){ lines.push(["Findable Foundation Audit", 595]); total+=595; fSum+=595; }
+      if(state.ff){ lines.push(["Findable Foundation Fix", 1950]); total+=1950; fSum+=1950; }
+      if(state.ed){ lines.push(["Email Deliverability setup", 697]); total+=697; fSum+=697; }
+      /* Findable credits 100% to Phase 0 */
+      var credit = state.p0 ? Math.min(fSum, 4500) : 0;
+      if(credit>0){ lines.push(["Findable credit → Phase 0 (100%)", -credit]); total-=credit; }
+      /* Standard Year-1 detection */
+      var std = state.p0 && state.ag && state.agN===8 && state.ret && state.retTier===3500 && state.retN>=8;
+      var html="";
+      lines.forEach(function(l){ html+='<div class="bld-line'+(l[1]<0?' cr':'')+'"><span>'+l[0]+'</span><b>'+(l[1]<0?'−':'')+money(Math.abs(l[1]))+'</b></div>'; });
+      if(std){ html+='<div class="bld-line bonus"><span>★ Standard Year-1 unlocked — Founder&#39;s Bonus (A$7,000) + Foundation Sprint (A$2,950) included free</span><b>A$0</b></div>'; }
+      $("bld-lines").innerHTML = html || '<div class="bld-line"><span>Nothing selected yet</span><b>—</b></div>';
+      $("bld-total").textContent = money(total);
+      $("bld-today").textContent = state.p0 ? money(today) : money(0);
+      $("ag-n").textContent = state.agN; $("ret-n").textContent = state.retN;
+      $("ret-price").innerHTML = money(state.retTier)+' <small style="color:var(--gray)">/mo</small>';
+      $("ge-price").innerHTML = money(state.geL)+' <small style="color:var(--gray)">/mo × 6</small>';
+      ["p0","ag","ret","ge","fa","ff","ed"].forEach(function(k){ var el=$("it-"+k); if(el) el.classList.toggle("sel", !!state[k]); });
+    }
+    $("ck-p0").addEventListener("change",function(){ state.p0=this.checked; recompute(); });
+    $("ck-ag").addEventListener("change",function(){ state.ag=this.checked; recompute(); });
+    $("ck-ret").addEventListener("change",function(){ state.ret=this.checked; recompute(); });
+    $("ck-ge").addEventListener("change",function(){ state.ge=this.checked; recompute(); });
+    $("ck-fa").addEventListener("change",function(){ state.fa=this.checked; recompute(); });
+    $("ck-ff").addEventListener("change",function(){ state.ff=this.checked; recompute(); });
+    $("ck-ed").addEventListener("change",function(){ state.ed=this.checked; recompute(); });
+    $("p0-rhythm").addEventListener("change",function(){ state.rhythm=+this.value; recompute(); });
+    $("ret-tier").addEventListener("change",function(){ state.retTier=+this.value; recompute(); });
+    $("ge-level").addEventListener("change",function(){ state.geL=+this.value; recompute(); });
+    document.querySelectorAll("#cart [data-step]").forEach(function(b){
+      b.addEventListener("click",function(e){
+        e.preventDefault();
+        if(this.dataset.step==="ag"){ state.agN=Math.min(8,Math.max(4,state.agN+ +this.dataset.d)); }
+        else { state.retN=Math.min(12,Math.max(3,state.retN+ +this.dataset.d)); }
+        recompute();
+      });
+    });
+    $("bld-stripe").addEventListener("click",function(e){
+      var link = STRIPE_LINKS[state.rhythm] || "";
+      if(!link){ e.preventDefault(); window.location.href="mailto:raj@artigellence.com?subject=Start%20Phase%200&body=Hi%20Raj%2C%20I%27ve%20built%20my%20engagement%20on%20the%20site%20and%20I%27m%20ready%20to%20start%20Phase%200."; }
+      else { this.href = link; }
+    });
+    recompute();
+  })();
+  </script>
+
+  <div class="swon-note">
+    <strong style="color: var(--white);">These five shapes are illustrations, not a menu.</strong> Every figure above is composed from the published pricing on this page — Phase 0 A$4,500 refundable, agents A$3,000 each paid on delivery, retainers A$3,500 full / A$1,750 lite, Growth Engine A$1,500–2,500/mo. Your actual shape is scoped during Phase 0, tailored at every meeting. Monthly LLM/API/SaaS run-costs are paid by the client directly, at cost. All prices include GST.
   </div>
 </section>
 
@@ -4972,7 +5445,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <h2>The questions Australian SME owners <span class="hlt">actually ask</span> before they sign.</h2>
     </div>
     <div class="section-head-right">
-      <span class="key">20 HONEST ANSWERS</span>
+      <span class="key">21 HONEST ANSWERS</span>
       <span>Click to expand</span>
     </div>
   </div>
@@ -4995,6 +5468,14 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <div class="faq-q">Are prices including GST?</div>
       <div class="faq-a">
         <p><strong>Yes.</strong> Every price quoted on this site is in Australian dollars and includes GST.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does paying online work — am I charged the full engagement upfront?</div>
+      <div class="faq-a">
+        <p><strong>No — online payment only ever covers Phase 0.</strong> The engagement builder on this page produces a full estimate so you can see every dollar, but the checkout charges Phase 0 alone — A$4,500 fully refundable to Day 30, in your chosen rhythm (single payment, 2 × A$2,250 fortnightly, or 3 × A$1,500 every ten days).</p>
+        <p><strong>Everything else is paid as delivered:</strong> agents A$3,000 each on delivery, never upfront; retainers and the Growth Engine bill monthly. Before payment, you'll see the scope pack — the Sample Discovery Questionnaire and the Mutual NDA, signed before Phase 0 begins.</p>
       </div>
     </div>
 
@@ -5673,7 +6154,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 <section class="disclaimer-section" id="disclaimer">
   <div class="disclaimer-box">
     <h3>Important Legal Notices & Policies</h3>
-    <p style="font-size: 13px; color: var(--gray-2); line-height: 1.65;">All policies below are <strong>current at May 2026</strong> and are <strong>subject to legal review and refinement</strong>. AAA by Artigellence is in its founding-client phase; these policies represent the operator's good-faith approach to fair dealing and will be formalised further through professional legal review. For any policy query, email <a href="mailto:raj@artigellence.com" style="color: var(--gold-bright); text-decoration: none;">raj@artigellence.com</a>.</p>
+    <p style="font-size: 13px; color: var(--gray-2); line-height: 1.65;">All policies below are <strong>current at May 2026</strong> and are <strong>subject to legal review and refinement</strong>. These policies represent the operator's good-faith approach to fair dealing and will be formalised further through professional legal review. For any policy query, email <a href="mailto:raj@artigellence.com" style="color: var(--gold-bright); text-decoration: none;">raj@artigellence.com</a>.</p>
 
     <!-- BLOCK 1 — DISCLAIMER -->
     <details class="disclaimer-block" id="disclaimer-main" open>
@@ -5714,7 +6195,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <p><strong>Purpose of this site.</strong> This site is service marketing for AAA by Artigellence's AI automation and agent delivery services for Australian SMEs. <strong>It is not a contract.</strong> Engagements are governed by a separate written agreement signed by both parties.</p>
         <p><strong>No warranties on information.</strong> All content on this site — including pricing illustrations, capability descriptions, case studies, integration lists, and timeline indications — is provided "as is" without warranty of accuracy, completeness, or fitness for any particular purpose. You should not rely solely on this site to make business decisions. Independent verification and a discovery conversation with AAA is recommended before any commitment beyond reading.</p>
         <p><strong>Intellectual property.</strong> All content on this site — including text, graphics, the AAA wordmark, the Augmentation Aggregator name, and the underlying design — is the property of Artigellence Augmentation Aggregator unless attributed to a third party. You may share links to the site. You may not republish substantial sections of the content without written permission.</p>
-        <p><strong>Early-release notice.</strong> AAA by Artigellence is in its founding-client phase. The site is under active development. Pages, pricing, policies, and capability descriptions are subject to update without notice. <strong>The version current at the time of your engagement signature is what governs.</strong></p>
+        <p><strong>Site currency.</strong> The site is under active development. Pages, pricing, policies, and capability descriptions are subject to update without notice. <strong>The version current at the time of your engagement signature is what governs.</strong></p>
         <p><strong>Jurisdiction.</strong> These Terms are governed by the laws of New South Wales, Australia. Any disputes are subject to the exclusive jurisdiction of the courts of New South Wales.</p>
         <p><strong>Terms queries:</strong> raj@artigellence.com</p>
       </div>
@@ -5770,7 +6251,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
     <div class="meta">
       Published by Artigellence Augmentation Aggregator · ABN 83 988 690 362 · Sydney NSW Australia<br>
-      Last updated: 01 July 2026 · Founding-client phase · Subject to update<br>
+      Last updated: 18 July 2026 · Subject to update<br>
       Legal & compliance enquiries: <a href="mailto:raj@artigellence.com" style="color: var(--gold-bright); text-decoration: none;">raj@artigellence.com</a>
     </div>
   </div>
@@ -5838,7 +6319,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <p>Artigellence Augmentation Aggregator</p>
       <p style="color: var(--white);">ABN 83 988 690 362</p>
       <p>Sydney NSW · Australia</p>
-      <p style="color: var(--gray); margin-top: 12px;">Founded 2026 · Founding clients onboarding now</p>
+      <p style="color: var(--gray); margin-top: 12px;">Sydney-built · Onboarding new clients now</p>
       <p style="color: var(--gray);">Operating since 2003 (consulting)</p>
     </div>
   </div>
@@ -5856,8 +6337,8 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <div class="foot-bot">
     <span>● POWERED BY <strong style="color: var(--gold);">AAA</strong> · ARTIGELLENCE AUGMENTATION AGGREGATOR · RAJ SINGH</span>
-    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 01 JULY 2026</span>
-    <span>© MMXXVI · FOUNDING-CLIENT PHASE · NOT FINANCIAL OR LEGAL ADVICE · ABN 83 988 690 362</span>
+    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 18 JULY 2026</span>
+    <span>© MMXXVI · NOT FINANCIAL OR LEGAL ADVICE · ABN 83 988 690 362</span>
   </div>
 </footer>
 
@@ -5873,6 +6354,21 @@ if (themeToggle) {
     themeToggle.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
   });
 }
+
+// FAQ two-column distribution (independent columns — expanding never gaps the neighbour)
+(function(){
+  var list = document.querySelector('.faq-list');
+  if (list && !list.querySelector('.faq-col')) {
+    var items = Array.prototype.slice.call(list.querySelectorAll(':scope > .faq-item'));
+    if (items.length > 1) {
+      var colA = document.createElement('div'); colA.className = 'faq-col';
+      var colB = document.createElement('div'); colB.className = 'faq-col';
+      var half = Math.ceil(items.length / 2);
+      items.forEach(function(it, i){ (i < half ? colA : colB).appendChild(it); });
+      list.appendChild(colA); list.appendChild(colB);
+    }
+  }
+})();
 
 // FAQ toggle
 document.querySelectorAll('.faq-q').forEach(q => {
