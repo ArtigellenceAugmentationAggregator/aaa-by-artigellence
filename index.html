@@ -63,7 +63,7 @@
     { "@type": "Question", "name": "I've engaged Aarambh — do I get a discount on AAA?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you've completed an Aarambh — The Founder Forge engagement, 80% of the Aarambh fee credits to AAA when you start a full Standard Year-1 Engagement within 12 months. So A$25,000 paid to Aarambh becomes a A$20,000 credit on AAA. The Standard Year-1 at A$56,500 then becomes A$36,500 net. Credit applies only to the full Standard package, one-off, non-stackable, non-transferable." } },
     { "@type": "Question", "name": "What's the Founder's Bonus and how do I qualify?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Clients who sign the full Standard Year-1 Engagement (A$56,500 incl GST, Phase 0 + 8-agent Build + 8 months of full retainer) receive a Custom GPT trained on the business plus a Media Pack — worth A$7,000 — at no additional cost. Bonus is gated to the Standard package; partial engagements do not qualify." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Clients who sign the full Standard Year-1 Engagement (A$56,500 incl GST, Phase 0 + 8-agent Build + 8 months of full retainer) choose one Founder\u0027s Bonus worth A$7,000 at no additional cost: a Second Brain Custom GPT trained on the business, a Digital Clone of how they communicate, a private Family Dashboard for the household (kids\u0027 learning, family investments and policies, parents\u0027 health reminders — an organiser, not advice), or a Media Pack. Bonus is gated to the Standard package; partial engagements do not qualify." } },
     { "@type": "Question", "name": "How is my business data protected?",
       "acceptedAnswer": { "@type": "Answer", "text": "Privacy Act 1988 and Australian Privacy Principles compliant by design, aligned with the National AI Centre Guidance for AI Adoption. A mutual NDA is signed before Phase 0 begins, access to your systems is read-only, and you own all tooling." } },
     { "@type": "Question", "name": "What happens if I cancel — do I lose the work?",
@@ -951,6 +951,7 @@ body.light-mode::after {
 .compliance-banner a { color: #0a0e14; text-decoration: underline; font-weight: 800; margin-left: 8px; }
 
 /* ============ TOP NAV ============ */
+.section, .hero { scroll-margin-top: 92px; }
 .topnav {
   position: sticky;
   top: 0;
@@ -3784,7 +3785,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <div class="bonus-banner">
     <div class="bonus-banner-left">
       <span class="bonus-tag">FOUNDER'S BONUS</span>
-      <span class="bonus-text">Sign the full <span class="hl">Standard Year-1 Engagement</span> and get a <span class="hlp">Custom GPT + Media Pack</span> worth A$7,000 — included</span>
+      <span class="bonus-text">Sign the full <span class="hl">Standard Year-1 Engagement</span> and pick your <span class="hlp">A$7,000 Founder&#39;s Bonus</span> — Second Brain, Digital Clone, Family Dashboard, or Media Pack</span>
     </div>
     <span class="bonus-counter">A$56,500 INCL GST · YEAR 1</span>
   </div>
@@ -4732,8 +4733,8 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 .swon-sum div { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--gray-2); padding: 4px 0; }
 .swon-sum div b { color: var(--white); font-weight: 500; font-family: var(--mono); font-size: 11.5px; white-space: nowrap; }
 .swon-gets { list-style: none; padding: 0; margin: 0 0 14px; flex-grow: 1; }
-.swon-gets li { font-size: 12.5px; color: var(--gray-2); padding: 5px 0; display: flex; gap: 8px; }
-.swon-gets li::before { content: "▸"; color: var(--gold-deep); flex-shrink: 0; }
+.swon-gets li { font-size: 12.5px; color: var(--gray-2); padding: 5px 0 5px 16px; position: relative; }
+.swon-gets li::before { content: "▸"; color: var(--gold-deep); position: absolute; left: 0; }
 .swon-gets li strong { color: var(--white); font-weight: 600; }
 .swon-badge { align-self: flex-start; font-family: var(--mono); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; border: 1px solid var(--line); border-radius: 5px; padding: 4px 9px; color: var(--teal-bright); }
 .swon-card.flag .swon-badge { border-color: var(--gold-deep); color: var(--gold-bright); }
@@ -4844,7 +4845,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <div>
           <ul class="swon-gets">
             <li><strong>14-agent ceiling</strong> — agents 9–14 at no additional build cost</li>
-            <li><strong>Founder's Bonus included</strong> — Custom GPT + Media Pack, A$7,000 value</li>
+            <li><strong>Founder's Bonus included</strong> — your pick: Second Brain GPT, Digital Clone, Family Dashboard, or Media Pack · A$7,000 value</li>
             <li><strong>Foundation Sprint included</strong> — Findable + deliverability, A$2,950 value</li>
             <li>Daily cockpit review · quarterly strategy · direct founder access</li>
           </ul>
@@ -4940,7 +4941,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <div class="swf-stage p0"><div class="swf-when">Days 1–30</div><h5>Phase 0</h5><p>First result by Day 10. <strong>Foundation Sprint included</strong> — Findable + deliverability set right from the start. Refundable to Day 30.</p></div>
         <div class="swf-stage"><div class="swf-when">Months 2–4</div><h5>The 8-agent Build</h5><p>The complete architecture, delivered milestone by milestone, paid on delivery.</p></div>
         <div class="swf-stage"><div class="swf-when">Months 5–8</div><h5>Full retainer rhythm</h5><p><strong>Daily cockpit review</strong>, continuous tuning, quarterly strategy, direct founder access at every step.</p></div>
-        <div class="swf-stage"><div class="swf-when">Months 8–12</div><h5>Scale to the ceiling</h5><p><strong>Agents 9–14 at no additional build cost</strong> — the 14-agent ceiling, plus the Founder's Bonus: Custom GPT + Media Pack, A$7,000 value.</p></div>
+        <div class="swf-stage"><div class="swf-when">Months 8–12</div><h5>Scale to the ceiling</h5><p><strong>Agents 9–14 at no additional build cost</strong> — the 14-agent ceiling, plus your chosen Founder's Bonus — Second Brain, Digital Clone, Family Dashboard, or Media Pack · A$7,000 value.</p></div>
         <div class="swf-stage"><div class="swf-when">Year end</div><h5>The engine, owned</h5><p>Up to 14 agents in your accounts, a tuned operation, and a report trail your accountant can audit. <strong>Price signed is the price that holds.</strong></p></div>
       </div>
       <p class="swf-fine">Composed from: Phase 0 A$4,500 + 8-agent Build A$24,000 + full retainer A$3,500 × 8 months = A$56,500. Founder's Bonus and Foundation Sprint included at this tier.</p>
@@ -5170,6 +5171,88 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   })();
   </script>
 
+  <!-- SAMPLE TAX INVOICE · GENERIC -->
+  <style>
+  .sinv-details { margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); overflow: hidden; }
+  .sinv-details summary { list-style: none; cursor: pointer; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+  .sinv-details summary::-webkit-details-marker { display: none; }
+  .sinv-sum-l { font-family: var(--serif); font-size: 17px; color: var(--white); }
+  .sinv-sum-l em { color: var(--gold-bright); }
+  .sinv-sum-r { font-family: var(--mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal-bright); }
+  .sinv-details[open] .sinv-sum-r .cl { display: none; }
+  .sinv-details:not([open]) .sinv-sum-r .op { display: none; }
+  .sinv-body { border-top: 1px solid var(--line); padding: 28px; }
+  .sinv-paper { max-width: 680px; margin: 0 auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 30px 32px; }
+  .sinv-head { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-bottom: 2px solid var(--gold-deep); padding-bottom: 18px; margin-bottom: 18px; }
+  .sinv-brand { font-family: var(--serif); font-size: 20px; color: var(--white); }
+  .sinv-brand small { display: block; font-family: var(--mono); font-size: 9px; letter-spacing: 1.6px; color: var(--gray); margin-top: 4px; }
+  .sinv-tag { text-align: right; font-family: var(--mono); font-size: 10px; letter-spacing: 1.4px; color: var(--gold-bright); }
+  .sinv-tag b { display: block; font-size: 13px; color: var(--white); margin-top: 4px; }
+  .sinv-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; font-size: 12px; color: var(--gray-2); line-height: 1.7; margin-bottom: 18px; }
+  .sinv-meta .lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold-bright); display: block; margin-bottom: 4px; }
+  .sinv-meta strong { color: var(--white); }
+  .sinv-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 6px; }
+  .sinv-table th { font-family: var(--mono); font-size: 9px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gray); text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .sinv-table th:last-child, .sinv-table td:last-child { text-align: right; font-family: var(--mono); white-space: nowrap; }
+  .sinv-table td { padding: 12px 0; color: var(--gray-2); border-bottom: 1px solid var(--line-soft); vertical-align: top; line-height: 1.6; }
+  .sinv-table td strong { color: var(--white); }
+  .sinv-totals { margin-left: auto; width: 240px; font-size: 12.5px; }
+  .sinv-totals div { display: flex; justify-content: space-between; padding: 6px 0; color: var(--gray-2); }
+  .sinv-totals div b { font-family: var(--mono); color: var(--white); font-weight: 500; }
+  .sinv-totals .grand { border-top: 2px solid var(--gold-deep); margin-top: 4px; padding-top: 10px; font-family: var(--serif); font-size: 16px; color: var(--white); }
+  .sinv-totals .grand b { font-size: 18px; color: var(--gold-bright); }
+  .sinv-refund { margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--green); background: rgba(4,120,87,0.07); border-radius: 6px; font-size: 11.5px; color: var(--gray-2); line-height: 1.6; }
+  .sinv-refund strong { color: var(--green-bright); }
+  .sinv-pay { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 11.5px; color: var(--gray-2); line-height: 1.7; }
+  .sinv-pay .lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--teal-bright); display: block; margin-bottom: 4px; }
+  .sinv-note2 { margin-top: 16px; font-size: 10.5px; color: var(--gray); font-style: italic; text-align: center; }
+  @media (max-width: 620px) { .sinv-meta, .sinv-pay { grid-template-columns: 1fr; } .sinv-paper { padding: 22px 18px; } }
+  </style>
+
+  <details class="sinv-details">
+    <summary>
+      <span class="sinv-sum-l">📄 See exactly what you'll receive — <em>a sample Phase 0 tax invoice</em></span>
+      <span class="sinv-sum-r"><span class="cl">Click to view →</span><span class="op">Click to close ↑</span></span>
+    </summary>
+    <div class="sinv-body">
+      <div class="sinv-paper">
+        <div class="sinv-head">
+          <div class="sinv-brand">AAA · <em style="color: var(--gold-bright); font-style: italic;">by</em> Artigellence<small>ARTIGELLENCE AUGMENTATION AGGREGATOR · RAJ SINGH · SYDNEY</small></div>
+          <div class="sinv-tag">TAX INVOICE<b>INV-2026-0XX</b></div>
+        </div>
+        <div class="sinv-meta">
+          <div><span class="lbl">From</span><strong>AAA — Artigellence Augmentation Aggregator</strong><br>Rajdeep (Raj) Singh · Founder<br>Sydney NSW, Australia<br>ABN 83 988 690 362<br>raj@artigellence.com · +61 469 313 323</div>
+          <div><span class="lbl">Bill To</span><strong>[Your Name]</strong><br>[Your Business Pty Ltd]<br>[Your Address]<br><br><span class="lbl" style="margin-top:8px;">Dates</span>Issued on engagement · Due on acceptance, to begin Phase 0</div>
+        </div>
+        <table class="sinv-table">
+          <tr><th>Description</th><th>Amount (AUD)</th></tr>
+          <tr><td><strong>AAA Phase 0 — Engagement Kickoff</strong><br>Your scoped first result · first working delivery by Day 10 · fully refundable for 30 days · credits in full toward the ongoing build if you continue.</td><td>$4,090.91</td></tr>
+        </table>
+        <div class="sinv-totals">
+          <div><span>Subtotal</span><b>$4,090.91</b></div>
+          <div><span>GST (10%)</span><b>$409.09</b></div>
+          <div class="grand"><span>Total Due</span><b>A$4,500.00</b></div>
+        </div>
+        <div class="sinv-refund"><strong>Fully refundable.</strong> First working result by Day 10. If Phase 0 isn't delivering value by Day 30, the full A$4,500 is returned — no questions. The risk sits with AAA, not with you.</div>
+        <div class="sinv-pay">
+          <div style="background: var(--bg); border: 1px solid var(--gold-deep); border-radius: 8px; padding: 14px 16px;">
+            <span class="lbl" style="color: var(--gold-bright);">Payment Details</span>
+            <div style="display: grid; grid-template-columns: auto 1fr; gap: 3px 14px; font-size: 11px; color: var(--gray-2); margin-top: 4px;">
+              <span>Account name</span><strong style="color: var(--white); font-family: var(--mono); font-size: 10.5px; text-align: right;">Artigellence Augmentation Aggregator</strong>
+              <span>BSB</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">067 873</strong>
+              <span>Account number</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">24378802</strong>
+              <span>ABN</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">83 988 690 362</strong>
+              <span>Reference</span><strong style="color: var(--gold-bright); font-family: var(--mono); text-align: right;">[YOURBUSINESS] P0</strong>
+            </div>
+            <div style="font-size: 10px; color: var(--gray); margin-top: 8px;">Or secure card payment via Stripe.</div>
+          </div>
+          <div><span class="lbl">Terms</span>Payable on acceptance to commence Phase 0. Please use the reference above so payment is matched. This invoice accompanies the Mutual NDA and Phase 0 Engagement Terms — payment confirms acceptance.</div>
+        </div>
+        <div class="sinv-note2">Sample for illustration · your invoice carries your details, your scoped Phase 0 description, and your chosen payment rhythm (single · 2 × A$2,250 · 3 × A$1,500)</div>
+      </div>
+    </div>
+  </details>
+
   <div class="swon-note">
     <strong style="color: var(--white);">These five shapes are illustrations, not a menu.</strong> Every figure above is composed from the published pricing on this page — Phase 0 A$4,500 refundable, agents A$3,000 each paid on delivery, retainers A$3,500 full / A$1,750 lite, Growth Engine A$1,500–2,500/mo. Your actual shape is scoped during Phase 0, tailored at every meeting. Monthly LLM/API/SaaS run-costs are paid by the client directly, at cost. All prices include GST.
   </div>
@@ -5384,20 +5467,32 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <div class="bonus-section">
     <div class="bonus-inner">
       <span class="bonus-tag-big">FOUNDER'S BONUS · STANDARD PACKAGE ONLY</span>
-      <h3>A <span class="hlp">Custom GPT</span> trained on your business — plus a <span class="hl">Media Pack</span> built around how YOU communicate — included with the Standard Year-1 Engagement.</h3>
+      <h3>One bonus. <span class="hlp">Four ways to take it</span> — for the business, <span class="hl">or for the family</span>. Included with the Standard Year-1 Engagement.</h3>
 
-      <p style="font-size: 15px; color: var(--gray-2); line-height: 1.65; max-width: 850px;">Clients who sign the <strong style="color: var(--white);">full Standard Year-1 Engagement</strong> (A$56,500 incl GST — Phase 0 + 8-agent Build + 8 months of full retainer Month 5 to Month 12) receive a <strong style="color: var(--white);">Custom GPT + Media Pack</strong> worth A$7,000 at no additional cost. <strong>Bonus is gated to the Standard package.</strong> Partial engagements — a 4-agent Build, lite retainer, or no retainer — do not qualify. <em style="color: var(--gold-bright);">Pick the Media Pack format that fits your business — podcast for some, audio brief for others, explainer video for the rest.</em></p>
+      <p style="font-size: 15px; color: var(--gray-2); line-height: 1.65; max-width: 850px;">Clients who sign the <strong style="color: var(--white);">full Standard Year-1 Engagement</strong> (A$56,500 incl GST — Phase 0 + 8-agent Build + 8 months of full retainer Month 5 to Month 12) choose <strong style="color: var(--white);">one Founder's Bonus</strong> worth A$7,000, at no additional cost. <strong>Bonus is gated to the Standard package.</strong> Partial engagements — a 4-agent Build, lite retainer, or no retainer — do not qualify. <em style="color: var(--gold-bright);">Two options grow the business. One puts you everywhere at once. And one goes home with you.</em></p>
 
       <div class="bonus-deliverables">
         <div class="bonus-deliv">
-          <span class="icon">🤖</span>
-          <div class="head">Custom GPT · Trained on your business</div>
-          <div class="body">A bespoke GPT trained on <strong>your SOPs, your customer language, your industry jargon, your tone</strong>. Use it to onboard staff in minutes. Answer customer enquiries instantly. Generate content. Train new hires.</div>
+          <span class="icon">🧠</span>
+          <div class="head">Option 1 · Your Second Brain</div>
+          <div class="body">A bespoke Custom GPT trained on <strong>your SOPs, your customer language, your industry jargon, your tone</strong>. Onboard staff in minutes. Answer enquiries instantly. Generate content. Ask it anything about your own business — it remembers so you don't have to.</div>
+        </div>
+
+        <div class="bonus-deliv">
+          <span class="icon">🎭</span>
+          <div class="head">Option 2 · Your Digital Clone</div>
+          <div class="body">A writing-and-voice clone trained on months of <strong>how you actually communicate</strong> — it drafts your emails, your posts, your quotes and your replies in your voice, for your sign-off. You stay the author; it does the typing. <em style="color: var(--gold-bright);">Be in three conversations at once.</em></div>
+        </div>
+
+        <div class="bonus-deliv">
+          <span class="icon">👨‍👩‍👧</span>
+          <div class="head">Option 3 · The Family Dashboard</div>
+          <div class="body">The bonus that goes home with you — <strong>one private, calm screen for the household</strong>: the kids' learning tracker and study planner · family investments, policies and renewal dates in one view · parents' appointments, medications and checkup reminders. Built for your family, owned by your family, seen by nobody else. <em style="color: var(--gray);">An organiser — never financial or medical advice.</em></div>
         </div>
 
         <div class="bonus-deliv">
           <span class="icon">📦</span>
-          <div class="head">Media Pack · You pick the format</div>
+          <div class="head">Option 4 · Media Pack · You pick the format</div>
           <div class="body">One of three deliverables — <strong>your call, based on how your customers actually consume content</strong>:</div>
           <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
             <div style="padding: 10px 12px; background: rgba(168, 85, 247, 0.06); border-left: 3px solid var(--purple); border-radius: 6px; font-size: 12.5px; line-height: 1.5; color: var(--gray-2);">
@@ -5420,7 +5515,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <div style="margin-top: 28px; padding: 22px 26px; background: rgba(15,184,169,0.05); border: 1px solid var(--teal-deep); border-radius: 10px;">
         <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.6px; color: var(--teal-bright); font-weight: 700; margin-bottom: 10px;">↳ HOW TO QUALIFY</div>
         <div style="font-size: 14px; color: var(--gray-2); line-height: 1.65;">
-          Sign the <strong style="color: var(--white);">Standard Year-1 Engagement</strong>: Phase 0 (A$4,500) + 8-agent Build (A$24,000) + 8 months of full retainer at A$3,500/mo (A$28,000) = <strong style="color: var(--white);">A$56,500 incl GST</strong>. The Custom GPT + Media Pack is delivered at no additional cost.
+          Sign the <strong style="color: var(--white);">Standard Year-1 Engagement</strong>: Phase 0 (A$4,500) + 8-agent Build (A$24,000) + 8 months of full retainer at A$3,500/mo (A$28,000) = <strong style="color: var(--white);">A$56,500 incl GST</strong>. Your chosen bonus is delivered at no additional cost.
           <br><br>
           <strong style="color: var(--white);">Partial engagements do not qualify</strong> — 4-agent or partial Build, lite retainer, or no retainer. The bonus is a feature of the Standard package, not a generic Phase 0 perk. <em style="color: var(--gold-bright);">Bonus locks in at signature.</em>
         </div>
@@ -5431,7 +5526,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <a href="#pricing" class="btn-secondary">See Pricing</a>
       </div>
 
-      <p style="margin-top: 20px; font-family: var(--mono); font-size: 11px; color: var(--gray); letter-spacing: 0.6px; line-height: 1.6;">Custom GPT + Media Pack delivered in 7 days post Phase 0 · Yours to keep · Bonus locks in at signature</p>
+      <p style="margin-top: 20px; font-family: var(--mono); font-size: 11px; color: var(--gray); letter-spacing: 0.6px; line-height: 1.6;">Bonus chosen at signature · delivered within 14 days post Phase 0 · yours (and your family's) to keep</p>
     </div>
   </div>
 </section>
@@ -5534,7 +5629,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <div class="faq-item">
       <div class="faq-q">What's the Founder's Bonus and how do I qualify?</div>
       <div class="faq-a">
-        <p><strong>Clients who sign the full Standard Year-1 Engagement</strong> (A$56,500 incl GST — Phase 0 + 8-agent Build + 8 months full retainer) receive a <strong>Custom GPT trained on the business plus a Media Pack</strong> — worth A$7,000 — at no additional cost.</p>
+        <p><strong>Clients who sign the full Standard Year-1 Engagement</strong> (A$56,500 incl GST — Phase 0 + 8-agent Build + 8 months full retainer) choose <strong>one Founder's Bonus worth A$7,000</strong> at no additional cost — a Second Brain Custom GPT trained on the business, a Digital Clone of how you communicate, the private Family Dashboard for the household, or a Media Pack (podcast, audio brief, or explainer video).</p>
         <p>Media Pack format is your pick: NotebookLM podcast, 5-min audio brief, or explainer video.</p>
         <p><strong>Bonus is gated to the Standard package.</strong> Partial engagements — 4-agent Build, lite retainer, no retainer — do not qualify. <em>Bonus locks in at signature.</em></p>
       </div>
