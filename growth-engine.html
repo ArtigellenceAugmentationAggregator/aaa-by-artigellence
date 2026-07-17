@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Growth Engine · Distribution & Marketing · AAA by Artigellence</title>
+<meta name="description" content="A weekly-cadence distribution and marketing engine for Australian SMEs — written once, repurposed everywhere, every lead stamped to its source. Phase 0 A$4,500 fully refundable.">
+<link rel="canonical" href="https://aaa.artigellence.com/growth-engine.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aaa.artigellence.com/growth-engine.html">
+<meta property="og:title" content="The Growth Engine · AAA by Artigellence">
+<meta property="og:description" content="One weekly session. One anchor article. Every platform covered. Every lead stamped to its source. Phase 0 A$4,500, fully refundable.">
+<meta name="theme-color" content="#0a0e14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e14;
+  --bg-2: #11161f;
+  --bg-3: #181f2c;
+  --line: #2a3142;
+  --line-soft: #1d2332;
+  --gold: #c9a227;
+  --gold-bright: #d9b542;
+  --gold-deep: #8b6914;
+  --gold-glow: rgba(201, 162, 39, 0.4);
+  --teal: #0fb8a9;
+  --teal-bright: #19d4c4;
+  --teal-deep: #0a8579;
+  --green: #047857;
+  --green-bright: #10b981;
+  --red: #B91C1C;
+  --coral: #f87171;
+  --purple: #7c3aed;
+  --purple-bright: #a78bfa;
+  --white: #f5f3ee;
+  --gray: #6b7488;
+  --gray-2: #9aa3b5;
+  --gray-soft: #4a5266;
+  --serif: 'Fraunces', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold); color: var(--bg); }
+
+.section { scroll-margin-top: 84px; }
+/* ===== TOPNAV ===== */
+.topnav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 26px; padding: 16px 34px;
+  background: rgba(10, 14, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.topnav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.aaa-logo {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-weight: 700; font-size: 13px;
+  color: var(--bg); letter-spacing: -0.5px;
+}
+.brand-text .name { font-family: var(--serif); font-size: 16px; color: var(--white); line-height: 1.2; }
+.brand-text .name em { color: var(--gold-bright); font-style: italic; }
+.brand-text .sub { font-family: var(--mono); font-size: 9px; letter-spacing: 1.6px; color: var(--gray); text-transform: uppercase; }
+.topnav-links { display: flex; gap: 4px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; }
+.topnav-links a { color: var(--gray-2); text-decoration: none; padding: 9px 11px; border-radius: 6px; transition: color .18s, background .18s; }
+.topnav-links a:hover { color: var(--white); background: var(--bg-3); }
+.topnav-links a.here { color: var(--gold-bright); }
+.topnav-cta {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--bg); text-decoration: none;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  padding: 11px 20px; border-radius: 7px; white-space: nowrap;
+  transition: transform .18s, box-shadow .18s;
+}
+.topnav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 22px var(--gold-glow); }
+
+/* ===== HERO ===== */
+.hero { max-width: 1180px; margin: 0 auto; padding: 84px 34px 60px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--teal-bright); margin-bottom: 26px;
+}
+.hero-eyebrow .stamp { color: var(--teal-bright); border: 1px solid var(--teal-deep); border-radius: 6px; padding: 3px 9px; }
+.hero h1 {
+  font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.12; letter-spacing: -0.5px; max-width: 900px;
+}
+.hero h1 .hl { color: var(--gold-bright); font-style: italic; }
+.hero h1 .hlt { color: var(--teal-bright); font-style: italic; }
+.hero-lede { max-width: 720px; margin-top: 26px; font-size: 17px; color: var(--gray-2); }
+.hero-lede strong { color: var(--white); }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+.hero-pills span {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gray-2); border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px;
+}
+.hero-pills span b { color: var(--gold-bright); font-weight: 600; }
+
+/* ===== SECTIONS ===== */
+.section { max-width: 1180px; margin: 0 auto; padding: 74px 34px; border-top: 1px solid var(--line-soft); }
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 44px; flex-wrap: wrap; }
+.eyebrow {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--gray-2); margin-bottom: 14px;
+}
+.eyebrow .num { color: var(--gold-bright); }
+.section-head h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.18; letter-spacing: -0.3px; max-width: 760px; }
+.section-head h2 .hl { color: var(--gold); font-style: italic; }
+.section-head h2 .hlt { color: var(--teal-bright); font-style: italic; }
+.section-head-right { text-align: right; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); display: flex; flex-direction: column; gap: 7px; }
+.section-head-right .key { color: var(--gold-bright); }
+.sec-note { max-width: 740px; color: var(--gray-2); font-size: 15px; margin-bottom: 36px; }
+.sec-note strong { color: var(--white); }
+
+/* ===== WEEKLY RHYTHM TABLE ===== */
+.rhythm { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.rhythm-row { display: grid; grid-template-columns: 130px 1fr 240px; border-bottom: 1px solid var(--line-soft); }
+.rhythm-row:last-child { border-bottom: none; }
+.rhythm-row > div { padding: 22px 24px; }
+.rhythm-hour { font-family: var(--mono); font-size: 12px; color: var(--gold-bright); letter-spacing: 0.5px; background: var(--bg-2); border-right: 1px solid var(--line-soft); display:flex; align-items:flex-start; }
+.rhythm-what { font-size: 14.5px; color: var(--gray-2); }
+.rhythm-what strong { color: var(--white); }
+.rhythm-where { font-family: var(--mono); font-size: 11px; letter-spacing: 0.4px; color: var(--teal-bright); border-left: 1px solid var(--line-soft); background: var(--bg-2); display:flex; align-items:flex-start; }
+.rhythm-cap { display:flex; gap:12px; flex-wrap:wrap; margin-top: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray); }
+.rhythm-cap b { color: var(--gold-bright); font-weight: 600; }
+
+/* ===== OUTPUT GRID ===== */
+.out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.out-card { border: 1px solid var(--line); border-radius: 14px; padding: 30px; background: var(--bg-2); }
+.out-card h3 { font-family: var(--serif); font-size: 21px; font-weight: 500; margin-bottom: 16px; }
+.out-card h3 span { color: var(--teal-bright); font-style: italic; }
+.out-card ul { list-style: none; }
+.out-card li { padding: 8px 0 8px 18px; border-bottom: 1px solid var(--line-soft); font-size: 14px; color: var(--gray-2); position: relative; }
+.out-card li:last-child { border-bottom: none; }
+.out-card li::before { content: "▸"; color: var(--gold-bright); position: absolute; left: 0; }
+.out-card li strong { color: var(--white); font-weight: 600; }
+.discipline {
+  margin-top: 24px; border: 1px solid var(--gold-deep); border-radius: 14px;
+  padding: 26px 30px; background: linear-gradient(135deg, rgba(201,162,39,0.07), transparent);
+  font-family: var(--serif); font-size: 17.5px; font-style: italic; color: var(--gray-2); line-height: 1.6;
+}
+.discipline strong { color: var(--gold-bright); font-style: normal; }
+
+/* ===== ROADMAP ===== */
+.roadmap-scroll { overflow-x: auto; padding-bottom: 14px; }
+.roadmap { display: grid; grid-template-columns: repeat(6, minmax(215px, 1fr)); gap: 14px; min-width: 1340px; }
+.rm-col { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); padding: 20px 18px; display: flex; flex-direction: column; }
+.rm-col.phase0 { border-color: var(--teal-deep); }
+.rm-when { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+.rm-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; }
+.rm-col:nth-child(1) .rm-tag { color: var(--teal-bright); }
+.rm-col:nth-child(2) .rm-tag { color: var(--gold-bright); }
+.rm-col:nth-child(3) .rm-tag { color: var(--gold-bright); }
+.rm-col:nth-child(4) .rm-tag { color: var(--green-bright); }
+.rm-col:nth-child(5) .rm-tag { color: var(--purple-bright); }
+.rm-col:nth-child(6) .rm-tag { color: var(--coral); }
+.rm-title { font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1.25; margin-bottom: 14px; }
+.rm-title em { color: var(--teal-bright); }
+.rm-col ul { list-style: none; flex-grow: 1; }
+.rm-col li { font-size: 12.5px; color: var(--gray-2); padding: 6px 0 6px 16px; border-bottom: 1px solid var(--line-soft); position: relative; line-height: 1.5; }
+.rm-col li:last-child { border-bottom: none; }
+.rm-col li::before { content: "▸"; color: var(--gold-deep); position: absolute; left: 0; }
+.rm-col li strong { color: var(--white); font-weight: 600; }
+.rm-badge {
+  margin-top: 14px; align-self: flex-start;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase;
+  border: 1px solid var(--line); border-radius: 5px; padding: 4px 9px; color: var(--gray-2);
+}
+.rm-col.phase0 .rm-badge { border-color: var(--teal-deep); color: var(--teal-bright); }
+.rm-note { margin-top: 20px; font-size: 12.5px; color: var(--gray); font-style: italic; max-width: 820px; }
+
+/* ===== HONEST TIMELINE ===== */
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.tl-card { border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; background: var(--bg-2); }
+.tl-when { font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 12px; }
+.tl-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+.tl-card p { font-size: 13.5px; color: var(--gray-2); }
+.physics {
+  margin-top: 26px; border-left: 3px solid var(--gold); padding: 4px 0 4px 22px;
+  font-size: 14.5px; color: var(--gray-2); max-width: 800px;
+}
+.physics strong { color: var(--white); }
+
+/* ===== ATTRIBUTION ===== */
+.attr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.attr-card { border-radius: 14px; padding: 30px; }
+.attr-card.proven { border: 1px solid var(--green); background: linear-gradient(160deg, rgba(4,120,87,0.10), transparent); }
+.attr-card.influenced { border: 1px solid var(--line); background: var(--bg-2); }
+.attr-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 14px; }
+.attr-card.proven .attr-tag { color: var(--green-bright); }
+.attr-card.influenced .attr-tag { color: var(--gray); }
+.attr-card h3 { font-family: var(--serif); font-size: 21px; font-weight: 500; margin-bottom: 14px; }
+.attr-card ul { list-style: none; margin-bottom: 16px; }
+.attr-card li { font-size: 13.5px; color: var(--gray-2); padding: 7px 0 7px 18px; border-bottom: 1px solid var(--line-soft); position: relative; }
+.attr-card li:last-child { border-bottom: none; }
+.attr-card.proven li::before { content: "✓"; color: var(--green-bright); position: absolute; left: 0; }
+.attr-card.influenced li::before { content: "~"; color: var(--gray); font-family: var(--mono); position: absolute; left: 0; }
+.attr-foot { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.8px; text-transform: uppercase; }
+.attr-card.proven .attr-foot { color: var(--green-bright); }
+.attr-card.influenced .attr-foot { color: var(--gray); }
+.attr-promise { margin-top: 24px; font-size: 14.5px; color: var(--gray-2); max-width: 800px; }
+.attr-promise strong { color: var(--white); }
+
+/* ===== INVESTMENT ===== */
+.inv-wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 26px; align-items: start; }
+.inv-main {
+  border: 1px solid var(--gold-deep); border-radius: 16px; padding: 36px;
+  background: linear-gradient(150deg, rgba(201,162,39,0.09), rgba(139,105,20,0.03));
+}
+.inv-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 14px; }
+.inv-price { font-family: var(--serif); font-size: 54px; font-weight: 500; line-height: 1; }
+.inv-price small { font-size: 20px; color: var(--gray-2); font-family: var(--sans); }
+.inv-sub { margin-top: 12px; font-size: 15px; color: var(--gray-2); }
+.inv-sub strong { color: var(--white); }
+.rhythms { margin-top: 28px; display: grid; gap: 12px; }
+.rhythm-opt {
+  display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: center;
+  border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; background: var(--bg-2);
+}
+.rhythm-opt .n { font-family: var(--mono); font-size: 12px; color: var(--gold-bright); border: 1px solid var(--gold-deep); border-radius: 6px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+.rhythm-opt .d { font-size: 14px; color: var(--gray-2); }
+.rhythm-opt .d strong { color: var(--white); }
+.rhythm-opt .m { font-family: var(--mono); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--teal-bright); text-align: right; }
+.inv-fine { margin-top: 22px; font-size: 12.5px; color: var(--gray); }
+.inv-side { display: grid; gap: 20px; }
+.inv-card { border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--bg-2); }
+.inv-card h4 { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+.inv-card p { font-size: 13.5px; color: var(--gray-2); }
+.inv-card p strong { color: var(--white); }
+.inv-card .rng { font-family: var(--mono); font-size: 13px; color: var(--gold-bright); margin: 10px 0 6px; }
+.inv-note {
+  border: 1px solid var(--line-soft); border-radius: 10px; padding: 16px 20px;
+  font-size: 12.5px; color: var(--gray); background: var(--bg-2);
+}
+.inv-note a { color: var(--teal-bright); text-decoration: none; }
+
+/* ===== FOUNDATION / NOT AGENCY ===== */
+.found-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.found-card { border: 1px solid var(--line); border-radius: 14px; padding: 30px; background: var(--bg-2); }
+.found-card.own { border-color: var(--gold-deep); background: linear-gradient(160deg, rgba(201,162,39,0.08), transparent); }
+.found-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 14px; }
+.found-card .found-tag { color: var(--gray); }
+.found-card.own .found-tag { color: var(--gold-bright); }
+.found-card h3 { font-family: var(--serif); font-size: 21px; font-weight: 500; margin-bottom: 14px; }
+.found-card p { font-size: 14px; color: var(--gray-2); margin-bottom: 12px; }
+.found-card p:last-child { margin-bottom: 0; }
+.found-card p strong { color: var(--white); }
+.funnel-line {
+  margin-top: 24px; border: 1px solid var(--teal-deep); border-radius: 14px;
+  padding: 26px 30px; background: linear-gradient(135deg, rgba(15,184,169,0.07), transparent);
+  font-family: var(--serif); font-size: 17.5px; font-style: italic; color: var(--gray-2); line-height: 1.6;
+}
+.funnel-line strong { color: var(--teal-bright); font-style: normal; }
+
+/* ===== TRACKER ===== */
+.tracker-chart { border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); padding: 26px 26px 16px; }
+.tracker-chart svg { width: 100%; height: auto; display: block; }
+.tracker-legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-2); }
+.tracker-legend span { display: flex; align-items: center; gap: 8px; }
+.lg-swatch { width: 22px; height: 3px; border-radius: 2px; display: inline-block; }
+.tracker-table-wrap { overflow-x: auto; margin-top: 26px; }
+.tracker-table { width: 100%; min-width: 760px; border-collapse: collapse; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tracker-table th {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--gold-bright); text-align: left; padding: 14px 18px; background: var(--bg-3);
+  border-bottom: 1px solid var(--line);
+}
+.tracker-table td { padding: 15px 18px; font-size: 13px; color: var(--gray-2); border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+.tracker-table tr:last-child td { border-bottom: none; }
+.tracker-table td:first-child { font-family: var(--mono); font-size: 11.5px; color: var(--teal-bright); white-space: nowrap; }
+.tracker-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--gold-bright); white-space: nowrap; }
+.tracker-table td strong { color: var(--white); font-weight: 600; }
+.tracker-fine { margin-top: 18px; font-size: 12.5px; color: var(--gray); font-style: italic; max-width: 820px; }
+
+/* ===== CTA ===== */
+.cta { max-width: 1180px; margin: 0 auto; padding: 80px 34px 90px; text-align: center; border-top: 1px solid var(--line-soft); }
+.cta h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 3.4vw, 40px); }
+.cta h2 .hl { color: var(--gold-bright); font-style: italic; }
+.cta p { margin: 18px auto 34px; max-width: 560px; color: var(--gray-2); }
+.cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-gold {
+  font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--bg); text-decoration: none;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  padding: 16px 30px; border-radius: 8px; transition: transform .18s, box-shadow .18s;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--gold-glow); }
+.btn-ghost {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--white); text-decoration: none; border: 1px solid var(--line);
+  padding: 16px 30px; border-radius: 8px; transition: border-color .18s, background .18s;
+}
+.btn-ghost:hover { border-color: var(--gold); background: var(--bg-3); }
+
+/* ===== FOOTER ===== */
+footer { border-top: 1px solid var(--line-soft); }
+.foot-inner { max-width: 1180px; margin: 0 auto; padding: 44px 34px; display: flex; justify-content: space-between; align-items: center; gap: 26px; flex-wrap: wrap; }
+.foot-brand-row { display: flex; align-items: center; gap: 11px; }
+.foot-meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray); text-align: right; line-height: 2; }
+.foot-meta a { color: var(--gold-bright); text-decoration: none; }
+
+@media (max-width: 980px) {
+  .topnav { padding: 13px 20px; }
+  .topnav-links { display: none; }
+  .hero { padding: 56px 20px 44px; }
+  .section { padding: 54px 20px; }
+  .rhythm-row { grid-template-columns: 1fr; }
+  .rhythm-hour, .rhythm-where { border: none; border-bottom: 1px solid var(--line-soft); }
+  .out-grid, .attr-grid, .inv-wrap { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .section-head-right { text-align: left; }
+}
+@media (max-width: 560px) { .timeline { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPNAV ===== -->
+<nav class="topnav">
+  <a href="https://aaa.artigellence.com/" class="topnav-brand">
+    <div class="aaa-logo">AAA</div>
+    <div class="brand-text">
+      <div class="name"><em>by</em> Artigellence</div>
+      <div class="sub">Automation &amp; Agents · Sydney</div>
+    </div>
+  </a>
+  <div class="topnav-links">
+    <a href="https://aaa.artigellence.com/#what-we-do">What We Do</a>
+    <a href="https://aaa.artigellence.com/#how-it-works">How It Works</a>
+    <a href="https://aaa.artigellence.com/#pricing">Pricing</a>
+    <a href="https://aaa.artigellence.com/#findable">Findable</a>
+    <a class="here" href="#rhythm">Growth Engine</a>
+    <a href="https://aaa.artigellence.com/#contact">Contact</a>
+  </div>
+  <a class="topnav-cta" href="https://cal.com/raj-aaa/aaa-discovery">Book Walkthrough</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-eyebrow">
+    <span>◆ The Growth Engine · Distribution &amp; Marketing</span>
+    <span class="stamp">UPDATED 17 JULY 2026</span>
+  </div>
+  <h1>Written <span class="hl">once</span>. Everywhere that matters. Every lead <span class="hlt">stamped to its source</span>.</h1>
+  <p class="hero-lede">The Growth Engine is AAA's distribution and marketing engagement, built on four pillars: <strong>the Weekly Cadence</strong> — content engineered for SEO and AEO, so Google ranks you and AI assistants recommend you; <strong>email warmup &amp; compliance</strong> — outreach that lands in inboxes, Spam Act clean; and <strong>tracking &amp; analytics on everything</strong> — every link UTM-stamped, wired into Google Analytics, so when a lead becomes a sale you see exactly where it came from. <strong>Written once, never twice.</strong></p>
+  <div class="hero-pills">
+    <span><b>Phase 0</b> A$4,500 · fully refundable</span>
+    <span><b>SEO + AEO</b> built into every piece</span>
+    <span><b>UTM</b> on every link · GA4 wired</span>
+    <span>Warmup · Spam Act clean</span>
+    <span>You own everything</span>
+  </div>
+</header>
+
+<!-- ===== 01 · THE WEEKLY RHYTHM ===== -->
+<section class="section" id="rhythm">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>01 · The Weekly Rhythm</div>
+      <h2>One session. <span class="hl">One anchor.</span> A full week of presence.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">The anatomy of the session</span>
+      <span>Anchor → cuts → video → schedule</span>
+    </div>
+  </div>
+  <p class="sec-note">Everything flows from one anchor piece, produced in a single weekly session — and every piece is engineered twice over: <strong>SEO</strong>, so Google ranks it, and <strong>AEO</strong> (AI Engine Optimisation), so ChatGPT, Claude, Perplexity and Google's AI answers cite your business when buyers ask. The discipline is the product: <strong>consistency beats brilliance</strong> — twenty-six consecutive weeks is what builds an audience, a list and a pipeline.</p>
+
+  <div class="rhythm">
+    <div class="rhythm-row">
+      <div class="rhythm-hour">01 · The Anchor</div>
+      <div class="rhythm-what"><strong>The source of everything.</strong> One 600–1,000 word article in your voice — a market read, an explainer, a data piece, a mistake your customers keep making.</div>
+      <div class="rhythm-where">Blog · saved for newsletter</div>
+    </div>
+    <div class="rhythm-row">
+      <div class="rhythm-hour">02 · The Cuts</div>
+      <div class="rhythm-what"><strong>One piece becomes many.</strong> The anchor reshaped platform-native — a genuine community contribution where your buyers actually gather, a thread, a post, plus one version for the professional audience. Never salesy; communities smell marketing instantly.</div>
+      <div class="rhythm-where">Reddit · X · Facebook · LinkedIn</div>
+    </div>
+    <div class="rhythm-row">
+      <div class="rhythm-hour">03 · The Video</div>
+      <div class="rhythm-what"><strong>Short-form, faceless.</strong> One 30–60 second vertical — data, charts, captions, voiceover. You never need to be on camera.</div>
+      <div class="rhythm-where">Reels · TikTok · Shorts</div>
+    </div>
+    <div class="rhythm-row">
+      <div class="rhythm-hour">04 · The Machinery</div>
+      <div class="rhythm-what"><strong>Scheduled, measured, routed.</strong> Everything queued for the week, last week's numbers pulled into a one-page snapshot, replies checked and routed to you.</div>
+      <div class="rhythm-where">Scheduler · weekly review sheet</div>
+    </div>
+  </div>
+  <div class="rhythm-cap">
+    <span><b>Weekly:</b> 1 article · 3–4 posts · 1 video</span>
+    <span><b>Monthly:</b> 1 newsletter · 1 attribution report</span>
+    <span><b>From you:</b> a quick sign-off · everything before it publishes</span>
+  </div>
+</section>
+
+<!-- ===== 02 · WHAT IT LOOKS LIKE FROM OUTSIDE ===== -->
+<section class="section" id="output">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>02 · The Output</div>
+      <h2>What each week looks like <span class="hlt">from the outside</span>.</h2>
+    </div>
+  </div>
+  <div class="out-grid">
+    <div class="out-card">
+      <h3>Every <span>week</span></h3>
+      <ul>
+        <li><strong>1 anchor article</strong> on your site, in your voice</li>
+        <li><strong>1 community contribution</strong> where your buyers gather</li>
+        <li><strong>1 thread + 1 post</strong> across X and Facebook</li>
+        <li><strong>1 LinkedIn piece</strong> for the professional / trade audience</li>
+        <li><strong>1 short vertical video</strong> across Reels, TikTok, Shorts</li>
+        <li><strong>Outreach in safe volumes</strong> — warmed, compliant, tracked</li>
+      </ul>
+    </div>
+    <div class="out-card">
+      <h3>Every <span>month</span></h3>
+      <ul>
+        <li><strong>The newsletter</strong> — the four anchors distilled, sent to a list you own</li>
+        <li><strong>The one-page report</strong> — leads, sources, conversions, attributed revenue</li>
+        <li><strong>Two columns, kept honestly apart</strong> — proven and influenced, never mixed</li>
+        <li><strong>Kill / double decisions</strong> — channels that don't attribute get cut; what converts gets doubled</li>
+      </ul>
+    </div>
+  </div>
+  <div class="discipline">"One good week means nothing; <strong>twenty-six consecutive weeks</strong> is what makes an audience, a list, and a pipeline. The commitment is the cadence itself — every week, including the boring ones."</div>
+</section>
+
+<!-- ===== 03 · SAMPLE SIX-MONTH ROADMAP ===== -->
+<section class="section" id="roadmap">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>03 · Sample Roadmap</div>
+      <h2>Six months, <span class="hl">honestly sequenced</span>.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">Illustrative · tailored at every meeting</span>
+      <span>Scroll →</span>
+    </div>
+  </div>
+  <p class="sec-note">A representative shape drawn from live AAA engagements. Every real roadmap is built around <strong>your business, your tools, your buyers</strong> — and adjusted at every session as results come in. Nothing rigid, nothing off-the-shelf.</p>
+
+  <div class="roadmap-scroll">
+    <div class="roadmap">
+      <div class="rm-col phase0">
+        <div class="rm-when">Now · Days 1–30</div>
+        <div class="rm-tag">Phase 0 · Foundation</div>
+        <div class="rm-title">The invisible month — <em>everything that matters, underneath</em></div>
+        <ul>
+          <li><strong>Cousin sending domain</strong> registered — your main domain never at risk</li>
+          <li><strong>Email warmup begins Day 1</strong> — the step that cannot be rushed (2–4 weeks)</li>
+          <li>SPF / DKIM / DMARC set correctly</li>
+          <li><strong>Contact list cleaned</strong> and segmented — a smaller, alive list beats a big, dead one</li>
+          <li>Email capture live on your site with a genuinely useful lead magnet</li>
+          <li><strong>Voice capture</strong> — 30–40 min of you talking; everything is written in your voice from then on</li>
+        </ul>
+        <div class="rm-badge">Refundable · Day 30</div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-when">Month 1 · Weeks 3–4</div>
+        <div class="rm-tag">Build · The Cadence</div>
+        <div class="rm-title">First presence, first signals</div>
+        <ul>
+          <li>Blog live · first posts publishing in your voice</li>
+          <li>Warmup completes · <strong>re-engagement to the cleaned list</strong> — warmest names first</li>
+          <li>First compliant outreach begins, in safe volumes</li>
+          <li>AI-findability fixes applied to your site</li>
+        </ul>
+        <div class="rm-badge">Early signs</div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-when">Month 2</div>
+        <div class="rm-tag">Build · Attribution</div>
+        <div class="rm-title">Prove what actually works</div>
+        <ul>
+          <li><strong>Attribution dashboard live</strong> — lead → source → $$</li>
+          <li>Weekly engine fully rotating · anchor + cuts + video</li>
+          <li>Kill posting on channels that don't attribute</li>
+          <li>AI assistants start naming your business correctly</li>
+        </ul>
+        <div class="rm-badge">Traction</div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-when">Month 3</div>
+        <div class="rm-tag">Compounding</div>
+        <div class="rm-title">Real leads, stamped to source</div>
+        <ul>
+          <li>First genuine enquiries routed to you, <strong>each stamped with its source</strong></li>
+          <li>Referral-partner track begins — B2B effort, B2C reach</li>
+          <li>Newsletter starts earning replies</li>
+          <li>Reasonable results window opens</li>
+        </ul>
+        <div class="rm-badge">Reasonable results</div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-when">Month 4</div>
+        <div class="rm-tag">Scale &amp; Rebalance</div>
+        <div class="rm-title">Owned beats rented</div>
+        <ul>
+          <li><strong>Owned leads &gt; rented leads</strong> for the first time</li>
+          <li>Content compounding — older posts still bringing warm leads</li>
+          <li>Podcast unlocks at 100+ followers on any channel</li>
+          <li>Your inbound flow visible on the dashboard, daily</li>
+        </ul>
+        <div class="rm-badge">Owned &gt; rented</div>
+      </div>
+      <div class="rm-col">
+        <div class="rm-when">Month 6 · + Beyond</div>
+        <div class="rm-tag">The Engine</div>
+        <div class="rm-title">Runs while you work</div>
+        <ul>
+          <li><strong>~24 anchor articles · 120+ pieces of content — owned</strong></li>
+          <li>An audience, a list and a pipeline that compound instead of resetting</li>
+          <li>Referral partners on autopilot monthly touch</li>
+          <li>Monthly report: leads, sources, conversions, attributed revenue</li>
+        </ul>
+        <div class="rm-badge">Real results</div>
+      </div>
+    </div>
+  </div>
+  <p class="rm-note">Sample shape only — drawn from engagements across food wholesale, finance broking, freight, rentals and property advisory. Your roadmap is scoped in Phase 0 and adjusted at every meeting as we progress.</p>
+</section>
+
+<!-- ===== 04 · HONEST TIMELINE ===== -->
+<section class="section" id="timeline">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>04 · The Honest Timeline</div>
+      <h2>When you'll see results — <span class="hlt">honestly</span>.</h2>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-card">
+      <div class="tl-when">Weeks 1–4</div>
+      <h4>Foundation</h4>
+      <p>Presence starts, list starts, warmup runs. Profile views, first followers, first opens. Not sales yet — this is the runway.</p>
+    </div>
+    <div class="tl-card">
+      <div class="tl-when">Months 2–3</div>
+      <h4>First real signals</h4>
+      <p>Outreach lands — industry reply rates run roughly 3–10% on good targeting, over a 30–90 day window. Warm leads begin arriving from content.</p>
+    </div>
+    <div class="tl-card">
+      <div class="tl-when">Months 3–6</div>
+      <h4>The payoff window</h4>
+      <p>Consistent presence + a warmed list + steady outreach = a predictable flow of qualified enquiry. This is when the engine earns its keep.</p>
+    </div>
+    <div class="tl-card">
+      <div class="tl-when">Beyond 6 months</div>
+      <h4>The asset compounds</h4>
+      <p>An owned audience, a growing list, partners distributing your content. The engine keeps working instead of resetting each month.</p>
+    </div>
+  </div>
+  <div class="physics"><strong>Why the wait is physics, not excuses:</strong> email warmup genuinely takes 2–4 weeks — rushing it kills deliverability for months. B2B replies genuinely land over 30–90 days. Audiences genuinely compound rather than spike. Anyone promising leads in week one is gambling with your name. Slow and safe protects the thing that can never be bought back.</div>
+</section>
+
+<!-- ===== 05 · ATTRIBUTION ===== -->
+<section class="section" id="attribution">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>05 · Fair Tracking</div>
+      <h2>Two columns, <span class="hl">never mixed</span>.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">Your own dashboard login · anytime</span>
+      <span>Same screen we look at</span>
+    </div>
+  </div>
+  <p class="sec-note">You should never have to take anyone's word for the numbers. Every link is stamped, so a lead traces to the exact post or email that created it — and the monthly report always keeps two figures honestly apart.</p>
+
+  <div class="attr-grid">
+    <div class="attr-card proven">
+      <div class="attr-tag">Tracked · Provable</div>
+      <h3>Directly attributed</h3>
+      <ul>
+        <li>Someone clicks a tracked link → lands on your site → enquires. Source stamped automatically.</li>
+        <li>Newsletter subscribers, opens and clicks — platform-reported.</li>
+        <li>Outreach replies — logged and timestamped.</li>
+        <li>Website enquiries carrying a tracking tag — traced to the exact post or email.</li>
+      </ul>
+      <div class="attr-foot">Hard numbers anyone can verify</div>
+    </div>
+    <div class="attr-card influenced">
+      <div class="attr-tag">Trust · Honest estimate</div>
+      <h3>Influenced / assisted</h3>
+      <ul>
+        <li>Someone sees a post, doesn't click — then finds you later and calls. Probably ours; shows as "direct"; can't be proven.</li>
+        <li>A client who "just heard about you" with no tracked click.</li>
+        <li>Word-of-mouth that started with something published.</li>
+      </ul>
+      <div class="attr-foot">Shown for context · never inflated</div>
+    </div>
+  </div>
+  <p class="attr-promise">An agency would fold "influenced" into "generated" to look bigger. AAA keeps them apart on purpose — <strong>if you ever show these numbers to your accountant, they'll hold.</strong></p>
+
+  <div style="margin-top: 30px; border: 1px solid var(--line); border-radius: 14px; padding: 30px; background: var(--bg-2);">
+    <div style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 16px;">The Plumbing · How Tracking Actually Works</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+      <div>
+        <div style="font-family: var(--serif); font-size: 16.5px; margin-bottom: 8px;">UTM on every link</div>
+        <p style="font-size: 13px; color: var(--gray-2);">Every link the engine publishes — post, email, video caption, newsletter — carries a UTM tag naming its source, medium and campaign. No naked links, ever. That's what makes a lead traceable to the exact piece that created it.</p>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-size: 16.5px; margin-bottom: 8px;">Google Analytics 4</div>
+        <p style="font-size: 13px; color: var(--gray-2);">GA4 on your site reads the tags on arrival — sessions, sources, conversions, all in your own Google account. Set up in your name, owned by you, readable by your accountant.</p>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-size: 16.5px; margin-bottom: 8px;">Platform &amp; email analytics</div>
+        <p style="font-size: 13px; color: var(--gray-2);">Newsletter opens and clicks, outreach replies timestamped by the sending tool, social reach per post — pulled weekly into your one-page snapshot alongside the GA4 picture.</p>
+      </div>
+      <div>
+        <div style="font-family: var(--serif); font-size: 16.5px; margin-bottom: 8px;">Your dashboard login</div>
+        <p style="font-size: 13px; color: var(--gray-2);">Not a screenshot sent monthly — your own login to the live dashboard, the same screen we review at every session. Leads this week, by source, matured to $$. Open it any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 · NOT AGENCY WORK ===== -->
+<section class="section" id="foundation">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>06 · Why This Isn't Agency Work</div>
+      <h2>An agency rents you activity. <span class="hl">This builds what you own.</span></h2>
+    </div>
+  </div>
+  <div class="found-grid">
+    <div class="found-card">
+      <div class="found-tag">The agency model</div>
+      <h3>Rented</h3>
+      <p><strong>Stop paying, it stops existing.</strong> The posts stop, the ads stop, the leads stop. The audience was never yours — it was borrowed monthly.</p>
+      <p>Reporting bundles "influenced" into "generated" to look bigger. The retainer buys activity, not assets.</p>
+    </div>
+    <div class="found-card own">
+      <div class="found-tag">The Growth Engine model</div>
+      <h3>Owned</h3>
+      <p><strong>Stop paying, you keep everything.</strong> The sending domain and its earned reputation. The cleaned, growing list. The content library — every article, post and video. The attribution rails. All in your name, on your accounts.</p>
+      <p>The first months build foundation deliberately — that's why the six-month minimum is a strong recommendation, not a lock-in. Foundations poured properly don't need re-pouring.</p>
+    </div>
+  </div>
+  <div class="funnel-line">"Here's the part most people miss: <strong>the funnel is product-agnostic.</strong> Once the engine runs — audience, list, deliverability, attribution — it can sell whatever you choose to put through it. Today's services. Next season's offer. The product you haven't launched yet. The foundation is built once; what flows through it is up to you, as we progress."</div>
+</section>
+
+<!-- ===== 07 · THE 26-WEEK TRACKER ===== -->
+<section class="section" id="tracker">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>07 · The 26-Week Tracker</div>
+      <h2>Money in vs <span class="hlt">what exists</span> — week 1 to week 26.</h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">Spend is contractual · output is deliverable</span>
+      <span>Enquiry curve is illustrative</span>
+    </div>
+  </div>
+  <p class="sec-note">The honest shape of a six-month engagement: your investment climbs in a straight, predictable line — <strong>what you own compounds.</strong> Spend figures are the real contractual band (A$1,500–2,500/mo scenarios). Content counts are deliverables. The enquiry curve shows the typical <em>shape</em> of when signals arrive — never a promised volume.</p>
+
+  <div class="tracker-chart">
+    <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="26-week chart: linear cumulative investment versus compounding owned output and illustrative enquiry curve">
+      <!-- phase bands -->
+      <rect x="60" y="20" width="129" height="260" fill="rgba(15,184,169,0.05)"/>
+      <rect x="446" y="20" width="394" height="260" fill="rgba(201,162,39,0.04)"/>
+      <!-- gridlines -->
+      <g stroke="#1d2332" stroke-width="1">
+        <line x1="60" y1="280" x2="840" y2="280"/>
+        <line x1="60" y1="215" x2="840" y2="215"/>
+        <line x1="60" y1="150" x2="840" y2="150"/>
+        <line x1="60" y1="85" x2="840" y2="85"/>
+        <line x1="60" y1="20" x2="840" y2="20"/>
+      </g>
+      <!-- y labels (A$) -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7488">
+        <text x="52" y="284" text-anchor="end">0</text>
+        <text x="52" y="219" text-anchor="end">5K</text>
+        <text x="52" y="154" text-anchor="end">10K</text>
+        <text x="52" y="89" text-anchor="end">15K</text>
+        <text x="52" y="24" text-anchor="end">20K</text>
+      </g>
+      <!-- x labels (weeks) -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6b7488">
+        <text x="60" y="300">W1</text>
+        <text x="175" y="300">W4</text>
+        <text x="295" y="300">W8</text>
+        <text x="440" y="300">W13</text>
+        <text x="590" y="300">W18</text>
+        <text x="710" y="300">W22</text>
+        <text x="815" y="300">W26</text>
+      </g>
+      <!-- phase captions -->
+      <g font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1">
+        <text x="70" y="322" fill="#19d4c4">PHASE 0 · REFUNDABLE</text>
+        <text x="460" y="322" fill="#d9b542">PAYOFF WINDOW · M3–M6</text>
+      </g>
+      <!-- spend band: lower $1,500/mo scenario to upper $2,500/mo scenario -->
+      <path d="M 60 280 L 189 221.5 L 309 202 L 459 182.5 L 609 163 L 729 143.5 L 840 104.5 L 840 26.5 L 729 65.5 L 609 91.5 L 459 117.5 L 309 189 L 189 221.5 L 60 280 Z" fill="rgba(201,162,39,0.12)"/>
+      <path d="M 60 280 L 189 221.5 L 309 202 L 459 182.5 L 609 163 L 729 143.5 L 840 104.5" fill="none" stroke="#c9a227" stroke-width="2.5"/>
+      <path d="M 60 280 L 189 221.5 L 309 189 L 459 117.5 L 609 91.5 L 729 65.5 L 840 26.5" fill="none" stroke="#8b6914" stroke-width="1.8" stroke-dasharray="1 0"/>
+      <!-- owned output curve (compounding, teal) — scaled to right-hand feel -->
+      <path d="M 60 278 C 160 274, 240 262, 309 244 C 400 220, 470 190, 560 150 C 650 112, 740 80, 840 48" fill="none" stroke="#19d4c4" stroke-width="2.5"/>
+      <!-- illustrative enquiry curve (dashed) -->
+      <path d="M 60 280 C 200 280, 280 276, 380 262 C 480 248, 560 220, 660 184 C 740 156, 800 136, 840 122" fill="none" stroke="#9aa3b5" stroke-width="1.8" stroke-dasharray="6 5"/>
+      <!-- key markers -->
+      <circle cx="189" cy="221.5" r="4" fill="#19d4c4"/>
+      <text x="196" y="216" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#19d4c4">A$4,500 · Day-30 refund decision</text>
+      <circle cx="840" cy="104.5" r="4" fill="#c9a227"/>
+      <text x="833" y="98" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#d9b542">A$13,500–19,500 all-in</text>
+    </svg>
+    <div class="tracker-legend">
+      <span><i class="lg-swatch" style="background:#c9a227"></i>Cumulative investment (A$1,500–2,500/mo band)</span>
+      <span><i class="lg-swatch" style="background:#19d4c4"></i>Owned output — articles · posts · videos · list</span>
+      <span><i class="lg-swatch" style="background:repeating-linear-gradient(90deg,#9aa3b5 0 6px,transparent 6px 11px)"></i>Enquiry flow — illustrative shape only</span>
+    </div>
+  </div>
+
+  <div class="tracker-table-wrap">
+    <table class="tracker-table">
+      <tr><th>Weeks</th><th>Invested to date</th><th>What exists — and you own</th></tr>
+      <tr><td>W 1–4</td><td>A$4,500</td><td><strong>Phase 0 — refundable to Day 30.</strong> Cousin domain live &amp; warming · SPF/DKIM/DMARC set · list cleaned &amp; segmented · email capture on site · your voice captured · first working result by Day 10.</td></tr>
+      <tr><td>W 5–8</td><td>A$6,000 – 7,000</td><td>Warmup complete · <strong>~8 anchor articles · ~30 posts · ~4 videos</strong> · re-engagement to warmed list · first compliant outreach · first opens and replies.</td></tr>
+      <tr><td>W 9–13</td><td>A$7,500 – 9,500</td><td><strong>Attribution dashboard live</strong> — lead → source → $$ · ~13 anchors · ~50 posts · AI assistants naming you correctly · channels that don't attribute get cut.</td></tr>
+      <tr><td>W 14–18</td><td>A$9,000 – 12,000</td><td><strong>First enquiries stamped to source</strong> · referral-partner track live · newsletter earning replies · reasonable results window open.</td></tr>
+      <tr><td>W 19–22</td><td>A$10,500 – 14,500</td><td>Content compounding — older pieces still pulling · <strong>owned leads &gt; rented leads</strong> · podcast unlocks at 100+ followers · inbound visible daily.</td></tr>
+      <tr><td>W 23–26</td><td><strong>A$13,500 – 19,500</strong></td><td><strong>~24 anchors · 120+ pieces · an owned list · attribution rails · a pipeline.</strong> The engine runs — and everything on this row survives the engagement ending.</td></tr>
+    </table>
+  </div>
+  <p class="tracker-fine">Investment figures are the contractual band (Phase 0 + retainer at A$1,500–2,500/mo; ads and tools at cost on your card, excluded). Content counts are deliverables at standard cadence. Enquiry timing and volume depend on your market, list and offer — scoped in Phase 0, reviewed at every session, never guaranteed.</p>
+</section>
+
+<!-- ===== 08 · INVESTMENT ===== -->
+<section class="section" id="investment">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow"><span class="num">◆</span>08 · The Investment</div>
+      <h2>One Phase 0 price. <span class="hlt">Three ways to pay it.</span></h2>
+    </div>
+    <div class="section-head-right">
+      <span class="key">All prices incl GST</span>
+      <span>Updated 17 July 2026</span>
+    </div>
+  </div>
+
+  <div class="inv-wrap">
+    <div class="inv-main">
+      <div class="inv-tag">Phase 0 · The Foundation · 30 Days</div>
+      <div class="inv-price">A$4,500 <small>incl GST</small></div>
+      <p class="inv-sub"><strong>Fully refundable up to Day 30, no questions asked.</strong> First working result by Day 10. Same price for everyone — only the payment rhythm flexes:</p>
+      <div class="rhythms">
+        <div class="rhythm-opt">
+          <div class="n">1</div>
+          <div class="d"><strong>Single payment</strong> — A$4,500 at the start</div>
+          <div class="m">Day 1</div>
+        </div>
+        <div class="rhythm-opt">
+          <div class="n">2</div>
+          <div class="d"><strong>Two instalments</strong> — A$2,250 at start, A$2,250 at the fortnight</div>
+          <div class="m">Day 1 · Day 14</div>
+        </div>
+        <div class="rhythm-opt">
+          <div class="n">3</div>
+          <div class="d"><strong>Three instalments</strong> — A$1,500 every ten days</div>
+          <div class="m">Day 1 · 10 · 20</div>
+        </div>
+      </div>
+      <p class="inv-fine">All rhythms complete within the 30-day window. The refund covers the full amount paid, whichever rhythm you choose. Refund terms as per the <a href="https://aaa.artigellence.com/#disclaimer" style="color: var(--teal-bright); text-decoration: none;">site-wide refund policy</a>.</p>
+    </div>
+
+    <div class="inv-side">
+      <div class="inv-card">
+        <h4>Then: the engine, scoped to you</h4>
+        <p>After Phase 0, the Growth Engine runs on a monthly engagement <strong>scoped at your sessions</strong> — sized to your channels, cadence and outreach volume.</p>
+        <div class="rng">Typically A$1,500 – A$2,500 / month</div>
+        <p><strong>Six months minimum, strongly recommended</strong> — foundations and funnels compound; anything shorter buys the runway and walks before takeoff. All-in over six months: <strong>typically A$13,500 – A$19,500</strong> (Phase 0 + retainer). 3-month break clause · direct founder access at every session · tailored at every meeting.</p>
+      </div>
+      <div class="inv-card">
+        <h4>Ads &amp; tools — at cost, on your card</h4>
+        <p>If paid ads are part of your plan, ad spend runs <strong>A$500 – A$1,500 / month, paid at cost on your card</strong> — never marked up. Tools (~A$70–100/mo) likewise, in your name, owned by you. Ads are a separate conversation, added only once organic proves what converts.</p>
+      </div>
+      <div class="inv-note">The Growth Engine is AAA's <strong style="color: var(--white);">distribution &amp; marketing engagement</strong> — distinct from the agent Build &amp; Retainer engagement priced on the <a href="https://aaa.artigellence.com/#pricing">main pricing page</a>. Both start with the same fully refundable A$4,500 Phase 0. Many clients run one; some run both.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="start">
+  <h2>Your relationships. <span class="hl">This engine behind them.</span></h2>
+  <p>Start with the free 90-minute Workflow Walkthrough — we map where your week goes and where the engine fits. No pitch, no obligation.</p>
+  <div class="cta-row">
+    <a class="btn-gold" href="https://cal.com/raj-aaa/aaa-discovery">Book the Free Walkthrough</a>
+    <a class="btn-ghost" href="https://aaa.artigellence.com/#pricing">Full AAA Pricing</a>
+    <a class="btn-ghost" href="https://aaa.artigellence.com/#faq">FAQ</a>
+  </div>
+  <p style="margin-top: 28px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray);">All prices incl GST · <a href="https://aaa.artigellence.com/#disclaimer" style="color: var(--teal-bright); text-decoration: none;">Refund policy &amp; terms</a> · <a href="https://aaa.artigellence.com/#faq" style="color: var(--teal-bright); text-decoration: none;">Frequently asked questions</a> · Ads &amp; tools at cost on your card</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand-row">
+      <div class="aaa-logo">AAA</div>
+      <div class="brand-text">
+        <div class="name"><em>by</em> Artigellence</div>
+        <div class="sub">Automation &amp; Agents · Sydney</div>
+      </div>
+    </div>
+    <div class="foot-meta">
+      Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh<br>
+      ABN 83 988 690 362 · Sydney NSW · <a href="mailto:raj@artigellence.com">raj@artigellence.com</a> · +61 469 313 323<br>
+      ● Updated 17 July 2026 · All prices incl GST · <a href="https://aaa.artigellence.com/#disclaimer">Terms &amp; refund policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
