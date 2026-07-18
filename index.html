@@ -5086,6 +5086,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
       </div>
 
+      <div class="bld-side" style="display: grid; gap: 16px;">
       <div class="bld-cart">
         <div class="bld-cart-tag">Your Engagement · Live Estimate</div>
         <div class="bld-lines" id="bld-lines"></div>
@@ -5102,6 +5103,20 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
           🔒 <a href="/mutual-nda.pdf">Mutual NDA</a> — signed before Phase 0 begins · your data protected from day one
         </div>
         <p class="bld-pass">Pass-through costs excluded from this estimate: LLM/API credits, automation hosting, SaaS subscriptions and any ad spend — paid by you directly, at cost, never marked up. Scoped in Phase 0.</p>
+      </div>
+
+      <!-- BANK TRANSFER DETAILS -->
+      <div style="border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); padding: 22px 24px;">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--teal-bright); margin-bottom: 12px;">Prefer a direct bank transfer?</div>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 5px 16px; font-size: 12.5px; color: var(--gray-2);">
+          <span>Account name</span><strong style="color: var(--white); font-family: var(--mono); font-size: 11.5px; text-align: right;">Artigellence Augmentation Aggregator</strong>
+          <span>BSB</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">067 873</strong>
+          <span>Account number</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">24378802</strong>
+          <span>ABN</span><strong style="color: var(--white); font-family: var(--mono); text-align: right;">83 988 690 362</strong>
+          <span>Reference</span><strong style="color: var(--gold-bright); font-family: var(--mono); text-align: right;">[YOURBUSINESS] P0</strong>
+        </div>
+        <p style="font-size: 11px; color: var(--gray); margin-top: 10px; line-height: 1.6;">Use your business name as the reference so payment is matched. Email <a href="mailto:raj@artigellence.com" style="color: var(--teal-bright); text-decoration: none;">raj@artigellence.com</a> once sent — the clock starts on receipt.</p>
+      </div>
       </div>
     </div>
   </div>
@@ -5121,6 +5136,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       ["it-ag","it-ret","it-ge"].forEach(function(i){ $(i).classList.toggle("dis", !state.p0); });
       var lines=[], total=0, today=0;
       if(state.p0){ lines.push(["Phase 0 · refundable pilot", 4500]); total+=4500; today=state.rhythm; }
+      /* Findable one-offs are payable upfront when no Phase 0 in cart (they credit 100% later) */
       if(state.ag){ lines.push([state.agN+" agents · paid on delivery", state.agN*3000]); total+=state.agN*3000; }
       if(state.ret){ var t=state.retTier===3500?"Full":"Lite"; lines.push([t+" retainer × "+state.retN+" mo", state.retTier*state.retN]); total+=state.retTier*state.retN; }
       if(state.ge){ lines.push(["Growth Engine · "+money(state.geL)+"/mo × 6", state.geL*6]); total+=state.geL*6; }
@@ -5138,7 +5154,17 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       if(std){ html+='<div class="bld-line bonus"><span>★ Standard Year-1 unlocked — Founder&#39;s Bonus (A$7,000) + Foundation Sprint (A$2,950) included free</span><b>A$0</b></div>'; }
       $("bld-lines").innerHTML = html || '<div class="bld-line"><span>Nothing selected yet</span><b>—</b></div>';
       $("bld-total").textContent = money(total);
-      $("bld-today").textContent = state.p0 ? money(today) : money(0);
+      var fToday = (!state.p0) ? fSum : 0;
+      $("bld-today").textContent = money(state.p0 ? today : fToday);
+      /* caption adapts: Phase-0 wording vs Findable one-off wording */
+      var todayCap = document.querySelector(".bld-today p");
+      if (todayCap) {
+        todayCap.textContent = state.p0
+          ? "Phase 0 only — fully refundable to Day 30. Agents are invoiced on delivery; retainers and the Growth Engine bill monthly. The estimate above is your roadmap, not an upfront charge."
+          : (fSum > 0
+              ? "Findable one-off — payable to book, and every dollar credits 100% toward the refundable Phase 0 pilot if you continue."
+              : "Select Phase 0 or a Findable one-off to begin — everything else is invoiced on delivery or monthly.");
+      }
       $("ag-n").textContent = state.agN; $("ret-n").textContent = state.retN;
       $("ret-price").innerHTML = money(state.retTier)+' <small style="color:var(--gray)">/mo</small>';
       $("ge-price").innerHTML = money(state.geL)+' <small style="color:var(--gray)">/mo × 6</small>';
