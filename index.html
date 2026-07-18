@@ -6155,7 +6155,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <h3>Four ways to start. <span class="hl">Zero risk.</span> All replied to <span class="hlt">by the founder, personally</span>.</h3>
       <p>Send your top operational headache. Download the Brief. Book a 30-minute call. Or — if you want the broader seven-day business build — visit Aarambh. Whichever you pick, the reply comes from Raj — within <strong>24–48 hours</strong>, by email or WhatsApp, with a real answer specific to your business. <strong>No junior. No analyst. No automated drip sequence pretending to be a human.</strong></p>
 
-      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px;">
+      <div class="aaa-ctarow4" style="margin-top: 12px;">
         <a href="mailto:raj@artigellence.com?subject=AAA%20-%20My%20top%20operational%20headache" class="btn-primary">SEND ME YOUR HEADACHE →</a>
         <a href="https://drive.google.com/drive/folders/1zV58d2c8dUiQ2DxfBeenrAhZJmrShZog?usp=sharing" target="_blank" rel="noopener" class="btn-secondary">DOWNLOAD BRIEF PDF</a>
         <a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener" class="btn-secondary">CLAIM A 30-MIN SLOT</a>
@@ -6926,6 +6926,14 @@ if (nlSubmit) {
 .aaa-faqgrid .faq-item .faq-q { cursor: default; }
 .aaa-faqgrid .faq-item .faq-q::after { display: none !important; content: none !important; }
 
+/* ---- SYMMETRY GUARD: 4-up CTA rows — equal cells, never orphan-wrap ---- */
+.aaa-ctarow4 { display: grid !important; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+.aaa-ctarow4 > a { display: flex !important; align-items: center; justify-content: center;
+  text-align: center; white-space: normal !important; padding-left: 12px !important; padding-right: 12px !important;
+  min-height: 52px; box-sizing: border-box; }
+@media (max-width: 1000px) { .aaa-ctarow4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 520px)  { .aaa-ctarow4 { grid-template-columns: 1fr; } }
+
 /* ---- main FAQ: flattened in place, no + signs ---- */
 #faq .faq-item .faq-a { max-height: none !important; display: block !important; opacity: 1 !important; }
 #faq .faq-item .faq-q { cursor: default; }
@@ -7006,7 +7014,7 @@ if (nlSubmit) {
       secs:["roi-moat","founder"], pills:[] },
     { id:"ch-more", n:"05", t:"Bonus, Partners & The Fine Print", d:'The A$7,000 Founder\u2019s Bonus, the referral network, the newsletter, every FAQ in one place — and every disclaimer in plain sight.',
       secs:["bonus","newsletter","faq"],
-      pills:[["","Referral & Partners","/partners.html","ext"],["","All 27 FAQs","#faq"]] }
+      pills:[["","Referral & Partners","/partners.html","ext"],["","Refer & Earn","/refer.html","ext"],["","For Accountants","/accountants.html","ext"],["","All 27 FAQs","#faq"]] }
   ];
   var FAQ_RULES = [
     [/refund|phase 0|per-agent|retainer|ceiling|gst|paying online|cost|price|instal|invoice|discount/i, "ch-pricing"],
@@ -7153,6 +7161,8 @@ if (nlSubmit) {
        ["The Growth Engine \u2014 distribution & marketing","/growth-engine.html"],
        ["For Tradies \u2014 quotes & invoices automated","/tradies.html"],
        ["Referral & Partners","/partners.html"],
+       ["Refer & Earn \u2014 referral program","/refer.html"],
+       ["For Accountants \u2014 industry page","/accountants.html"],
        ["All FAQs on one page","/faq.html"],
        ["Privacy Policy","/privacy.html"],
        ["Where to start with AI \u2014 guide","/where-to-start-with-ai.html"]
