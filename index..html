@@ -3869,8 +3869,9 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   <div class="proof-strip">
     <div class="proof-header">
       <div class="proof-eyebrow">↳ PROOF WE CAN BUILD · LIVE WORK</div>
-      <div class="proof-headline">Don't take our word for it. <span class="proof-hl">See what AAA-style builds look like in production.</span></div>
-      <div class="proof-sub">Two live AAA-pattern projects already shipped by the same operator. Open them. Click around. <em>This is what your AAA build will feel like — production-grade, not slideware.</em></div>
+      <a href="https://www.rajsingh.online" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;"><div class="proof-headline">Don't take our word for it. <span class="proof-hl">See what AAA-style builds look like in production.</span></div></a>
+      <div class="proof-sub">Two live AAA-pattern projects below — and the full venture stack behind them. Open them. Click around. <em>This is what your AAA build will feel like — production-grade, not slideware.</em></div>
+      <a href="https://www.rajsingh.online" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gold-bright); text-decoration: none; border: 1px solid var(--gold-deep); border-radius: 999px; padding: 9px 18px; transition: background .15s;" onmouseover="this.style.background='rgba(201,162,39,0.12)'" onmouseout="this.style.background='none'">↳ Every live project · one page — www.rajsingh.online ↗</a>
     </div>
 
     <div class="proof-cards">
@@ -6832,55 +6833,91 @@ if (nlSubmit) {
 })();
 </script>
 
+
+
+
 <!-- ============================================================
-     AAA TAB ARCHITECTURE · v1 · runtime re-parenting, zero content edits
-     Declutter per prospect feedback 18 Jul: one flow, five tabs,
-     labelled chips replace the dot spine, FAQs live with their topics.
+     AAA CHAPTER FLOW · v3 · one scroll, five chapters, nothing hidden
+     Runtime reorder + landmarks. Delete this block to revert fully.
      ============================================================ -->
-<style id="aaa-tabs-css">
-/* kill the dot spine — replaced by labelled navigation */
-.aaa-spine { display: none !important; }
+<style id="aaa-flow-css">
+/* ---- spine v3: chapter-grouped dots, hover-expand labels ---- */
+.aaa-spine { display: flex !important; padding: 12px 10px !important; gap: 7px !important; }
+.aaa-spine::before { content: "MENU" !important; }
+.aaa-spine .sp-ch { display: flex; align-items: center; gap: 8px; cursor: pointer;
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 1.4px; color: var(--gold-deep);
+  margin: 7px 0 1px; text-decoration: none; }
+.aaa-spine .sp-ch.on { color: var(--gold-bright); }
+.aaa-spine a.sp-sec { width: auto !important; height: auto !important; border-radius: 0 !important;
+  background: none !important; border: none !important; display: flex !important;
+  align-items: center; gap: 9px; transform: none !important; padding: 1px 0; }
+.aaa-spine a.sp-sec .d { width: 9px; height: 9px; border-radius: 50%;
+  background: var(--gray-soft); border: 1px solid var(--gold-deep); flex-shrink: 0;
+  transition: background .18s, transform .18s; }
+.aaa-spine a.sp-sec:hover .d { background: var(--gold-bright); transform: scale(1.3); }
+.aaa-spine a.sp-sec.on .d { background: var(--gold); box-shadow: 0 0 10px var(--gold-glow); }
+.aaa-spine .lbl { opacity: 0; max-width: 0; overflow: hidden; white-space: nowrap;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.8px; color: var(--gray-2);
+  transition: opacity .22s ease, max-width .28s ease; }
+.aaa-spine:hover .lbl { opacity: 1; max-width: 150px; }
+.aaa-spine a.sp-sec:hover .lbl, .aaa-spine a.sp-sec.on .lbl { color: var(--gold-bright); }
+.aaa-spine a.sp-sec span:not(.d):not(.lbl) { display: none !important; }
+.aaa-spine a.sp-sec .lbl, .aaa-spine .sp-ch .lbl,
+.aaa-spine a.sp-sec .d {
+  position: static !important; left: auto !important; top: auto !important;
+  transform: none !important; background: none; border: none;
+  padding: 0 !important; margin: 0 !important; opacity: 1 !important;
+  pointer-events: auto !important; white-space: nowrap; }
+.aaa-spine a.sp-sec .d {
+  background: var(--gray-soft) !important; border: 1px solid var(--gold-deep) !important;
+  width: 9px !important; height: 9px !important; max-width: 9px !important; border-radius: 50% !important; }
+.aaa-spine a.sp-sec:hover .d { background: var(--gold-bright) !important; }
+.aaa-spine a.sp-sec.on .d { background: var(--gold) !important; box-shadow: 0 0 10px var(--gold-glow); }
 
-/* ---- primary tab rail (the signature) ---- */
-.aaa-tabbar-wrap { position: sticky; top: 71px; z-index: 90;
-  background: linear-gradient(180deg, rgba(10,14,20,0.97), rgba(10,14,20,0.92));
-  backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
-.aaa-tabbar { max-width: 1180px; margin: 0 auto; padding: 0 34px;
-  display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-.aaa-tabbar::-webkit-scrollbar { display: none; }
-.aaa-tab { position: relative; flex-shrink: 0; background: none; border: none; cursor: pointer;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--gray-2); padding: 16px 16px 14px; transition: color .18s; }
-.aaa-tab .n { color: var(--gold-deep); margin-right: 7px; font-size: 10px; }
-.aaa-tab:hover { color: var(--white); }
-.aaa-tab.on { color: var(--gold-bright); }
-.aaa-tab.on .n { color: var(--gold-bright); }
-.aaa-tab::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px;
+/* ---- sticky chapter bar (scrolls, never hides) ---- */
+.aaa-chbar-wrap { position: sticky; top: 71px; z-index: 90;
+  background: rgba(10,14,20,0.96); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-soft); }
+.aaa-chbar { max-width: 1180px; margin: 0 auto; padding: 0 34px;
+  display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; align-items: center; }
+.aaa-chbar::-webkit-scrollbar { display: none; }
+.aaa-chlink { position: relative; flex-shrink: 0; text-decoration: none;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.1px; text-transform: uppercase;
+  color: var(--gray-2); padding: 14px 13px 12px; transition: color .18s; }
+.aaa-chlink .n { color: var(--gold-deep); margin-right: 6px; }
+.aaa-chlink:hover { color: var(--white); }
+.aaa-chlink.on { color: var(--gold-bright); }
+.aaa-chlink.on .n { color: var(--gold-bright); }
+.aaa-chlink::after { content:""; position:absolute; left:12px; right:12px; bottom:-1px; height:2px;
   background: linear-gradient(90deg, var(--gold-bright), var(--gold-deep));
-  transform: scaleX(0); transform-origin: left; transition: transform .28s cubic-bezier(.4,0,.2,1); }
-.aaa-tab.on::after { transform: scaleX(1); }
+  transform: scaleX(0); transform-origin:left; transition: transform .25s ease; }
+.aaa-chlink.on::after { transform: scaleX(1); }
+.aaa-vtag { margin-left:auto; font-family:var(--mono); font-size:8.5px; letter-spacing:1.4px;
+  color: var(--teal-bright); white-space:nowrap; padding-left:12px; }
 
-/* ---- per-tab chip TOC — words, not dots ---- */
-.aaa-chips { max-width: 1180px; margin: 0 auto; padding: 18px 34px 0;
-  display: flex; flex-wrap: wrap; gap: 8px; }
-.aaa-chip { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+/* ---- chapter divider bands (the landmarks) ---- */
+.aaa-chapter { border-top: 1px solid var(--gold-deep); margin-top: 30px;
+  background: linear-gradient(180deg, rgba(201,162,39,0.06), transparent 70%); }
+.aaa-chapter .inner { max-width: 1180px; margin: 0 auto; padding: 46px 34px 8px;
+  display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+.aaa-chapter .num { font-family: var(--serif); font-style: italic; font-size: clamp(40px,5vw,62px);
+  color: var(--gold-deep); line-height: 1; opacity: .85; }
+.aaa-chapter h2.cht { font-family: var(--serif); font-weight: 500;
+  font-size: clamp(24px,3.2vw,36px); color: var(--white); margin: 0; letter-spacing: -0.3px; }
+.aaa-chapter .chd { flex-basis: 100%; font-size: 14px; color: var(--gray-2); max-width: 760px; margin-top: 6px; }
+.aaa-chapter .chd em { color: var(--gold-bright); }
+.aaa-chpills { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.aaa-chpill { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
   color: var(--gray-2); text-decoration: none; border: 1px solid var(--line); border-radius: 999px;
-  padding: 7px 14px; transition: color .15s, border-color .15s, background .15s; }
-.aaa-chip:hover { color: var(--gold-bright); border-color: var(--gold-deep); background: var(--bg-2); }
-.aaa-chip.ext::after { content: " →"; color: var(--teal-bright); }
+  padding: 7px 14px; transition: all .15s; }
+.aaa-chpill:hover { color: var(--gold-bright); border-color: var(--gold-deep); background: var(--bg-2); }
+.aaa-chpill b { color: var(--gold-bright); font-weight: 600; margin-right: 5px; }
+.aaa-chpill.ext::after { content: " →"; color: var(--teal-bright); }
 
-/* ---- panels ---- */
-.aaa-panel { display: none; animation: aaaFade .3s ease; }
-.aaa-panel.on { display: block; }
-@keyframes aaaFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .aaa-panel { animation: none; } }
-
-/* ---- FAQs flattened: readable rows, no accordion ---- */
-.aaa-panel .faq-item, .aaa-faqblock .faq-item { pointer-events: auto; }
-.aaa-faqblock { max-width: 1180px; margin: 0 auto; padding: 20px 34px 60px; }
+/* ---- FAQ: flattened, readable, in-flow ---- */
+.aaa-faqblock { max-width: 1180px; margin: 0 auto; padding: 10px 34px 46px; }
 .aaa-faqblock .fb-head { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.8px;
-  text-transform: uppercase; color: var(--gold-bright); margin: 30px 0 16px;
-  border-top: 1px solid var(--line-soft); padding-top: 26px; }
+  text-transform: uppercase; color: var(--gold-bright); margin: 18px 0 14px; }
 .aaa-faqgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; align-items: start; }
 @media (max-width: 860px) { .aaa-faqgrid { grid-template-columns: 1fr; } }
 .aaa-faqgrid .faq-item { margin: 0; }
@@ -6888,168 +6925,357 @@ if (nlSubmit) {
   opacity: 1 !important; padding-bottom: 16px; }
 .aaa-faqgrid .faq-item .faq-q { cursor: default; }
 .aaa-faqgrid .faq-item .faq-q::after { display: none !important; content: none !important; }
-.aaa-faqgrid .faq-item .faq-toggle, .aaa-faqgrid .faq-item .faq-q span:last-child:not(:first-child) { display: none; }
 
-/* strengthened custom-build strip (Why AAA tab) */
-.aaa-custom-strip { max-width: 1180px; margin: 26px auto 0; padding: 0 34px; }
+/* ---- main FAQ: flattened in place, no + signs ---- */
+#faq .faq-item .faq-a { max-height: none !important; display: block !important; opacity: 1 !important; }
+#faq .faq-item .faq-q { cursor: default; }
+#faq .faq-item .faq-q::after { display: none !important; content: none !important; }
+#faq .section-head-right span:last-child { display: none; } /* "Click to expand" no longer true */
+
+/* ---- moat symmetry: stats full-width (rows 2-up), differentiator cards 2-up side by side ---- */
+#roi-moat .moat-grid { grid-template-columns: 1fr !important; align-items: start !important; }
+#roi-moat .moat-stats { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 28px; }
+#roi-moat .moat-stats .stats-head { grid-column: 1 / -1; }
+#roi-moat .differentiators { display: grid !important; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; align-items: stretch; }
+#roi-moat .differentiators .diff-card { margin: 0 !important; height: 100%; box-sizing: border-box; }
+@media (max-width: 860px) {
+  #roi-moat .moat-stats { grid-template-columns: 1fr; }
+  #roi-moat .differentiators { grid-template-columns: 1fr; }
+}
+
+/* ---- Findable mini-FAQ: flattened, rows & boxes, no + sign ---- */
+.fnd-faqwrap .fnd-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; align-items: start; }
+@media (max-width: 860px) { .fnd-faqwrap .fnd-grid2 { grid-template-columns: 1fr; } }
+.fnd-faq { margin-bottom: 0 !important; }
+.fnd-faq summary { cursor: default !important; pointer-events: none; }
+.fnd-faq summary::after { display: none !important; content: none !important; }
+.fnd-faq .fnd-faq-body { display: block !important; }
+
+/* custom-build strip */
+.aaa-custom-strip { max-width: 1180px; margin: 20px auto 0; padding: 0 34px; }
 .aaa-custom-strip > div { border: 1px solid var(--gold-deep); border-radius: 14px;
-  background: linear-gradient(135deg, rgba(201,162,39,0.08), transparent); padding: 26px 30px; }
+  background: linear-gradient(135deg, rgba(201,162,39,0.08), transparent); padding: 24px 28px; }
 .aaa-custom-strip .t { font-family: var(--mono); font-size: 10px; letter-spacing: 1.8px;
-  text-transform: uppercase; color: var(--gold-bright); margin-bottom: 10px; }
-.aaa-custom-strip p { font-family: var(--serif); font-size: 18px; font-style: italic;
+  text-transform: uppercase; color: var(--gold-bright); margin-bottom: 8px; }
+.aaa-custom-strip p { font-family: var(--serif); font-size: 17px; font-style: italic;
   color: var(--gray-2); line-height: 1.6; margin: 0; }
 .aaa-custom-strip p strong { color: var(--white); font-style: normal; }
-@media (max-width: 980px) { .aaa-tabbar-wrap { top: 64px; } .aaa-tabbar { padding: 0 16px; } .aaa-chips { padding: 14px 16px 0; } }
+@media (max-width: 980px) { .aaa-chbar-wrap { top: 64px; } .aaa-chbar { padding: 0 14px; } }
+
+/* ---- site search ---- */
+.aaa-searchbtn { flex-shrink:0; background:none; border:1px solid var(--line); border-radius:999px;
+  color:var(--gray-2); font-family:var(--mono); font-size:10px; letter-spacing:1px; text-transform:uppercase;
+  padding:7px 14px; cursor:pointer; margin-left:14px; transition:all .15s; display:flex; align-items:center; gap:7px; }
+.aaa-searchbtn:hover { color:var(--gold-bright); border-color:var(--gold-deep); }
+.aaa-searchbtn kbd { font-family:var(--mono); font-size:9px; border:1px solid var(--line); border-radius:4px; padding:1px 5px; color:var(--gray); }
+.aaa-search-ov { position:fixed; inset:0; z-index:200; background:rgba(4,6,10,0.82); backdrop-filter:blur(6px);
+  display:none; align-items:flex-start; justify-content:center; padding:12vh 20px 20px; }
+.aaa-search-ov.on { display:flex; }
+.aaa-search-box { width:100%; max-width:640px; background:var(--bg-2); border:1px solid var(--gold-deep);
+  border-radius:14px; overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,0.6); }
+.aaa-search-box input { width:100%; background:var(--bg); border:none; outline:none; color:var(--white);
+  font-family:var(--sans); font-size:16px; padding:18px 22px; border-bottom:1px solid var(--line-soft); }
+.aaa-search-box input::placeholder { color:var(--gray); }
+.aaa-sr { max-height:52vh; overflow-y:auto; }
+.aaa-sr a { display:block; padding:13px 22px; text-decoration:none; border-bottom:1px solid var(--line-soft); transition:background .12s; }
+.aaa-sr a:last-child { border-bottom:none; }
+.aaa-sr a:hover, .aaa-sr a.sel { background:var(--bg-3); }
+.aaa-sr .rt { font-size:14px; color:var(--white); }
+.aaa-sr .rt b { color:var(--gold-bright); font-weight:600; }
+.aaa-sr .rc { font-family:var(--mono); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; color:var(--teal-bright); margin-top:3px; }
+.aaa-sr .none { padding:20px 22px; font-size:13px; color:var(--gray); font-style:italic; }
+.aaa-search-foot { padding:10px 22px; font-family:var(--mono); font-size:9px; letter-spacing:1px;
+  text-transform:uppercase; color:var(--gray); border-top:1px solid var(--line-soft); display:flex; gap:18px; }
+@keyframes aaaFlash { 0%{box-shadow:0 0 0 3px var(--gold-glow), 0 0 30px var(--gold-glow);} 100%{box-shadow:none;} }
+.aaa-flash { animation: aaaFlash 1.6s ease; border-radius:8px; }
 </style>
 
-<script id="aaa-tabs-js">
+<script id="aaa-flow-js">
 (function(){
-  /* ---------- configuration ---------- */
-  var TABS = [
-    { id:"t-start",    n:"01", label:"Start Here",
+  var CH = [
+    { id:"ch-start", n:"01", t:"What We Do", d:'The problem, the industries we live in, and exactly how an engagement runs — <em>start with the 60-second Wizard if you want the shortcut.</em>',
       secs:["lifeband-section","industries","how-it-works","process"],
-      chips:[["The Problem","#lifeband-section"],["Industries","#industries"],["How It Works","#how-it-works"],["The Process","#process"],["60-sec Wizard","/wizard.html","ext"],["Listen · Tradies","/tradies.html","ext"]] },
-    { id:"t-services", n:"02", label:"Services & Solutions",
+      pills:[["","60-sec Wizard","/wizard.html","ext"],["","Listen · For Tradies","/tradies.html","ext"]] },
+    { id:"ch-services", n:"02", t:"Services & Solutions", d:'Five ways in — every one starting from the same refundable Phase 0. <em>Pick the lane that matches your week.</em>',
       secs:["what-we-do","findable","extended-services","aarambh-band"],
-      chips:[["A · Agents & Automation","#what-we-do"],["B · Growth Engine","/growth-engine.html","ext"],["C · Findable","#findable"],["D · Extended Services","#extended-services"],["E · Aarambh","#aarambh-band"]] },
-    { id:"t-pricing",  n:"03", label:"Pricing & Engagement",
+      pills:[["A","Agents & Automation","#what-we-do"],["B","Growth Engine","/growth-engine.html","ext"],["C","Findable","#findable"],["D","Extended Services","#extended-services"],["E","Aarambh","#aarambh-band"]] },
+    { id:"ch-pricing", n:"03", t:"Pricing & Engagement", d:'Every number published, traceable and GST-inclusive — five sample shapes, a build-your-own estimator, the exact invoice you\u2019d receive, and the scope pack. <em>Read at your pace. No pressure, no timers.</em>',
       secs:["pricing","engine"],
-      chips:[["Pricing","#pricing"],["Five Shapes","#engine"],["Build Your Engagement","#cart"],["Sample Invoice","#engine"],["Questionnaire & NDA","#cart"]] },
-    { id:"t-why",      n:"04", label:"Why AAA · Moat",
-      secs:["roi-moat","founder"],
-      chips:[["ROI & The Moat","#roi-moat"],["The Founder","#founder"]] },
-    { id:"t-more",     n:"05", label:"Bonus & Partners",
-      secs:["bonus","newsletter"],
-      chips:[["Founder's Bonus","#bonus"],["Referral & Partners","/partners.html","ext"],["Newsletter","#newsletter"]] }
+      pills:[["","Five Shapes","#engine"],["","Build Your Engagement","#cart"],["","Questionnaire & NDA","#cart"]] },
+    { id:"ch-why", n:"04", t:"Why AAA \u00b7 The Moat", d:'Custom-built on your data, your tools, your rules — <em>never off-the-shelf</em> — and why that becomes an asset you own.',
+      secs:["roi-moat","founder"], pills:[] },
+    { id:"ch-more", n:"05", t:"Bonus, Partners & The Fine Print", d:'The A$7,000 Founder\u2019s Bonus, the referral network, the newsletter, every FAQ in one place — and every disclaimer in plain sight.',
+      secs:["bonus","newsletter","faq"],
+      pills:[["","Referral & Partners","/partners.html","ext"],["","All 27 FAQs","#faq"]] }
   ];
-  /* FAQ topic routing — keyword → tab id */
   var FAQ_RULES = [
-    [/refund|phase 0|per-agent|retainer|ceiling|gst|paying online|cost|price|instal|invoice|discount|aarambh — do i/i, "t-pricing"],
-    [/bonus|referral|partner/i, "t-more"],
-    [/findable|growth engine|extended|integrat|llms|deliverab/i, "t-services"],
-    [/moat|custom|off.the.shelf|data|privacy|ahpra|ip\b|own the/i, "t-why"],
+    [/refund|phase 0|per-agent|retainer|ceiling|gst|paying online|cost|price|instal|invoice|discount/i, "ch-pricing"],
+    [/bonus|referral|partner/i, "ch-more"],
+    [/findable|growth engine|extended|integrat|llms|deliverab/i, "ch-services"],
+    [/moat|custom|off.the.shelf|data|privacy|ahpra|own the|founder|junior/i, "ch-why"]
   ];
-  var DEFAULT_FAQ_TAB = "t-start";
+  var DEFAULT_FAQ = "ch-start";
 
   function init(){
     var faqSection = document.getElementById("faq");
-    var main = faqSection ? faqSection.parentNode : document.body;
-    var anchorNode = document.getElementById("lifeband-section");
-    if (!anchorNode) return;
+    var contact = document.getElementById("contact");
+    var anchor = document.getElementById("lifeband-section");
+    if (!anchor || !contact) return;
+    var main = anchor.parentNode;
 
-    /* ---------- build tab bar ---------- */
-    var wrap = document.createElement("div"); wrap.className = "aaa-tabbar-wrap";
-    var bar = document.createElement("div"); bar.className = "aaa-tabbar";
+    /* sticky chapter bar after hero */
+    var wrap = document.createElement("div"); wrap.className = "aaa-chbar-wrap";
+    var bar = document.createElement("div"); bar.className = "aaa-chbar";
     wrap.appendChild(bar);
-    main.insertBefore(wrap, anchorNode);
-
-    var panels = {};
-    TABS.forEach(function(t){
-      var b = document.createElement("button");
-      b.type = "button"; b.className = "aaa-tab"; b.dataset.tab = t.id;
-      b.innerHTML = '<span class="n">' + t.n + '</span>' + t.label;
-      b.addEventListener("click", function(){ activate(t.id, true); });
-      bar.appendChild(b);
-
-      var p = document.createElement("div"); p.className = "aaa-panel"; p.id = t.id;
-      /* chip TOC */
-      var chips = document.createElement("div"); chips.className = "aaa-chips";
-      t.chips.forEach(function(c){
-        var a = document.createElement("a");
-        a.className = "aaa-chip" + (c[2] ? " ext" : "");
-        a.href = c[1]; a.textContent = c[0];
-        chips.appendChild(a);
-      });
-      p.appendChild(chips);
-      /* move sections in — content untouched, just re-parented */
-      t.secs.forEach(function(id){
-        var s = document.getElementById(id);
-        if (s) p.appendChild(s);
-      });
-      main.insertBefore(p, faqSection || null);
-      panels[t.id] = p;
+    CH.forEach(function(c){
+      var a = document.createElement("a");
+      a.className = "aaa-chlink"; a.href = "#"+c.id; a.dataset.ch = c.id;
+      a.innerHTML = '<span class="n">'+c.n+'</span>'+c.t;
+      bar.appendChild(a);
     });
+    var vt = document.createElement("span"); vt.className = "aaa-vtag"; vt.textContent = "FLOW v3 \u00b7 19 JUL";
+    bar.appendChild(vt);
+    main.insertBefore(wrap, anchor);
 
-    /* custom-build strip → Why tab, above roi-moat */
-    var strip = document.createElement("div");
-    strip.className = "aaa-custom-strip";
-    strip.innerHTML = '<div><div class="t">Custom-Built · Never Off-The-Shelf</div>' +
-      '<p>"Every agent AAA ships is <strong>built on your data, your tools, your rules</strong> — deployed in your accounts, documented in your name. Off-the-shelf software makes you adapt to it. <strong>AAA adapts to you</strong> — that is the moat, and you own every brick of it."</p></div>';
-    var roiSec = document.getElementById("roi-moat");
-    if (roiSec && panels["t-why"]) panels["t-why"].insertBefore(strip, roiSec);
-
-    /* pricing tab — no-pressure line under chips */
-    if (panels["t-pricing"]) {
-      var np = document.createElement("div");
-      np.style.cssText = "max-width:1180px;margin:14px auto 0;padding:0 34px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gray-2);";
-      np.textContent = "Every number below is published, traceable and GST-inclusive — read at your pace, no pressure, no timers.";
-      panels["t-pricing"].insertBefore(np, panels["t-pricing"].children[1] || null);
-    }
-
-    /* ---------- FAQs: flatten + distribute ---------- */
-    var items = Array.prototype.slice.call(document.querySelectorAll(".faq-item"));
-    var buckets = {};
-    items.forEach(function(it){
+    /* FAQ: keep the MAIN section intact — just flatten every item open */
+    Array.prototype.slice.call(document.querySelectorAll(".faq-item")).forEach(function(it){
       it.classList.add("open");
-      var q = (it.querySelector(".faq-q") || {}).textContent || "";
-      var dest = DEFAULT_FAQ_TAB;
-      for (var i=0;i<FAQ_RULES.length;i++){ if (FAQ_RULES[i][0].test(q)) { dest = FAQ_RULES[i][1]; break; } }
-      (buckets[dest] = buckets[dest] || []).push(it);
     });
-    Object.keys(panels).forEach(function(tid){
-      var arr = buckets[tid]; if (!arr || !arr.length) return;
-      var blk = document.createElement("div"); blk.className = "aaa-faqblock";
-      blk.innerHTML = '<div class="fb-head">Straight Answers · ' + arr.length + ' on this topic</div>';
-      var grid = document.createElement("div"); grid.className = "aaa-faqgrid";
-      arr.forEach(function(it){ grid.appendChild(it); });
-      blk.appendChild(grid);
-      panels[tid].appendChild(blk);
-    });
-    if (faqSection) faqSection.style.display = "none";
 
-    /* ---------- activation + deep links ---------- */
-    var secToTab = {};
-    TABS.forEach(function(t){ t.secs.forEach(function(s){ secToTab[s] = t.id; }); });
-    secToTab["cart"] = "t-pricing"; secToTab["faq"] = "t-start";
-
-    function activate(tid, scrollTop){
-      TABS.forEach(function(t){
-        panels[t.id].classList.toggle("on", t.id === tid);
+    /* build chapters in order, moving sections in-flow before #contact */
+    CH.forEach(function(c){
+      var div = document.createElement("div");
+      div.className = "aaa-chapter"; div.id = c.id;
+      var pills = c.pills.map(function(p){
+        return '<a class="aaa-chpill'+(p[3]?' ext':'')+'" href="'+p[2]+'">'+(p[0]?'<b>'+p[0]+'</b>':'')+p[1]+'</a>';
+      }).join("");
+      div.innerHTML = '<div class="inner"><span class="num">'+c.n+'</span><h2 class="cht">'+c.t+'</h2>' +
+        '<div class="chd">'+c.d+'</div>' + (pills ? '<div class="aaa-chpills">'+pills+'</div>' : '') + '</div>';
+      main.insertBefore(div, contact);
+      c.secs.forEach(function(id){
+        var s = document.getElementById(id);
+        if (s) main.insertBefore(s, contact);
       });
-      Array.prototype.forEach.call(bar.children, function(b){
-        b.classList.toggle("on", b.dataset.tab === tid);
-      });
-      if (scrollTop) {
-        var y = wrap.getBoundingClientRect().top + window.pageYOffset - 60;
-        if (window.pageYOffset > y) window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }
-    window.aaaActivateTab = activate;
-
-    /* intercept every in-page anchor so old nav keeps working */
-    document.addEventListener("click", function(e){
-      var a = e.target.closest && e.target.closest('a[href^="#"]');
-      if (!a) return;
-      var id = a.getAttribute("href").slice(1);
-      if (!id) return;
-      var tid = secToTab[id];
-      if (tid) {
-        activate(tid, false);
-        var el = document.getElementById(id);
-        if (el) { e.preventDefault(); setTimeout(function(){ el.scrollIntoView({ behavior:"smooth", block:"start" }); }, 30); }
+      /* custom-build strip inside ch 04, above roi-moat */
+      if (c.id === "ch-why") {
+        var strip = document.createElement("div");
+        strip.className = "aaa-custom-strip";
+        strip.innerHTML = '<div><div class="t">Custom-Built \u00b7 Never Off-The-Shelf</div>' +
+          '<p>\u201cEvery agent AAA ships is <strong>built on your data, your tools, your rules</strong> \u2014 deployed in your accounts, documented in your name. Off-the-shelf software makes you adapt to it. <strong>AAA adapts to you</strong> \u2014 that is the moat, and you own every brick of it.\u201d</p></div>';
+        var roi = document.getElementById("roi-moat");
+        main.insertBefore(strip, roi);
       }
     });
 
-    /* initial state: honour hash, else first tab */
-    var hid = (location.hash || "").slice(1);
-    var startTab = secToTab[hid] || TABS[0].id;
-    activate(startTab, false);
-    if (hid && document.getElementById(hid)) {
-      setTimeout(function(){ document.getElementById(hid).scrollIntoView({ block:"start" }); }, 60);
+
+    /* ---------- industries → wizard deep links (name-matched) ---------- */
+    var INDMAP = [
+      [/allied health|gp practices|medical/i, "health"],
+      [/trades/i, "trades"],
+      [/accounting|financial/i, "acct"],
+      [/legal|conveyanc/i, "services"],
+      [/food distribution/i, "food"],
+      [/retail/i, "retail"],
+      [/construction|property/i, "property"],
+      [/logistics|transport/i, "logi"],
+      [/tech|saas/i, "other"],
+      [/personal|tailored/i, "other"],
+      [/multi.site|franchise/i, "services"]
+    ];
+    document.querySelectorAll("#industries .industry-box").forEach(function(box){
+      var nameEl = box.querySelector(".ind-name");
+      if (!nameEl) return;
+      var key = "other";
+      for (var i=0;i<INDMAP.length;i++){ if (INDMAP[i][0].test(nameEl.textContent)){ key = INDMAP[i][1]; break; } }
+      var a = document.createElement("a");
+      a.href = "/wizard.html?ind=" + key;
+      a.textContent = "\u26A1 60-sec match for this industry \u2192";
+      a.style.cssText = "display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-bright);text-decoration:none;border:1px solid var(--gold-deep);border-radius:999px;padding:6px 13px;transition:background .15s;";
+      a.addEventListener("mouseenter",function(){ a.style.background="rgba(201,162,39,0.12)"; });
+      a.addEventListener("mouseleave",function(){ a.style.background="none"; });
+      box.appendChild(a);
+      box.style.cursor = "pointer";
+      box.addEventListener("click", function(e){ if (e.target.tagName !== "A") location.href = a.href; });
+    });
+
+    /* ---------- Findable mini-FAQ: open all, grid layout ---------- */
+    (function(){
+      var wrap = document.querySelector(".fnd-faqwrap");
+      if (!wrap) return;
+      var det = wrap.querySelectorAll("details.fnd-faq");
+      if (!det.length) return;
+      var grid = document.createElement("div"); grid.className = "fnd-grid2";
+      det.forEach(function(d){ d.setAttribute("open",""); grid.appendChild(d); });
+      /* keep the h3 first, sources block (if inside wrap) after grid */
+      var h3 = wrap.querySelector(".fnd-h3");
+      wrap.insertBefore(grid, h3 ? h3.nextSibling : wrap.firstChild);
+    })();
+
+    /* ---------- site search ---------- */
+    (function(){
+
+      var ov = document.createElement("div"); ov.className = "aaa-search-ov";
+      ov.innerHTML = '<div class="aaa-search-box">' +
+        '<input type="text" placeholder="Search pricing, agents, FAQ, industries\u2026" aria-label="Search this site">' +
+        '<div class="aaa-sr"></div>' +
+        '<div class="aaa-search-foot"><span>\u2191\u2193 navigate</span><span>Enter open</span><span>Esc close</span></div></div>';
+      document.body.appendChild(ov);
+      var inp = ov.querySelector("input"), res = ov.querySelector(".aaa-sr");
+
+      /* build the index */
+      var IDX = [];
+      function chOf(el){
+        var p = el; while (p && p !== document.body){
+          if (p.classList && p.classList.contains("aaa-chapter")) return p.querySelector(".cht").textContent;
+          p = p.previousElementSibling || p.parentNode;
+        } return "";
+      }
+      function ctx(el){
+        var s = el.closest ? el.closest(".aaa-chapter, section, .aaa-faqblock") : null;
+        return "";
+      }
+      function add(text, el, label){
+        if (!text) return;
+        IDX.push({ t: text.trim().replace(/\s+/g," ").slice(0,120), el: el, c: label });
+      }
+      CH.forEach(function(c){
+        var d = document.getElementById(c.id);
+        if (d) add(c.n + " \u00b7 " + c.t, d, "Chapter");
+      });
+      document.querySelectorAll("section h2, section h3, .swon-name, .rm-title").forEach(function(el){
+        var sec = el.closest("section, .aaa-chapter");
+        add(el.textContent, el, "Section");
+      });
+      document.querySelectorAll(".faq-q").forEach(function(el){ add(el.textContent, el, "FAQ"); });
+      document.querySelectorAll(".ind-name").forEach(function(el){ add(el.textContent + " \u2014 industry", el, "Industry"); });
+      /* other pages */
+      [["60-second Wizard \u2014 find your first agent","/wizard.html"],
+       ["The Growth Engine \u2014 distribution & marketing","/growth-engine.html"],
+       ["For Tradies \u2014 quotes & invoices automated","/tradies.html"],
+       ["Referral & Partners","/partners.html"],
+       ["All FAQs on one page","/faq.html"],
+       ["Privacy Policy","/privacy.html"],
+       ["Where to start with AI \u2014 guide","/where-to-start-with-ai.html"]
+      ].forEach(function(p){ IDX.push({ t:p[0], href:p[1], c:"Page" }); });
+
+      var sel = 0, hits = [];
+      function render(q){
+        q = q.trim().toLowerCase();
+        res.innerHTML = "";
+        if (q.length < 2){ res.innerHTML = '<div class="none">Type at least two characters \u2014 try \u201crefund\u201d, \u201cpricing\u201d, \u201ctradies\u201d, \u201cwizard\u201d\u2026</div>'; return; }
+        hits = IDX.map(function(it){
+          var lt = it.t.toLowerCase(), i = lt.indexOf(q);
+          if (i < 0) return null;
+          var score = (i === 0 ? 3 : 1) + (it.c === "Chapter" ? 2 : 0) + (it.c === "FAQ" ? 1 : 0);
+          return { it: it, score: score, i: i };
+        }).filter(Boolean).sort(function(a,b){ return b.score - a.score; }).slice(0, 9);
+        sel = 0;
+        if (!hits.length){ res.innerHTML = '<div class="none">Nothing matched \u201c'+q+'\u201d \u2014 try a simpler word, or ask Raj directly on WhatsApp.</div>'; return; }
+        hits.forEach(function(hh, n){
+          var it = hh.it, a = document.createElement("a");
+          a.href = it.href || "#";
+          var t = it.t, i = hh.i;
+          a.innerHTML = '<div class="rt">' + t.slice(0,i) + '<b>' + t.slice(i, i+q.length) + '</b>' + t.slice(i+q.length) + '</div>' +
+                        '<div class="rc">' + it.c + '</div>';
+          if (n === 0) a.classList.add("sel");
+          a.addEventListener("click", function(e){
+            if (!it.href){ e.preventDefault(); go(it.el); }
+          });
+          res.appendChild(a);
+        });
+      }
+      function go(el){
+        close();
+        setTimeout(function(){
+          el.scrollIntoView({ behavior:"smooth", block:"center" });
+          var tgt = el.closest(".faq-item") || el.closest(".industry-box") || el;
+          tgt.classList.add("aaa-flash");
+          setTimeout(function(){ tgt.classList.remove("aaa-flash"); }, 1700);
+        }, 60);
+      }
+      function open(){ ov.classList.add("on"); inp.value=""; render(""); setTimeout(function(){ inp.focus(); }, 30); }
+      function close(){ ov.classList.remove("on"); }
+      /* single clear trigger: topnav pill, placed before the 60-SEC MATCH CTA */
+      var matchBtn = document.querySelector(".topnav-cta-match");
+      var sb = document.createElement("button");
+      sb.type = "button";
+      sb.setAttribute("aria-label", "Search this site");
+      sb.innerHTML = "\uD83D\uDD0D SEARCH";
+      sb.style.cssText = "flex-shrink:0; white-space:nowrap; background:none; cursor:pointer;" +
+        "font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:1.2px;" +
+        "color:var(--gold-bright); border:1px solid var(--gold-deep); border-radius:8px;" +
+        "padding:11px 18px; margin-right:10px; transition:background .15s, transform .15s;";
+      sb.addEventListener("mouseenter", function(){ sb.style.background = "rgba(201,162,39,0.12)"; });
+      sb.addEventListener("mouseleave", function(){ sb.style.background = "none"; });
+      sb.addEventListener("click", open);
+      if (matchBtn && matchBtn.parentNode) matchBtn.parentNode.insertBefore(sb, matchBtn);
+      else document.querySelector(".topnav").appendChild(sb);
+      ov.addEventListener("click", function(e){ if (e.target === ov) close(); });
+      inp.addEventListener("input", function(){ render(inp.value); });
+      document.addEventListener("keydown", function(e){
+        if (e.key === "/" && !ov.classList.contains("on") && !/input|textarea|select/i.test(document.activeElement.tagName)){ e.preventDefault(); open(); }
+        if (!ov.classList.contains("on")) return;
+        if (e.key === "Escape") close();
+        var links = res.querySelectorAll("a");
+        if (e.key === "ArrowDown" || e.key === "ArrowUp"){
+          e.preventDefault();
+          if (!links.length) return;
+          links[sel] && links[sel].classList.remove("sel");
+          sel = e.key === "ArrowDown" ? Math.min(sel+1, links.length-1) : Math.max(sel-1, 0);
+          links[sel].classList.add("sel");
+          links[sel].scrollIntoView({ block:"nearest" });
+        }
+        if (e.key === "Enter" && links[sel]) links[sel].click();
+      });
+    })();
+
+    /* ---------- spine v3: rebuild chapter-grouped, self-labelled ---------- */
+    var SPLBL = { "lifeband-section":"The Problem","industries":"Industries","how-it-works":"How It Works",
+      "process":"The Process","what-we-do":"Agents & Automation","findable":"Findable",
+      "extended-services":"Extended Services","aarambh-band":"Aarambh","pricing":"Pricing",
+      "engine":"Shapes & Cart","roi-moat":"ROI & Moat","founder":"The Founder",
+      "bonus":"Founder's Bonus","newsletter":"Newsletter","faq":"All FAQs" };
+    var spine = document.querySelector(".aaa-spine");
+    var spineSecs = [];
+    if (spine){
+      spine.innerHTML = "";
+      CH.forEach(function(c){
+        var chA = document.createElement("a");
+        chA.className = "sp-ch"; chA.href = "#"+c.id; chA.dataset.ch = c.id;
+        chA.textContent = c.n;
+        spine.appendChild(chA);
+        c.secs.forEach(function(id){
+          var s = document.getElementById(id);
+          if (!s) return;
+          var a = document.createElement("a");
+          a.className = "sp-sec"; a.href = "#"+id; a.dataset.sec = id;
+          a.innerHTML = '<span class="d"></span><span class="lbl">'+(SPLBL[id]||id)+'</span>';
+          spine.appendChild(a);
+          spineSecs.push({ id:id, ch:c.id, el:s, a:a, chA:chA });
+        });
+      });
     }
+
+    /* scrollspy */
+    var links = bar.querySelectorAll(".aaa-chlink");
+    function spy(){
+      var y = window.pageYOffset + 140, cur = CH[0].id;
+      CH.forEach(function(c){
+        var el = document.getElementById(c.id);
+        if (el && el.offsetTop <= y) cur = c.id;
+      });
+      links.forEach(function(l){ l.classList.toggle("on", l.dataset.ch === cur); });
+      /* spine states */
+      var curSec = null;
+      spineSecs.forEach(function(s){ if (s.el.offsetTop <= y) curSec = s; });
+      spineSecs.forEach(function(s){ s.a.classList.toggle("on", curSec && s.id === curSec.id); });
+      if (spine) spine.querySelectorAll(".sp-ch").forEach(function(c){ c.classList.toggle("on", c.dataset.ch === cur); });
+    }
+    window.addEventListener("scroll", spy, { passive:true });
+    spy();
   }
-  if (document.readyState === "complete") setTimeout(init, 80);
-  else window.addEventListener("load", function(){ setTimeout(init, 80); });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
 </script>
 
