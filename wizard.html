@@ -137,7 +137,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap stage">
     <div class="kicker">§ The 60-second match</div>
     <h1>Find your <em>first agent</em>.</h1>
-    <p class="sub">Three taps: your industry, your biggest time-sink, who carries it today — and you'll see the exact agent that kills it, with the honest price next to it.</p>
+    <p class="sub">Three taps: your industry, your biggest time-sink, who carries it today — and you'll see the exact agent that kills it, with the honest price next to it — and the agent it pairs best with.</p>
 
     <div class="prog" aria-hidden="true">
       <div class="dot on" id="d1">1</div><div class="bar" id="b1"></div>
@@ -175,6 +175,7 @@ footer a:hover{color:var(--gold)}
         <p class="agent-does" id="rDoes"></p>
         <p class="agent-you" id="rYou"></p>
         <div class="lives"><span class="lab">Lives inside</span><span id="rLives"></span></div>
+        <div class="lives" id="rPair" style="margin-top:8px;"></div>
         <div class="pricegrid">
           <div class="prow"><span class="pi">Workflow walkthrough — I come to you</span><span class="pd"></span><span class="pp free">FREE</span></div>
           <div class="prow"><span class="pi">Phase 0 pilot — this agent live on your real data</span><span class="pd"></span><span class="pp">A$4,500<small>Fully refundable · 30 days</small></span></div>
@@ -220,7 +221,15 @@ var AGENTS = {
   touch:   { name:"The <em>Stay-In-Touch</em>", sub:"Kills quiet customers drifting away",
              does:"Watches for customers going quiet and drafts the <b>right check-in at the right moment</b> — reorders, reviews, repeat bookings — before the relationship lapses." },
   brief:   { name:"The <em>Daily Brief</em>", sub:"Kills starting the day blind",
-             does:"One morning message: <b>cash position, jobs due, invoices outstanding, anything slipping</b> — pulled from your real systems, read in two minutes with the first coffee." }
+             does:"One morning message: <b>cash position, jobs due, invoices outstanding, anything slipping</b> — pulled from your real systems, read in two minutes with the first coffee." },
+  growth:  { name:"The <em>Growth Engine</em>", sub:"Kills being invisible to Google & AI", growthEngine:true,
+             does:"Not an agent — a weekly distribution engine: <b>one anchor article, platform cuts, a short video, warmed email</b> — engineered so Google ranks you, AI assistants recommend you, and every lead arrives stamped with its source." }
+};
+
+/* companion pairings — every agent has a natural second */
+var PAIRS = {
+  quote:"invoice", invoice:"chaser", chaser:"brief", books:"brief",
+  sched:"triage", triage:"sched", touch:"growth", brief:"chaser", growth:"touch"
 };
 
 var IND = {
@@ -229,7 +238,8 @@ var IND = {
              pains:[ ["quote","Quoting after dinner","Jobs measured by 4pm, quotes typed at 9pm"],
                      ["chaser","Chasing unpaid invoices","Work done, money slow, awkward follow-ups"],
                      ["books","Re-keying between systems","Job system → Xero → text, same data three times"],
-                     ["sched","Juggling the calendar","Bookings, call-backs, last-minute shuffles"] ] },
+                     ["sched","Juggling the calendar","Bookings, call-backs, last-minute shuffles"],
+                     ["growth","Nobody can find us","Word-of-mouth only — invisible to Google & AI"] ] },
   health:  { ic:"🩺", t:"Allied health & clinics", d:"Physio, chiro, psych, podiatry, GP practice…",
              stack:["Cliniko","Halaxy","Best Practice","Medical Director","Xero"],
              pains:[ ["sched","No-shows & reminder admin","Empty slots that were booked yesterday"],
@@ -253,7 +263,34 @@ var IND = {
              pains:[ ["triage","Customer questions, all channels","Same five questions, every channel, all day"],
                      ["touch","One-time buyers never returning","No follow-up after the first sale"],
                      ["books","Orders vs accounts mismatch","Platform says one thing, Xero another"],
-                     ["brief","No single daily picture","Sales, stock, refunds — scattered everywhere"] ] },
+                     ["brief","No single daily picture","Sales, stock, refunds — scattered everywhere"],
+                     ["growth","Traffic without a rented ad","Paid ads on, sales on — ads off, silence"] ] },
+  property:{ ic:"🏠", t:"Real estate & property", d:"Agencies, property management, buyer's agents…",
+             stack:["PropertyMe","VaultRE","AgentBox","Console","Xero"],
+             pains:[ ["triage","Enquiry flood, slow replies","Portal leads going cold in the inbox"],
+                     ["sched","Inspections & appraisal juggle","Open homes, keys, calendars, chaos"],
+                     ["touch","Past clients forgotten","Vendors and landlords who never hear from you again"],
+                     ["chaser","Arrears & invoice follow-up","Rent arrears and fees chased by hand"],
+                     ["growth","Invisible in your suburb","When someone asks AI for an agent near them — silence"] ] },
+  hosp:    { ic:"☕", t:"Hospitality & venues", d:"Cafés, restaurants, caterers, function venues…",
+             stack:["Square","Lightspeed","Xero","MYOB","Now Book It"],
+             pains:[ ["sched","Bookings & function enquiries","Phone rings mid-service, bookings slip"],
+                     ["triage","Same questions all day","Hours, menus, dietaries, parking — on repeat"],
+                     ["touch","Regulars going quiet","Locals who stopped coming — noticed too late"],
+                     ["books","POS vs accounts mismatch","Square says one thing, Xero another"],
+                     ["growth","Empty midweek tables","Full Saturday, silent Tuesday — no audience of your own"] ] },
+  care:    { ic:"🤝", t:"NDIS, aged & child care", d:"Support providers, aged care, childcare centres…",
+             pains:[ ["books","Claiming & compliance admin","Service logs to claims to reconciliation, by hand"],
+                     ["sched","Roster & visit juggle","Shifts, cancellations, replacement scrambles"],
+                     ["triage","Family & participant enquiries","Every channel, every hour, same questions"],
+                     ["brief","No clear daily picture","Who's where, what's claimed, what's slipping"] ],
+             stack:["ShiftCare","SupportAbility","Xero","MYOB","Deputy"] },
+  auto:    { ic:"🚗", t:"Automotive & workshops", d:"Mechanics, smash repair, detailing, tyres…",
+             stack:["Workshop Software","MechanicDesk","Xero","MYOB"],
+             pains:[ ["quote","Quotes stuck on the hoist","Car's diagnosed, quote waits till closing"],
+                     ["sched","Booking & bay juggle","Drop-offs, loan cars, callbacks, no-shows"],
+                     ["chaser","Invoices rolling past 30 days","Fleet accounts paying whenever they like"],
+                     ["touch","Service reminders missed","Rego, service due, tyres — nobody nudged them"] ] },
   other:   { ic:"⚙️", t:"Something else", d:"Construction, logistics, tech, services…",
              stack:["Xero","MYOB","your CRM","your job system","custom APIs"],
              pains:[ ["quote","Quotes & proposals eating evenings","Every new job starts with a writing shift"],
@@ -323,8 +360,27 @@ function buildResult(){
   $('rName').innerHTML=a.name;
   $('rSub').textContent=a.sub;
   $('rDoes').innerHTML=a.does;
-  $('rYou').textContent=who[4];
+  $('rYou').textContent = a.growthEngine ? "Owned beats rented: the audience, list and library stay yours — the funnel can sell anything you put through it." : who[4];
   $('rLives').innerHTML=ind.stack.map(function(s){return '<span class="chip">'+s+'</span>';}).join(' ');
+  /* match-tag + price rows adapt for Growth Engine result */
+  document.querySelector('.match-tag').textContent = a.growthEngine ? 'Your match · the distribution & marketing engine' : 'Your match · one of the standard eight';
+  var rows=document.querySelectorAll('.pricegrid .prow');
+  if(a.growthEngine){
+    rows[1].querySelector('.pi').textContent='Phase 0 — foundation month, warmup + first cadence';
+    rows[2].querySelector('.pi').textContent='Engine retainer — scoped at your sessions';
+    rows[2].querySelector('.pp').innerHTML='A$1,500–2,500<small>/mo × 6 · ads at cost</small>';
+  } else {
+    rows[1].querySelector('.pi').textContent='Phase 0 pilot — this agent live on your real data';
+    rows[2].querySelector('.pi').textContent='Each agent after that';
+    rows[2].querySelector('.pp').innerHTML='A$3,000<small>Paid on delivery</small>';
+  }
+  /* companion pairing */
+  var pairKey=PAIRS[state.pain], pair=AGENTS[pairKey];
+  var pairEl=$('rPair');
+  if(pairEl && pair){
+    pairEl.innerHTML='<span class="lab">Pairs well with</span> <b>'+pair.name.replace(/<[^>]*>/g,'')+'</b> — '+pair.sub.toLowerCase()+
+      (pair.growthEngine ? ' · <a href="/growth-engine.html" style="color:var(--teal-bright);text-decoration:none;">see the engine →</a>' : '');
+  }
   /* build precise message from chosen pain label */
   var msg, painLabel='';
   IND[state.ind].pains.forEach(function(p){ if(p[0]===state.pain) painLabel=p[1]; });
