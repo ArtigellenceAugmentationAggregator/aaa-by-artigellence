@@ -6450,21 +6450,6 @@ if (themeToggle) {
   });
 }
 
-// FAQ two-column distribution (independent columns — expanding never gaps the neighbour)
-(function(){
-  var list = document.querySelector('.faq-list');
-  if (list && !list.querySelector('.faq-col')) {
-    var items = Array.prototype.slice.call(list.querySelectorAll(':scope > .faq-item'));
-    if (items.length > 1) {
-      var colA = document.createElement('div'); colA.className = 'faq-col';
-      var colB = document.createElement('div'); colB.className = 'faq-col';
-      var half = Math.ceil(items.length / 2);
-      items.forEach(function(it, i){ (i < half ? colA : colB).appendChild(it); });
-      list.appendChild(colA); list.appendChild(colB);
-    }
-  }
-})();
-
 // FAQ toggle
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
@@ -6473,6 +6458,33 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 const firstFaq = document.querySelector('.faq-item');
 if (firstFaq) firstFaq.classList.add('open');
+
+// FAQ two-column distribution — HEIGHT-BALANCED, order-preserving.
+// Measures real rendered heights (first item open) and picks the split index
+// that makes the two columns as equal as possible. Symmetry by construction.
+(function(){
+  var list = document.querySelector('.faq-list');
+  if (!list || list.querySelector('.faq-col')) return;
+  var items = Array.prototype.slice.call(list.querySelectorAll(':scope > .faq-item'));
+  if (items.length < 2) return;
+  function distribute(){
+    var gap = 14;
+    var hts = items.map(function(it){ return it.offsetHeight + gap; });
+    var total = hts.reduce(function(a,b){ return a+b; }, 0);
+    var best = 1, bestDiff = Infinity, run = 0;
+    for (var k = 1; k < items.length; k++){
+      run += hts[k-1];
+      var diff = Math.abs(run - (total - run));
+      if (diff < bestDiff){ bestDiff = diff; best = k; }
+    }
+    var colA = document.createElement('div'); colA.className = 'faq-col';
+    var colB = document.createElement('div'); colB.className = 'faq-col';
+    items.forEach(function(it, i){ (i < best ? colA : colB).appendChild(it); });
+    list.appendChild(colA); list.appendChild(colB);
+  }
+  if (document.readyState === 'complete') distribute();
+  else window.addEventListener('load', distribute);
+})();
 
 // Active nav highlighting on scroll
 const navLinks = document.querySelectorAll('.topnav-links a');
