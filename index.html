@@ -3901,6 +3901,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         state.on[s.id] = !state.on[s.id];
         b.classList.toggle("on", state.on[s.id]);
         checkEngine();
+        if (reduced) renderStatic(s.id, state.on[s.id]);
       });
       sw.appendChild(b);
     });
@@ -4070,13 +4071,60 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
       if (!reduced) requestAnimationFrame(tick);
     }
-    if (reduced){
-      /* static composed frame for reduced motion */
-      SERVICES.forEach(function(s,i){ state.on[s.id]=true; sw.children[i].classList.add("on"); });
-      checkEngine(); state.hrs = 12; state.dol = 30000; tick();
-    } else {
-      requestAnimationFrame(tick);
+    /* reduced-motion: interactive static mode — clicks redraw, no ambient motion */
+    var CONTRIB = { agents:{h:5,d:12000,s:3}, findable:{h:1,d:6000,s:2}, growth:{h:2,d:9000,s:2}, ext:{h:2,d:3000,s:2}, aarambh:{h:2,d:0,s:0} };
+    var SVC_ON = { agents:"\uD83E\uDD16 AGENTS ONLINE \u2014 CALLS, QUOTES & INVOICES NOW CAUGHT",
+                   findable:"\uD83D\uDD0D FINDABLE ON \u2014 LOST CUSTOMERS NOW PULLED BACK IN",
+                   growth:"\uD83D\uDCC8 GROWTH ENGINE ON \u2014 LEADS NOW FLOWING IN",
+                   ext:"\u2699\uFE0F EXTENDED SERVICES ON \u2014 BREAKDOWNS NOW HANDLED",
+                   aarambh:"\uD83C\uDFD7\uFE0F AARAMBH ON \u2014 THE FOUNDATION ITSELF UPGRADED" };
+    function renderStatic(changedId, nowOn){
+      var hrs = 0, dol = 0, slip = 9;
+      SERVICES.forEach(function(s){ if (state.on[s.id]){ var c = CONTRIB[s.id]; hrs += c.h; dol += c.d; slip -= c.s; } });
+      slip = Math.max(0, slip);
+      document.getElementById("mSlip").textContent = slip + "/wk";
+      document.getElementById("mHrs").textContent = hrs.toFixed(1) + "h";
+      document.getElementById("mDol").textContent = "$" + dol.toLocaleString("en-AU");
+      if (feedEl){
+        if (changedId){ feedEl.style.color = nowOn ? "#19d4c4" : "var(--coral)";
+          feedEl.textContent = nowOn ? SVC_ON[changedId] : "\u26A0 SERVICE OFF \u2014 THAT WORK SLIPS AGAIN"; }
+        else { feedEl.textContent = "\u26A0 9 THINGS SLIP THROUGH EVERY WEEK \u2014 FLIP A SWITCH BELOW"; }
+      }
+      /* static scene */
+      ctx.clearRect(0,0,W,H);
+      var coreR = state.on.aarambh ? 34 : 26;
+      ctx.save(); ctx.shadowColor = allOn() ? "#d9b542" : "#19d4c4"; ctx.shadowBlur = allOn() ? 24 : 10;
+      ctx.beginPath();
+      for (var a=0;a<6;a++){ var ang = Math.PI/3*a - Math.PI/6;
+        var px = CX + Math.cos(ang)*coreR, py = CY + Math.sin(ang)*coreR;
+        a?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+      ctx.closePath();
+      ctx.fillStyle = state.on.aarambh ? "rgba(248,113,113,0.14)" : "rgba(25,212,196,0.10)";
+      ctx.strokeStyle = allOn() ? "#d9b542" : (state.on.aarambh ? "#f87171" : "#19d4c4");
+      ctx.lineWidth = 2; ctx.fill(); ctx.stroke(); ctx.restore();
+      ctx.font = "16px serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(state.on.aarambh ? "\uD83C\uDFE2" : "\uD83C\uDFEA", CX, CY);
+      if (state.on.findable){ ctx.save(); ctx.globalAlpha = 0.25;
+        ctx.beginPath(); ctx.arc(CX, CY, 66, 0, Math.PI*2);
+        ctx.strokeStyle = "#19d4c4"; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore(); }
+      var idx = 0;
+      SERVICES.forEach(function(s){
+        if (!state.on[s.id] || !s.catches.length) return;
+        var n = s.id === "agents" ? 3 : 1;
+        for (var k=0;k<n;k++){ var ang2 = (idx++) * 1.05;
+          var ax = CX + Math.cos(ang2)*78, ay = CY + Math.sin(ang2)*58;
+          ctx.beginPath(); ctx.arc(ax, ay, 7, 0, Math.PI*2);
+          ctx.fillStyle = s.c; ctx.fill(); }
+      });
+      if (slip > 0){ ctx.font = "13px serif";
+        for (var q=0;q<Math.min(slip,6);q++){ ctx.globalAlpha = .55;
+          ctx.fillText(["\uD83D\uDCDE","\uD83D\uDCC4","\uD83D\uDCB8","\u2699\uFE0F"][q%4], 40 + q*70, H-22); }
+        ctx.globalAlpha = 1; }
+      ctx.font = "10px monospace"; ctx.fillStyle = "#8a8fa0";
+      ctx.fillText(allOn() ? "FULL ENGINE \u00b7 NOTHING SLIPS" : "TAP THE SWITCHES \u2014 EACH ONE CATCHES MORE", CX, 18);
     }
+    if (reduced){ renderStatic(); }
+    else { requestAnimationFrame(tick); }
   })();
   </script>
 </section>
