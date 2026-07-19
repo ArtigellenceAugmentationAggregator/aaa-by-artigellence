@@ -3809,7 +3809,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <!-- ===== YOUR WEEK, SIMULATED · interactive hero toy ===== -->
   <style>
-  .aaa-sim { position: absolute; right: 34px; top: 110px; width: 460px; z-index: 5;
+  .aaa-sim { position: absolute; left: calc(100% - 500px); top: 110px; width: 460px; z-index: 5; transition: top .3s ease;
     border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
     background: linear-gradient(180deg, rgba(17,22,31,0.85), rgba(10,14,20,0.92));
     backdrop-filter: blur(8px); box-shadow: 0 24px 70px rgba(0,0,0,0.45); }
@@ -3858,6 +3858,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <span class="aaa-sim-live">LIVE TOY</span>
     </div>
     <canvas id="simCanvas" width="460" height="300"></canvas>
+    <div id="simFeed" style="padding: 7px 16px; border-top: 1px solid var(--line-soft); font-family: var(--mono); font-size: 9px; letter-spacing: .6px; color: var(--gray-2); min-height: 18px; transition: opacity .3s;">⚠ CHAOS IS RAINING ON THIS BUSINESS — FLIP A SWITCH BELOW</div>
     <div class="aaa-sim-meters">
       <div class="aaa-sim-m"><div class="v bad" id="mSlip">0</div><div class="l">Slipping through</div></div>
       <div class="aaa-sim-m"><div class="v good" id="mHrs">0.0h</div><div class="l">Hours back / wk</div></div>
@@ -3927,10 +3928,29 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     function spawnLost(){ parts.push({ kind:"lost", x:Math.random()<0.5?-10:W+10, y:60+Math.random()*160, vx:0, away:true, dead:false }); }
     function spawnLead(){ parts.push({ kind:"lead", x:Math.random()<0.5?-10:W+10, y:60+Math.random()*160, vx:0, lead:true, dead:false }); }
 
-    function reward(kind){
-      if (kind==="invoice"){ state.dol = Math.min(30000, state.dol + 750); }
+    var floats = [];
+    var feedEl = document.getElementById("simFeed");
+    var FEEDMSG = {
+      call:    ["\uD83D\uDCDE MISSED CALL \u2192 CAUGHT BY AGENTS", "#d9b542"],
+      quote:   ["\uD83D\uDCC4 QUOTE DRAFTED \u2192 BY AGENTS, NOT AT 9 PM", "#d9b542"],
+      invoice: ["\uD83D\uDCB8 INVOICE CHASED \u2192 +$750 RECOVERED", "#d9b542"],
+      breakdown:["\u2699\uFE0F BREAKDOWN FIXED \u2192 EXTENDED SERVICES", "#a78bfa"],
+      lost:    ["\uD83D\uDC64 CUSTOMER FOUND \u2192 VIA FINDABLE", "#19d4c4"],
+      lead:    ["\uD83D\uDC64 NEW LEAD \u2192 GROWTH ENGINE DELIVERED", "#10b981"]
+    };
+    function feed(kind){
+      var m = FEEDMSG[kind]; if (!m || !feedEl) return;
+      feedEl.style.opacity = "0";
+      setTimeout(function(){ feedEl.innerHTML = m[0]; feedEl.style.color = m[1]; feedEl.style.opacity = "1"; }, 160);
+    }
+    function reward(kind, x, y){
+      var gain = "";
+      if (kind==="invoice"){ state.dol = Math.min(30000, state.dol + 750); gain = "+$750"; }
       state.hrs = Math.min(12, +(state.hrs + 0.2).toFixed(1));
-      if (kind==="lead"||kind==="lost"){ state.dol = Math.min(30000, state.dol + 350); }
+      if (kind==="lead"||kind==="lost"){ state.dol = Math.min(30000, state.dol + 350); gain = "+$350"; }
+      if (!gain) gain = "+0.2h";
+      floats.push({ x:x||CX, y:y||CY, txt:gain, life:1 });
+      feed(kind);
     }
 
     var frame = 0;
@@ -3992,19 +4012,19 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         if (p.kind === "lost"){
           if (state.on.findable){ /* pulled in */
             p.x += (CX-p.x)*0.02; p.y += (CY-p.y)*0.02;
-            if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lost"); }
+            if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lost", p.x, p.y); }
           } else { p.x += (p.x < CX ? -0.5 : 0.5); ctx.globalAlpha = 0.45;
             if (p.x < -20 || p.x > W+20){ p.dead = true; state.slip++; } }
         } else if (p.lead){
           p.x += (CX-p.x)*0.018; p.y += (CY-p.y)*0.018;
-          if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lead"); }
+          if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lead", p.x, p.y); }
         } else {
           p.y += p.vy; p.x += p.drift;
           /* caught? */
           for (var i=0;i<agents.length;i++){
             var ag = agents[i];
             if (ag.catches.indexOf(p.kind) > -1 && Math.hypot(ag.x-p.x, ag.y-p.y) < 16){
-              p.dead = true; reward(p.kind); break;
+              p.dead = true; reward(p.kind, p.x, p.y); break;
             }
           }
           if (!p.dead && p.y > H-8){ p.dead = true; state.slip++; }
@@ -4014,6 +4034,23 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       });
       parts = parts.filter(function(p){ return !p.dead; });
       if (parts.length > 60) parts.splice(0, parts.length - 60);
+
+      /* floating gain popups */
+      ctx.font = "bold 11px monospace"; ctx.textAlign = "center";
+      floats.forEach(function(f){
+        f.y -= 0.7; f.life -= 0.02;
+        if (f.life > 0){ ctx.globalAlpha = f.life; ctx.fillStyle = "#d9b542";
+          ctx.fillText(f.txt, f.x, f.y); ctx.globalAlpha = 1; }
+      });
+      floats = floats.filter(function(f){ return f.life > 0; });
+      ctx.font = "13px serif";
+
+      /* idle hint when nothing is on */
+      var anyOn = SERVICES.some(function(s){ return state.on[s.id]; });
+      if (!anyOn && feedEl && frame % 240 === 0){
+        feedEl.style.color = "var(--coral)";
+        feedEl.innerHTML = "\u26A0 " + state.slip + " THINGS HAVE SLIPPED THROUGH \u2014 FLIP A SWITCH BELOW";
+      }
 
       /* gold burst */
       if (state.burst){
@@ -6430,7 +6467,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <!-- ===== AI PULSE · AU vs WORLD · playful data panel ===== -->
   <style>
-  .aaa-pulse { position: absolute; left: calc(100% - 510px); top: 140px; width: 480px; z-index: 5;
+  .aaa-pulse { position: absolute; left: calc(100% - 510px); top: 140px; width: 480px; z-index: 5; transition: top .3s ease;
     border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
     background: linear-gradient(180deg, rgba(17,22,31,0.88), rgba(10,14,20,0.94));
     backdrop-filter: blur(8px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
@@ -7454,8 +7491,6 @@ if (nlSubmit) {
       a.innerHTML = '<span class="n">'+c.n+'</span>'+c.t;
       bar.appendChild(a);
     });
-    var vt = document.createElement("span"); vt.className = "aaa-vtag"; vt.textContent = "FLOW v3 \u00b7 19 JUL";
-    bar.appendChild(vt);
     main.insertBefore(wrap, anchor);
 
     /* FAQ: keep the MAIN section intact — just flatten every item open */
@@ -7821,5 +7856,26 @@ if (nlSubmit) {
 })();
 </script>
 
+<script id="aaa-align-js">
+(function(){
+  if (window.matchMedia("(max-width: 1240px)").matches) return;
+  function centre(panelSel, sectionSel, topSel, botSel, minTop){
+    var p = document.querySelector(panelSel), sec = document.querySelector(sectionSel);
+    var t = document.querySelector(topSel), b = document.querySelector(botSel);
+    if (!p || !sec || !t || !b) return;
+    var secTop = sec.getBoundingClientRect().top + window.pageYOffset;
+    var blockTop = t.getBoundingClientRect().top + window.pageYOffset - secTop;
+    var blockBot = b.getBoundingClientRect().bottom + window.pageYOffset - secTop;
+    var top = blockTop + ((blockBot - blockTop) - p.offsetHeight) / 2;
+    p.style.top = Math.max(minTop, Math.round(top)) + "px";
+  }
+  function all(){
+    centre(".aaa-sim", ".hero", ".hero h1", ".hero-delivery-note", 80);
+    centre(".aaa-pulse", "#contact", "#contact .eyebrow", "#contact .slots-note", 60);
+  }
+  window.addEventListener("load", function(){ all(); setTimeout(all, 600); });
+  window.addEventListener("resize", all);
+})();
+</script>
 </body>
 </html>
