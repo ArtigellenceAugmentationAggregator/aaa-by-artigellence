@@ -3682,8 +3682,8 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
   </div>
 </div>
 
-<!-- TRUST BADGE BANNER -->
-<div class="compliance-banner">
+<!-- TRUST BADGE BANNER · ROTATING -->
+<div class="compliance-banner" id="goldBanner" style="transition: opacity .45s ease;">
   ⭐ AI AUTOMATION & AGENTS WITH A <strong>FULLY REFUNDABLE PHASE 0</strong> · GET YOUR LIFE BACK · <a href="#disclaimer">TERMS →</a>
 </div>
 
@@ -3695,6 +3695,10 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <span><span class="accent">●</span> <span class="num">76%</span> OF AUSTRALIAN SMES HAVE NO AI STRATEGY · NATIONAL AI READINESS INDEX 2025</span>
     <span><span class="accent">◆</span> <span class="num">35-41%</span> OF AU SMES NOW USE AI · NAIC TRACKER 2025</span>
     <span><span class="accent">●</span> AAA PHASE 0 · <span class="num">A$4,500 FULLY REFUNDABLE</span> · ZERO RISK · 30 DAYS</span>
+    <span><span class="accent">🛠️</span> SOMEWHERE IN SYDNEY A TRADIE IS DOING INVOICES AT 9 PM · <span class="num">IT DOESN'T HAVE TO BE YOU</span></span>
+    <span><span class="accent">🤖</span> AI AGENTS DON'T TAKE SICK LEAVE · DON'T QUIT · <span class="num">DON'T FORGET TO CHASE INVOICE #47</span></span>
+    <span><span class="accent">☕</span> YOUR SATURDAY CALLED · <span class="num">IT WANTS YOU BACK</span></span>
+    <span><span class="accent">⚡</span> FIRST WORKING RESULT BY <span class="num">DAY 10</span> · OR YOUR MONEY BACK · THAT'S THE WHOLE PITCH</span>
     <span><span class="accent">◆</span> AUSTRALIAN SME OWNERS LOSE <span class="num">$62K-$94K/YEAR</span> ON ADMIN TIME · DEXT 2025</span>
     <span><span class="accent">●</span> LATE PAYMENTS COST AVERAGE AU SME <span class="num">$30,000/YEAR</span> · GOCARDLESS 2025</span>
   </span>
@@ -3726,7 +3730,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="top">
+<section class="hero" id="top" style="position: relative;">
   <div class="hero-meta">
     <span>FULLY REFUNDABLE PHASE 0</span>
     <span>10-DAY DELIVERY · LOCKED IN AGREEMENT</span>
@@ -3802,6 +3806,242 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       <a href="https://wa.me/61469313323?text=Hi%20Raj%20-%20my%20top%20operational%20headache%20is%3A" target="_blank" rel="noopener" style="font-family: var(--mono); font-size: 11px; letter-spacing: 1.4px; background: transparent; color: var(--green-bright); padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 8px; text-transform: uppercase; white-space: nowrap; border: 1px solid var(--green-bright);">WHATSAPP →</a>
     </div>
   </div>
+
+  <!-- ===== YOUR WEEK, SIMULATED · interactive hero toy ===== -->
+  <style>
+  .aaa-sim { position: absolute; right: 34px; top: 110px; width: 460px; z-index: 5;
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(17,22,31,0.85), rgba(10,14,20,0.92));
+    backdrop-filter: blur(8px); box-shadow: 0 24px 70px rgba(0,0,0,0.45); }
+  .aaa-sim.engine { border-color: var(--gold-bright); box-shadow: 0 0 60px rgba(201,162,39,0.25), 0 24px 70px rgba(0,0,0,0.5); }
+  .aaa-sim-head { display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px; border-bottom: 1px solid var(--line-soft); }
+  .aaa-sim-title { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.8px; color: var(--gold-bright); }
+  .aaa-sim-live { font-family: var(--mono); font-size: 8px; letter-spacing: 1.4px; color: var(--teal-bright); }
+  .aaa-sim-live::before { content: "●"; margin-right: 5px; animation: simblink 1.4s infinite; }
+  @keyframes simblink { 50% { opacity: .25; } }
+  .aaa-sim canvas { display: block; width: 100%; height: 300px; }
+  .aaa-sim-meters { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--line-soft); }
+  .aaa-sim-m { padding: 10px 8px; text-align: center; border-right: 1px solid var(--line-soft); }
+  .aaa-sim-m:last-child { border-right: none; }
+  .aaa-sim-m .v { font-family: var(--serif); font-size: 19px; color: var(--white); line-height: 1.1; }
+  .aaa-sim-m .v.bad { color: var(--coral); }
+  .aaa-sim-m .v.good { color: var(--teal-bright); }
+  .aaa-sim-m .l { font-family: var(--mono); font-size: 7px; letter-spacing: 1.1px; color: var(--gray); text-transform: uppercase; margin-top: 3px; }
+  .aaa-sim-sw { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px 14px 10px; border-top: 1px solid var(--line-soft); }
+  .aaa-sw { flex: 1 1 auto; min-width: 120px; display: flex; align-items: center; gap: 8px; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; background: var(--bg);
+    font-family: var(--mono); font-size: 8.5px; letter-spacing: .9px; text-transform: uppercase;
+    color: var(--gray-2); transition: all .2s; user-select: none; }
+  .aaa-sw .k { width: 26px; height: 14px; border-radius: 999px; background: var(--line); position: relative; flex-shrink: 0; transition: background .2s; }
+  .aaa-sw .k::after { content: ""; position: absolute; left: 2px; top: 2px; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--gray-2); transition: left .2s, background .2s; }
+  .aaa-sw.on { color: var(--white); border-color: var(--swc); box-shadow: 0 0 14px color-mix(in srgb, var(--swc) 35%, transparent); }
+  .aaa-sw.on .k { background: color-mix(in srgb, var(--swc) 45%, var(--bg)); }
+  .aaa-sw.on .k::after { left: 14px; background: var(--swc); }
+  .aaa-sim-foot { padding: 7px 16px 11px; font-family: var(--mono); font-size: 7.5px; letter-spacing: .8px;
+    color: var(--gray); text-transform: uppercase; display: flex; justify-content: space-between; }
+  .aaa-sim-foot a { color: var(--teal-bright); text-decoration: none; }
+  @media (max-width: 1240px) { .aaa-sim { display: none; } }
+  /* wide screens: hero text flows BESIDE the sim panel, never under it */
+  @media (min-width: 1241px) {
+    .hero h1, .hero .hero-sub, .hero .hero-meta, .hero .hero-cta-row, .hero .hero-delivery-note {
+      max-width: calc(100% - 540px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) { .aaa-sim-live::before { animation: none; } }
+  </style>
+
+  <div class="aaa-sim" id="aaaSim" aria-label="Interactive simulation: your business week with AAA services switched on">
+    <div class="aaa-sim-head">
+      <span class="aaa-sim-title" id="simTitle">YOUR WEEK, SIMULATED · FLIP THE SWITCHES</span>
+      <span class="aaa-sim-live">LIVE TOY</span>
+    </div>
+    <canvas id="simCanvas" width="460" height="300"></canvas>
+    <div class="aaa-sim-meters">
+      <div class="aaa-sim-m"><div class="v bad" id="mSlip">0</div><div class="l">Slipping through</div></div>
+      <div class="aaa-sim-m"><div class="v good" id="mHrs">0.0h</div><div class="l">Hours back / wk</div></div>
+      <div class="aaa-sim-m"><div class="v good" id="mDol">$0</div><div class="l">Recovered / yr</div></div>
+    </div>
+    <div class="aaa-sim-sw" id="simSw"></div>
+    <div class="aaa-sim-foot">
+      <span>Playful illustration · real numbers scoped in Phase 0</span>
+      <a href="/wizard.html">MAKE IT REAL →</a>
+    </div>
+  </div>
+
+  <script id="aaa-sim-js">
+  (function(){
+    var host = document.getElementById("aaaSim");
+    var cv = document.getElementById("simCanvas");
+    if (!host || !cv || window.matchMedia("(max-width: 1240px)").matches) return;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ctx = cv.getContext("2d");
+    var W = cv.width, H = cv.height, CX = W/2, CY = H/2 + 10;
+
+    var SERVICES = [
+      { id:"agents",  label:"Agents & Automation", c:"#d9b542", catches:["call","quote","invoice"] },
+      { id:"findable",label:"Findable",            c:"#19d4c4", catches:["lost"] },
+      { id:"growth",  label:"Growth Engine",       c:"#10b981", catches:[] },
+      { id:"ext",     label:"Extended Services",   c:"#a78bfa", catches:["breakdown"] },
+      { id:"aarambh", label:"Aarambh",             c:"#f87171", catches:[] }
+    ];
+    var GLYPH = { call:"\uD83D\uDCDE", quote:"\uD83D\uDCC4", invoice:"\uD83D\uDCB8", breakdown:"\u2699\uFE0F", lost:"\uD83D\uDC64", lead:"\uD83D\uDC64" };
+    var state = { on:{}, slip:0, hrs:0, dol:0, t:0, burst:null };
+    SERVICES.forEach(function(s){ state.on[s.id]=false; });
+
+    /* switches */
+    var sw = document.getElementById("simSw");
+    SERVICES.forEach(function(s){
+      var b = document.createElement("div");
+      b.className = "aaa-sw"; b.style.setProperty("--swc", s.c);
+      b.innerHTML = '<span class="k"></span>' + s.label;
+      b.addEventListener("click", function(){
+        state.on[s.id] = !state.on[s.id];
+        b.classList.toggle("on", state.on[s.id]);
+        checkEngine();
+      });
+      sw.appendChild(b);
+    });
+    function allOn(){ return SERVICES.every(function(s){ return state.on[s.id]; }); }
+    function checkEngine(){
+      var full = allOn();
+      host.classList.toggle("engine", full);
+      document.getElementById("simTitle").textContent = full
+        ? "\uD83D\uDE80 FULL ENGINE \u00b7 THIS IS YOUR BUSINESS ON AAA"
+        : "YOUR WEEK, SIMULATED \u00b7 FLIP THE SWITCHES";
+      if (full && !state.burst) {
+        state.burst = [];
+        for (var i=0;i<46;i++) state.burst.push({ x:CX, y:CY, vx:(Math.random()-0.5)*5.5, vy:-Math.random()*5-1.5, life:1 });
+      }
+      if (!full) state.burst = null;
+    }
+
+    var parts = [];   /* falling chaos + inbound customers */
+    var agents = [];  /* orbiters per service */
+    function spawnChaos(){
+      var pool = ["call","quote","invoice","breakdown"];
+      var t = pool[Math.floor(Math.random()*pool.length)];
+      parts.push({ kind:t, x:30+Math.random()*(W-60), y:-14, vy:0.55+Math.random()*0.7, drift:(Math.random()-0.5)*0.3, dead:false });
+    }
+    function spawnLost(){ parts.push({ kind:"lost", x:Math.random()<0.5?-10:W+10, y:60+Math.random()*160, vx:0, away:true, dead:false }); }
+    function spawnLead(){ parts.push({ kind:"lead", x:Math.random()<0.5?-10:W+10, y:60+Math.random()*160, vx:0, lead:true, dead:false }); }
+
+    function reward(kind){
+      if (kind==="invoice"){ state.dol = Math.min(30000, state.dol + 750); }
+      state.hrs = Math.min(12, +(state.hrs + 0.2).toFixed(1));
+      if (kind==="lead"||kind==="lost"){ state.dol = Math.min(30000, state.dol + 350); }
+    }
+
+    var frame = 0;
+    function tick(){
+      frame++; state.t += 0.016;
+      /* spawn cadence */
+      if (frame % 46 === 0) spawnChaos();
+      if (frame % 150 === 0 && !state.on.findable) spawnLost();
+      if (frame % 130 === 0 && state.on.findable) spawnLost();
+      if (frame % 95 === 0 && state.on.growth) spawnLead();
+
+      ctx.clearRect(0,0,W,H);
+
+      /* core */
+      var coreR = state.on.aarambh ? 34 : 26;
+      var glow = allOn() ? 26 : (state.on.aarambh ? 16 : 8);
+      ctx.save();
+      ctx.shadowColor = allOn() ? "#d9b542" : "#19d4c4";
+      ctx.shadowBlur = glow + Math.sin(state.t*3)*4;
+      ctx.beginPath();
+      for (var a=0;a<6;a++){ var ang = Math.PI/3*a - Math.PI/6 + (allOn()?state.t*0.4:0);
+        var px = CX + Math.cos(ang)*coreR, py = CY + Math.sin(ang)*coreR;
+        a?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+      ctx.closePath();
+      ctx.fillStyle = state.on.aarambh ? "rgba(248,113,113,0.14)" : "rgba(25,212,196,0.10)";
+      ctx.strokeStyle = allOn() ? "#d9b542" : (state.on.aarambh ? "#f87171" : "#19d4c4");
+      ctx.lineWidth = 2; ctx.fill(); ctx.stroke();
+      ctx.restore();
+      ctx.font = "16px serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(state.on.aarambh ? "\uD83C\uDFE2" : "\uD83C\uDFEA", CX, CY);
+
+      /* findable beacon */
+      if (state.on.findable){
+        ctx.save(); ctx.globalAlpha = 0.16 + 0.08*Math.sin(state.t*2.4);
+        ctx.beginPath(); ctx.arc(CX, CY, 66 + 10*Math.sin(state.t*1.8), 0, Math.PI*2);
+        ctx.strokeStyle = "#19d4c4"; ctx.lineWidth = 1.5; ctx.stroke(); ctx.restore();
+      }
+
+      /* orbit agents for ON services that catch */
+      agents = [];
+      var onCatchers = SERVICES.filter(function(s){ return state.on[s.id] && s.catches.length; });
+      onCatchers.forEach(function(s, si){
+        var n = s.id === "agents" ? 3 : 1;
+        for (var k=0;k<n;k++){
+          var ang = state.t*(0.9+si*0.18) + (Math.PI*2/n)*k + si*1.7;
+          agents.push({ x: CX + Math.cos(ang)*78, y: CY + Math.sin(ang)*58, c: s.c, catches: s.catches });
+        }
+      });
+      agents.forEach(function(ag){
+        ctx.beginPath(); ctx.arc(ag.x, ag.y, 7, 0, Math.PI*2);
+        ctx.fillStyle = ag.c; ctx.globalAlpha = 0.9; ctx.fill(); ctx.globalAlpha = 1;
+        ctx.fillStyle = "#0a0e14"; ctx.font = "8px monospace"; ctx.fillText("\u2726", ag.x, ag.y+0.5);
+      });
+
+      /* particles */
+      ctx.font = "13px serif";
+      parts.forEach(function(p){
+        if (p.dead) return;
+        if (p.kind === "lost"){
+          if (state.on.findable){ /* pulled in */
+            p.x += (CX-p.x)*0.02; p.y += (CY-p.y)*0.02;
+            if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lost"); }
+          } else { p.x += (p.x < CX ? -0.5 : 0.5); ctx.globalAlpha = 0.45;
+            if (p.x < -20 || p.x > W+20){ p.dead = true; state.slip++; } }
+        } else if (p.lead){
+          p.x += (CX-p.x)*0.018; p.y += (CY-p.y)*0.018;
+          if (Math.hypot(CX-p.x, CY-p.y) < 30){ p.dead = true; reward("lead"); }
+        } else {
+          p.y += p.vy; p.x += p.drift;
+          /* caught? */
+          for (var i=0;i<agents.length;i++){
+            var ag = agents[i];
+            if (ag.catches.indexOf(p.kind) > -1 && Math.hypot(ag.x-p.x, ag.y-p.y) < 16){
+              p.dead = true; reward(p.kind); break;
+            }
+          }
+          if (!p.dead && p.y > H-8){ p.dead = true; state.slip++; }
+        }
+        if (!p.dead){ ctx.fillText(GLYPH[p.kind], p.x, p.y); }
+        ctx.globalAlpha = 1;
+      });
+      parts = parts.filter(function(p){ return !p.dead; });
+      if (parts.length > 60) parts.splice(0, parts.length - 60);
+
+      /* gold burst */
+      if (state.burst){
+        state.burst.forEach(function(b){
+          b.x += b.vx; b.y += b.vy; b.vy += 0.12; b.life -= 0.012;
+          if (b.life > 0){ ctx.globalAlpha = b.life; ctx.fillStyle = "#d9b542";
+            ctx.fillRect(b.x, b.y, 3, 3); ctx.globalAlpha = 1; }
+        });
+        state.burst = state.burst.filter(function(b){ return b.life > 0; });
+        if (!state.burst.length) state.burst = null;
+      }
+
+      /* meters */
+      document.getElementById("mSlip").textContent = state.slip;
+      document.getElementById("mHrs").textContent = state.hrs.toFixed(1) + "h";
+      document.getElementById("mDol").textContent = "$" + state.dol.toLocaleString("en-AU");
+
+      if (!reduced) requestAnimationFrame(tick);
+    }
+    if (reduced){
+      /* static composed frame for reduced motion */
+      SERVICES.forEach(function(s,i){ state.on[s.id]=true; sw.children[i].classList.add("on"); });
+      checkEngine(); state.hrs = 12; state.dol = 30000; tick();
+    } else {
+      requestAnimationFrame(tick);
+    }
+  })();
+  </script>
 </section>
 
 <!-- ===== AU-STACK TRUST STRIP (added 11 Jun 2026 restyle) ===== -->
@@ -6148,7 +6388,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
 
 <!-- ===== FINAL CTA + CONTACT ===== -->
-<section class="section" id="contact">
+<section class="section" id="contact" style="position: relative;">
   <div class="final-cta">
     <div class="final-cta-inner">
       <div class="eyebrow">[ NEXT STEP · DIRECT TO RAJ ]</div>
@@ -6187,6 +6427,126 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       </div>
     </div>
   </div>
+
+  <!-- ===== AI PULSE · AU vs WORLD · playful data panel ===== -->
+  <style>
+  .aaa-pulse { position: absolute; left: calc(100% - 510px); top: 140px; width: 480px; z-index: 5;
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    background: linear-gradient(180deg, rgba(17,22,31,0.88), rgba(10,14,20,0.94));
+    backdrop-filter: blur(8px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .aaa-pulse-head { display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 18px; border-bottom: 1px solid var(--line-soft); }
+  .aaa-pulse-title { font-family: var(--mono); font-size: 9.5px; letter-spacing: 1.8px; color: var(--teal-bright); }
+  .aaa-pulse-upd { font-family: var(--mono); font-size: 7.5px; letter-spacing: 1.2px; color: var(--gray); }
+  .aaa-race { padding: 16px 18px 8px; }
+  .aaa-race-row { margin-bottom: 12px; }
+  .aaa-race-lbl { display: flex; justify-content: space-between; font-family: var(--mono);
+    font-size: 9px; letter-spacing: 1px; color: var(--gray-2); margin-bottom: 5px; }
+  .aaa-race-lbl b { color: var(--white); }
+  .aaa-race-lbl .pct { color: var(--gold-bright); font-size: 11px; }
+  .aaa-race-bar { height: 9px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line-soft); overflow: hidden; }
+  .aaa-race-fill { height: 100%; width: 0; border-radius: 999px;
+    transition: width 1.6s cubic-bezier(.2,.8,.2,1); }
+  .aaa-race-note { font-family: var(--serif); font-style: italic; font-size: 12.5px;
+    color: var(--gray-2); padding: 4px 18px 12px; line-height: 1.55; }
+  .aaa-race-note strong { color: var(--gold-bright); font-style: normal; }
+  .aaa-pulse-card { border-top: 1px solid var(--line-soft); padding: 14px 18px;
+    min-height: 92px; transition: opacity .45s ease; }
+  .aaa-pulse-card .pc-tag { font-family: var(--mono); font-size: 7.5px; letter-spacing: 1.6px;
+    color: var(--gold-bright); text-transform: uppercase; margin-bottom: 6px; }
+  .aaa-pulse-card .pc-txt { font-size: 12.5px; color: var(--gray-2); line-height: 1.6; }
+  .aaa-pulse-card .pc-txt b { color: var(--white); }
+  .aaa-pulse-card .pc-src { font-family: var(--mono); font-size: 7.5px; letter-spacing: 1px;
+    color: var(--gray); margin-top: 6px; text-transform: uppercase; }
+  .aaa-pulse-foot { display: flex; justify-content: space-between; padding: 9px 18px 12px;
+    border-top: 1px solid var(--line-soft); font-family: var(--mono); font-size: 7.5px;
+    letter-spacing: 1px; color: var(--gray); text-transform: uppercase; }
+  .aaa-pulse-foot a { color: var(--teal-bright); text-decoration: none; }
+  @media (max-width: 1240px) { .aaa-pulse { display: none; } }
+  /* wide screens: contact content flows BESIDE the pulse panel */
+  @media (min-width: 1241px) {
+    #contact .eyebrow, #contact h2, #contact p,
+    #contact .aaa-ctarow4, #contact .slots-note {
+      max-width: calc(100% - 540px);
+    }
+    #contact .aaa-ctarow4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+  </style>
+
+  <div class="aaa-pulse" id="aaaPulse" aria-label="AI adoption: Australia versus the world, with cited facts">
+    <div class="aaa-pulse-head">
+      <span class="aaa-pulse-title">🌏 THE AI PULSE · AU vs THE WORLD</span>
+      <span class="aaa-pulse-upd">CITED · JUL 2026</span>
+    </div>
+    <div class="aaa-race" id="pulseRace">
+      <div class="aaa-race-row"><div class="aaa-race-lbl"><span>🇦🇺 <b>AUSTRALIAN SMEs</b> · using AI</span><span class="pct">41%</span></div>
+        <div class="aaa-race-bar"><div class="aaa-race-fill" data-w="41" style="background:linear-gradient(90deg,#19d4c4,#0a8579);"></div></div></div>
+      <div class="aaa-race-row"><div class="aaa-race-lbl"><span>🇺🇸 <b>US SMALL BUSINESS</b> · gen-AI</span><span class="pct">40%</span></div>
+        <div class="aaa-race-bar"><div class="aaa-race-fill" data-w="40" style="background:linear-gradient(90deg,#a78bfa,#7c3aed);"></div></div></div>
+      <div class="aaa-race-row"><div class="aaa-race-lbl"><span>🇪🇺 <b>EU ENTERPRISES</b> · any AI</span><span class="pct">13.5%</span></div>
+        <div class="aaa-race-bar"><div class="aaa-race-fill" data-w="13.5" style="background:linear-gradient(90deg,#f87171,#B91C1C);"></div></div></div>
+      <div class="aaa-race-row"><div class="aaa-race-lbl"><span>🌍 <b>GLOBAL ORGS</b> · AI in ≥1 function</span><span class="pct">72%</span></div>
+        <div class="aaa-race-bar"><div class="aaa-race-fill" data-w="72" style="background:linear-gradient(90deg,#d9b542,#8b6914);"></div></div></div>
+    </div>
+    <div class="aaa-race-note">Australia's punching above its weight — but <strong>76% still have no AI plan</strong>. That gap is exactly where AAA lives.</div>
+    <div class="aaa-pulse-card" id="pulseCard">
+      <div class="pc-tag" id="pcTag">PULSE FACT · 01</div>
+      <div class="pc-txt" id="pcTxt"></div>
+      <div class="pc-src" id="pcSrc"></div>
+    </div>
+    <div class="aaa-pulse-foot">
+      <span>Sources cited · figures rounded</span>
+      <a href="#roi-moat">SEE THE FULL DATA →</a>
+    </div>
+  </div>
+
+  <script id="aaa-pulse-js">
+  (function(){
+    var host = document.getElementById("aaaPulse");
+    if (!host) return;
+    /* race bars animate when panel scrolls into view */
+    var fired = false;
+    function fire(){
+      if (fired) return; fired = true;
+      host.querySelectorAll(".aaa-race-fill").forEach(function(f){
+        setTimeout(function(){ f.style.width = f.dataset.w + "%"; }, 150);
+      });
+    }
+    if ("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) fire(); }); },
+        { threshold: 0.3 }).observe(host);
+    } else fire();
+
+    /* rotating pulse facts — every figure sourced */
+    var FACTS = [
+      ["<b>76% of AU SMEs have no AI strategy</b> — yet 83% expect AI to materially impact them within 12 months. That's expecting rain with no umbrella.", "National AI Readiness Index 2025"],
+      ["AU SME owners spend <b>8–12 hours a week on admin</b>. Over a year, that's a Bali trip per quarter — spent on paperwork.", "Dext 2025"],
+      ["The average AU SME loses <b>$30,000 a year to late payments</b>. An AI agent chases invoice #47 at 2 AM — cheerfully.", "GoCardless 2025"],
+      ["<b>63% of Australian businesses face labour shortages</b>. AI agents don't take sick leave, don't resign, don't need parking.", "KPMG Mid-Market 2025"],
+      ["Globally, <b>72% of organisations already use AI</b> in at least one function. The tools have arrived — the integrators are the moat.", "McKinsey State of AI 2024"],
+      ["Only <b>13.5% of EU enterprises</b> used AI in 2024. Australia's SMEs are adopting at three times that rate — quietly.", "Eurostat 2024"],
+      ["<b>40% of US small businesses</b> now use generative AI — nearly double the year before. The pace is global.", "US Chamber of Commerce 2024"],
+      ["AU SME AI adoption grows roughly <b>6% every quarter</b>. Your competitors are switching on — one suburb at a time.", "NAIC Tracker 2025"]
+    ];
+    var ci = 0, paused = false;
+    var txt = document.getElementById("pcTxt"), src = document.getElementById("pcSrc"),
+        tag = document.getElementById("pcTag"), card = document.getElementById("pulseCard");
+    function show(n){
+      txt.innerHTML = FACTS[n][0];
+      src.textContent = "SOURCE · " + FACTS[n][1];
+      tag.textContent = "PULSE FACT · 0" + (n+1);
+    }
+    show(0);
+    card.addEventListener("mouseenter", function(){ paused = true; });
+    card.addEventListener("mouseleave", function(){ paused = false; });
+    setInterval(function(){
+      if (paused || document.hidden) return;
+      ci = (ci + 1) % FACTS.length;
+      card.style.opacity = "0";
+      setTimeout(function(){ show(ci); card.style.opacity = "1"; }, 440);
+    }, 7000);
+  })();
+  </script>
 </section>
 
 <!-- ===== NETWORK PARTNERS · AUTHORISED (added 1 Jul 2026) ===== -->
@@ -6842,8 +7202,20 @@ if (nlSubmit) {
      ============================================================ -->
 <style id="aaa-flow-css">
 /* ---- spine v3: chapter-grouped dots, hover-expand labels ---- */
-.aaa-spine { display: flex !important; padding: 12px 10px !important; gap: 7px !important; }
-.aaa-spine::before { content: "MENU" !important; }
+.aaa-spine { display: flex !important; padding: 12px 12px !important; gap: 7px !important; }
+.aaa-spine::before { content: "MENU" !important; writing-mode: horizontal-tb !important;
+  transform: none !important; margin: 0 auto 6px !important; font-size: 8.5px !important;
+  letter-spacing: 2.4px !important; color: var(--gold-bright) !important;
+  border-bottom: 1px solid var(--gold-deep); padding-bottom: 5px; align-self: stretch !important; text-align: center; }
+
+/* per-chapter colour coding */
+.aaa-spine .sp-g1 { --spc: #19d4c4; } /* 01 What We Do · teal */
+.aaa-spine .sp-g2 { --spc: #d9b542; } /* 02 Services · gold */
+.aaa-spine .sp-g3 { --spc: #10b981; } /* 03 Pricing · green */
+.aaa-spine .sp-g4 { --spc: #a78bfa; } /* 04 Moat · purple */
+.aaa-spine .sp-g5 { --spc: #f87171; } /* 05 Bonus · coral */
+.aaa-spine .sp-ch { color: var(--spc) !important; opacity: .75; }
+.aaa-spine .sp-ch.on { opacity: 1; text-shadow: 0 0 12px var(--spc); }
 .aaa-spine .sp-ch { display: flex; align-items: center; gap: 8px; cursor: pointer;
   font-family: var(--mono); font-size: 8.5px; letter-spacing: 1.4px; color: var(--gold-deep);
   margin: 7px 0 1px; text-decoration: none; }
@@ -6869,10 +7241,11 @@ if (nlSubmit) {
   padding: 0 !important; margin: 0 !important; opacity: 1 !important;
   pointer-events: auto !important; white-space: nowrap; }
 .aaa-spine a.sp-sec .d {
-  background: var(--gray-soft) !important; border: 1px solid var(--gold-deep) !important;
+  background: var(--gray-soft) !important; border: 1.5px solid var(--spc, var(--gold-deep)) !important;
   width: 9px !important; height: 9px !important; max-width: 9px !important; border-radius: 50% !important; }
-.aaa-spine a.sp-sec:hover .d { background: var(--gold-bright) !important; }
-.aaa-spine a.sp-sec.on .d { background: var(--gold) !important; box-shadow: 0 0 10px var(--gold-glow); }
+.aaa-spine a.sp-sec:hover .d { background: var(--spc, var(--gold-bright)) !important; }
+.aaa-spine a.sp-sec.on .d { background: var(--spc, var(--gold)) !important; box-shadow: 0 0 10px var(--spc); }
+.aaa-spine a.sp-sec:hover .lbl, .aaa-spine a.sp-sec.on .lbl { color: var(--spc, var(--gold-bright)) !important; }
 
 /* ---- sticky chapter bar (scrolls, never hides) ---- */
 .aaa-chbar-wrap { position: sticky; top: 71px; z-index: 90;
@@ -6925,6 +7298,17 @@ if (nlSubmit) {
   opacity: 1 !important; padding-bottom: 16px; }
 .aaa-faqgrid .faq-item .faq-q { cursor: default; }
 .aaa-faqgrid .faq-item .faq-q::after { display: none !important; content: none !important; }
+
+/* ---- LEGAL POLICIES: open rectangular cards, 2-col, no + signs ---- */
+.aaa-legalgrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; align-items: start; margin-top: 18px; }
+@media (max-width: 900px) { .aaa-legalgrid { grid-template-columns: 1fr; } }
+.aaa-legalgrid .disclaimer-block { margin: 0 !important; border-radius: 8px !important; height: 100%; box-sizing: border-box; }
+.aaa-legalgrid .disclaimer-block summary { cursor: default !important; pointer-events: none; font-size: 14.5px !important; }
+.aaa-legalgrid .disclaimer-block summary::after { display: none !important; content: none !important; }
+.aaa-legalgrid .disclaimer-block .block-body { display: block !important; max-height: none !important; opacity: 1 !important; }
+.aaa-legalgrid .disclaimer-block .block-body p,
+.aaa-legalgrid .disclaimer-block .block-body li { font-size: 11.5px !important; line-height: 1.6 !important; }
+.aaa-legalgrid .disclaimer-block .block-version { font-size: 8.5px !important; }
 
 /* ---- SYMMETRY GUARD: 4-up CTA rows — equal cells, never orphan-wrap ---- */
 .aaa-ctarow4 { display: grid !important; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
@@ -6998,6 +7382,35 @@ if (nlSubmit) {
 .aaa-flash { animation: aaaFlash 1.6s ease; border-radius:8px; }
 </style>
 
+<style id="aaa-ticker-fun">
+.au-news-track:hover, .top-strip-track:hover { animation-play-state: paused !important; }
+.au-news-window::after { content: "HOVER TO PAUSE"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  font-family: var(--mono); font-size: 7px; letter-spacing: 1.2px; color: var(--gray-soft); pointer-events: none; }
+.au-news-window { position: relative; }
+</style>
+<script id="aaa-banner-js">
+(function(){
+  var MSGS = [
+    '\u2B50 AI AUTOMATION & AGENTS WITH A <strong>FULLY REFUNDABLE PHASE 0</strong> \u00b7 GET YOUR LIFE BACK \u00b7 <a href="#disclaimer">TERMS \u2192</a>',
+    '\uD83D\uDD52 <strong>YOUR SATURDAY CALLED</strong> \u00b7 IT WANTS YOU BACK \u00b7 <a href="/wizard.html">60-SEC MATCH \u2192</a>',
+    '\uD83E\uDD16 <strong>AGENTS DON\u2019T TAKE SICK LEAVE</strong> \u00b7 AND THEY NEVER FORGET TO CHASE AN INVOICE \u00b7 <a href="#pricing">PRICING \u2192</a>',
+    '\u26A1 FIRST WORKING RESULT BY <strong>DAY 10 \u2014 OR YOUR MONEY BACK</strong> \u00b7 THAT\u2019S THE WHOLE PITCH \u00b7 <a href="#engine">SEE THE SHAPES \u2192</a>',
+    '\uD83D\uDCB0 EVERY DOLLAR ON THIS SITE IS <strong>PUBLISHED, TRACEABLE & GST-INCLUSIVE</strong> \u00b7 NO SURPRISES \u00b7 <a href="#cart">BUILD YOURS \u2192</a>',
+    '\uD83C\uDDE6\uD83C\uDDFA SYDNEY-BUILT \u00b7 <strong>FOUNDER-DIRECT, EVERY MEETING</strong> \u00b7 NO JUNIORS, NO HANDOFFS \u00b7 <a href="#founder">MEET RAJ \u2192</a>'
+  ];
+  var el = document.getElementById("goldBanner");
+  if (!el) return;
+  var i = 0, paused = false;
+  el.addEventListener("mouseenter", function(){ paused = true; });
+  el.addEventListener("mouseleave", function(){ paused = false; });
+  setInterval(function(){
+    if (paused || document.hidden) return;
+    i = (i + 1) % MSGS.length;
+    el.style.opacity = "0";
+    setTimeout(function(){ el.innerHTML = MSGS[i]; el.style.opacity = "1"; }, 460);
+  }, 6500);
+})();
+</script>
 <script id="aaa-flow-js">
 (function(){
   var CH = [
@@ -7105,6 +7518,16 @@ if (nlSubmit) {
       box.style.cursor = "pointer";
       box.addEventListener("click", function(e){ if (e.target.tagName !== "A") location.href = a.href; });
     });
+
+    /* ---------- legal policies: open cards, 2-col grid ---------- */
+    (function(){
+      var blocks = Array.prototype.slice.call(document.querySelectorAll("details.disclaimer-block"));
+      if (!blocks.length) return;
+      var parent = blocks[0].parentNode;
+      var grid = document.createElement("div"); grid.className = "aaa-legalgrid";
+      parent.insertBefore(grid, blocks[0]);
+      blocks.forEach(function(d){ d.setAttribute("open",""); grid.appendChild(d); });
+    })();
 
     /* ---------- Findable mini-FAQ: open all, grid layout ---------- */
     (function(){
@@ -7249,16 +7672,17 @@ if (nlSubmit) {
     var spineSecs = [];
     if (spine){
       spine.innerHTML = "";
-      CH.forEach(function(c){
+      CH.forEach(function(c, ci){
+        var gcls = "sp-g" + (ci + 1);
         var chA = document.createElement("a");
-        chA.className = "sp-ch"; chA.href = "#"+c.id; chA.dataset.ch = c.id;
+        chA.className = "sp-ch " + gcls; chA.href = "#"+c.id; chA.dataset.ch = c.id;
         chA.textContent = c.n;
         spine.appendChild(chA);
         c.secs.forEach(function(id){
           var s = document.getElementById(id);
           if (!s) return;
           var a = document.createElement("a");
-          a.className = "sp-sec"; a.href = "#"+id; a.dataset.sec = id;
+          a.className = "sp-sec " + gcls; a.href = "#"+id; a.dataset.sec = id;
           a.innerHTML = '<span class="d"></span><span class="lbl">'+(SPLBL[id]||id)+'</span>';
           spine.appendChild(a);
           spineSecs.push({ id:id, ch:c.id, el:s, a:a, chA:chA });
@@ -7286,6 +7710,114 @@ if (nlSubmit) {
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
+})();
+</script>
+
+
+<!-- ============================================================
+     AAA POLISH PACK v1 · pitch-mode motion layer
+     Lenis + GSAP ScrollTrigger + vanilla-tilt + canvas-confetti (CDN)
+     Fail-safe: nothing is pre-hidden; if a CDN fails, site behaves as before.
+     Delete this block to revert fully.
+     ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script id="aaa-polish-js">
+(function(){
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return; /* respect the setting: site stays fully static */
+
+  /* ---------- 1 · Lenis: premium inertia scroll ---------- */
+  if (window.Lenis){
+    var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    if (window.gsap && window.ScrollTrigger){
+      lenis.on("scroll", function(){ ScrollTrigger.update(); });
+    }
+  }
+
+  if (window.gsap){
+    gsap.registerPlugin(window.ScrollTrigger || {});
+
+    /* ---------- 2 · Hero entrance sequence (first impression) ---------- */
+    var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from(".hero-meta", { y: -14, autoAlpha: 0, duration: .5 })
+      .from(".hero h1", { y: 34, autoAlpha: 0, duration: .8 }, "-=.2")
+      .from(".hero-sub", { y: 22, autoAlpha: 0, duration: .6 }, "-=.45")
+      .from(".hero-cta-row a", { y: 16, autoAlpha: 0, duration: .45, stagger: .1 }, "-=.3")
+      .from(".hero-delivery-note", { autoAlpha: 0, duration: .5 }, "-=.2")
+      .from(".aaa-sim", { x: 46, autoAlpha: 0, duration: .8, ease: "power2.out" }, "-=.7")
+      .from(".hero-stat", { y: 20, autoAlpha: 0, duration: .5, stagger: .08 }, "-=.4");
+
+    /* ---------- 3 · Count-up numbers in hero stats ---------- */
+    document.querySelectorAll(".hero-stat .val").forEach(function(el){
+      var m = el.childNodes[0] && el.childNodes[0].nodeValue
+            ? el.childNodes[0].nodeValue.match(/^([^0-9]*)([\d.,]+)(.*)$/) : null;
+      if (!m) return;
+      var pre = m[1], num = parseFloat(m[2].replace(/,/g,"")), suf = m[3];
+      var dec = (m[2].split(".")[1] || "").length;
+      var obj = { v: 0 };
+      gsap.to(obj, { v: num, duration: 1.6, delay: .9, ease: "power2.out",
+        onUpdate: function(){
+          el.childNodes[0].nodeValue = pre + obj.v.toFixed(dec) + suf;
+        }});
+    });
+
+    /* ---------- 4 · Scroll-choreographed reveals ---------- */
+    if (window.ScrollTrigger){
+      function reveal(sel, opts){
+        document.querySelectorAll(sel).forEach(function(el){
+          gsap.from(el, Object.assign({
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
+            y: 28, autoAlpha: 0, duration: .7, ease: "power2.out"
+          }, opts || {}));
+        });
+      }
+      reveal(".aaa-chapter .inner");
+      reveal(".section > h2, .section .section-head");
+      document.querySelectorAll(".swon-grid, .aaa-faqgrid, #industries .industry-grid, .differentiators, .aaa-legalgrid").forEach(function(grid){
+        var kids = grid.children;
+        if (!kids.length) return;
+        gsap.from(kids, {
+          scrollTrigger: { trigger: grid, start: "top 86%", once: true },
+          y: 26, autoAlpha: 0, duration: .55, stagger: .07, ease: "power2.out"
+        });
+      });
+      reveal(".aaa-pulse", { x: 40, y: 0 });
+    }
+  }
+
+  /* ---------- 5 · 3D tilt on flagship cards ---------- */
+  if (window.VanillaTilt){
+    var tiltEls = document.querySelectorAll(".swon-card, .diff-card, .industry-box");
+    if (tiltEls.length){
+      VanillaTilt.init(tiltEls, { max: 5, speed: 700, glare: true, "max-glare": 0.12, scale: 1.012 });
+    }
+  }
+
+  /* ---------- 6 · Real confetti on FULL ENGINE ---------- */
+  if (window.confetti){
+    var sim = document.getElementById("aaaSim");
+    if (sim){
+      new MutationObserver(function(){
+        if (sim.classList.contains("engine") && !sim.dataset.blasted){
+          sim.dataset.blasted = "1";
+          var r = sim.getBoundingClientRect();
+          var origin = { x: (r.left + r.width/2) / window.innerWidth,
+                         y: (r.top + r.height/2) / window.innerHeight };
+          confetti({ particleCount: 90, spread: 70, startVelocity: 32, origin: origin,
+                     colors: ["#d9b542","#19d4c4","#f5f1e8","#8b6914"] });
+          setTimeout(function(){ confetti({ particleCount: 50, spread: 100, startVelocity: 24,
+                     origin: origin, colors: ["#d9b542","#19d4c4"] }); }, 250);
+        }
+        if (!sim.classList.contains("engine")) delete sim.dataset.blasted;
+      }).observe(sim, { attributes: true, attributeFilter: ["class"] });
+    }
+  }
 })();
 </script>
 
