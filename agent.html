@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA by Artigellence — Talk to your second brain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a0e14; --navy2:#0f141d; --panel:#131a26;
+    --gold:#c9a227; --gold-d:#8b6914; --green:#047857;
+    --ink:#eceae2; --muted:#9aa0ab; --line:rgba(201,162,39,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--ink);
+    min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(70vw 50vw at 50% -10%,rgba(201,162,39,.14),transparent 60%)}
+  .top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1000px;margin:0 auto;width:100%}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600}
+  .mark{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;
+    background:linear-gradient(145deg,var(--gold),var(--gold-d));color:#12100a;font-weight:700;font-size:15px;
+    box-shadow:0 6px 20px rgba(201,162,39,.28)}
+  .brand small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+  .top .contact{font-size:13px;color:var(--muted);text-decoration:none}
+  .top .contact:hover{color:var(--gold)}
+
+  .stage{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;padding:20px 16px 28px;max-width:760px;margin:0 auto;width:100%}
+  .lead{text-align:center;margin-bottom:18px}
+  .lead .eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:12px}
+  .lead h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.05}
+  .lead h1 em{font-style:italic;color:var(--gold)}
+  .lead p{color:var(--muted);font-size:15px;margin-top:8px}
+
+  .chat{width:100%;background:var(--navy2);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.5);height:min(62vh,560px)}
+  .chead{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(201,162,39,.07),transparent)}
+  .chead .mark{width:32px;height:32px;font-size:12px}
+  .chead .t{flex:1}.chead .t b{font-size:14px;display:block}
+  .chead .t span{font-size:12px;color:var(--green);display:flex;align-items:center;gap:6px}
+  .chead .t span i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  .listen{display:flex;align-items:center;gap:7px;background:rgba(201,162,39,.09);border:1px solid var(--line);
+    color:var(--ink);font-family:inherit;font-size:12.5px;font-weight:500;padding:7px 12px;border-radius:100px;cursor:pointer;transition:.18s}
+  .listen:hover{border-color:var(--gold)} .listen.on{background:linear-gradient(145deg,var(--gold),var(--gold-d));color:#12100a}
+
+  .cbody{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+  .msg{max-width:84%;padding:11px 15px;border-radius:15px;font-size:14.5px;line-height:1.55}
+  .msg.bot{background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+  .msg.user{background:linear-gradient(145deg,var(--gold),var(--gold-d));color:#12100a;border-bottom-right-radius:5px;align-self:flex-end;font-weight:500}
+  .msg.bot b{color:var(--gold)} .msg a{color:var(--gold)}
+  .typing{display:flex;gap:4px;padding:12px 15px;align-self:flex-start}
+  .typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+  .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 10px}
+  .chip{background:rgba(201,162,39,.09);border:1px solid var(--line);color:var(--ink);font-family:inherit;
+    font-size:12.5px;padding:8px 13px;border-radius:100px;cursor:pointer;transition:.18s}
+  .chip:hover{background:rgba(201,162,39,.2);border-color:var(--gold)}
+  .cinput{display:flex;gap:8px;padding:14px;border-top:1px solid var(--line)}
+  .cinput input{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:12px 15px;
+    color:var(--ink);font-family:inherit;font-size:14.5px;outline:none}
+  .cinput input:focus{border-color:var(--gold)}
+  .cinput button{background:linear-gradient(145deg,var(--gold),var(--gold-d));border:none;color:#12100a;cursor:pointer;
+    border-radius:11px;width:46px;display:grid;place-items:center;font-size:18px}
+  footer{position:relative;z-index:2;text-align:center;padding:16px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand"><div class="mark">AAA</div><div>Artigellence<small>Augmentation Aggregator</small></div></div>
+    <a class="contact" href="mailto:raj@artigellence.com">raj@artigellence.com · +61 469 313 323</a>
+  </div>
+
+  <div class="stage">
+    <div class="lead">
+      <div class="eyebrow">Automation &amp; Agents for Australian business</div>
+      <h1>Don't read the whole site.<br><em>Just tell me what's eating your week.</em></h1>
+      <p>Talk to the AAA agent below — it'll find what you actually need and what it's worth.</p>
+    </div>
+
+    <div class="chat">
+      <div class="chead">
+        <div class="mark">AAA</div>
+        <div class="t"><b>AAA — your second brain</b><span><i></i>Online now</span></div>
+        <button class="listen" id="listenBtn" onclick="toggleListen()">🔊 Listen: Off</button>
+      </div>
+      <div class="cbody" id="body"></div>
+      <div class="chips" id="chips"></div>
+      <div class="cinput">
+        <input id="input" placeholder="e.g. I'm a plumber drowning in quotes and invoice chasing…" onkeydown="if(event.key==='Enter')send()">
+        <button id="sendBtn" onclick="send()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh</footer>
+
+<script>
+const body=document.getElementById('body'), chips=document.getElementById('chips'),
+      input=document.getElementById('input'), listenBtn=document.getElementById('listenBtn');
+let listen=false, speaking=null;
+
+const GREETING="G'day — I'm the AAA agent, and I know this whole business inside out so you don't have to read it. Tell me: what do you do, and what's the one job eating most of your week?";
+const STARTERS=["I run a trades business","I have an allied health clinic","Just show me pricing","How does the refundable pilot work?"];
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function linkify(s){
+  // bot text is author-controlled (no user echo), so <b> tags are trusted and rendered as-is
+  s=s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  s=s.replace(/(raj@artigellence\.com)/g,'<a href="mailto:$1">$1</a>');
+  s=s.replace(/cal\.com\/raj-aaa\/aaa-discovery/g,'<a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank">book a call</a>');
+  s=s.replace(/(\+61 469 313 323)/g,'<a href="https://wa.me/61469313323" target="_blank">$1</a>');
+  return s;
+}
+function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=who==='bot'?linkify(text):esc(text);body.appendChild(d);body.scrollTop=body.scrollHeight;}
+function showTyping(){const t=document.createElement('div');t.className='typing';t.id='typing';t.innerHTML='<span></span><span></span><span></span>';body.appendChild(t);body.scrollTop=body.scrollHeight;}
+function hideTyping(){const t=document.getElementById('typing');if(t)t.remove();}
+function setChips(arr){chips.innerHTML='';arr.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>{input.value=c;send();};chips.appendChild(b);});}
+
+function toggleListen(){listen=!listen;listenBtn.classList.toggle('on',listen);listenBtn.textContent=listen?'🔊 Listen: On':'🔊 Listen: Off';if(!listen&&speaking)speechSynthesis.cancel();}
+function speak(text){
+  if(!listen||!('speechSynthesis'in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text.replace(/\*\*/g,''));
+  u.lang='en-AU';u.rate=1.02;
+  const v=speechSynthesis.getVoices().find(x=>/en-AU|Australian/i.test(x.lang+x.name))||speechSynthesis.getVoices().find(x=>/en-GB/i.test(x.lang));
+  if(v)u.voice=v;speaking=u;speechSynthesis.speak(u);
+}
+
+function send(){const v=input.value.trim();if(!v)return;input.value='';add(v,'user');chips.innerHTML='';showTyping();setTimeout(()=>{hideTyping();reply(v.toLowerCase());},600);}
+
+function botSay(text,followChips){add(text,'bot');speak(text);if(followChips)setChips(followChips);}
+
+const BOOK=["Book the pilot","Email Raj a 3-line headache"];
+function reply(q){
+  // industries
+  if(/(trade|plumb|electric|sparky|build|carpenter|hvac|field|servicem8|tradify)/.test(q)){
+    botSay("Trades is right in the wheelhouse. Most operators lose hours on <b>quoting</b> and chasing <b>late invoices</b> — AAA sits on top of ServiceM8, Tradify or simPRO and drafts quotes in under 10 minutes and chases payments on its own. Start with a <b>Phase 0 pilot — A$4,500, fully refundable</b> — first working result on your real jobs by day 10.",["What would Phase 0 do for me?","See the pricing","Book the pilot"]);
+  } else if(/(health|clinic|physio|allied|cliniko|halaxy|psych|dental|chiro)/.test(q)){
+    botSay("Allied health clinics burn 30–40% of the day on non-clinical admin. AAA works above Cliniko, Halaxy or Power Diary — reception, bookings, recalls and notes handled so your team stays clinical. Best entry is a <b>Phase 0 pilot — A$4,500, fully refundable</b>, first result by day 10.",["What would Phase 0 do for me?","See the pricing","Book the pilot"]);
+  } else if(/(account|bookkeep|xero|myob|quickbook|tax)/.test(q)){
+    botSay("Accounting practices win big on invoice OCR, reconciliation and client advisory — AAA sits over Xero, MYOB or QuickBooks and cuts processing time hard. Start with the <b>refundable Phase 0 pilot (A$4,500)</b> and see it on your own files by day 10.",["See the pricing","How does the pilot work?","Book the pilot"]);
+  } else if(/(legal|law|convey|leap|smokeball|solicit)/.test(q)){
+    botSay("Legal &amp; conveyancing gains most on document drafting and lease/contract review — AAA works with LEAP, Smokeball and PEXA to lift throughput without touching your professional judgment. Begin with <b>Phase 0 — A$4,500, fully refundable</b>.",["See the pricing","Book the pilot"]);
+  } else if(/(food|distribut|wholesale|ordermentum|solbox|grocer|hospitality)/.test(q)){
+    botSay("Food distribution loses 20+ hours a week to order entry and forecasting — AAA sits over Ordermentum, Solbox or Choco to automate order intake and predict demand. The <b>refundable Phase 0 (A$4,500)</b> proves it on your real orders first.",["See the pricing","Book the pilot"]);
+  } else if(/(gp|medical|doctor|practice|patient|scribe)/.test(q)){
+    botSay("GP and medical practices gain on scribing, recalls and MBS coding — AAA works with Best Practice, Medical Director or Genie, while you stay fully in control of clinical calls. Start with <b>Phase 0 — A$4,500, fully refundable</b>.",["See the pricing","Book the pilot"]);
+  } else if(/(retail|ecommerce|shop|store|shopify|woocommerce)/.test(q)){
+    botSay("Retail &amp; e-commerce lifts on personalisation, cart recovery and pricing — AAA sits over Shopify, WooCommerce and Klaviyo. Prove it on your own store with the <b>refundable Phase 0 (A$4,500)</b>.",["See the pricing","Book the pilot"]);
+  } else if(/(construct|property|estimat|tender|procore|buildxact)/.test(q)){
+    botSay("Construction &amp; property wins on tender drafting and estimating — AAA works with Buildxact, Procore and Plangrid. Begin with <b>Phase 0 — A$4,500, fully refundable</b>, first result by day 10.",["See the pricing","Book the pilot"]);
+  } else if(/(logistic|transport|freight|fleet|route|dispatch)/.test(q)){
+    botSay("Logistics gains on route optimisation and dispatch — AAA sits over Solbox, MachShip and Cartonix. The <b>refundable Phase 0 (A$4,500)</b> shows it on your real runs first.",["See the pricing","Book the pilot"]);
+  } else if(/(saas|tech|software|startup|hubspot|salesforce)/.test(q)){
+    botSay("Tech &amp; SaaS gains on SDR agents, support and knowledge bots — AAA works with HubSpot, Salesforce and Intercom. Start with <b>Phase 0 — A$4,500, fully refundable</b>.",["See the pricing","Book the pilot"]);
+  }
+  // pricing
+  else if(/(price|pricing|cost|how much|fee|package|shape|\$|budget)/.test(q)){
+    botSay("It's per-piece and transparent. Entry is <b>Phase 0 — A$4,500, fully refundable</b>. After that, agents are A$3,000 each (min 4). The packages: <b>Pilot &amp; Prove A$9,750</b>, Growth Engine Lean A$13,500, Essentials Build A$16,500, Full Build A$28,500, and the Flagship Year-1 at A$56,500 — all incl GST. Which fits depends on your biggest bottleneck. What's yours?",["How does the pilot work?","I run a trades business","Book the pilot"]);
+  }
+  // phase 0 / pilot / refund
+  else if(/(pilot|phase 0|phase0|refund|risk|guarantee|trial|money back)/.test(q)){
+    botSay("Simple: <b>A$4,500, fully refundable through day 30, no questions.</b> Inside 10 days you get one working AI agent on your real data plus a recovery roadmap. If it doesn't earn its place, you get every dollar back. The risk sits with AAA, not you — that's the whole point.",["See the pricing","What does AAA do?","Book the pilot"]);
+  }
+  // websites
+  else if(/(website|web site|site|landing|page)/.test(q)){
+    botSay("Funny you ask — <b>this page is the example.</b> AAA builds sites that actually work: they answer customers, take bookings and capture leads on their own, like this chat. A site that earns its keep. Want Raj to show you one for your business?",["Book the pilot","Email Raj a 3-line headache"]);
+  }
+  // book / contact
+  else if(/(book|call|meet|contact|talk to|speak|human|raj|demo|appoint)/.test(q)){
+    botSay("Easiest is a short call with Raj — direct, no juniors. cal.com/raj-aaa/aaa-discovery, or email <b>raj@artigellence.com</b> / WhatsApp <b>+61 469 313 323</b> with the one job eating most of your week (three lines, not an essay) and he'll tell you straight whether it's worth automating.",["See the pricing","What does AAA do?"]);
+  }
+  // what does AAA do
+  else if(/(what|who|do you do|explain|about|help|agent|automat|offer|service)/.test(q)){
+    botSay("AAA builds <b>AI agents and automations</b> that run the admin eating your week — reception, quoting, invoice chasing, reporting, cross-sell. It sits <b>above</b> the tools you already use (Xero, MYOB, ServiceM8, Cliniko and the like) and never replaces them or your staff. A second brain for the business. What do you do — I'll get specific?",["I run a trades business","I have an allied health clinic","See the pricing"]);
+  }
+  // timeline
+  else if(/(how long|timeline|when|fast|quick|days|week)/.test(q)){
+    botSay("Phase 0 shows a <b>first working result by day 10</b>, with a 10–30 day window. Each build agent after that is 14–21 days, milestone-locked, and you only pay on delivery. Nothing upfront on the builds.",["See the pricing","How does the pilot work?","Book the pilot"]);
+  }
+  // greeting
+  else if(/(hi|hey|hello|g'day|gday|yo|morning|afternoon)/.test(q)){
+    botSay("G'day. Tell me what you do and the one job eating most of your week — I'll point you to exactly what'd help and what it costs.",STARTERS);
+  }
+  // fallback
+  else {
+    botSay("Good question — that one's best answered by Raj directly. Email <b>raj@artigellence.com</b> or WhatsApp <b>+61 469 313 323</b> with a three-line version of what you need. Meanwhile — want the basics on what AAA does, or the pricing?",["What does AAA do?","See the pricing","How does the pilot work?"]);
+  }
+}
+
+window.addEventListener('load',()=>{ if('speechSynthesis'in window)speechSynthesis.getVoices();
+  showTyping(); setTimeout(()=>{hideTyping(); botSay(GREETING,STARTERS);},700);
+});
+if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+</script>
+</body>
+</html>
