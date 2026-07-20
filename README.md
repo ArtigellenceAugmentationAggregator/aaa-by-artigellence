@@ -2,7 +2,7 @@
 
 **AI automation and agents for Australian SMEs.**
 
-This repository hosts the website for AAA by Artigellence — [aaa.artigellence.com](https://aaa.artigellence.com).
+This repository hosts the website for AAA by Artigellence — [aaa.artigellence.com](https://aaa.artigellence.com). 
 
 AAA helps Australian small and medium business owners adopt AI in a practical, low-risk way. Engagements are anchored by a **fully refundable Phase 0 pilot** (A$4,500, 10–30 day window) so the business owner sees real results on their own data before committing to a build. **Findable** is the lower-cost entry layer for owners who want to start with AI visibility and email deliverability first.
 
