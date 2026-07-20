@@ -195,8 +195,27 @@ function reply(q){
   }
 }
 
+const INTRO={
+  trades:"You're in trades — welcome. Tell me the worst of it: quoting, invoice chasing, or booking? Or say 'both'.",
+  health:"Allied health — good. What's eating the day: reception and bookings, recalls, or notes and admin?",
+  accounting:"Accounting practice — right. Where's the time going: invoice OCR and reconciliation, or client advisory?",
+  legal:"Legal & conveyancing — got it. Biggest drag: document drafting, contract/lease review, or matter admin?",
+  medical:"GP/medical practice — welcome. What hurts most: scribing, patient recalls, or MBS coding and after-hours admin?",
+  food:"Food distribution — right. What's leaking time: order entry, demand forecasting, or invoice/AP?",
+  retail:"Retail & e-commerce — good. Where's the gap: cart recovery, personalisation, or pricing?",
+  construction:"Construction & property — got it. Biggest drag: tenders, estimating, or conveyancing admin?",
+  logistics:"Logistics & transport — right. What's costing you: route planning, dispatch, or forecasting?",
+  tech:"Tech/SaaS — welcome. Where do you want leverage: SDR agents, support, or a knowledge bot?"
+};
+function paramIntro(){
+  try{ const i=new URLSearchParams(location.search).get('i'); return i&&INTRO[i]?{key:i,text:INTRO[i]}:null; }catch(e){return null;}
+}
 window.addEventListener('load',()=>{ if('speechSynthesis'in window)speechSynthesis.getVoices();
-  showTyping(); setTimeout(()=>{hideTyping(); botSay(GREETING,STARTERS);},700);
+  const ctx=paramIntro();
+  showTyping(); setTimeout(()=>{ hideTyping();
+    if(ctx){ botSay(ctx.text); setTimeout(()=>{ showTyping(); setTimeout(()=>{hideTyping(); reply(ctx.key);},600); },400); }
+    else { botSay(GREETING,STARTERS); }
+  },700);
 });
 if('speechSynthesis'in window)speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
 </script>
