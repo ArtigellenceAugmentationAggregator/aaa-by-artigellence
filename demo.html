@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA — homepage demo (widget + industries)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a0e14;--gold:#c9a227;--gold-d:#8b6914;--green:#047857;--ink:#eceae2;--muted:#9aa0ab;--line:rgba(201,162,39,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60vw 45vw at 70% -8%,rgba(201,162,39,.13),transparent 60%)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.hero{text-align:center;padding:70px 0 30px}
+.hero .eyebrow{font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:18px}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.05}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{color:var(--muted);max-width:60ch;margin:16px auto 0}
+.note{text-align:center;color:var(--muted);font-size:13px;margin:10px 0 0}
+/* ===== INDUSTRIES SECTION (the paste-in block) ===== */
+.aaa-industries{padding:56px 0 40px;text-align:center}
+.aaa-industries h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3.4vw,38px);margin-bottom:8px}
+.aaa-industries .sub{color:var(--muted);margin-bottom:32px}
+.aaa-ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+@media(max-width:820px){.aaa-ind-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.aaa-ind-grid{grid-template-columns:1fr}}
+.aaa-ind{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:22px 22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008));transition:transform .22s,border-color .22s}
+.aaa-ind:hover{transform:translateY(-4px);border-color:rgba(201,162,39,.45)}
+.aaa-ind .k{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.aaa-ind .h{font-family:'Instrument Serif',serif;font-size:21px;margin-bottom:6px}
+.aaa-ind .d{color:var(--muted);font-size:14px}
+.aaa-ind .go{color:var(--gold);font-size:13px;font-weight:600;margin-top:12px;display:inline-block}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:36px 0;border-top:1px solid var(--line);margin-top:40px;position:relative;z-index:2}
+</style>
+</head>
+<body>
+  <section class="hero wrap">
+    <div class="eyebrow">Automation &amp; Agents for Australian business</div>
+    <h1>We sell you back your <em>time.</em></h1>
+    <p>(This is a stand-in for your real homepage — the point is what's below and the bubble bottom-right.)</p>
+    <p class="note">↓ scroll for the Industries section · ↘ the chat bubble is bottom-right</p>
+  </section>
+
+  <!-- ============ PASTE-IN BLOCK #2 : INDUSTRIES ============ -->
+  <section class="aaa-industries wrap">
+    <h2>Built for your industry</h2>
+    <div class="sub">Pick yours — see exactly what AAA takes off your week.</div>
+    <div class="aaa-ind-grid">
+      <a class="aaa-ind" href="plumbers-electricians-trades.html">
+        <div class="k">Trades &amp; Field Services</div>
+        <div class="h">Plumbers &amp; Electricians</div>
+        <div class="d">Quotes in minutes, invoices chased on their own.</div>
+        <span class="go">See how →</span></a>
+      <a class="aaa-ind" href="allied-health-clinics.html">
+        <div class="k">Allied Health</div>
+        <div class="h">Clinics</div>
+        <div class="d">Reception, recalls and notes — off your clinicians.</div>
+        <span class="go">See how →</span></a>
+      <a class="aaa-ind" href="accounting-bookkeeping-firms.html">
+        <div class="k">Accounting</div>
+        <div class="h">Firms &amp; Bookkeepers</div>
+        <div class="d">Invoice OCR and reconciliation, automated.</div>
+        <span class="go">See how →</span></a>
+      <a class="aaa-ind" href="legal-conveyancing.html">
+        <div class="k">Legal</div>
+        <div class="h">Law &amp; Conveyancing</div>
+        <div class="d">Draft and review faster — judgment stays yours.</div>
+        <span class="go">See how →</span></a>
+      <a class="aaa-ind" href="gp-medical-practices.html">
+        <div class="k">Medical</div>
+        <div class="h">GP Practices</div>
+        <div class="d">Scribing and recalls — more time with patients.</div>
+        <span class="go">See how →</span></a>
+      <a class="aaa-ind" href="food-distribution-wholesale.html">
+        <div class="k">Food Distribution</div>
+        <div class="h">Wholesalers</div>
+        <div class="d">Stop re-keying orders at 5am.</div>
+        <span class="go">See how →</span></a>
+    </div>
+  </section>
+
+  <footer>Powered by AAA · Artigellence Augmentation Aggregator · Raj Singh</footer>
+
+  <!-- ============ PASTE-IN LINE #1 : THE WIDGET ============ -->
+  <script src="aaa-widget.js" defer></script>
+</body>
+</html>

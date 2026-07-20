@@ -1,0 +1,57 @@
+AAA — MAKE THE BOT + LANDING PAGES LIVE ON YOUR REAL SITE
+=========================================================
+
+You have TWO things to add to your existing site. Both are copy-paste. No rebuild.
+
+---------------------------------------------------------
+PART 1 — THE CHAT BUBBLE (bot on every page)
+---------------------------------------------------------
+1. Upload  aaa-widget.js  to your repo root (same place as index.html).
+2. On EVERY page you want the bot (start with index.html), add this ONE line
+   just before the closing </body> tag:
+
+   <script src="aaa-widget.js" defer></script>
+
+That's it. A gold "Ask AAA" bubble appears bottom-right; click = the concierge opens,
+greets the visitor, has Listen/voice, and answers about AAA. Same brain as agent.html.
+Add the same line to your other pages (faq.html, services.html, etc.) to have it everywhere.
+
+(agent.html can stay as a full-page version to link from ads / the landing pages. The
+ bubble is the "greets everyone who lands" version you wanted.)
+
+---------------------------------------------------------
+PART 2 — THE INDUSTRIES SECTION (makes the 6 landing pages visible)
+---------------------------------------------------------
+Paste this block into index.html where you want it (a good spot: below your hero,
+or above your footer). It links to all six industry pages. Styling is self-contained.
+
+<!-- paste the <section class="aaa-industries"> ... </section> block from demo.html here -->
+(Open demo.html, copy everything between the two comment lines
+   "PASTE-IN BLOCK #2 : INDUSTRIES"  and the </section> that closes it,
+ plus the matching CSS in the <style> under "INDUSTRIES SECTION".)
+
+Simplest: just copy the whole styled block below into your page.
+It works standalone.
+
+---------------------------------------------------------
+PART 3 — SEO: register the pages in sitemap.xml (2 min)
+---------------------------------------------------------
+Open your existing sitemap.xml and add these <url> entries so Google & AI index them:
+
+  <url><loc>https://aaa.artigellence.com/agent.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/plumbers-electricians-trades.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/allied-health-clinics.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/accounting-bookkeeping-firms.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/legal-conveyancing.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/gp-medical-practices.html</loc></url>
+  <url><loc>https://aaa.artigellence.com/food-distribution-wholesale.html</loc></url>
+
+---------------------------------------------------------
+RESULT
+---------------------------------------------------------
+- Anyone landing on your site is greeted by the bot bubble.
+- Your homepage has an "Industries" section pointing to the 6 pages.
+- Each landing page's buttons open the bot already knowing their industry.
+- Google/AI can find the pages.
+Tonight: drop in the Anthropic key (Cloudflare Worker) to swap the scripted brain
+for the real thinking one — the widget picks it up the same way agent.html will.
