@@ -99,6 +99,41 @@ h1 em{font-style:italic;background:linear-gradient(120deg,var(--gold),#f0d878 55
 .trust span{color:var(--muted)}
 footer{margin-top:26px;border-top:1px solid var(--line);padding:26px 0 90px;text-align:center;color:var(--muted);font-size:12.5px;position:relative;z-index:2}
 footer a{color:var(--gold-b);text-decoration:none}
+
+/* ===== UI-PRO ENHANCEMENTS (start page only) ===== */
+/* aurora drift */
+body::before{animation:aurora 16s ease-in-out infinite alternate}
+@keyframes aurora{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-2.5%,1.5%,0) scale(1.06)}}
+/* star specks */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(232,195,74,.7);animation:tw 4s infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.8}}
+/* headline gold shimmer */
+h1 em{background:linear-gradient(110deg,var(--gold) 20%,#f6e27a 40%,var(--gold-d) 60%,var(--gold) 80%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;animation:shimmer 5.2s linear infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-20% 0}}
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.25,1)}
+.rv.in{opacity:1;transform:none}
+/* offer card breathing glow + gradient edge */
+.offer{position:relative;animation:breathe 4.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 rgba(201,162,39,0)}50%{box-shadow:0 30px 90px rgba(0,0,0,.5),0 0 44px rgba(201,162,39,.16)}}
+.offer::before{content:"";position:absolute;inset:-1.5px;border-radius:23px;padding:1.5px;background:linear-gradient(120deg,rgba(201,162,39,.65),rgba(201,162,39,.08) 35%,rgba(232,195,74,.6) 65%,rgba(201,162,39,.1));background-size:260% 100%;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:edge 7s linear infinite;pointer-events:none}
+@keyframes edge{0%{background-position:0% 0}100%{background-position:260% 0}}
+/* button shine sweep */
+.btn-gold{position:relative;overflow:hidden}
+.btn-gold::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-22deg);animation:shine 4.8s ease-in-out infinite}
+@keyframes shine{0%,68%{left:-70%}88%,100%{left:130%}}
+/* card lifts */
+.truth,.step,.pill{transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.truth:hover,.step:hover{transform:translateY(-5px);border-color:rgba(201,162,39,.45)}
+.pill:hover{border-color:var(--gold);transform:translateY(-2px)}
+.payg span{transition:transform .2s,border-color .2s}
+.payg span:hover{transform:translateY(-2px);border-color:var(--gold)}
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  body::before,.offer,.offer::before,.btn-gold::after,h1 em,.stars i{animation:none!important}
+  .rv{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -177,6 +212,34 @@ footer a{color:var(--gold-b);text-decoration:none}
   <a href="mailto:raj@artigellence.com">raj@artigellence.com</a> · <a href="https://wa.me/61469313323">+61 469 313 323</a> · ABN 83 988 690 362
 </footer>
 
+<div class="stars" aria-hidden="true"></div>
+<script>
+(function(){
+  // star specks
+  var s=document.querySelector('.stars');
+  for(var i=0;i<26;i++){var d=document.createElement('i');
+    d.style.left=(Math.random()*100)+'%';d.style.top=(Math.random()*100)+'%';
+    d.style.animationDelay=(Math.random()*4)+'s';d.style.animationDuration=(3+Math.random()*4)+'s';
+    if(Math.random()<.3){d.style.width='3px';d.style.height='3px'}
+    s.appendChild(d);}
+  // scroll reveal
+  var els=document.querySelectorAll('.truth,.step,.offer,.proofband,.more,.trust,.ctas');
+  els.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%3)*70+'ms';});
+  if('IntersectionObserver'in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+  // count-up on "14 hrs"
+  var big=document.querySelectorAll('.truth .big')[0];
+  if(big && /14/.test(big.textContent)){
+    var done=false;
+    var io2=new IntersectionObserver(function(en){en.forEach(function(e){
+      if(e.isIntersecting&&!done){done=true;var n=0;var t=setInterval(function(){n++;big.textContent=n+' hrs';if(n>=14)clearInterval(t);},70);}
+    });},{threshold:.5});
+    io2.observe(big);
+  }
+})();
+</script>
 <script src="aaa-widget.js" defer></script>
 </body>
 </html>
