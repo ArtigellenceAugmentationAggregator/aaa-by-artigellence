@@ -1,5 +1,5 @@
 /* ============================================================
-   AAA by Artigellence — UI Enhancement Layer v1
+   AAA by Artigellence — UI Enhancement Layer v2 · TURNED UP
    ONE line to install, before </body>:
      <script src="aaa-enhance.js" defer></script>
    Additive only. Remove the line = everything reverts.
@@ -15,19 +15,19 @@
   /* ---------- injected CSS ---------- */
   try {
     var css = ''
-    + '#aaaProg{position:fixed;top:0;left:0;height:2.5px;width:0;z-index:2147483000;'
-    +   'background:linear-gradient(90deg,#8b6914,#c9a227,#f0d878);box-shadow:0 0 10px rgba(201,162,39,.6);'
+    + '#aaaProg{position:fixed;top:0;left:0;height:3.5px;width:0;z-index:2147483000;'
+    +   'background:linear-gradient(90deg,#8b6914,#c9a227,#f0d878);box-shadow:0 0 16px rgba(201,162,39,.85);'
     +   'transition:width .08s linear;pointer-events:none}'
-    + '.aaaRv{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.25,1)}'
+    + '.aaaRv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.25,1)}'
     + '.aaaRv.aaaIn{opacity:1;transform:none}'
     + '.aaaTilt{transform-style:preserve-3d;will-change:transform;transition:transform .18s ease,box-shadow .25s ease}'
     + '.aaaShine{position:relative;overflow:hidden}'
     + '.aaaShine::after{content:"";position:absolute;top:0;left:-75%;width:45%;height:100%;'
-    +   'background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);'
-    +   'transform:skewX(-22deg);animation:aaaShineK 5.5s ease-in-out infinite;pointer-events:none}'
+    +   'background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);'
+    +   'transform:skewX(-22deg);animation:aaaShineK 3.6s ease-in-out infinite;pointer-events:none}'
     + '@keyframes aaaShineK{0%,70%{left:-75%}90%,100%{left:135%}}'
-    + '#aaaGlow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;'
-    +   'background:radial-gradient(circle,rgba(201,162,39,.10),transparent 65%);'
+    + '#aaaGlow{position:fixed;width:460px;height:460px;border-radius:50%;pointer-events:none;z-index:1;'
+    +   'background:radial-gradient(circle,rgba(201,162,39,.17),transparent 65%);'
     +   'transform:translate(-50%,-50%);mix-blend-mode:screen}'
     + '#aaaDust{position:fixed;inset:0;z-index:1;pointer-events:none}'
     + '@media (prefers-reduced-motion:reduce){.aaaRv{opacity:1;transform:none;transition:none}'
@@ -79,9 +79,9 @@
           if(!rect) rect = el.getBoundingClientRect();
           var px = (ev.clientX - rect.left)/rect.width - .5;
           var py = (ev.clientY - rect.top)/rect.height - .5;
-          el.style.transform = 'perspective(900px) rotateX(' + (-py*6).toFixed(2) + 'deg) rotateY(' + (px*8).toFixed(2) + 'deg) translateY(-4px)';
+          el.style.transform = 'perspective(900px) rotateX(' + (-py*10).toFixed(2) + 'deg) rotateY(' + (px*13).toFixed(2) + 'deg) translateY(-7px) scale(1.015)'; el.style.boxShadow='0 22px 50px rgba(0,0,0,.5), 0 0 30px rgba(201,162,39,.14)';
         });
-        el.addEventListener('mouseleave', function(){ el.style.transform=''; rect=null; });
+        el.addEventListener('mouseleave', function(){ el.style.transform=''; el.style.boxShadow=''; rect=null; });
       });
     }
   } catch(e){}
@@ -91,7 +91,7 @@
     if (!REDUCE) {
       var btns = document.querySelectorAll('.btn-primary,.topnav-cta-book,.tier-cta');
       var n=0;
-      btns.forEach(function(b){ if(n<6){ b.classList.add('aaaShine'); n++; } });
+      btns.forEach(function(b){ if(n<10){ b.classList.add('aaaShine'); n++; } });
     }
   } catch(e){}
 
@@ -100,13 +100,13 @@
     if (FINE && !REDUCE) {
       var cv = document.createElement('canvas'); cv.id='aaaDust'; document.body.appendChild(cv);
       var cx = cv.getContext('2d'), W, H, ps = [], mx = .5, my = .5;
-      var N = 46;
+      var N = 72;
       function size(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
       function mk(){ ps = []; for (var i=0;i<N;i++) ps.push({
         x: Math.random()*W, y: Math.random()*H,
-        r: .6 + Math.random()*1.7, d: .4 + Math.random()*.9,      /* depth for parallax */
+        r: .9 + Math.random()*2.4, d: .4 + Math.random()*.9,      /* depth for parallax */
         vx: (Math.random()-.5)*.12, vy: -(.04 + Math.random()*.10),
-        a: .12 + Math.random()*.3, tw: Math.random()*6.28 });
+        a: .2 + Math.random()*.45, tw: Math.random()*6.28 });
       }
       size(); mk();
       addEventListener('resize', function(){ size(); mk(); }, {passive:true});
@@ -116,7 +116,7 @@
       function loop(){
         if(!running) return;
         t += .016; cx.clearRect(0,0,W,H);
-        var ox = (mx-.5)*30, oy = (my-.5)*18;   /* parallax offset */
+        var ox = (mx-.5)*52, oy = (my-.5)*30;   /* parallax offset */
         for (var i=0;i<ps.length;i++){
           var p = ps[i];
           p.x += p.vx; p.y += p.vy;
