@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0e14">
+<title>Investor Pack — AAA by Artigellence</title>
+<meta name="description" content="AAA by Artigellence — investor pack. The AI workforce for Australia's 2.5 million small businesses. Confidential.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a0e14; --navy-2:#10161f; --ink:#e8e4da; --ink-dim:#9aa0ab;
+    --gold:#c9a227; --gold-dark:#8b6914; --line:rgba(201,162,39,.28);
+    --line-soft:rgba(255,255,255,.08); --green:#2f9e6e; --card:#0e141d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold);text-decoration:none}
+  a:hover{color:#e0bb45}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{display:flex;justify-content:space-between;align-items:center;
+      padding:22px 0;border-bottom:1px solid var(--line-soft)}
+  .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;color:var(--ink)}
+  .logo em{font-style:italic;font-weight:500;color:var(--gold)}
+  .navlinks{display:flex;gap:26px}
+  .navlinks a{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;
+      color:var(--ink-dim);text-transform:lowercase}
+  .navlinks a:hover{color:var(--gold)}
+  @media(max-width:600px){
+    nav{flex-direction:column;align-items:flex-start;gap:12px}
+    .navlinks{gap:18px;flex-wrap:wrap}
+    .navlinks a{white-space:nowrap}
+  }
+
+  /* HERO */
+  .hero{padding:72px 0 40px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.22em;
+      color:var(--gold);text-transform:uppercase;margin-bottom:26px}
+  .eyebrow .tri{margin-right:8px}
+  h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(2.1rem,5.4vw,3.4rem);
+      line-height:1.12;letter-spacing:-.01em;margin-bottom:26px}
+  h1 em{font-style:italic;font-weight:600;color:var(--gold)}
+  .standfirst{max-width:620px;color:var(--ink-dim);font-size:1.02rem}
+  .standfirst strong{color:var(--ink)}
+
+  /* DOC CARDS */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:52px 0 0}
+  @media(max-width:680px){.cards{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);background:var(--card);padding:30px 28px;
+      display:flex;flex-direction:column;transition:border-color .2s}
+  .card:hover{border-color:var(--gold)}
+  .card .tag{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.18em;
+      color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+  .card h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin-bottom:12px}
+  .card p{color:var(--ink-dim);font-size:.92rem;flex:1}
+  .card .go{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+      text-transform:uppercase;margin-top:22px;display:inline-block}
+
+  /* PROOF STRIP */
+  .proof{border:1px solid var(--line);background:rgba(201,162,39,.05);
+      margin:22px 0 0;padding:18px 26px;text-align:center;
+      font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.9;color:var(--ink-dim)}
+  .proof b{color:var(--ink);font-weight:700}
+  .proof a{border-bottom:1px dotted var(--gold)}
+
+  /* UNIT MATHS */
+  .maths{margin:56px 0 0;border-left:2px solid var(--gold);padding:6px 0 6px 26px}
+  .maths .lbl{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.2em;
+      color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+  .maths p{color:var(--ink-dim);font-size:.95rem;max-width:640px}
+  .maths b{color:var(--ink)}
+  .maths .gold{color:var(--gold);font-weight:700}
+
+  /* CTA */
+  .cta{margin:64px 0 0;border:1px solid var(--line);background:var(--navy-2);
+      padding:52px 32px;text-align:center}
+  .cta h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.9rem;margin-bottom:10px}
+  .cta h3 em{font-style:italic;color:var(--gold)}
+  .cta .sub{color:var(--ink-dim);font-size:.9rem;margin-bottom:30px}
+  .btnrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.12em;
+      text-transform:uppercase;padding:14px 26px;border:1px solid var(--gold);color:var(--gold)}
+  .btn.primary{background:var(--gold);color:var(--navy);font-weight:700}
+  .btn.primary:hover{background:#e0bb45;color:var(--navy)}
+  .btn:hover{border-color:#e0bb45}
+  .nda{margin-top:26px;font-size:.8rem;color:var(--ink-dim);max-width:560px;
+      margin-left:auto;margin-right:auto}
+
+  /* QR */
+  .qrblock{margin:56px auto 0;text-align:center}
+  .qrblock a{display:inline-block}
+  .qrblock img{width:132px;height:132px;border:1px solid var(--line);border-radius:10px;
+      background:#fff;padding:8px;display:block;margin:0 auto}
+  .qrblock .cap{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.16em;
+      color:var(--ink-dim);text-transform:uppercase;margin-top:12px}
+  .qrblock .cap b{color:var(--gold)}
+
+  /* FOOTER */
+  footer{margin-top:80px;border-top:1px solid var(--line-soft);padding:34px 0 46px;
+      text-align:center;font-family:'JetBrains Mono',monospace;font-size:.66rem;
+      letter-spacing:.1em;color:var(--ink-dim);line-height:2.1;text-transform:uppercase}
+  footer .gold{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a class="logo" href="index.html">AAA <em>by</em> Artigellence</a>
+    <div class="navlinks">
+      <a href="explainer.html">90-second version</a>
+      <a href="start.html">ask the ai desk</a>
+      <a href="index.html">full platform</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow"><span class="tri">▶</span>INVESTOR PACK · CONFIDENTIAL · JULY 2026 · SYDNEY</div>
+    <h1>The AI workforce for Australia's 2.5&nbsp;million small businesses — <em>sold the only way SMEs buy: risk removed.</em></h1>
+    <p class="standfirst"><strong>Everything, in two documents and one live platform.</strong>
+    AAA is opening conversations with a small circle of strategic investors — ideally operators
+    who know the Australian SME market. Terms discussed founder-direct — expressions of interest,
+    full data room, unit economics and delivery evidence under mutual NDA.</p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="tag">Document 01 · One Page</div>
+      <h2>The Executive Summary</h2>
+      <p>The whole thesis on one page — the problem quantified, the per-piece model,
+      four revenue doors, the moat, the ask. Ninety seconds, top-left to bottom-right.</p>
+      <a class="go" href="AAA_Executive_Summary.pdf" target="_blank" rel="noopener">Open PDF →</a>
+    </div>
+    <div class="card">
+      <div class="tag">Document 02 · The Full Stack</div>
+      <h2>The Complete Picture</h2>
+      <p>Services &amp; solutions in full — the engine, six industry verticals, the pricing
+      ladder, honesty held throughout. The entire stack is public; nothing is hidden behind the pitch.</p>
+      <a class="go" href="services.html">See it live →</a>
+    </div>
+  </section>
+
+  <div class="proof">
+    <b>Live platform + AI concierge shipped</b> — <a href="index.html">aaa.artigellence.com</a> ·
+    <b>6 industry verticals</b> live with dedicated pages ·
+    <b>several paid engagements underway</b> — clients across multiple Australian SME industries ·
+    <b>partner channel defined</b> — up to 33% recurring for referrers
+  </div>
+
+  <section class="maths">
+    <div class="lbl">The Unit Maths</div>
+    <p>One Standard Year-1 client = <span class="gold">A$56,500</span>. Capacity, not demand,
+    is the constraint — a solo operator caps at 3–5 concurrent clients.
+    <b>100 Standard clients = A$5.65M revenue</b> — reaching it requires productised
+    industry agent-packs + delivery capacity. That is precisely what this raise builds.</p>
+  </section>
+
+  <section class="cta">
+    <h3>The first conversation costs <em>15 minutes.</em></h3>
+    <p class="sub">Founder-direct · a working conversation, not a sales pitch.</p>
+    <div class="btnrow">
+      <a class="btn primary" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">Book 15 minutes</a>
+      <a class="btn" href="mailto:raj@artigellence.com">Email Raj</a>
+      <a class="btn" href="https://wa.me/61469313323" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="nda">No invented raise terms on paper — the number stays verbal, founder-direct.
+    Full data room under mutual NDA.</p>
+  </section>
+
+  <div class="qrblock">
+    <a href="start.html" aria-label="Ask the AAA AI agent">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAIAAAAG+WgKAAAEA0lEQVR4nO3dO44UOwBA0ccTGQER+18gEQFxs4CSwLKuP906J266amauLCy7XF9er9d/0Pn/9A3waSRFTFLEJEVMUsQkRUxSxCRFTFLEJEVMUsS+jnzo2/cfq+/jL37/+vnPzzzvsPpX6z4zovqeyshv1ShFTFLEJEVMUsQkRWxoxvc08j//OffPjKr5XfU7vO1vYZQiJilikiImKWKSIjY543uqZmrVtc6uss2tMM59z9w3V9d6MkoRkxQxSRGTFDFJEctmfLep9nk+rdtlum61biejFDFJEZMUMUkRkxSxD5nxza3E7Zzfzd3PO84BjVLEJEVMUsQkRUxSxLIZ321zk7n7WbeHs1phHHH2b2GUIiYpYpIiJilikiI2OeM7e2LkiHXrZevO85xz29/CKEVMUsQkRUxSxCRFbGjGd9v63Yjbnpu7/2TOilGKmKSISYqYpIhJitiX1+v1zw+te9/ciNvePvCO53COcFYnl5IUMUkRkxQxSREbmvE9nT3/f90uymrv5W07LaufwhvYOUBSxCRFTFLEJEVs4VmdZ9+1944ntzydPb1z7lpGKWKSIiYpYpIiJiliC9f4dp5estO6n33duuTOs2WMUsQkRUxSxCRFTFLEJp/j2+nsc3Nz1xq5+s75787fj1GKmKSISYqYpIhJitjkGt/T/WtYI9/8tPMN7CNX37la5zk+riApYpIiJilikiKW7eo8e8JJNTNad/WRf/V09qeYY5QiJilikiImKWKSIpat8T3tnPXM2bnXccTZ/aKe4+NSkiImKWKSIiYpYgvX+HauPZ3d+TnCc3wwSVLEJEVMUsQkRWzhyS3r9jo+ferb997xeUCjFDFJEZMUMUkRkxSxyffxrXvbXbV6uHN2OWLdSTI755sjjFLEJEVMUsQkRUxSxBa+gf3sc3xzs8Kd65IjRu6wumfP8XEpSRGTFDFJEZMUsWzGt3N9am4eNPI9T9UK49m3Ac59j12dXEFSxCRFTFLEJEVs4Vmd63zGvsqd79GrmPFxgKSISYqYpIhJitjCk1sqO0/UnLNuXrbzPYPO6uRSkiImKWKSIiYpYltPbhlx257J6rSZSnVmzgi7OrmCpIhJipikiEmK2Nbn+J7Ovkt93XpZdT/r1i6rZyGfjFLEJEVMUsQkRUxSxBae1fkZ1u0p3XkK6M73WRiliEmKmKSISYqYpIh97IyvOhelWmXbucJYscbHFSRFTFLEJEVMUsSyGd+6J9dGrnX/KtvIN++c3627ulGKmKSISYqYpIhJitjkjO/s2lO1R3Hd1Z/WvYvhaW710FmdXEpSxCRFTFLEJEXsLd/Hx82MUsQkRUxSxCRFTFLEJEVMUsQkRUxSxCRFTFLE/gA0MyuBWboNegAAAABJRU5ErkJggg==" alt="QR code — aaa.artigellence.com/start">
+      <div class="cap"><b>Scan · or tap →</b> our AI agent answers the questions itself</div>
+    </a>
+  </div>
+
+  <footer>
+    Artigellence Augmentation Aggregator · ABN 83 988 690 362 · Sydney, Australia<br>
+    Raj Singh · Founder &amp; Operator · <a class="gold" href="https://rajsingh.online" target="_blank" rel="noopener">rajsingh.online</a><br>
+    Industry statistics are third-party research, not AAA outcomes · Early-stage · Confidential<br>
+    © MMXXVI · Not financial or legal advice
+  </footer>
+
+</div>
+</body>
+</html>
