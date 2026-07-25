@@ -124,20 +124,27 @@ function linkify(s){
   s = s.replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
   return s;
 }
-function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=who==='bot'?linkify(text):esc(text);body.appendChild(d);body.scrollTop=body.scrollHeight;}
+function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=who==='bot'?linkify(text):esc(text);if(who==='bot'){d.dataset.raw=text;d.title='Click to hear this aloud';d.style.cursor='pointer';d.onclick=e=>{if(e.target.tagName==='A')return;replay(text);};}body.appendChild(d);body.scrollTop=body.scrollHeight;}
 function showTyping(){const t=document.createElement('div');t.className='typing';t.id='typing';t.innerHTML='<span></span><span></span><span></span>';body.appendChild(t);body.scrollTop=body.scrollHeight;}
 function hideTyping(){const t=document.getElementById('typing');if(t)t.remove();}
 function setChips(arr){chips.innerHTML='';arr.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>{input.value=c;send();};chips.appendChild(b);});}
 
-function toggleListen(){listen=!listen;listenBtn.classList.toggle('on',listen);listenBtn.textContent=listen?'🔊 Listen: On':'🔊 Listen: Off';if(!listen&&speaking)speechSynthesis.cancel();}
-function speak(text){
-  if(!listen||!('speechSynthesis'in window))return;
+function toggleListen(){listen=!listen;listenBtn.classList.toggle('on',listen);listenBtn.textContent=listen?'🔊 Listen: On':'🔊 Listen: Off';if(!listen){if(speaking){speechSynthesis.cancel();speaking=null;}}else{const bs=body.querySelectorAll('.msg.bot');if(bs.length)say(bs[bs.length-1].dataset.raw||bs[bs.length-1].textContent);}}
+function say(text){
+  if(!('speechSynthesis'in window))return;
   speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(text.replace(/\*\*/g,''));
   u.lang='en-AU';u.rate=1.02;
   const v=speechSynthesis.getVoices().find(x=>/en-AU|Australian/i.test(x.lang+x.name))||speechSynthesis.getVoices().find(x=>/en-GB/i.test(x.lang));
-  if(v)u.voice=v;speaking=u;speechSynthesis.speak(u);
+  if(v)u.voice=v;u.onend=()=>{speaking=null;};speaking=u;speechSynthesis.speak(u);
 }
+/* click any bot bubble to hear it; click again to stop */
+function replay(text){
+  if(!('speechSynthesis'in window))return;
+  if(speechSynthesis.speaking){speechSynthesis.cancel();speaking=null;return;}
+  say(text);
+}
+function speak(text){ if(listen) say(text); }
 
 async function send(){
   const v=input.value.trim();if(!v)return;
