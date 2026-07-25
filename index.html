@@ -3606,6 +3606,9 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
 .hero-listen{color:var(--gold) !important;border:1px solid var(--gold);border-radius:6px;padding:3px 9px;text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:2.4px;text-transform:uppercase;transition:background .2s ease}
 .hero-listen:hover{background:rgba(227,179,81,.12)}
 .hero-meta a.hero-listen::before{display:none;content:none}
+.hero-flow{color:var(--teal-bright) !important;border:1px solid var(--teal);border-radius:6px;padding:3px 9px;text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:2.4px;text-transform:uppercase;transition:background .2s ease}
+.hero-flow:hover{background:rgba(15,184,169,.14)}
+.hero-meta a.hero-flow::before{display:none;content:none}
 .hero-fineprint{font-family:var(--mono);font-size:11px;letter-spacing:.8px;color:var(--gray-2);margin:14px 0 26px;text-transform:uppercase}
 
 /* AU-stack trust strip */
@@ -3750,6 +3753,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <span>SOLO OPERATOR · FULL-TEAM OUTPUT</span>
     <span>DIRECT TO FOUNDER · NO JUNIORS</span>
     <a href="/explainer.html" class="hero-listen">▶ LISTEN · AAA IN 90 SECONDS</a>
+    <a href="#ready" class="hero-flow">▶ THE FLOW · ALL 5 DOCUMENTS · OPEN NOW</a>
     <span class="hero-updated">UPDATED 19 JULY 2026</span>
   </div>
   <h1>
@@ -3767,6 +3771,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <a href="#pricing" class="btn-primary">START PHASE 0 · A$4,500 REFUNDABLE →</a>
     <a href="#how-it-works" class="btn-secondary">SEE HOW AAA WORKS</a>
     <a href="start.html" class="btn-secondary" style="border-color: var(--gold); color: var(--gold-bright);">⚡ IN A HURRY? THE 90-SECOND VERSION →</a>
+    <a href="#ready" class="btn-secondary" style="border-color: var(--teal); color: var(--teal-bright);">▶ THE FLOW · READ · FILL · CHECK · SHARE →</a>
   </div>
 
   <div class="hero-delivery-note">
@@ -6643,6 +6648,17 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
         <a class="rts-doc go" href="https://drive.google.com/drive/folders/1zV58d2c8dUiQ2DxfBeenrAhZJmrShZog?usp=sharing" target="_blank" rel="noopener"><span class="rd-t">Open the full document folder ↗</span><span class="rd-m">Google Drive · all five PDFs · always the current version</span></a>
         <a class="rts-doc go" href="mailto:?subject=AAA%20by%20Artigellence%20%E2%80%94%20the%20document%20pack&amp;body=Have%20a%20look%20at%20this%3A%20https%3A%2F%2Faaa.artigellence.com%2F%23ready%20%E2%80%94%20all%20five%20documents%20are%20open%2C%20no%20form%20required."><span class="rd-t">Email this pack to someone →</span><span class="rd-m">Opens your mail app with the link ready</span></a>
       </div>
+
+      <div class="rts-wa">
+        <div class="rts-wa-k">↳ Send all five documents by WhatsApp</div>
+        <p class="rts-wa-s">Type their mobile number. WhatsApp opens with all five document links already written out — you just press send. <em>Australian numbers work as 0412 345 678; overseas, start with +.</em></p>
+        <div class="rts-wa-row">
+          <input id="rtsWaNum" type="tel" inputmode="tel" autocomplete="tel" placeholder="0412 345 678" aria-label="Mobile number to send the document pack to">
+          <button id="rtsWaGo" class="rts-wa-btn" type="button">Send the pack →</button>
+        </div>
+        <div class="rts-wa-err" id="rtsWaErr"></div>
+        <div class="rts-wa-note">Opens WhatsApp on your device with the message ready — <b>nothing is sent until you press send in WhatsApp</b>, and no number is stored or seen by AAA.</div>
+      </div>
     </div>
 
   </div>
@@ -7595,6 +7611,28 @@ if (nlSubmit) {
   color: #0a0e14; padding: 11px 18px; text-decoration: none; font-weight: 700; border-radius: 6px;
   text-transform: uppercase; white-space: nowrap; }
 
+
+  /* ---- WHATSAPP SEND-THE-PACK (Ready to Start · step 04) ---- */
+  .rts-wa{margin-top:14px;padding:14px 15px;border:1px solid rgba(16,185,129,.34);
+    border-radius:10px;background:rgba(4,120,87,.07)}
+  .rts-wa-k{font-family:var(--mono);font-size:9.5px;letter-spacing:1.8px;color:var(--green-bright);
+    font-weight:700;text-transform:uppercase;margin-bottom:7px}
+  .rts-wa-s{font-size:12.5px;color:var(--gray-2);line-height:1.55;margin:0 0 11px}
+  .rts-wa-row{display:flex;gap:8px;flex-wrap:wrap}
+  .rts-wa-row input{flex:1 1 190px;min-width:0;background:var(--bg);border:1px solid var(--line);
+    border-radius:7px;padding:10px 12px;color:var(--white);font-family:var(--mono);font-size:13px;
+    letter-spacing:.6px;outline:none;transition:border-color .2s ease}
+  .rts-wa-row input:focus{border-color:var(--green-bright)}
+  .rts-wa-row input::placeholder{color:var(--gray);letter-spacing:.6px}
+  .rts-wa-btn{flex:0 0 auto;background:var(--green);border:1px solid var(--green-bright);color:#fff;
+    border-radius:7px;padding:10px 17px;font-family:var(--mono);font-size:11px;letter-spacing:1.6px;
+    font-weight:700;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
+  .rts-wa-btn:hover{background:var(--green-bright);color:var(--bg)}
+  .rts-wa-note{margin-top:9px;font-size:11.5px;color:var(--gray);line-height:1.5}
+  .rts-wa-note b{color:var(--gray-2)}
+  .rts-wa-err{margin-top:8px;font-size:12px;color:var(--coral);font-family:var(--mono);letter-spacing:.4px;display:none}
+  @media(max-width:520px){.rts-wa-btn{flex:1 1 100%}}
+
 /* ---- SYMMETRY GUARD: 4-up CTA rows — equal cells, never orphan-wrap ---- */
 .aaa-ctarow4 { display: grid !important; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
 .aaa-ctarow4 > a { display: flex !important; align-items: center; justify-content: center;
@@ -8131,5 +8169,60 @@ if (nlSubmit) {
 </script>
 <script src="aaa-widget.js" defer></script>
 <script src="aaa-enhance.js" defer></script>
+
+<!-- ===== READY TO START · WHATSAPP PACK SENDER ===== -->
+<script>
+(function(){
+  var num = document.getElementById("rtsWaNum");
+  var go  = document.getElementById("rtsWaGo");
+  var err = document.getElementById("rtsWaErr");
+  if(!num || !go) return;
+
+  var SITE = "https://aaa.artigellence.com";
+  var MSG = [
+    "Have a look at AAA by Artigellence — AI agents for Australian SMEs. All five documents are open, no form, no email wall:",
+    "",
+    "1. What We Are / What We're Not (2pp) — " + SITE + "/AAA_What_We_Are.pdf",
+    "2. Services & Solutions, every price (10pp) — " + SITE + "/AAA_Full_Services_and_Solutions.pdf",
+    "3. Executive Summary, one page — " + SITE + "/AAA_Executive_Summary.pdf",
+    "4. 1st-Insight Intake, free (7pp) — " + SITE + "/AAA_1stInsight_Intake.pdf",
+    "5. Sample Mutual NDA & Engagement Terms (2pp) — " + SITE + "/AAA_Sample_NDA_and_Engagement_Terms.pdf",
+    "",
+    "The whole flow: " + SITE + "/#ready",
+    "Phase 0 is A$4,500 incl GST, fully refundable to day 30. Everything above that line is free."
+  ].join("\n");
+
+  function normalise(raw){
+    var v = (raw || "").replace(/[\s()\-.]/g, "");
+    if(!v) return null;
+    if(v.charAt(0) === "+"){                       // international, as typed
+      v = v.slice(1).replace(/\D/g, "");
+      return v.length >= 8 ? v : null;
+    }
+    v = v.replace(/\D/g, "");
+    if(/^61\d{9}$/.test(v)) return v;              // 61412345678
+    if(/^0\d{9}$/.test(v))  return "61" + v.slice(1); // 0412345678 -> AU
+    if(/^\d{9}$/.test(v))   return "61" + v;       // 412345678  -> AU
+    return null;
+  }
+
+  function fail(m){ err.textContent = m; err.style.display = "block"; }
+
+  function send(){
+    err.style.display = "none";
+    var n = normalise(num.value);
+    if(!n){
+      fail("That doesn't look like a mobile number. Try 0412 345 678, or start with + for overseas.");
+      num.focus();
+      return;
+    }
+    window.open("https://wa.me/" + n + "?text=" + encodeURIComponent(MSG), "_blank", "noopener");
+  }
+
+  go.addEventListener("click", send);
+  num.addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); send(); } });
+})();
+</script>
+
 </body>
 </html>
