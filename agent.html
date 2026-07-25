@@ -109,6 +109,11 @@ let listen=false, speaking=null;
 const GREETING="G'day — I'm the AAA agent, and I know this whole business inside out so you don't have to read it. Tell me: what do you do, and what's the one job eating most of your week?";
 const STARTERS=["I run a trades business","I have an allied health clinic","Just show me pricing","How does the refundable pilot work?"];
 
+/* ---- LIVE BRAIN ---- Cloudflare Worker endpoint. If it's ever down, the
+   scripted answers below take over automatically — the page never breaks. */
+const API_URL="https://aaa-chat.artigellence.workers.dev";
+const HISTORY=[];
+
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function linkify(s){
   // bot text is author-controlled (no user echo), so <b> tags are trusted and rendered as-is
@@ -116,6 +121,7 @@ function linkify(s){
   s=s.replace(/(raj@artigellence\.com)/g,'<a href="mailto:$1">$1</a>');
   s=s.replace(/cal\.com\/raj-aaa\/aaa-discovery/g,'<a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank">book a call</a>');
   s=s.replace(/(\+61 469 313 323)/g,'<a href="https://wa.me/61469313323" target="_blank">$1</a>');
+  s = s.replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
   return s;
 }
 function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=who==='bot'?linkify(text):esc(text);body.appendChild(d);body.scrollTop=body.scrollHeight;}
@@ -133,12 +139,28 @@ function speak(text){
   if(v)u.voice=v;speaking=u;speechSynthesis.speak(u);
 }
 
-function send(){const v=input.value.trim();if(!v)return;input.value='';add(v,'user');chips.innerHTML='';showTyping();setTimeout(()=>{hideTyping();reply(v.toLowerCase());},600);}
+async function send(){
+  const v=input.value.trim();if(!v)return;
+  input.value='';add(v,'user');chips.innerHTML='';showTyping();
+  HISTORY.push({role:'user',content:v});
+  let done=false;
+  if(API_URL && API_URL.indexOf('http')===0){
+    try{
+      const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),20000);
+      const r=await fetch(API_URL,{method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({messages:HISTORY.slice(-12)}),signal:ctrl.signal});
+      clearTimeout(to);
+      const d=await r.json();
+      if(r.ok && d.reply){ hideTyping(); botSay(d.reply,["See the pricing","How does the pilot work?","Book the pilot"]); done=true; }
+    }catch(e){ /* fall through to scripted */ }
+  }
+  if(!done){ hideTyping(); scriptedReply(v.toLowerCase()); }
+}
 
-function botSay(text,followChips){add(text,'bot');speak(text);if(followChips)setChips(followChips);}
+function botSay(text,followChips){add(text,'bot');speak(text);HISTORY.push({role:'assistant',content:text});if(followChips)setChips(followChips);}
 
 const BOOK=["Book the pilot","Email Raj a 3-line headache"];
-function reply(q){
+function scriptedReply(q){
   // industries
   if(/(trade|plumb|electric|sparky|build|carpenter|hvac|field|servicem8|tradify)/.test(q)){
     botSay("Trades is right in the wheelhouse. Most operators lose hours on <b>quoting</b> and chasing <b>late invoices</b> — AAA sits on top of ServiceM8, Tradify or simPRO and drafts quotes in under 10 minutes and chases payments on its own. Start with a <b>Phase 0 pilot — A$4,500, fully refundable</b> — first working result on your real jobs by day 10.",["What would Phase 0 do for me?","See the pricing","Book the pilot"]);
@@ -213,7 +235,7 @@ function paramIntro(){
 window.addEventListener('load',()=>{ if('speechSynthesis'in window)speechSynthesis.getVoices();
   const ctx=paramIntro();
   showTyping(); setTimeout(()=>{ hideTyping();
-    if(ctx){ botSay(ctx.text); setTimeout(()=>{ showTyping(); setTimeout(()=>{hideTyping(); reply(ctx.key);},600); },400); }
+    if(ctx){ botSay(ctx.text); setTimeout(()=>{ showTyping(); setTimeout(()=>{hideTyping(); scriptedReply(ctx.key);},600); },400); }
     else { botSay(GREETING,STARTERS); }
   },700);
 });

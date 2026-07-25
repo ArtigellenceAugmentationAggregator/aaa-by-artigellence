@@ -86,12 +86,18 @@
 
   var STARTERS = ["I run a trades business","I have an allied health clinic","Just show me pricing","How does the pilot work?"];
 
+  /* ---- LIVE BRAIN ---- Cloudflare Worker. If it's down, the scripted
+     answers below take over automatically. The widget never breaks. */
+  var API_URL = "https://aaa-chat.artigellence.workers.dev";
+  var HISTORY = [];
+
   function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function linkify(s){
     s = s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
     s = s.replace(/(raj@artigellence\.com)/g,'<a href="mailto:$1">$1</a>');
     s = s.replace(/cal\.com\/raj-aaa\/aaa-discovery/g,'<a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank">book a call</a>');
     s = s.replace(/(\+61 469 313 323)/g,'<a href="https://wa.me/61469313323" target="_blank">$1</a>');
+    s = s.replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
     return s;
   }
   function add(t,who){var d=document.createElement('div');d.className='aaaw-msg '+who;d.innerHTML=who==='bot'?linkify(t):esc(t);body.appendChild(d);body.scrollTop=body.scrollHeight;}
@@ -99,10 +105,29 @@
   function untyping(){var t=document.getElementById('aaawTy');if(t)t.remove();}
   function setChips(a){chips.innerHTML='';a.forEach(function(c){var b=document.createElement('button');b.className='aaaw-chip';b.textContent=c;b.onclick=function(){input.value=c;send();};chips.appendChild(b);});}
   function speak(t){if(!listen||!('speechSynthesis'in window))return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t.replace(/\*\*/g,''));u.lang='en-AU';u.rate=1.02;var v=speechSynthesis.getVoices().find(function(x){return /en-AU|Australian/i.test(x.lang+x.name);})||speechSynthesis.getVoices().find(function(x){return /en-GB/i.test(x.lang);});if(v)u.voice=v;speaking=u;speechSynthesis.speak(u);}
-  function botSay(t,c){add(t,'bot');speak(t);if(c)setChips(c);}
-  function send(){var v=input.value.trim();if(!v)return;input.value='';add(v,'user');chips.innerHTML='';typing();setTimeout(function(){untyping();reply(v.toLowerCase());},550);}
+  function botSay(t,c){add(t,'bot');speak(t);HISTORY.push({role:'assistant',content:t});if(c)setChips(c);}
+  function send(){
+    var v=input.value.trim();if(!v)return;
+    input.value='';add(v,'user');chips.innerHTML='';typing();
+    HISTORY.push({role:'user',content:v});
+    var fell=false;
+    function fallback(){ if(fell)return; fell=true; untyping(); scriptedReply(v.toLowerCase()); }
+    if(API_URL && API_URL.indexOf('http')===0 && window.fetch){
+      var killed=false;
+      var timer=setTimeout(function(){killed=true;fallback();},20000);
+      fetch(API_URL,{method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({messages:HISTORY.slice(-12)})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(killed)return; clearTimeout(timer);
+        if(d && d.reply){ fell=true; untyping(); botSay(d.reply,["See the pricing","How does the pilot work?","Book the pilot"]); }
+        else fallback();
+      })
+      .catch(function(){ if(!killed){ clearTimeout(timer); fallback(); } });
+    } else { setTimeout(fallback,550); }
+  }
 
-  function reply(q){
+  function scriptedReply(q){
     if(/(trade|plumb|electric|sparky|build|carpenter|hvac|field|servicem8|tradify)/.test(q)){
       botSay("Trades is right in the wheelhouse. Most operators lose hours on <b>quoting</b> and chasing <b>late invoices</b> — AAA sits on top of ServiceM8, Tradify or simPRO and drafts quotes in under 10 minutes and chases payments on its own. Start with a <b>Phase 0 pilot — A$4,500, fully refundable</b> — first working result on your real jobs by day 10.",["What would Phase 0 do for me?","See the pricing","Book the pilot"]);
     } else if(/(health|clinic|physio|allied|cliniko|halaxy|psych|dental|chiro)/.test(q)){
