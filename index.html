@@ -3600,6 +3600,21 @@ body.light-mode .fnd-notes { background: rgba(255,255,255,0.35); }
 .topnav-links a{font-size:11.5px;letter-spacing:1px;padding:8px 12px}
 @media (max-width:1280px){.topnav-links{display:flex !important;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.topnav-links::-webkit-scrollbar{display:none}}
 @media (max-width:720px){.topnav-cta-book{font-size:9.5px;padding:9px 12px;letter-spacing:1px}}
+/* ---- MOBILE OVERFLOW GUARDS (small phones) ---- */
+@media (max-width:440px){
+  .topnav{padding:10px 10px !important;gap:6px !important}
+  .topnav-right{gap:6px !important}
+  .topnav-cta-match{font-size:8px !important;padding:7px 7px !important;letter-spacing:.3px !important;margin-right:0 !important}
+  .topnav-cta-book{font-size:8px !important;padding:7px 8px !important;letter-spacing:.3px !important}
+}
+@media (max-width:560px){
+  .proc-cta-row{grid-template-columns:80px 1fr !important}
+  .proc-cta-row>div:nth-child(3){grid-column:1 / -1 !important;border-left:none !important;border-top:1px solid var(--green) !important;padding:16px 20px !important}
+}
+@media (max-width:440px){
+  .bld-ctrl,.bld-ctrl label,.bld-ctrl select{min-width:0 !important;max-width:100% !important}
+  .bld-ctrl select{font-size:11px !important}
+}
 
 /* hero updated stamp + fineprint */
 .hero-updated{color:var(--teal-bright) !important;border:1px solid var(--teal-deep);border-radius:6px;padding:3px 9px}
@@ -3754,7 +3769,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <span>DIRECT TO FOUNDER · NO JUNIORS</span>
     <a href="/explainer.html" class="hero-listen">▶ LISTEN · AAA IN 90 SECONDS</a>
     <a href="#ready" class="hero-flow">▶ THE FLOW · ALL 5 DOCUMENTS · OPEN NOW</a>
-    <span class="hero-updated">UPDATED 19 JULY 2026</span>
+    <span class="hero-updated">UPDATED 26 JULY 2026 · 1.22 PM AEST</span>
   </div>
   <h1>
     AI automation for Australian SMEs —<br>
@@ -6405,7 +6420,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
       </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 80px 1fr auto; gap: 0; background: linear-gradient(145deg, rgba(4,120,87,0.08), var(--bg-2)); border: 1px solid var(--green); border-radius: 12px; align-items: stretch;">
+    <div class="proc-cta-row" style="display: grid; grid-template-columns: 80px 1fr auto; gap: 0; background: linear-gradient(145deg, rgba(4,120,87,0.08), var(--bg-2)); border: 1px solid var(--green); border-radius: 12px; align-items: stretch;">
       <div style="padding: 24px 0; background: rgba(4,120,87,0.15); border-right: 1px solid var(--green); display: flex; align-items: center; justify-content: center;">
         <div style="font-family: var(--serif); font-size: 36px; font-weight: 600; color: var(--green-bright); font-style: italic; line-height: 1;">05</div>
       </div>
@@ -7074,7 +7089,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <div class="foot-bot">
     <span>● POWERED BY <strong style="color: var(--gold);">AAA</strong> · ARTIGELLENCE AUGMENTATION AGGREGATOR · RAJ SINGH</span>
-    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 24 JULY 2026</span>
+    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 26 JULY 2026 · 1.22 PM AEST</span>
     <span>© MMXXVI · NOT FINANCIAL OR LEGAL ADVICE · ABN 83 988 690 362</span>
   </div>
 </footer>
@@ -7458,6 +7473,10 @@ if (nlSubmit) {
 <style id="aaa-flow-css">
 /* ---- spine v3: chapter-grouped dots, hover-expand labels ---- */
 .aaa-spine { display: flex !important; padding: 12px 12px !important; gap: 7px !important; }
+/* The spine is a HOVER-expand desktop menu. On touch there is no hover, so below
+   1280px it was a 56px opaque pill floating over the hero and eating taps.
+   The sticky chapter bar already does this job on mobile. Restore the hide. */
+@media (max-width:1280px){ .aaa-spine { display: none !important; } }
 .aaa-spine::before { content: "MENU" !important; writing-mode: horizontal-tb !important;
   transform: none !important; margin: 0 auto 6px !important; font-size: 8.5px !important;
   letter-spacing: 2.4px !important; color: var(--gold-bright) !important;
@@ -8224,5 +8243,208 @@ if (nlSubmit) {
 })();
 </script>
 
+
+<!-- ============================================================
+     PASS IT ON · floating referral shout-out
+     Bottom-LEFT on purpose — bottom-right is left free for the
+     chat widget injected by aaa-widget.js. Hidden until the
+     visitor has scrolled past the hero, and auto-hidden while the
+     SHARE step is on screen so it never duplicates that block.
+     Delete this whole block to revert fully.
+     ============================================================ -->
+<style id="aaa-refer-css">
+.rf-wrap{position:fixed;left:18px;bottom:18px;z-index:70;font-family:var(--sans);
+  opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+.rf-wrap.show{opacity:1;transform:none;pointer-events:auto}
+.rf-tab{display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;
+  color:var(--gold-bright);background:rgba(17,22,31,.94);border:1px solid var(--gold-deep);
+  border-radius:999px;padding:11px 16px;backdrop-filter:blur(8px);
+  box-shadow:0 8px 26px -10px rgba(0,0,0,.8);transition:border-color .18s,transform .14s}
+.rf-tab:hover{border-color:var(--gold-bright);transform:translateY(-1px)}
+.rf-tab .rf-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;
+  box-shadow:0 0 8px var(--gold-glow)}
+.rf-panel{display:none;width:326px;max-width:calc(100vw - 36px);
+  background:var(--bg-2);border:1px solid var(--gold-deep);border-radius:14px;padding:18px 18px 16px;
+  box-shadow:0 20px 50px -16px rgba(0,0,0,.9)}
+.rf-wrap.open .rf-panel{display:block}
+.rf-wrap.open .rf-tab{display:none}
+.rf-x{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--gray);
+  font-size:17px;line-height:1;cursor:pointer;padding:4px}
+.rf-x:hover{color:var(--white)}
+.rf-k{font-family:var(--mono);font-size:9px;letter-spacing:2.2px;text-transform:uppercase;
+  color:var(--gold-bright);font-weight:700;margin-bottom:7px}
+.rf-h{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--white);
+  line-height:1.3;letter-spacing:-.2px;margin:0 0 7px}
+.rf-s{font-size:12.5px;color:var(--gray-2);line-height:1.5;margin:0 0 13px}
+.rf-row{display:flex;gap:7px;flex-wrap:wrap}
+.rf-row input{flex:1 1 160px;min-width:0;background:var(--bg-3);border:1px solid var(--line);
+  border-radius:8px;padding:10px 12px;color:var(--white);font-family:var(--mono);font-size:12.5px}
+.rf-row input:focus{outline:none;border-color:var(--gold-deep)}
+.rf-go{flex:0 0 auto;background:var(--green-bright);color:#0a0e14;border:none;border-radius:8px;
+  padding:10px 15px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:filter .15s}
+.rf-go:hover{filter:brightness(1.09)}
+.rf-err{color:var(--coral);font-size:11.5px;margin-top:8px;min-height:0}
+.rf-alt{display:block;margin-top:11px;font-family:var(--mono);font-size:10px;letter-spacing:1.1px;
+  text-transform:uppercase;color:var(--teal-bright);text-decoration:none;border-top:1px solid var(--line-soft);
+  padding-top:11px}
+.rf-alt:hover{color:var(--white)}
+.rf-note{font-size:10.5px;color:var(--gray);line-height:1.45;margin-top:9px}
+@media (max-width:520px){
+  .rf-wrap{left:12px;right:12px;bottom:12px}
+  .rf-panel{width:auto;max-width:100%}
+  .rf-row input{flex:1 1 100%}
+  .rf-go{flex:1 1 100%}
+}
+body.light-mode .rf-tab{background:rgba(245,241,232,.95)}
+body.light-mode .rf-panel{background:#fff}
+</style>
+
+<!-- ============================================================
+     LIVE TICKERS v2 · both top lines reshuffle, never the same twice
+     Line 1 (au-news) already fetches RSS every 5 min; this reshuffles
+     its order each loop so a repeat visitor never sees the same run.
+     Line 2 (top-strip) was hard-coded and identical on every visit.
+     It now draws from a pool and reshuffles on every animation cycle.
+     Every added line is a fact already stated elsewhere on this page
+     or in AU_NEWS_FALLBACK — nothing new is asserted here.
+     Reshuffle fires on 'animationiteration', i.e. exactly at the loop
+     boundary, so the text never changes mid-scroll.
+     Delete this whole block to revert fully.
+     ============================================================ -->
+<script>
+(function(){
+  function shuffle(a){
+    for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+    return a;
+  }
+
+  /* ---------- LINE 2 · top strip ---------- */
+  var strip = document.querySelector('.top-strip-track');
+  if(strip){
+    // keep every line already authored in the HTML, verbatim
+    var pool = Array.prototype.map.call(strip.querySelectorAll(':scope > span'), function(n){ return n.outerHTML; });
+
+    // extra lines — each one restates a figure already on this page
+    var extra = [
+      '<span><span class="accent">◆</span> <span class="num">63%</span> OF AUSTRALIAN BUSINESSES FACE LABOUR SHORTAGES · <span class="num">71%</span> EXPECT WORSE THROUGH 2026 · KPMG</span>',
+      '<span><span class="accent">●</span> <span class="num">43%</span> OF SMES CITE CASH FLOW AS THE #1 CONCERN · NAB Q1 2025</span>',
+      '<span><span class="accent">◆</span> WAGE AND SUPER PRESSURES HIT <span class="num">95%</span> OF AUSTRALIAN SMES IN 2025 · COSBOA</span>',
+      '<span><span class="accent">●</span> <span class="num">85%</span> OF AU SMES HAVE A CASH-FLOW STRATEGY · ONLY <span class="num">39%</span> ARE CONFIDENT ON AI · COMMBANK</span>',
+      '<span><span class="accent">◆</span> AU SME OWNERS SPEND <span class="num">8-12 HOURS/WEEK</span> ON ADMIN · DEXT 2025</span>',
+      '<span><span class="accent">●</span> AVERAGE AUSTRALIAN PAYMENT TIME <span class="num">35.4 DAYS</span> · GOCARDLESS 2025</span>',
+      '<span><span class="accent">⚡</span> FIRST WORKING RESULT BY <span class="num">DAY 10</span> · NOT A SLIDE DECK</span>',
+      '<span><span class="accent">◆</span> AGENTS ARE <span class="num">INVOICED ON DELIVERY</span> · NOT DELIVERED, NOT INVOICED</span>',
+      '<span><span class="accent">●</span> <span class="num">A$3,000</span> PER AGENT · PRICED PER PIECE · SCOPED STAGE BY STAGE</span>',
+      '<span><span class="accent">◆</span> DIRECT TO FOUNDER · <span class="num">NO JUNIORS</span> · NOTHING OFFSHORED</span>',
+      '<span><span class="accent">●</span> SOLO OPERATOR · <span class="num">FULL-TEAM OUTPUT</span></span>',
+      '<span><span class="accent">◆</span> PHASE 0 IS <span class="num">FULLY REFUNDABLE TO DAY 30</span> · WALK AWAY AND KEEP THE WORK</span>',
+      '<span><span class="accent">●</span> NO FEE IS CONTINGENT ON A RESULT · <span class="num">IN EITHER DIRECTION</span></span>',
+      '<span><span class="accent">⏱</span> <span class="num">10-DAY DELIVERY</span> · LOCKED IN THE AGREEMENT</span>'
+    ];
+    pool = pool.concat(extra);
+
+    function paintStrip(){
+      strip.innerHTML = shuffle(pool.slice()).join('');
+    }
+    paintStrip();
+    strip.addEventListener('animationiteration', paintStrip);
+  }
+
+  /* ---------- LINE 1 · AU news ---------- */
+  var news = document.getElementById('auNewsTrack');
+  if(news){
+    news.addEventListener('animationiteration', function(){
+      var items = Array.prototype.slice.call(news.querySelectorAll('.news-item'));
+      if(items.length < 3) return;            // still loading, or feed offline — leave it alone
+      shuffle(items).forEach(function(n){ news.appendChild(n); });
+    });
+  }
+})();
+</script>
+
+<div class="rf-wrap" id="rfWrap" aria-live="polite">
+  <button class="rf-tab" id="rfTab" type="button" aria-expanded="false" aria-controls="rfPanel">
+    <span class="rf-dot"></span>Know someone who needs this?
+  </button>
+  <div class="rf-panel" id="rfPanel" role="dialog" aria-label="Pass AAA on to someone else">
+    <button class="rf-x" id="rfX" type="button" aria-label="Close">&times;</button>
+    <div class="rf-k">Pass it on</div>
+    <p class="rf-h">Not for you? It might be for someone you know.</p>
+    <p class="rf-s">Most people who read this page aren&rsquo;t the ones drowning in admin &mdash; but they know someone who is. Send it across. No pitch, just the page.</p>
+    <div class="rf-row">
+      <input id="rfNum" type="tel" inputmode="tel" autocomplete="tel" placeholder="0412 345 678" aria-label="Their mobile number">
+      <button class="rf-go" id="rfGo" type="button">Send &rarr;</button>
+    </div>
+    <div class="rf-err" id="rfErr"></div>
+    <a class="rf-alt" id="rfMail" href="#">&#9993; Send it by email instead &rarr;</a>
+    <div class="rf-note">Opens WhatsApp or your mail app with the message already written &mdash; <b>nothing is sent until you press send</b>. No number is stored or seen by AAA.</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var wrap=document.getElementById('rfWrap'), tab=document.getElementById('rfTab'),
+      x=document.getElementById('rfX'), num=document.getElementById('rfNum'),
+      go=document.getElementById('rfGo'), err=document.getElementById('rfErr'),
+      mail=document.getElementById('rfMail');
+  if(!wrap) return;
+  var dismissed=false;
+
+  var BODY = "Saw this and thought of you.\n\n"
+    + "AAA builds AI agents for Australian small businesses — the sort that take the admin off your plate. "
+    + "The pilot is A$4,500, fully refundable for 30 days, and there's a working result by day 10.\n\n"
+    + "The 90-second version: https://aaa.artigellence.com/explainer.html\n"
+    + "Everything else: https://aaa.artigellence.com/start\n\n"
+    + "Worth a look even if the timing's wrong.";
+  var SUBJ = "Thought of you — AAA, AI agents for Australian businesses";
+
+  mail.href = "mailto:?subject=" + encodeURIComponent(SUBJ) + "&body=" + encodeURIComponent(BODY);
+
+  function normalise(raw){
+    var v=(raw||"").replace(/[\s()\-.]/g,"");
+    if(!v) return null;
+    if(v.charAt(0)==="+"){ v=v.slice(1).replace(/\D/g,""); return v.length>=8?v:null; }
+    v=v.replace(/\D/g,"");
+    if(/^61\d{9}$/.test(v)) return v;
+    if(/^0\d{9}$/.test(v))  return "61"+v.slice(1);
+    if(/^\d{9}$/.test(v))   return "61"+v;
+    return null;
+  }
+
+  function open(){ wrap.classList.add('open'); tab.setAttribute('aria-expanded','true'); setTimeout(function(){num.focus();},60); }
+  function close(){ wrap.classList.remove('open'); tab.setAttribute('aria-expanded','false'); }
+
+  tab.addEventListener('click', open);
+  x.addEventListener('click', function(){ close(); dismissed=true; wrap.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && wrap.classList.contains('open')) close(); });
+
+  go.addEventListener('click', function(){
+    var n=normalise(num.value);
+    if(!n){ err.textContent="That doesn't look like a mobile number — try 0412 345 678, or start with + for overseas."; num.focus(); return; }
+    err.textContent="";
+    window.open("https://wa.me/"+n+"?text="+encodeURIComponent(BODY), "_blank", "noopener");
+  });
+  num.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); go.click(); } });
+  num.addEventListener('input', function(){ if(err.textContent) err.textContent=""; });
+
+  // show only after the hero, and never while the SHARE step is on screen
+  var share=document.querySelector('.rts-step.s4');
+  var shareVisible=false;
+  if(share && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ shareVisible=es[0].isIntersecting; sync(); },{threshold:0.15}).observe(share);
+  }
+  function sync(){
+    if(dismissed){ wrap.classList.remove('show'); return; }
+    var past = (window.scrollY||document.documentElement.scrollTop) > 900;
+    if(past && !shareVisible) wrap.classList.add('show');
+    else { wrap.classList.remove('show'); close(); }
+  }
+  window.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+  sync();
+})();
+</script>
 </body>
 </html>
