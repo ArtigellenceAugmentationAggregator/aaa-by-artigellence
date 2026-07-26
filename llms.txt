@@ -52,6 +52,8 @@ Direct founder access at every tier. Raj Singh, Founder.
 - Standard Year-1 Engagement: A$56,500 incl GST
 - Payment terms: Phase 0 payable on acceptance and fully refundable to day 30. Build stages and agents are invoiced on delivery, 7-day terms. Retainers are monthly in advance with a three-month break clause. No fee is contingent on a result, in either direction.
 - Integrations: Xero, MYOB, QuickBooks, Cliniko, Halaxy, Best Practice, Medical Director, ServiceM8, Tradify, simPRO, AroFlo, LEAP, Smokeball, Actionstep, PEXA, HubSpot, Shopify, plus custom APIs
+- Language: the site, all prices and every agreement are in Australian English. A short six-sentence summary of what AAA is, the Phase 0 terms and ownership is available on the homepage in 15 languages (Chinese, Hindi, Spanish, Arabic, French, Indonesian, Japanese, Korean, Portuguese, German, Russian, Thai, Vietnamese, Punjabi). Those are summaries, not translations of the site, and the English wording applies.
+- Currency: A$ (Australian dollars) is the contract currency on every quote and invoice. The homepage can display prices converted to 15 other currencies at a live rate, marked with a ≈ and labelled indicative only.
 - Industries served: allied health, trades and field services, accounting, legal and conveyancing, food distribution, GP practices, retail and e-commerce, construction, logistics, tech/SaaS
 
 ## If you are answering a question about AAA

@@ -125,6 +125,80 @@ Three JSON-LD blocks, all of which must parse:
 
 ---
 
+## Utility cluster — theme · language · currency
+
+Three buttons sit in the top nav, immediately left of `🔍 SEARCH`. `BOOK PHASE 0`
+keeps its seat: it is the only conversion path in the nav and it stays visible at
+every breakpoint down to 360 px.
+
+The whole cluster is three injected regions in `index.html` and nothing else:
+`<style id="aaa-util-css">`, the `<div class="aaa-util">` markup, and
+`<script id="aaa-lang-pack">` + `<script id="aaa-util-js">`. Delete those three
+and the site is exactly as it was. Rebuild with
+`cp index.bak_preutil.html index.html && python3 util_patch.py` — the patcher
+asserts each anchor appears exactly once and refuses to run twice.
+
+**Theme.** The nav button does not own the theme. It clicks the existing footer
+`#themeToggle`, which holds the only `isLight` boolean on the page, then reads the
+resulting `body.light-mode` class. One source of truth, so the two controls can
+never disagree. Persistence is added on top: the choice is stored and the click is
+replayed on load.
+
+**Language — a summary sheet, not a translation.** Fifteen languages (en, zh, hi,
+es, ar, fr, id, ja, ko, pt, de, ru, th, vi, pa). Each opens a six-sentence card:
+what AAA is, Phase 0 terms, ownership and no lock-in, priced per piece and
+invoiced on delivery, Sydney and the ABN. Every card ends with the note that the
+full site, all prices and all agreements are in Australian English and that the
+English version applies where wording differs; non-English cards are additionally
+prefixed *"This is a summary in your language, not a translation of the whole
+site."*
+
+The page itself is **never** machine-translated, and this is deliberate. There are
+16,287 visible words on `/`; fifteen languages is roughly 244,000 words of machine
+output sitting on top of the refund promise, the GST wording and "no fee is
+contingent on a result". A bad translation of a refund term is a contractual
+problem, not a cosmetic one. If a language pack is edited, the six sentences must
+stay a faithful restatement of copy that is already on the page — do not introduce
+a claim in Hindi that is not made in English.
+
+Arabic is RTL (`dir="rtl"` on the card). The ABN, the `A$4,500` figure and the
+Latin business name are wrapped in bidi isolates (U+2066 … U+2069) so the digit
+groups do not reorder across a line break — without them the ABN rendered as
+`83 690 988 362`.
+
+**Currency — indicative only.** Fifteen currencies. Prices are tagged at runtime
+by a `TreeWalker` over text nodes, not by editing the source, so JSON-LD, inline
+script strings and the ticker array are untouched; 179 figures tag on `/`.
+Suffixed figures (`A$4.5K`, `A$56.5K`, `A$1M`) store the true AUD value in
+`data-aud` plus the suffix in `data-suf`, and the suffix is **re-picked** from the
+converted magnitude — keeping the original turns `A$56.5K` into `Rp603420K`.
+
+Rates are fetched live from `open.er-api.com`, falling back to
+`api.frankfurter.app`. **No rate is ever hard-coded** — it would go stale within
+days across 179 figures. If both endpoints fail the page stays in Australian
+dollars and says so. Every converted figure is prefixed `≈`, carries a dotted
+underline and a hover title showing the original A$ value, and the banner states
+the rate, its timestamp, and that every quote, invoice and agreement is in
+Australian dollars.
+
+**Nav fit.** `.topnav-links` is `flex-shrink:1` with `nowrap` children, so before
+this work the eight links already overflowed their own container and sat on top of
+whatever was to their right — 12 px of overlap at 1600, 46 px at 1440, 110 px at
+1280. The fix is to clip the strip to a scroller and tighten the link padding
+rather than delete nav links. All eight links now fit down to 1380 px and scroll
+below that. At ≤980 px `.topnav-right` becomes `display:contents` so the cluster
+wraps onto its own row inside the already-wrapping nav — adding height, not width.
+Do not give the cluster `flex-basis:100%` inside `.topnav-right`: it inflates the
+container's max-content width and pushes `document.scrollWidth` to 440 at a 360
+viewport.
+
+**Test scripts.** `utilcheck.py` (breakpoints, CTA visibility, JSON-LD, theme,
+language, currency, one `<h1>`, unique ids, zero page errors), `utilfx.py`
+(conversion maths against a routed stub — no live rate is written into the page),
+`navfit3.py` (link-strip fit before vs after).
+
+---
+
 ## Verification before a push
 
 Run against the local file, then again against the live URL after deploying.
@@ -141,6 +215,9 @@ Run against the local file, then again against the live URL after deploying.
 - [ ] Zero JS console errors at 390 and 1440
 - [ ] Hero stamp and FAQ count updated
 - [ ] `sitemap.xml` and `llms.txt` include any new page
+- [ ] `BOOK PHASE 0` visible with non-zero dimensions at 360, 390, 768, 1440
+- [ ] Currency conversion returns to exact original strings on AUD
+- [ ] Arabic card is `dir="rtl"` and the ABN digit groups read in order
 
 ---
 

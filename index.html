@@ -3946,6 +3946,105 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 <!-- Bing Webmaster Tools verification — REPLACE with code from bing.com/webmasters -->
 <meta name="msvalidate.01" content="A5CD1E420147B0F6AB37D65A26AAE605">
 
+<style id="aaa-util-css">
+/* ============================================================
+   AAA UTILITY CLUSTER · theme + language + currency
+   Sits LEFT of BOOK PHASE 0. The CTA keeps its seat.
+   Uses existing :root / body.light-mode tokens only.
+   Revert: delete this block, the .aaa-util markup, and #aaa-util-js.
+   ============================================================ */
+.aaa-util{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.aaa-util-btn{font-family:var(--mono);font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--gray-2);
+  border-radius:7px;padding:8px 9px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;
+  line-height:1;white-space:nowrap;transition:border-color .18s,color .18s}
+.aaa-util-btn:hover,.aaa-util-btn.on{border-color:var(--gold);color:var(--gold)}
+.aaa-util-btn .car{font-size:8px;opacity:.6}
+body.light-mode .aaa-util-btn{background:rgba(10,14,20,.04)}
+
+.aaa-pop{position:fixed;z-index:2000;background:var(--bg-2);border:1px solid var(--gold-deep);
+  border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.55);padding:10px;display:none;
+  max-height:min(72vh,560px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.aaa-pop.show{display:block}
+.aaa-pop-h{font-family:var(--mono);font-size:9px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gold);padding:2px 6px 8px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.aaa-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.aaa-opt{font-family:var(--sans);font-size:12.5px;text-align:left;background:transparent;
+  border:1px solid transparent;color:var(--white);border-radius:7px;padding:8px 9px;cursor:pointer;
+  display:flex;align-items:center;gap:7px;line-height:1.25;transition:background .14s,border-color .14s}
+.aaa-opt:hover{background:var(--gold-glow);border-color:var(--gold-deep)}
+.aaa-opt.sel{background:var(--gold-glow);border-color:var(--gold);color:var(--gold)}
+.aaa-opt .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.8px;opacity:.62;
+  flex-shrink:0;min-width:28px}
+.aaa-pop-f{font-family:var(--sans);font-size:10.5px;line-height:1.45;color:var(--gray);
+  padding:8px 6px 2px;margin-top:6px;border-top:1px solid var(--line-soft)}
+
+/* translated summary sheet */
+#aaaLangSheet{position:fixed;inset:0;z-index:2100;background:rgba(4,7,11,.82);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);display:none;
+  align-items:center;justify-content:center;padding:18px}
+body.light-mode #aaaLangSheet{background:rgba(40,36,26,.55)}
+#aaaLangSheet.show{display:flex}
+.als-card{background:var(--bg-2);border:1px solid var(--gold-deep);border-radius:16px;
+  max-width:560px;width:100%;max-height:86vh;overflow-y:auto;padding:26px 26px 20px;position:relative}
+.als-card h3{font-family:var(--serif);font-size:22px;line-height:1.25;color:var(--gold);
+  margin:0 0 14px;font-weight:600}
+.als-card p{font-family:var(--sans);font-size:14.5px;line-height:1.62;color:var(--white);margin:0 0 11px}
+.als-card p.note{font-size:11.5px;line-height:1.5;color:var(--gray);border-top:1px solid var(--line-soft);
+  padding-top:11px;margin-top:15px}
+.als-card[dir="rtl"]{text-align:right;direction:rtl}
+.als-x{position:absolute;top:10px;right:12px;background:transparent;border:0;color:var(--gray-2);
+  font-size:22px;line-height:1;cursor:pointer;padding:4px 8px}
+.als-x:hover{color:var(--gold)}
+.als-cta{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:11px;letter-spacing:1.2px;
+  text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#0a0e14;
+  text-decoration:none;font-weight:800;padding:11px 18px;border-radius:8px}
+
+/* converted-price marker */
+.aaa-cur{white-space:nowrap}
+.aaa-cur.conv{border-bottom:1px dotted var(--gold);cursor:help}
+
+/* indicative-rate banner */
+#aaaFxBar{position:fixed;left:12px;right:12px;bottom:12px;z-index:1900;display:none;
+  background:var(--bg-2);border:1px solid var(--gold-deep);border-radius:10px;
+  padding:10px 14px;font-family:var(--sans);font-size:11.5px;line-height:1.45;color:var(--gray-2);
+  box-shadow:0 14px 44px rgba(0,0,0,.5);max-width:520px;margin:0 auto}
+#aaaFxBar.show{display:block}
+#aaaFxBar b{color:var(--gold)}
+#aaaFxBar button{float:right;margin-left:12px;background:transparent;border:0;color:var(--gray-2);
+  cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
+
+/* --- nav fit ---------------------------------------------------------------
+   .topnav-links is flex-shrink:1 with nowrap children, so below ~1900px the
+   links already overflowed their own container and sat on top of whatever was
+   to their right (measured: 92px of overlap at 1280, 22px at 1440, BEFORE this
+   cluster existed). Clipping the strip to a scroller fixes that properly
+   instead of deleting nav links.                                            */
+@media (max-width:1600px){
+  .topnav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .topnav-links::-webkit-scrollbar{display:none}
+  /* tighten the links themselves so the scroller rarely has to hide anything:
+     8 links at 9px padding measured 697px of content in a 585px slot at 1440;
+     at 4px padding / 9.8px type the same 8 links measure ~600px and fit. */
+  .topnav-links a{padding:9px 4px;font-size:9.8px;letter-spacing:.1px}
+  .aaa-util-btn .lbl{display:none}
+  .aaa-util-btn .ic{display:inline-flex!important}
+  .aaa-util-btn{padding:8px}
+  .aaa-util{gap:4px}
+}
+/* mobile: cluster drops to its own line inside .topnav-right, so it adds
+   height rather than width and never widens the document */
+@media (max-width:980px){
+  .topnav-right{display:contents}
+  .aaa-util{order:3}
+}
+@media (max-width:520px){
+  .aaa-grid{grid-template-columns:1fr}
+  .aaa-pop{left:10px!important;right:10px!important;width:auto!important}
+  .als-card{padding:22px 18px 18px}
+  .als-card h3{font-size:19px}
+}
+</style>
 </head>
 <body>
 <nav class="aaa-spine" aria-label="Page sections">
@@ -4024,6 +4123,11 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <a href="#contact">Contact</a>
   </div>
   <div class="topnav-right">
+    <div class="aaa-util">
+      <button class="aaa-util-btn" id="aaaThemeBtn" type="button" title="Light / dark mode" aria-label="Toggle light or dark mode"><span class="ic">☀</span><span class="lbl">Light</span></button>
+      <button class="aaa-util-btn" id="aaaLangBtn" type="button" title="Read a summary in another language" aria-haspopup="true" aria-expanded="false"><span class="ic">🌐</span><span class="lbl" id="aaaLangLbl">EN</span><span class="car">▾</span></button>
+      <button class="aaa-util-btn" id="aaaCurBtn" type="button" title="Show indicative prices in another currency" aria-haspopup="true" aria-expanded="false"><span class="lbl" id="aaaCurLbl">A$ AUD</span><span class="ic" style="display:none">A$</span><span class="car">▾</span></button>
+    </div>
     <a href="/wizard.html" class="topnav-cta-match">⚡ 60-SEC MATCH</a>
     <a href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener" class="topnav-cta-book">BOOK PHASE 0 →</a>
   </div>
@@ -4039,7 +4143,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
     <span>DIRECT TO FOUNDER · NO JUNIORS</span>
     <a href="/explainer.html" class="hero-listen">▶ LISTEN · AAA IN 90 SECONDS</a>
     <a href="#ready" class="hero-flow">▶ THE FLOW · ALL 5 DOCUMENTS · OPEN NOW</a>
-    <span class="hero-updated">UPDATED 26 JULY 2026 · 1.22 PM AEST</span>
+    <span class="hero-updated">UPDATED 26 JULY 2026 · 10.00 PM AEST</span>
   </div>
   <h1>
     AI automation for Australian SMEs —<br>
@@ -7360,7 +7464,7 @@ html.aaa-js section.section.aaa-in,html.aaa-js .austack-strip.aaa-in{opacity:1;t
 
   <div class="foot-bot">
     <span>● POWERED BY <strong style="color: var(--gold);">AAA</strong> · ARTIGELLENCE AUGMENTATION AGGREGATOR · RAJ SINGH</span>
-    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 26 JULY 2026 · 1.22 PM AEST</span>
+    <span style="color: var(--teal-bright); font-weight: 600;">● UPDATED 26 JULY 2026 · 10.00 PM AEST</span>
     <span>© MMXXVI · NOT FINANCIAL OR LEGAL ADVICE · ABN 83 988 690 362</span>
   </div>
 </footer>
@@ -8722,6 +8826,468 @@ body.light-mode .rf-panel{background:#fff}
   window.addEventListener('scroll', sync, {passive:true});
   window.addEventListener('resize', sync);
   sync();
+})();
+</script>
+<script id="aaa-lang-pack">
+/* AAA summary sheet — languages part A. Curated summary, not machine page translation. */
+var AAA_LANG_A = {
+en:{name:"English",tag:"EN",
+h:"AAA — selling you back your time",
+a:"AAA builds production-grade AI agents for Australian SME owners. They take repetitive admin off your team — quoting, invoice chasing, inbox triage, reporting — and they run on top of the software you already use.",
+b:"Phase 0 is an A$4,500 pilot (incl GST), fully refundable up to day 30. First working agent delivered by day 10, inside your own systems.",
+c:"You own everything built. Agents are deployed in your accounts, not ours. No vendor lock-in, and a full transition pack if the engagement ends.",
+d:"Priced per piece. Agents are invoiced on delivery, not up front. You deal with the founder directly.",
+e:"Sydney, Australia. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"The full site, all prices and all agreements are in Australian English.",
+cta:"Book Phase 0"},
+
+zh:{name:"中文（简体）",tag:"ZH",
+h:"AAA — 把时间还给你",
+a:"AAA 为澳洲中小企业主构建可投入生产的 AI 代理。它们承担团队里重复的行政工作 — 报价、催收发票、邮箱分流、报表 — 并运行在你现有的软件之上。",
+b:"第 0 阶段是 A$4,500 的试点（含 GST），在第 30 天前全额可退。第 10 天前交付第一个可运行的代理，部署在你自己的系统内。",
+c:"所建成果全部归你所有。代理部署在你的账户中，而非我们的账户。没有供应商锁定；如合作结束，提供完整的移交资料。",
+d:"按件计价。代理在交付时开票，而非预付。你直接与创始人对接。",
+e:"澳洲悉尼。Raj Singh — AAA by Artigellence。ABN 83 988 690 362。",
+n:"完整网站、所有价格与所有协议均以澳洲英语为准。",
+cta:"预约第 0 阶段"},
+
+hi:{name:"हिन्दी",tag:"HI",
+h:"AAA — आपका समय आपको वापस देना",
+a:"AAA ऑस्ट्रेलियाई छोटे-मध्यम व्यवसाय मालिकों के लिए प्रोडक्शन-स्तर के AI एजेंट बनाता है। ये आपकी टीम से दोहराव वाला प्रशासनिक काम हटा देते हैं — कोटेशन, इनवॉइस की वसूली, इनबॉक्स छँटाई, रिपोर्टिंग — और आपके मौजूदा सॉफ़्टवेयर के ऊपर चलते हैं।",
+b:"फेज़ 0 एक A$4,500 का पायलट है (GST सहित), 30वें दिन तक पूरी तरह वापसी योग्य। पहला चालू एजेंट 10वें दिन तक, आपके ही सिस्टम के भीतर।",
+c:"जो भी बनाया जाता है, उसका स्वामित्व आपका है। एजेंट आपके अकाउंट में तैनात होते हैं, हमारे नहीं। कोई वेंडर लॉक-इन नहीं, और काम समाप्त होने पर पूरा ट्रांज़िशन पैक।",
+d:"प्रति काम कीमत। एजेंट डिलीवरी पर इनवॉइस होते हैं, पहले नहीं। आप सीधे संस्थापक से बात करते हैं।",
+e:"सिडनी, ऑस्ट्रेलिया। राज सिंह — AAA by Artigellence। ABN 83 988 690 362।",
+n:"पूरी वेबसाइट, सभी कीमतें और सभी अनुबंध ऑस्ट्रेलियाई अंग्रेज़ी में हैं।",
+cta:"फेज़ 0 बुक करें"},
+
+es:{name:"Español",tag:"ES",
+h:"AAA — te devolvemos tu tiempo",
+a:"AAA crea agentes de IA de nivel producción para dueños de pymes australianas. Quitan a tu equipo el trabajo administrativo repetitivo — cotizaciones, cobro de facturas, gestión del correo, informes — y funcionan por encima del software que ya usas.",
+b:"La Fase 0 es un piloto de A$4.500 (IVA/GST incluido), totalmente reembolsable hasta el día 30. Primer agente funcionando el día 10, dentro de tus propios sistemas.",
+c:"Todo lo construido es tuyo. Los agentes se implementan en tus cuentas, no en las nuestras. Sin dependencia del proveedor, y un paquete completo de transición si termina la colaboración.",
+d:"Precio por pieza. Los agentes se facturan al entregarse, no por adelantado. Tratas directamente con el fundador.",
+e:"Sídney, Australia. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"El sitio completo, todos los precios y todos los acuerdos están en inglés australiano.",
+cta:"Reservar Fase 0"},
+
+ar:{name:"العربية",tag:"AR",rtl:1,
+h:"AAA — نعيد إليك وقتك",
+a:"تبني AAA وكلاء ذكاء اصطناعي جاهزين للتشغيل الفعلي لأصحاب الشركات الصغيرة والمتوسطة في أستراليا. تتولى الأعمال الإدارية المتكررة عن فريقك — عروض الأسعار، متابعة الفواتير، فرز البريد، التقارير — وتعمل فوق البرامج التي تستخدمها بالفعل.",
+b:"المرحلة 0 هي تجربة بقيمة ⁦A$4,500⁩ (شاملة ضريبة GST)، قابلة للاسترداد بالكامل حتى اليوم الثلاثين. أول وكيل يعمل فعليًا في اليوم العاشر، داخل أنظمتك الخاصة.",
+c:"كل ما يُبنى ملك لك. يتم نشر الوكلاء في حساباتك، لا في حساباتنا. لا ارتباط إلزامي بمزوّد، ومع انتهاء التعاون تحصل على حزمة انتقال كاملة.",
+d:"السعر لكل عمل على حدة. تُفوتر الوكلاء عند التسليم، لا مقدمًا. تتعامل مباشرة مع المؤسس.",
+e:"سيدني، أستراليا. راج سينغ — ⁦AAA by Artigellence⁩. رقم الأعمال الأسترالي ⁦83 988 690 362⁩.",
+n:"الموقع الكامل وجميع الأسعار وجميع الاتفاقيات باللغة الإنجليزية الأسترالية.",
+cta:"احجز المرحلة 0"},
+
+fr:{name:"Français",tag:"FR",
+h:"AAA — nous vous rendons votre temps",
+a:"AAA développe des agents d'IA prêts pour la production destinés aux dirigeants de PME australiennes. Ils déchargent votre équipe des tâches administratives répétitives — devis, relance des factures, tri des courriels, reporting — et fonctionnent au-dessus des logiciels que vous utilisez déjà.",
+b:"La Phase 0 est un pilote à A$4 500 (GST incluse), intégralement remboursable jusqu'au 30e jour. Premier agent opérationnel dès le 10e jour, dans vos propres systèmes.",
+c:"Vous êtes propriétaire de tout ce qui est construit. Les agents sont déployés sur vos comptes, pas les nôtres. Aucune dépendance fournisseur, et un dossier de transition complet si la mission s'arrête.",
+d:"Tarification à la pièce. Les agents sont facturés à la livraison, pas d'avance. Vous traitez directement avec le fondateur.",
+e:"Sydney, Australie. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"L'intégralité du site, tous les prix et tous les accords sont en anglais australien.",
+cta:"Réserver la Phase 0"},
+
+id:{name:"Bahasa Indonesia",tag:"ID",
+h:"AAA — mengembalikan waktu Anda",
+a:"AAA membangun agen AI siap produksi untuk pemilik UKM Australia. Agen ini mengambil alih pekerjaan administrasi berulang dari tim Anda — penawaran harga, penagihan faktur, penyortiran email, pelaporan — dan berjalan di atas perangkat lunak yang sudah Anda gunakan.",
+b:"Fase 0 adalah pilot senilai A$4.500 (termasuk GST), dapat dikembalikan sepenuhnya hingga hari ke-30. Agen pertama yang berfungsi diserahkan pada hari ke-10, di dalam sistem Anda sendiri.",
+c:"Semua yang dibangun menjadi milik Anda. Agen dipasang di akun Anda, bukan akun kami. Tanpa keterikatan vendor, dan paket transisi lengkap jika kerja sama berakhir.",
+d:"Harga per pekerjaan. Agen ditagih saat diserahkan, bukan di muka. Anda berhubungan langsung dengan pendirinya.",
+e:"Sydney, Australia. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"Seluruh situs, semua harga, dan semua perjanjian menggunakan bahasa Inggris Australia.",
+cta:"Pesan Fase 0"}
+};
+/* AAA summary sheet — languages part B. */
+var AAA_LANG_B = {
+ja:{name:"日本語",tag:"JA",
+h:"AAA — あなたの時間を取り戻す",
+a:"AAA はオーストラリアの中小企業オーナー向けに、実運用レベルの AI エージェントを構築します。見積、請求の督促、受信メールの振り分け、レポート作成といった反復的な事務作業をチームから引き取り、すでにお使いのソフトウェアの上で動きます。",
+b:"フェーズ 0 は A$4,500（GST 込）のパイロットで、30 日目まで全額返金可能です。最初の稼働エージェントは 10 日目までに、お客様自身のシステム内で納品します。",
+c:"構築されたものはすべてお客様の所有です。エージェントは当社ではなくお客様のアカウントに配置されます。ベンダーロックインはなく、契約終了時には完全な引き継ぎ資料をお渡しします。",
+d:"案件単位の価格です。エージェントは前払いではなく納品時に請求します。創業者と直接やり取りしていただけます。",
+e:"オーストラリア・シドニー。Raj Singh — AAA by Artigellence。ABN 83 988 690 362。",
+n:"サイト全文、すべての価格、すべての契約はオーストラリア英語が正文です。",
+cta:"フェーズ 0 を予約"},
+
+ko:{name:"한국어",tag:"KO",
+h:"AAA — 당신의 시간을 되돌려 드립니다",
+a:"AAA는 호주 중소기업 대표를 위해 실제 운영 수준의 AI 에이전트를 구축합니다. 견적, 미수금 독촉, 메일 분류, 보고서 작성 같은 반복 행정 업무를 팀에서 덜어내고, 이미 쓰고 있는 소프트웨어 위에서 작동합니다.",
+b:"페이즈 0은 A$4,500(GST 포함) 파일럿이며 30일까지 전액 환불됩니다. 첫 번째 작동 에이전트는 10일 안에 고객사 자체 시스템에 납품됩니다.",
+c:"구축된 모든 것은 고객 소유입니다. 에이전트는 저희가 아닌 고객 계정에 배포됩니다. 벤더 종속이 없고, 계약이 끝나면 전체 인수인계 패키지를 드립니다.",
+d:"건별 가격입니다. 에이전트는 선불이 아니라 납품 시 청구합니다. 창업자와 직접 소통합니다.",
+e:"호주 시드니. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"전체 사이트와 모든 가격, 모든 계약서는 호주 영어가 기준입니다.",
+cta:"페이즈 0 예약"},
+
+pt:{name:"Português",tag:"PT",
+h:"AAA — devolvemos o seu tempo",
+a:"A AAA constrói agentes de IA de nível de produção para donos de pequenas e médias empresas australianas. Eles retiram da sua equipa o trabalho administrativo repetitivo — orçamentos, cobrança de facturas, triagem de e-mail, relatórios — e funcionam por cima do software que já utiliza.",
+b:"A Fase 0 é um piloto de A$4.500 (GST incluído), totalmente reembolsável até ao dia 30. O primeiro agente a funcionar é entregue até ao dia 10, dentro dos seus próprios sistemas.",
+c:"Tudo o que é construído é seu. Os agentes são instalados nas suas contas, não nas nossas. Sem dependência do fornecedor, e um pacote completo de transição se o trabalho terminar.",
+d:"Preço por peça. Os agentes são facturados na entrega, não adiantadamente. Fala directamente com o fundador.",
+e:"Sydney, Austrália. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"O site completo, todos os preços e todos os acordos estão em inglês australiano.",
+cta:"Reservar a Fase 0"},
+
+de:{name:"Deutsch",tag:"DE",
+h:"AAA — wir geben Ihnen Ihre Zeit zurück",
+a:"AAA entwickelt produktionsreife KI-Agenten für Inhaber australischer KMU. Sie nehmen Ihrem Team wiederkehrende Verwaltungsarbeit ab — Angebote, Mahnwesen, Postfach-Sortierung, Reporting — und laufen oberhalb der Software, die Sie bereits nutzen.",
+b:"Phase 0 ist ein Pilot für A$4.500 (inkl. GST), bis Tag 30 vollständig erstattungsfähig. Der erste arbeitende Agent wird bis Tag 10 geliefert, in Ihren eigenen Systemen.",
+c:"Alles Gebaute gehört Ihnen. Die Agenten laufen in Ihren Konten, nicht in unseren. Keine Anbieterbindung, und bei Projektende ein vollständiges Übergabepaket.",
+d:"Preis pro Stück. Agenten werden bei Lieferung abgerechnet, nicht im Voraus. Sie sprechen direkt mit dem Gründer.",
+e:"Sydney, Australien. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"Die vollständige Website, alle Preise und alle Vereinbarungen sind in australischem Englisch.",
+cta:"Phase 0 buchen"},
+
+ru:{name:"Русский",tag:"RU",
+h:"AAA — возвращаем вам ваше время",
+a:"AAA создаёт готовых к работе ИИ-агентов для владельцев малого и среднего бизнеса в Австралии. Они снимают с команды повторяющуюся административную работу — расчёты и коммерческие предложения, напоминания об оплате счетов, разбор входящей почты, отчётность — и работают поверх того ПО, которым вы уже пользуетесь.",
+b:"Фаза 0 — пилот за A$4 500 (включая GST) с полным возвратом средств до 30-го дня. Первый работающий агент — к 10-му дню, внутри ваших собственных систем.",
+c:"Всё созданное принадлежит вам. Агенты разворачиваются в ваших аккаунтах, а не в наших. Никакой привязки к поставщику, а при завершении работы — полный пакет для передачи.",
+d:"Оплата за конкретную работу. Агенты выставляются к оплате по факту сдачи, а не заранее. Вы общаетесь напрямую с основателем.",
+e:"Сидней, Австралия. Радж Сингх — AAA by Artigellence. ABN 83 988 690 362.",
+n:"Полная версия сайта, все цены и все соглашения — на австралийском английском.",
+cta:"Записаться на Фазу 0"},
+
+th:{name:"ไทย",tag:"TH",
+h:"AAA — คืนเวลาให้คุณ",
+a:"AAA สร้าง AI agent ระดับใช้งานจริงให้เจ้าของธุรกิจ SME ในออสเตรเลีย โดยรับงานธุรการที่ทำซ้ำ ๆ ไปจากทีมของคุณ — การเสนอราคา การติดตามใบแจ้งหนี้ การคัดแยกอีเมล การทำรายงาน — และทำงานอยู่บนซอฟต์แวร์ที่คุณใช้อยู่แล้ว",
+b:"เฟส 0 เป็นโครงการนำร่องราคา A$4,500 (รวม GST) คืนเงินได้เต็มจำนวนจนถึงวันที่ 30 ส่งมอบ agent ตัวแรกที่ใช้งานได้ภายในวันที่ 10 ภายในระบบของคุณเอง",
+c:"ทุกสิ่งที่สร้างขึ้นเป็นของคุณ agent ถูกติดตั้งในบัญชีของคุณ ไม่ใช่ของเรา ไม่มีการผูกขาดกับผู้ให้บริการ และมีชุดส่งมอบงานครบถ้วนหากงานสิ้นสุด",
+d:"คิดราคาเป็นชิ้นงาน ออกใบแจ้งหนี้เมื่อส่งมอบ ไม่ใช่จ่ายล่วงหน้า คุณติดต่อกับผู้ก่อตั้งโดยตรง",
+e:"ซิดนีย์ ออสเตรเลีย · Raj Singh — AAA by Artigellence · ABN 83 988 690 362",
+n:"เว็บไซต์ฉบับเต็ม ราคาทั้งหมด และข้อตกลงทั้งหมดเป็นภาษาอังกฤษออสเตรเลีย",
+cta:"จอง เฟส 0"},
+
+vi:{name:"Tiếng Việt",tag:"VI",
+h:"AAA — trả lại thời gian cho bạn",
+a:"AAA xây dựng các AI agent đạt chuẩn vận hành thực tế cho chủ doanh nghiệp nhỏ và vừa tại Úc. Chúng gánh phần việc hành chính lặp lại khỏi đội ngũ của bạn — báo giá, đòi hoá đơn, phân loại hộp thư, làm báo cáo — và chạy phía trên phần mềm bạn đang dùng.",
+b:"Phase 0 là bản thử nghiệm giá A$4.500 (đã gồm GST), hoàn tiền toàn bộ đến ngày thứ 30. Agent đầu tiên hoạt động được giao trong vòng 10 ngày, ngay trong hệ thống của bạn.",
+c:"Mọi thứ được xây dựng đều thuộc về bạn. Agent được triển khai trên tài khoản của bạn, không phải của chúng tôi. Không ràng buộc nhà cung cấp, và có bộ chuyển giao đầy đủ nếu hợp tác kết thúc.",
+d:"Tính giá theo từng phần việc. Agent được xuất hoá đơn khi giao, không trả trước. Bạn làm việc trực tiếp với người sáng lập.",
+e:"Sydney, Úc. Raj Singh — AAA by Artigellence. ABN 83 988 690 362.",
+n:"Toàn bộ trang web, mọi mức giá và mọi thoả thuận đều bằng tiếng Anh Úc.",
+cta:"Đặt Phase 0"},
+
+pa:{name:"ਪੰਜਾਬੀ",tag:"PA",
+h:"AAA — ਤੁਹਾਡਾ ਸਮਾਂ ਤੁਹਾਨੂੰ ਵਾਪਸ",
+a:"AAA ਆਸਟ੍ਰੇਲੀਆ ਦੇ ਛੋਟੇ ਤੇ ਦਰਮਿਆਨੇ ਕਾਰੋਬਾਰੀ ਮਾਲਕਾਂ ਲਈ ਅਸਲ ਕੰਮ ਕਰਨ ਵਾਲੇ AI ਏਜੰਟ ਬਣਾਉਂਦਾ ਹੈ। ਇਹ ਤੁਹਾਡੀ ਟੀਮ ਤੋਂ ਵਾਰ-ਵਾਰ ਹੋਣ ਵਾਲਾ ਦਫ਼ਤਰੀ ਕੰਮ ਲੈ ਲੈਂਦੇ ਹਨ — ਕੋਟੇਸ਼ਨ, ਬਿੱਲਾਂ ਦੀ ਉਗਰਾਹੀ, ਈਮੇਲ ਦੀ ਛਾਂਟੀ, ਰਿਪੋਰਟਾਂ — ਅਤੇ ਤੁਹਾਡੇ ਪਹਿਲਾਂ ਵਰਤੇ ਜਾ ਰਹੇ ਸੌਫ਼ਟਵੇਅਰ ਦੇ ਉੱਪਰ ਚੱਲਦੇ ਹਨ।",
+b:"ਫੇਜ਼ 0 ਇੱਕ A$4,500 ਦਾ ਪਾਇਲਟ ਹੈ (GST ਸਮੇਤ), 30ਵੇਂ ਦਿਨ ਤੱਕ ਪੂਰੀ ਰਕਮ ਵਾਪਸ। ਪਹਿਲਾ ਚੱਲਦਾ ਏਜੰਟ 10ਵੇਂ ਦਿਨ ਤੱਕ, ਤੁਹਾਡੇ ਹੀ ਸਿਸਟਮ ਵਿੱਚ।",
+c:"ਜੋ ਵੀ ਬਣਦਾ ਹੈ, ਉਸ ਦੇ ਮਾਲਕ ਤੁਸੀਂ ਹੋ। ਏਜੰਟ ਤੁਹਾਡੇ ਖਾਤਿਆਂ ਵਿੱਚ ਲੱਗਦੇ ਹਨ, ਸਾਡੇ ਵਿੱਚ ਨਹੀਂ। ਕੋਈ ਵੈਂਡਰ ਲਾਕ-ਇਨ ਨਹੀਂ, ਅਤੇ ਕੰਮ ਖ਼ਤਮ ਹੋਣ 'ਤੇ ਪੂਰਾ ਟ੍ਰਾਂਜ਼ੀਸ਼ਨ ਪੈਕ।",
+d:"ਹਰ ਕੰਮ ਦੀ ਵੱਖਰੀ ਕੀਮਤ। ਏਜੰਟਾਂ ਦਾ ਬਿੱਲ ਡਿਲਿਵਰੀ 'ਤੇ ਬਣਦਾ ਹੈ, ਪਹਿਲਾਂ ਨਹੀਂ। ਤੁਸੀਂ ਸਿੱਧਾ ਬਾਨੀ ਨਾਲ ਗੱਲ ਕਰਦੇ ਹੋ।",
+e:"ਸਿਡਨੀ, ਆਸਟ੍ਰੇਲੀਆ। ਰਾਜ ਸਿੰਘ — AAA by Artigellence। ABN 83 988 690 362।",
+n:"ਪੂਰੀ ਵੈੱਬਸਾਈਟ, ਸਾਰੀਆਂ ਕੀਮਤਾਂ ਅਤੇ ਸਾਰੇ ਸਮਝੌਤੇ ਆਸਟ੍ਰੇਲੀਅਨ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਹਨ।",
+cta:"ਫੇਜ਼ 0 ਬੁੱਕ ਕਰੋ"}
+};
+</script>
+<script id="aaa-util-js">
+/* ============================================================
+   AAA UTILITY CLUSTER · theme + language summary + currency
+   Reversible: delete #aaa-util-css, the .aaa-util markup and this
+   block. No source prices are edited — conversion is runtime only.
+   ============================================================ */
+(function(){
+  var LANGS = {}, k;
+  for (k in AAA_LANG_A) LANGS[k] = AAA_LANG_A[k];
+  for (k in AAA_LANG_B) LANGS[k] = AAA_LANG_B[k];
+  var LORDER = ['en','zh','hi','es','ar','fr','id','ja','ko','pt','de','ru','th','vi','pa'];
+
+  var CUR = [
+    {c:'AUD',s:'A$',n:'Australian Dollar'},
+    {c:'USD',s:'US$',n:'US Dollar'},
+    {c:'EUR',s:'€',n:'Euro'},
+    {c:'GBP',s:'£',n:'Pound Sterling'},
+    {c:'NZD',s:'NZ$',n:'New Zealand Dollar'},
+    {c:'SGD',s:'S$',n:'Singapore Dollar'},
+    {c:'JPY',s:'¥',n:'Japanese Yen'},
+    {c:'CNY',s:'CN¥',n:'Chinese Yuan'},
+    {c:'INR',s:'₹',n:'Indian Rupee'},
+    {c:'HKD',s:'HK$',n:'Hong Kong Dollar'},
+    {c:'AED',s:'AED ',n:'UAE Dirham'},
+    {c:'CAD',s:'C$',n:'Canadian Dollar'},
+    {c:'CHF',s:'CHF ',n:'Swiss Franc'},
+    {c:'KRW',s:'₩',n:'Korean Won'},
+    {c:'IDR',s:'Rp',n:'Indonesian Rupiah'}
+  ];
+
+  var themeBtn = document.getElementById('aaaThemeBtn'),
+      langBtn  = document.getElementById('aaaLangBtn'),
+      curBtn   = document.getElementById('aaaCurBtn'),
+      langLbl  = document.getElementById('aaaLangLbl'),
+      curLbl   = document.getElementById('aaaCurLbl'),
+      footBtn  = document.getElementById('themeToggle');
+  if (!themeBtn || !langBtn || !curBtn) return;
+
+  function store(k2,v){ try{ localStorage.setItem('aaa.'+k2,v); }catch(e){} }
+  function recall(k2){ try{ return localStorage.getItem('aaa.'+k2); }catch(e){ return null; } }
+
+  /* ---------- 1. THEME (single source of truth = the footer button) ---------- */
+  function paintTheme(){
+    var light = document.body.classList.contains('light-mode');
+    themeBtn.querySelector('.ic').textContent = light ? '🌙' : '☀';
+    themeBtn.querySelector('.lbl').textContent = light ? 'Dark' : 'Light';
+    themeBtn.title = light ? 'Switch to dark mode' : 'Switch to light mode';
+  }
+  function flipTheme(){
+    if (footBtn) { footBtn.click(); }
+    else { document.body.classList.toggle('light-mode'); }
+    paintTheme();
+    store('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+  }
+  themeBtn.addEventListener('click', flipTheme);
+  if (recall('theme') === 'light' && !document.body.classList.contains('light-mode')) flipTheme();
+  paintTheme();
+
+  /* ---------- 2. POPOVER PLUMBING ---------- */
+  function mkPop(id){
+    var p = document.createElement('div');
+    p.className = 'aaa-pop'; p.id = id;
+    document.body.appendChild(p);
+    return p;
+  }
+  var langPop = mkPop('aaaLangPop'), curPop = mkPop('aaaCurPop');
+
+  function place(pop, btn){
+    pop.style.width = '';
+    pop.classList.add('show');
+    var r = btn.getBoundingClientRect(), w = pop.offsetWidth || 280;
+    var left = Math.min(Math.max(8, r.right - w), window.innerWidth - w - 8);
+    pop.style.left = left + 'px';
+    pop.style.top  = (r.bottom + 8) + 'px';
+  }
+  function closeAll(){
+    langPop.classList.remove('show'); curPop.classList.remove('show');
+    langBtn.classList.remove('on');   curBtn.classList.remove('on');
+    langBtn.setAttribute('aria-expanded','false');
+    curBtn.setAttribute('aria-expanded','false');
+  }
+  function toggle(pop, btn){
+    var open = pop.classList.contains('show');
+    closeAll();
+    if (!open) { place(pop, btn); btn.classList.add('on'); btn.setAttribute('aria-expanded','true'); }
+  }
+  document.addEventListener('click', function(e){
+    if (e.target.closest('.aaa-pop') || e.target.closest('.aaa-util')) return;
+    closeAll();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeAll(); hideSheet(); } });
+  window.addEventListener('resize', closeAll);
+
+  /* ---------- 3. LANGUAGE SUMMARY SHEET ---------- */
+  var sheet = document.createElement('div');
+  sheet.id = 'aaaLangSheet';
+  sheet.innerHTML = '<div class="als-card" role="dialog" aria-modal="true">'
+    + '<button class="als-x" type="button" aria-label="Close">&times;</button>'
+    + '<h3 id="alsH"></h3><p id="alsA"></p><p id="alsB"></p><p id="alsC"></p>'
+    + '<p id="alsD"></p><p id="alsE"></p>'
+    + '<a class="als-cta" id="alsCta" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener"></a>'
+    + '<p class="note" id="alsN"></p></div>';
+  document.body.appendChild(sheet);
+  var card = sheet.querySelector('.als-card');
+  function hideSheet(){ sheet.classList.remove('show'); }
+  sheet.querySelector('.als-x').addEventListener('click', hideSheet);
+  sheet.addEventListener('click', function(e){ if (e.target === sheet) hideSheet(); });
+
+  var NOTE_EN = 'This is a summary in your language, not a translation of the whole site. ';
+  function showLang(code){
+    var L = LANGS[code]; if (!L) return;
+    card.setAttribute('dir', L.rtl ? 'rtl' : 'ltr');
+    card.setAttribute('lang', code);
+    document.getElementById('alsH').textContent = L.h;
+    document.getElementById('alsA').textContent = L.a;
+    document.getElementById('alsB').textContent = L.b;
+    document.getElementById('alsC').textContent = L.c;
+    document.getElementById('alsD').textContent = L.d;
+    document.getElementById('alsE').textContent = L.e;
+    document.getElementById('alsCta').textContent = L.cta;
+    document.getElementById('alsN').textContent = (code === 'en' ? '' : NOTE_EN) + L.n;
+    langLbl.textContent = L.tag;
+    store('lang', code);
+    sheet.classList.add('show');
+    sheet.querySelector('.als-x').focus();
+  }
+  (function buildLangPop(){
+    var h = '<div class="aaa-pop-h">Summary in your language</div><div class="aaa-grid">';
+    LORDER.forEach(function(c){
+      var L = LANGS[c];
+      h += '<button class="aaa-opt" type="button" data-l="' + c + '"><span class="tag">'
+         + L.tag + '</span><span>' + L.name + '</span></button>';
+    });
+    h += '</div><div class="aaa-pop-f">A short summary — what AAA is, Phase&nbsp;0 terms, ownership. '
+       + 'The full site and every agreement stay in Australian English.</div>';
+    langPop.innerHTML = h;
+    langPop.style.minWidth = '300px';
+    langPop.addEventListener('click', function(e){
+      var b = e.target.closest('[data-l]'); if (!b) return;
+      closeAll(); showLang(b.getAttribute('data-l'));
+    });
+  })();
+  langBtn.addEventListener('click', function(){ toggle(langPop, langBtn); });
+  if (recall('lang')) { var lr = LANGS[recall('lang')]; if (lr) langLbl.textContent = lr.tag; }
+  /* ---------- 4. CURRENCY · runtime tagging, no source prices edited ---------- */
+  var priceNodes = [], rates = null, fxNote = '', fxFailed = false, active = 'AUD';
+
+  /* A$4,500 · A$3K · A$56.5K · A$1M all tag correctly; a figure glued to any
+     other letter (a code, a word) is left alone rather than mis-converted. */
+  var SCALE = {k:1e3, m:1e6, b:1e9};
+  function tagPrices(){
+    var rx = /A\$\s?(\d[\d,]*(?:\.\d+)?)([KkMmBb])?(?![A-Za-z0-9])/g;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        var p = n.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        var t = p.nodeName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'NOSCRIPT' || t === 'TEXTAREA')
+          return NodeFilter.FILTER_REJECT;
+        if (p.closest && (p.closest('.aaa-pop') || p.closest('#aaaLangSheet') || p.closest('#aaaFxBar')))
+          return NodeFilter.FILTER_REJECT;
+        /* fresh non-global regex: a /g regex keeps lastIndex between .test()
+           calls and would silently skip nodes */
+        return /A\$\s?\d/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    var todo = [], n;
+    while ((n = walker.nextNode())) todo.push(n);
+    todo.forEach(function(node){
+      var txt = node.nodeValue, frag = document.createDocumentFragment(), last = 0, m;
+      rx.lastIndex = 0;
+      while ((m = rx.exec(txt))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
+        var suf = m[2] || '';
+        var val = parseFloat(m[1].replace(/,/g, ''));
+        if (suf) val = val * SCALE[suf.toLowerCase()];
+        var sp = document.createElement('span');
+        sp.className = 'aaa-cur';
+        sp.setAttribute('data-aud', isNaN(val) ? '' : val);
+        if (suf) sp.setAttribute('data-suf', suf);
+        sp.textContent = m[0];
+        frag.appendChild(sp);
+        priceNodes.push(sp);
+        last = m.index + m[0].length;
+      }
+      if (last < txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function roundish(v){
+    if (v >= 1000000) return Math.round(v / 10000) * 10000;
+    if (v >= 100000)  return Math.round(v / 1000) * 1000;
+    if (v >= 10000)   return Math.round(v / 100) * 100;
+    if (v >= 1000)    return Math.round(v / 10) * 10;
+    if (v >= 100)     return Math.round(v / 5) * 5;
+    return Math.round(v);
+  }
+  function grp(v){
+    try { return new Intl.NumberFormat('en-AU', {maximumFractionDigits: 0}).format(v); }
+    catch(e){ return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  }
+
+  function applyCur(code){
+    var meta = null;
+    CUR.forEach(function(c){ if (c.c === code) meta = c; });
+    if (!meta) return;
+    active = code;
+    store('cur', code);
+    curLbl.textContent = (code === 'AUD' ? 'A$ AUD' : meta.s.trim() + ' ' + code);
+
+    if (code === 'AUD' || !rates || !rates[code]) {
+      priceNodes.forEach(function(sp){
+        sp.textContent = sp.getAttribute('data-orig') || sp.textContent;
+        sp.classList.remove('conv');
+        sp.removeAttribute('title');
+      });
+      fxBar.classList.remove('show');
+      if (code !== 'AUD') showFxBar('Live rate unavailable for ' + code + ' — prices stay in Australian dollars.');
+      return;
+    }
+    var r = rates[code];
+    priceNodes.forEach(function(sp){
+      var aud = parseFloat(sp.getAttribute('data-aud'));
+      if (isNaN(aud)) return;
+      if (!sp.hasAttribute('data-orig')) sp.setAttribute('data-orig', sp.textContent);
+      var v = aud * r, suf = sp.getAttribute('data-suf');
+      if (suf) {
+        /* re-pick the suffix from the converted magnitude — keeping the
+           original one turns A$56.5K into "Rp603420K" */
+        var up = suf === suf.toUpperCase();
+        var unit = v >= 1e9 ? ['B',1e9] : v >= 1e6 ? ['M',1e6] : v >= 1e3 ? ['K',1e3] : ['',1];
+        var sv = v / unit[1];
+        var shown = sv >= 100 ? Math.round(sv) : Math.round(sv * 10) / 10;
+        sp.textContent = '≈ ' + meta.s + shown + (up ? unit[0] : unit[0].toLowerCase());
+      } else {
+        sp.textContent = '≈ ' + meta.s + grp(roundish(v));
+      }
+      sp.classList.add('conv');
+      sp.title = 'A$' + grp(aud) + ' · indicative conversion only. A$ is the contract currency.';
+    });
+    showFxBar('Indicative only. Converted at <b>1 A$ = ' + r.toFixed(r < 1 ? 4 : 2) + ' ' + code
+      + '</b>' + fxNote + '. Every quote, invoice and agreement is in <b>Australian dollars</b>.');
+  }
+
+  var fxBar = document.createElement('div');
+  fxBar.id = 'aaaFxBar';
+  document.body.appendChild(fxBar);
+  function showFxBar(html){
+    fxBar.innerHTML = '<button type="button" aria-label="Dismiss">&times;</button>' + html;
+    fxBar.querySelector('button').addEventListener('click', function(){ fxBar.classList.remove('show'); });
+    fxBar.classList.add('show');
+  }
+
+  function fetchFx(then){
+    if (rates || fxFailed) { then(); return; }
+    var done = false;
+    function ok(map, stamp){
+      if (done) return; done = true;
+      rates = map; fxNote = stamp ? ' (' + stamp + ')' : ''; then();
+    }
+    fetch('https://open.er-api.com/v6/latest/AUD')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d && d.rates) ok(d.rates, d.time_last_update_utc ? d.time_last_update_utc.slice(5, 16) : '');
+        else throw 0;
+      })
+      .catch(function(){
+        fetch('https://api.frankfurter.app/latest?from=AUD')
+          .then(function(r){ return r.json(); })
+          .then(function(d){ if (d && d.rates) ok(d.rates, d.date); else throw 0; })
+          .catch(function(){ if (!done) { done = true; fxFailed = true; then(); } });
+      });
+  }
+
+  (function buildCurPop(){
+    var h = '<div class="aaa-pop-h">Indicative currency</div><div class="aaa-grid">';
+    CUR.forEach(function(c){
+      h += '<button class="aaa-opt" type="button" data-c="' + c.c + '"><span class="tag">'
+         + c.c + '</span><span>' + c.n + '</span></button>';
+    });
+    h += '</div><div class="aaa-pop-f">Converted live for reading convenience. '
+       + 'A$ remains the contract currency on every quote and invoice.</div>';
+    curPop.innerHTML = h;
+    curPop.style.minWidth = '320px';
+    curPop.addEventListener('click', function(e){
+      var b = e.target.closest('[data-c]'); if (!b) return;
+      var code = b.getAttribute('data-c');
+      closeAll();
+      curPop.querySelectorAll('.aaa-opt').forEach(function(o){
+        o.classList.toggle('sel', o.getAttribute('data-c') === code);
+      });
+      if (code === 'AUD') { applyCur('AUD'); return; }
+      if (!priceNodes.length) tagPrices();
+      fetchFx(function(){ applyCur(code); });
+    });
+  })();
+  curBtn.addEventListener('click', function(){ toggle(curPop, curBtn); });
+
+  var savedCur = recall('cur');
+  if (savedCur && savedCur !== 'AUD') {
+    tagPrices();
+    fetchFx(function(){ applyCur(savedCur); });
+  }
 })();
 </script>
 </body>
