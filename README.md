@@ -182,20 +182,51 @@ the rate, its timestamp, and that every quote, invoice and agreement is in
 Australian dollars.
 
 **Nav fit.** `.topnav-links` is `flex-shrink:1` with `nowrap` children, so before
-this work the eight links already overflowed their own container and sat on top of
-whatever was to their right — 12 px of overlap at 1600, 46 px at 1440, 110 px at
-1280. The fix is to clip the strip to a scroller and tighten the link padding
-rather than delete nav links. All eight links now fit down to 1380 px and scroll
-below that. At ≤980 px `.topnav-right` becomes `display:contents` so the cluster
-wraps onto its own row inside the already-wrapping nav — adding height, not width.
-Do not give the cluster `flex-basis:100%` inside `.topnav-right`: it inflates the
-container's max-content width and pushes `document.scrollWidth` to 440 at a 360
-viewport.
+this work the eight links already overflowed their own container and painted on top
+of whatever sat to their right. This is a pre-existing production bug, not something
+the cluster introduced — measured on `index.bak_preutil.html`:
+
+| Viewport | Before (backup) | After |
+|---|---|---|
+| 1920 | 8/8 visible | 8/8, no clip |
+| 1780 | 8/8 visible | 8/8, no clip |
+| 1680 | 8/8 visible | 8/8, no clip |
+| 1640 | 8/8 visible | 8/8, no clip |
+| 1500 | 6/8 visible, 16 px clipped | 8/8, no clip |
+| 1440 | 6/8 visible, 22 px overlap | 8/8, no clip |
+| 1280 | 4/8 visible, 92 px overlap | 8/8, no clip |
+| 1100 | 4/8 visible, 172 px overlap | 4/8, clipped by scroller — no overlap |
+
+The break starts at 1500. Note that a 1920 monitor at Windows 125 % display scaling
+reports **1536 CSS px** to the browser, and at 150 % it reports 1280 — which is why
+the bug shows up on machines whose owners would describe them as "1920 screens".
+
+The fix is to clip the strip to a scroller and tighten the link padding rather than
+delete nav links. The breakpoint is `max-width:1800px` — wider than the 1500 where
+the break actually starts, deliberately, so the tightening is already in force
+before anything can clip. A second squeeze at `max-width:1340px` keeps all eight
+links fitting on a 1280 laptop.
+
+Measure overlap with `getBoundingClientRect()` per anchor, never `scrollWidth`.
+With `overflow:visible` the browser under-reports `scrollWidth`, so the backup reads
+as "fits" at widths where it visibly overlaps. `overlap.py` does it correctly.
+
+`BOOK PHASE 0` is reduced to two-thirds above 720 px — 148×40 → **107×30** —
+scoped `@media (min-width:721px)` so the site's own `max-width:720px` rules and
+their `!important` still win on phones (390 px renders 87×27, unchanged). Note the
+CTA is now the smallest control in the right-hand group, smaller than `SEARCH` and
+`60-SEC MATCH`.
+
+At ≤980 px `.topnav-right` becomes `display:contents` so the cluster wraps onto its
+own row inside the already-wrapping nav — adding height, not width. Do not give the
+cluster `flex-basis:100%` inside `.topnav-right`: it inflates the container's
+max-content width and pushes `document.scrollWidth` to 440 at a 360 viewport.
 
 **Test scripts.** `utilcheck.py` (breakpoints, CTA visibility, JSON-LD, theme,
 language, currency, one `<h1>`, unique ids, zero page errors), `utilfx.py`
 (conversion maths against a routed stub — no live rate is written into the page),
-`navfit3.py` (link-strip fit before vs after).
+`overlap.py` (per-anchor rect measurement, backup vs patched, eight widths),
+`shot3.py` (before/after nav screenshots).
 
 ---
 

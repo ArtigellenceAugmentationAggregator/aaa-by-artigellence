@@ -4014,13 +4014,19 @@ body.light-mode #aaaLangSheet{background:rgba(40,36,26,.55)}
 #aaaFxBar button{float:right;margin-left:12px;background:transparent;border:0;color:var(--gray-2);
   cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
 
+/* BOOK PHASE 0 · reduced to two-thirds. It was 148x40 and crowded the links.
+   Scoped to >720px so the existing small-screen rules keep winning below that. */
+@media (min-width:721px){
+  .topnav-cta-book{font-size:8.5px;letter-spacing:.8px;padding:8px 12px;border-radius:7px}
+}
+
 /* --- nav fit ---------------------------------------------------------------
    .topnav-links is flex-shrink:1 with nowrap children, so below ~1900px the
    links already overflowed their own container and sat on top of whatever was
    to their right (measured: 92px of overlap at 1280, 22px at 1440, BEFORE this
    cluster existed). Clipping the strip to a scroller fixes that properly
    instead of deleting nav links.                                            */
-@media (max-width:1600px){
+@media (max-width:1800px){
   .topnav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .topnav-links::-webkit-scrollbar{display:none}
   /* tighten the links themselves so the scroller rarely has to hide anything:
@@ -4031,6 +4037,10 @@ body.light-mode #aaaLangSheet{background:rgba(40,36,26,.55)}
   .aaa-util-btn .ic{display:inline-flex!important}
   .aaa-util-btn{padding:8px}
   .aaa-util{gap:4px}
+}
+/* last squeeze so all eight links still fit at a 1280 laptop */
+@media (max-width:1340px){
+  .topnav-links a{padding:9px 3px;font-size:9.2px}
 }
 /* mobile: cluster drops to its own line inside .topnav-right, so it adds
    height rather than width and never widens the document */
