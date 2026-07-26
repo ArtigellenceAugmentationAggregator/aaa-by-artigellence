@@ -201,11 +201,23 @@ The break starts at 1500. Note that a 1920 monitor at Windows 125 % display scal
 reports **1536 CSS px** to the browser, and at 150 % it reports 1280 — which is why
 the bug shows up on machines whose owners would describe them as "1920 screens".
 
-The fix is to clip the strip to a scroller and tighten the link padding rather than
-delete nav links. The breakpoint is `max-width:1800px` — wider than the 1500 where
-the break actually starts, deliberately, so the tightening is already in force
-before anything can clip. A second squeeze at `max-width:1340px` keeps all eight
-links fitting on a 1280 laptop.
+The fix is to clip the strip to a scroller and buy the space out of link padding,
+not out of type size. The breakpoint is `max-width:1800px` — wider than the 1500
+where the break actually starts, deliberately, so the tightening is already in force
+before anything can clip.
+
+Link type is set **larger** than the site ships it: 11.8 px against a 10.5 px base,
+at full opacity rather than the site's `.85`. The gaps pay for it — 3 px of side
+padding at ≤1800, 2 px at ≤1420, and at ≤1340 the type steps down to 10 px because
+a 1280 slot genuinely cannot hold eight links at 11.8 px. A 1 px hairline
+(`.topnav-links a+a::before`, absolutely positioned so it costs no layout width)
+separates the links, which otherwise read as one continuous run of words at that
+spacing.
+
+**All link-strip rules are floored at `min-width:721px`.** The site has its own nav
+layout below 720 and it works; overriding it from here pushed `WHAT WE DO` off the
+left edge of a centred scroller at 390. The cluster's icon-only rules are *not*
+floored — those apply on phones too.
 
 Measure overlap with `getBoundingClientRect()` per anchor, never `scrollWidth`.
 With `overflow:visible` the browser under-reports `scrollWidth`, so the backup reads

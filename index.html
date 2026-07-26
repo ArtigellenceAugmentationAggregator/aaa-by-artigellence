@@ -4026,21 +4026,39 @@ body.light-mode #aaaLangSheet{background:rgba(40,36,26,.55)}
    to their right (measured: 92px of overlap at 1280, 22px at 1440, BEFORE this
    cluster existed). Clipping the strip to a scroller fixes that properly
    instead of deleting nav links.                                            */
+/* Cluster shrinks to icons on anything under 1800 — including phones, so this
+   block is NOT width-floored. */
 @media (max-width:1800px){
-  .topnav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .topnav-links::-webkit-scrollbar{display:none}
-  /* tighten the links themselves so the scroller rarely has to hide anything:
-     8 links at 9px padding measured 697px of content in a 585px slot at 1440;
-     at 4px padding / 9.8px type the same 8 links measure ~600px and fit. */
-  .topnav-links a{padding:9px 4px;font-size:9.8px;letter-spacing:.1px}
   .aaa-util-btn .lbl{display:none}
   .aaa-util-btn .ic{display:inline-flex!important}
   .aaa-util-btn{padding:8px}
   .aaa-util{gap:4px}
 }
-/* last squeeze so all eight links still fit at a 1280 laptop */
-@media (max-width:1340px){
-  .topnav-links a{padding:9px 3px;font-size:9.2px}
+/* The link-strip rules are floored at 721px. Below that the site has its own
+   nav layout (its 720 and 480 blocks) and it works — overriding it from here
+   pushed WHAT WE DO off the left edge of a centred scroller at 390. */
+@media (min-width:721px) and (max-width:1800px){
+  .topnav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .topnav-links::-webkit-scrollbar{display:none}
+  /* Type is set for READING, not for fitting. 11.8px is 20% up on the 9.8px
+     first pass and larger than the site's own 10.5px base; the space comes from
+     the padding and the letter-spacing, not from the glyphs. Full opacity too —
+     the site ships these at .85, which reads as greyed-out at small sizes. */
+  .topnav-links a{padding:9px 3px;font-size:11.8px;letter-spacing:.1px;opacity:1}
+  /* Bigger type leaves only ~6px between links, so the strip reads as one long
+     run of words. A hairline in the gap separates them at zero width cost —
+     the pseudo-element is absolutely positioned, so it costs no layout space. */
+  .topnav-links a+a::before{content:"";position:absolute;left:-1px;top:50%;
+    transform:translateY(-50%);height:12px;width:1px;background:var(--line);opacity:.9}
+}
+/* Space comes out of the gaps before it comes out of the type. */
+@media (min-width:721px) and (max-width:1420px){
+  .topnav-links a{padding:9px 2px}
+}
+/* At 1280 the slot is genuinely too narrow for 11.8px across eight links.
+   10px still beats the 9.2px this started at, and all eight stay visible. */
+@media (min-width:721px) and (max-width:1340px){
+  .topnav-links a{padding:9px 1px;font-size:10px}
 }
 /* mobile: cluster drops to its own line inside .topnav-right, so it adds
    height rather than width and never widens the document */
