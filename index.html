@@ -8296,7 +8296,11 @@ if (nlSubmit) {
 .rf-alt:hover{color:var(--white)}
 .rf-note{font-size:10.5px;color:var(--gray);line-height:1.45;margin-top:9px}
 @media (max-width:520px){
-  .rf-wrap{left:12px;right:12px;bottom:12px}
+  /* closed: wrapper hugs the pill only, so it never lays an invisible
+     full-width tap strip across the bottom of the screen over the chat
+     bubble. open: stretch so the panel still gets the full width. */
+  .rf-wrap{left:12px;right:auto;bottom:12px}
+  .rf-wrap.open{right:12px}
   .rf-panel{width:auto;max-width:100%}
   .rf-row input{flex:1 1 100%}
   .rf-go{flex:1 1 100%}
