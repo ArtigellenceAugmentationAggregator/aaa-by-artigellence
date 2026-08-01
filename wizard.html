@@ -168,7 +168,7 @@ footer a:hover{color:var(--gold)}
     <!-- RESULT -->
     <section class="panel" id="p4" aria-label="Your matched agent">
       <div class="result-card">
-        <div class="stamp">First result · Day 10</div>
+        <div class="stamp">Seen working · Day 10</div>
         <div class="match-tag">Your match · one of the standard eight</div>
         <div class="agent-name" id="rName"></div>
         <div class="agent-sub" id="rSub"></div>
@@ -178,15 +178,16 @@ footer a:hover{color:var(--gold)}
         <div class="lives" id="rPair" style="margin-top:8px;"></div>
         <div class="pricegrid">
           <div class="prow"><span class="pi">Workflow walkthrough — I come to you</span><span class="pd"></span><span class="pp free">FREE</span></div>
-          <div class="prow"><span class="pi">Phase 0 pilot — this agent live on your real data</span><span class="pd"></span><span class="pp">A$4,500<small>Fully refundable · 30 days</small></span></div>
+          <div class="prow"><span class="pi">Phase 0 pilot — this agent live on your real data, watched working before you decide</span><span class="pd"></span><span class="pp">A$4,500<small>Every cent back if it doesn't · 30 days</small></span></div>
           <div class="prow"><span class="pi">Each agent after that</span><span class="pd"></span><span class="pp">A$3,000<small>Paid on delivery</small></span></div>
         </div>
+        <div style="margin:16px 0 4px;padding:12px 16px;border-left:3px solid var(--gold-deep);background:rgba(201,162,39,.07);border-radius:8px;font-size:12.5px;color:var(--gray-2);line-height:1.55;"><strong style="color:var(--gold-bright);">The Delivery Rule:</strong> after the pilot, work ships in weekly pieces and an undelivered piece is never invoiced. Stop any week; keep everything built, source code included. “Delivered” means built, working and handed over as agreed — due on handover, not after a testing period, never contingent on results. Delivered means the work shipped and shown — not results measured; growth earns on its own clock.</div>
         <div class="cta-row">
-          <a class="btn btn-gold" href="tel:+61469313323">📞 CALL RAJ</a>
+          <a class="btn btn-line" href="tel:+61469313323">📞 CALL RAJ</a>
           <a class="btn btn-line" id="rWa" href="#" target="_blank" rel="noopener">WHATSAPP THIS MATCH →</a>
-          <a class="btn btn-line" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">BOOK A TIME</a>
+          <a class="btn btn-gold" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">BOOK THIS — 30 MIN, NO PITCH →</a>
         </div>
-        <p class="result-foot">All prices incl GST · You own everything built · No lock-in, ever</p>
+        <p class="result-foot">All prices incl GST · Delivered before invoiced · You own everything built · Ten client slots, deliberately</p>
       </div>
       <button class="restart" id="restart">↺ Start again</button>
     </section>
@@ -222,7 +223,7 @@ var AGENTS = {
              does:"Watches for customers going quiet and drafts the <b>right check-in at the right moment</b> — reorders, reviews, repeat bookings — before the relationship lapses." },
   brief:   { name:"The <em>Daily Brief</em>", sub:"Kills starting the day blind",
              does:"One morning message: <b>cash position, jobs due, invoices outstanding, anything slipping</b> — pulled from your real systems, read in two minutes with the first coffee." },
-  growth:  { name:"The <em>Growth Engine</em>", sub:"Kills being invisible to Google & AI", growthEngine:true,
+  growth:  { name:"<em>Traction</em> — the growth engine", sub:"Kills being invisible to Google & AI", growthEngine:true,
              does:"Not an agent — a weekly distribution engine: <b>one anchor article, platform cuts, a short video, warmed email</b> — engineered so Google ranks you, AI assistants recommend you, and every lead arrives stamped with its source." }
 };
 
@@ -376,7 +377,7 @@ function buildResult(){
   $('rDoes').innerHTML=a.does;
   $('rYou').textContent = a.growthEngine ? "Owned beats rented: the audience, list and library stay yours — the funnel can sell anything you put through it." : who[4];
   $('rLives').innerHTML=ind.stack.map(function(s){return '<span class="chip">'+s+'</span>';}).join(' ');
-  /* match-tag + price rows adapt for Growth Engine result */
+  /* match-tag + price rows adapt for Traction result */
   document.querySelector('.match-tag').textContent = a.growthEngine ? 'Your match · the distribution & marketing engine' : 'Your match · one of the standard eight';
   var rows=document.querySelectorAll('.pricegrid .prow');
   if(a.growthEngine){
