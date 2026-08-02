@@ -156,6 +156,8 @@ h2 em,h1 em{font-style:italic;color:var(--goldb)}
 .navarc{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;color:var(--tealb);border:1px solid var(--teal);border-radius:8px;padding:9px 13px;white-space:nowrap;transition:.2s}
 .navarc:hover{background:rgba(15,184,169,.12);border-color:var(--tealb)}
 @media(max-width:900px){.navarc{display:none}}
+.navlinks .arcm{display:none}
+@media(max-width:900px){.navlinks .arcm{display:block}}
 .navcta{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;background:var(--gold);color:#0a0e14;padding:10px 16px;border-radius:8px;font-weight:600;white-space:nowrap}
 .navcta:hover{background:var(--goldb)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--white);border-radius:8px;padding:8px 12px;font-family:var(--mono);font-size:11px}
@@ -271,7 +273,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--gray);fo
       <a href="#pricing">Pricing</a>
       <a href="#why">Why AAA</a>
       <a href="#contact">Contact</a>
-      <a href="/archive/index.html" style="color:var(--tealb)">◧ Full Archive</a>
+      <a class="arcm" href="/archive/index.html" style="color:var(--tealb)">◧ Full Archive</a>
     </div>
     <a class="navarc" href="/archive/index.html" title="The full original AAA site — every service, policy and document, preserved">◧ FULL ARCHIVE</a>
     <a class="navcta" href="/wizard.html">⚡ 60-SEC MATCH</a>
