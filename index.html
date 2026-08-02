@@ -296,6 +296,14 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--gray);fo
     <a class="btn gold" href="/wizard.html">MATCH ME IN 60 SECONDS →</a>
     <a class="btn" href="https://cal.com/raj-aaa/aaa-discovery" target="_blank" rel="noopener">BOOK 30 MIN · NO PITCH</a>
     <a class="btn" href="/AAA_Services_and_Solutions_Complete_Brief.pdf" target="_blank" rel="noopener">THE COMPLETE BRIEF · PDF</a>
+    <button class="btn lsn" id="lsnBtn" type="button" style="cursor:pointer;background:none;border-color:var(--teal);color:var(--tealb)">▶ LISTEN · AAA IN 4 MINUTES</button>
+  </div>
+  <div id="lsnWrap" style="display:none;margin-top:18px;max-width:520px;border:1px solid var(--teal);border-radius:12px;background:var(--bg2);padding:16px 18px">
+    <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:1.6px;color:var(--tealb);margin-bottom:10px">AAA IN FOUR MINUTES · RAJ SINGH · NO MUSIC, NO PITCH</div>
+    <audio id="lsnAudio" controls preload="none" style="width:100%">
+      <source src="/aaa-listen.mp3" type="audio/mpeg">
+    </audio>
+    <div id="lsnFall" style="display:none;margin-top:10px;font-size:12.5px;color:var(--gray2)">Audio isn't loading right now — the same explanation is on this page, and <a href="/AAA_Services_and_Solutions_Complete_Brief.pdf" target="_blank" rel="noopener" style="color:var(--goldb)">in the complete brief</a>.</div>
   </div>
   <div class="hero-meta">
     <span class="stamp">● UPDATED 2 AUG 2026 · 2.30 PM AEST</span>
@@ -566,6 +574,10 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--gray);fo
 </footer>
 
 <script>
+(function(){var b=document.getElementById('lsnBtn'),w=document.getElementById('lsnWrap'),a=document.getElementById('lsnAudio');
+if(b){b.addEventListener('click',function(){var open=w.style.display!=='none';w.style.display=open?'none':'block';b.textContent=open?'▶ LISTEN · AAA IN 4 MINUTES':'■ HIDE THE PLAYER';if(!open){try{a.play()}catch(e){}}});}
+if(a){a.addEventListener('error',function(){document.getElementById('lsnFall').style.display='block'});}
+})();
 document.getElementById('burger').addEventListener('click',function(){document.getElementById('nav').classList.toggle('open')});
 document.querySelectorAll('.fq').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('on')})});
 document.querySelectorAll('.navlinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open')})});
